@@ -1,0 +1,187 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap");
+
+
+/* Header for any table: RGBA(243,248,254,1)
+Main theme color : RGBA(23,61,110,1) & white
+Button: RGBA(23,61,110,1)
+Outer Border for any section: RGBA(204, 218, 228, 1)
+Inner border: RGBA(236, 236, 235, 1)
+ 
+Radio botton, checkbox, dropdown: RGBA(0, 69, 120, 1)
+Hover color: RGBA(153, 181, 201, 1) */
+
+:root {
+    --primary-color: #173d6e;
+    --border-color: #ccdae4;
+    --hover-color: #99b5c9;
+}
+        /* CSS for the table */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Josefin Sans", "sans-serif";
+        }
+
+        .table-container {
+            margin: 16px;
+        }
+
+        .table {
+            border-collapse: collapse;
+            width: 100%;
+            border: 1px solid #ddd;
+            table-layout: fixed;
+        }
+
+        .table th,
+        .table td {
+            border: 1px solid #ddd;
+            border-width: 1px 0px;
+            text-align: left;
+            padding: 16px;
+        }
+
+        .table th {
+            font-weight: 400;
+            color: rgb(123, 125, 128);
+            background-color: none;
+        }
+
+        .table th i {
+            margin-left: 5px;
+        }
+
+        .table th i:hover {
+            cursor: pointer;
+        }
+
+        .table td {
+            font-size: 14px;
+            font-weight: 400;
+            position: relative;
+        }
+
+        .table tr i {
+            cursor: pointer;
+            padding: 6px;
+        }
+
+        .table td:last-child {
+            text-align: center;
+        }
+
+        /* CSS for the search box */
+        .search-box {
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        .search-box input[type="text"] {
+            width: 340px;
+            padding: 8px;
+            font-size: 14px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .search-box select {
+            margin-left: 10px;
+            padding: 8px;
+            font-size: 14px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            position: relative;
+        }
+
+        .search {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .search input[type="text"] {
+            padding-left: 30px;
+        }
+
+        .search-icon {
+            position: absolute;
+            padding-left: 10px;
+            top: 50%;
+            color: var(--primary-color);
+            transform: translateY(-50%);
+        }
+
+        .dropdown-menu>li>a {
+            font-family: inherit;
+        }
+        .dropdown-menu>li>a:hover, .dropdown-menu>li>a:focus {
+            color: inherit;
+            background-color: var(--hover-color);
+            margin-left: 0;
+            border: 0;
+            padding: 3px 20px;
+        }
+
+        .count-container {
+            display: flex;
+            /* justify-content: center; */
+            gap: 25px;
+            margin: 16px 0px;
+        }
+
+
+        .count-box {
+            text-align: center;
+            /* border: 1px solid; */
+            width: 180px;
+            box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+            border: 1px solid var(--border-color);
+            padding: 8px 4px;
+            border-radius: 4px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-size: 14px;
+        }
+
+        .count-box .count-number {
+            font-size: 2rem;
+            font-weight: bold;
+        }
+
+        .count-box.selected {
+            outline: 1px solid var(--primary-color);
+            border-color: var(--primary-color);
+        }
+
+        .table-head th {
+            font-size: 16px;
+            font-weight: 500;
+            line-height: 2.4px;
+        }
+
+        .count-box:hover {
+            cursor: pointer;
+        }
+
+        .btn-action {
+            color: inherit;
+        }
+
+        .loader {
+          position: fixed;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background-color: #ffffffb8;
+          z-index: 9999;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+      }
+      .loader-hide {
+          display: none;
+      }

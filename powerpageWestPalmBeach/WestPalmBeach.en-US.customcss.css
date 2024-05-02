@@ -1,0 +1,126 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap");
+ 
+
+  
+
+:root {
+    --primary-color: #173d6e;
+    --form-background-color: #EBEFF4;
+    --form-container-background-color: #FFFFFF;
+    --header-table-color: rgba(243,248,254,1);
+    --border-color: #ccdae4;
+    --hover-color: #99b5c9;
+    --font-family: "Josefin Sans", "sans-serif";
+    --btn-primary-color: rgba(23,61,110,1);
+    --btn-primary-color-hover: rgba(0, 69, 120, 1);
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--font-family);
+}
+.paragraph {
+    margin: 0;
+   font-family: var(--font-family);
+    border: none;
+    color: #1F1F1F;
+    display: block;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 150%;
+    float: none;
+    padding: 5px 0;
+}
+/* main */
+.main-container {
+    background-color: var(--form-background-color);
+}
+ 
+.main-form-container {
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    padding: 15px 20px;
+    background-color: var(--form-container-background-color);
+}
+.form-control {
+    border-color: var(--border-color);
+}
+
+.form-check-label{
+    padding-left: 5px;
+    padding-bottom: 5px;
+}
+label {
+    font-weight: 400;
+}
+.form-item {
+    padding-bottom: 10px;
+}
+.form-select {
+    border-color: var(--border-color);
+    margin-bottom: 10px;
+}
+ .form-select:focus {
+    box-shadow: none !important;
+    border-color: var(--hover-color);
+ }
+h3 {
+   font-family: var(--font-family);
+    font-weight: 700;
+    font-size: 16px;
+}
+
+ 
+.signature canvas {
+    border: 1px solid var(--border-color);
+    padding: 10px;
+    border-radius: 10px;
+    cursor: url(../assets/pen.png) 16 16, crosshair;
+}
+ 
+.btn {
+    border: none;
+    border-radius: 5px;
+    background-color: var(--btn-primary-color);
+    font-size: 16px;
+    font-weight: 400;
+    cursor: pointer;
+}
+.btn:hover {
+    background-color: var(--btn-primary-color-hover);
+}
+
+.selected-items {
+    padding-bottom: 10px;
+}
+
+ 
+p {
+    font-size: 14px;
+    font-weight: 400;
+}
+
+
+input.form-control {
+    border-color: var(--border-color);
+}
+input.form-control:hover {
+ border-color: var(--hover-color);
+}
+.form-control, .form-control:focus , input.form-control:focus {
+    box-shadow: none;
+}
+.btn-primary {
+    margin-right: 15px;
+}
+
+/* Media query for smaller screens */
+@media screen and (max-width: 768px) {
+    .signature {
+        width: 100%;
+    }
+    .signature-canvas canvas {
+        width: 75vw;
+    }
+}

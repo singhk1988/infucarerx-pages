@@ -1,0 +1,228 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+<link rel="stylesheet" href="../web-files/bootstrap.min.css" /> 
+<link rel="stylesheet" href="../web-files/portalbasictheme.css" />
+<script src="../web-files/bootstrap.bundle.min.js"></script>
+<script src="/Patient-Forms/commonservice.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@tanstack/table-core@8.5.15/build/umd/index.production.js"></script>
+<script src="./custom-table.js"></script>
+<script src="./custom-modal.js"></script>
+<style>
+    .summary-cards .card {
+        width: 10rem; cursor: pointer;
+    }
+</style>
+<div class="p-2">
+    <div class="my-2 d-flex gap-3 justify-content-center summary-cards">
+        <div class="card text-center selected" data-status="Pending">
+            <div class="card-header p-1">Pending</div>
+            <div class="p-1 value">0</div>
+        </div>
+        <div class="card text-center" data-status="Review">
+            <div class="card-header p-1">Review</div>
+            <div class="p-1 value">0</div>
+        </div>
+        <div class="card text-center" data-status="Completed">
+            <div class="card-header p-1">Completed</div>
+            <div class="p-1 value">0</div>
+        </div>
+    </div>
+    <div class="mb-2">
+        <input type="text" class="form-control form-control-sm w-25 search" placeholder="Search" />
+    </div>
+    <div class="data-container"></div>
+</div>
+<template id="history-modal-template">
+    <div class="modal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">History</div>
+                <div class="modal-body" style="max-height: 400px;">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-secondary">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
+<script>
+    let tableObj;
+    function showHistory(formResponseId) {
+        commonModal('#history-modal-template', (modalObj, modalEle)=>{
+            modalEle.querySelector('.btn-outline-secondary').addEventListener('click', modalObj.close);
+            modalEle.addEventListener('shown.bs.modal', ()=>{
+                const histTableObj = drawCustomTable('.modal-body', [{
+                    id: 'happ_statustype',
+                    header: 'Status Type',
+                }, {
+                    id: 'happ_status',
+                    header: 'Status',
+                }], {
+                    paginate: false,
+                });
+
+                GetHistoryByFormResponseId(formResponseId)
+                    .then((res)=>{
+                        histTableObj.setData(res.value);
+                    })
+                    .catch((e)=>{
+                        console.log(e);
+                    })
+            });
+
+
+        });
+    }
+    function refreshData() {
+        // showSpinner('overlay-spinner', true)
+        // GetAllFormResponse().then((res) => {
+        //     const statusCounts = {};
+
+        //     const allData = res.value?.map((data) => {
+        //         let patientName = '';
+        //         if(typeof data.happ_PatientList?.happ_patientfirstname === "string") {
+        //             patientName += data.happ_PatientList?.happ_patientfirstname;
+        //         }
+        //         if(typeof data.happ_PatientList?.happ_patientlastname === "string") {
+        //             patientName += " " + data.happ_PatientList?.happ_patientlastname;
+        //         }
+        //         const status = data["happ_formstatus@OData.Community.Display.V1.FormattedValue"];
+        //         statusCounts[status] = (statusCounts[status] ?? 0) + 1;
+        //         return {
+        //             formResponseId: data?.happ_formresponsesid,
+        //             patientName: patientName,
+        //             mrn: data?.happ_PatientList?.happ_mrn,
+        //             formName: data["_happ_assessmentreference_value@OData.Community.Display.V1.FormattedValue"],
+        //             status: status,
+        //             sentOn: data["createdon@OData.Community.Display.V1.FormattedValue"],
+        //             comments: data.comments ?? "",
+        //         }
+        //     });
+
+        //     tableObj.setData(allData);
+
+        //     Object.keys(statusCounts).forEach((k) => {
+        //         if (document.querySelector(`.summary-cards .card[data-status="${k}"] .value`)) {
+        //             document.querySelector(`.summary-cards .card[data-status="${k}"] .value`).innerHTML = statusCounts[k];
+        //         }
+        //     });
+
+        //     showSpinner('overlay-spinner', false);
+        // }).catch((error) => {
+        //     console.log(error);
+        //     showSpinner('overlay-spinner', false)
+        // });
+
+        const allData = JSON.parse('[{"formResponseId":"c529e59c-a4f4-ee11-a1fd-000d3a3301f7","patientName":"undefinedAADAM CHRISTOPHER","mrn":"215493","formName":"Patient Onboarding Assessment","status":"Pending","sentOn":"4/7/2024 11:33 AM","comments":""},{"formResponseId":"cfcb41b6-a8f4-ee11-a1fd-000d3a3301f7","patientName":"undefinedAADAM CHRISTOPHER","mrn":"215493","formName":"Patient Onboarding Assessment","status":"Pending","sentOn":"4/7/2024 12:03 PM","comments":""},{"formResponseId":"7cc295ca-a9f4-ee11-a1fd-000d3a3301f7","patientName":"undefinedAADAM CHRISTOPHER","mrn":"215493","formName":"Patient Onboarding Assessment","status":"Pending","sentOn":"4/7/2024 12:11 PM","comments":""},{"formResponseId":"b92e33de-aaf4-ee11-a1fd-000d3a3301f7","patientName":"undefinedAADAM CHRISTOPHER","mrn":"215493","formName":"Patient Onboarding Assessment","status":"Pending","sentOn":"4/7/2024 12:18 PM","comments":""},{"formResponseId":"b59ee75a-adf4-ee11-a1fd-000d3a3301f7","patientName":"undefinedAADAM CHRISTOPHER","mrn":"215493","formName":"Patient Onboarding Assessment","status":"Pending","sentOn":"4/7/2024 12:36 PM","comments":""},{"formResponseId":"7f57c59e-a7f4-ee11-a1fd-000d3a330f3f","patientName":"undefinedAADAM CHRISTOPHER","mrn":"215493","formName":"Patient Onboarding Assessment","status":"Pending","sentOn":"4/7/2024 11:55 AM","comments":""},{"formResponseId":"b2fd1387-a8f4-ee11-a1fd-000d3a330f3f","patientName":"undefinedAADAM CHRISTOPHER","mrn":"215493","formName":"Patient Onboarding Assessment","status":"Pending","sentOn":"4/7/2024 12:01 PM","comments":""},{"formResponseId":"627f4694-a8f4-ee11-a1fd-000d3a330f3f","patientName":"undefinedAADAM CHRISTOPHER","mrn":"215493","formName":"Patient Onboarding Assessment","status":"Pending","sentOn":"4/7/2024 12:02 PM","comments":""},{"formResponseId":"657980fc-36da-ee11-904c-000d3a346155","patientName":"undefinedAADAM CHRISTOPHER","mrn":"215493","formName":"Patient Benefit Notification/Assignment of Benefits","status":"Pending","sentOn":"3/4/2024 8:23 PM","comments":""},{"formResponseId":"9d8655b2-37da-ee11-904c-000d3a346155","patientName":"undefinedJILL ABARA","mrn":"217009","formName":"Patient Benefit Notification/Assignment of Benefits","status":"Pending","sentOn":"3/4/2024 8:28 PM","comments":""},{"formResponseId":"8152629f-16da-ee11-904c-000d3a346661","patientName":"undefinedAADAM CHRISTOPHER","mrn":"215493","formName":"Patient Benefit Notification/Assignment of Benefits","status":"Completed","sentOn":"3/4/2024 4:32 PM","comments":""},{"formResponseId":"04f19f79-17da-ee11-904c-000d3a346661","patientName":"undefinedJILL ABARA","mrn":"217009","formName":"Patient Benefit Notification/Assignment of Benefits","status":"Completed","sentOn":"3/4/2024 4:38 PM","comments":""},{"formResponseId":"b05f9625-a6dc-ee11-904c-000d3a346661","patientName":"undefinedJILL ABARA","mrn":"217009","formName":"Patient Benefit Notification/Assignment of Benefits","status":"Completed","sentOn":"3/7/2024 10:44 PM","comments":""},{"formResponseId":"558d18cd-22f3-ee11-904b-000d3a59f246","patientName":"undefinedJILL ABARA","mrn":"217009","formName":"Patient Benefit Notification/Assignment of Benefits","status":"Pending","sentOn":"4/5/2024 1:32 PM","comments":""},{"formResponseId":"676d1626-4bf3-ee11-904b-000d3a59f246","patientName":"undefinedJILL ABARA","mrn":"217009","formName":"Patient Benefit Notification/Assignment of Benefits","status":"Pending","sentOn":"4/5/2024 6:21 PM","comments":""},{"formResponseId":"6c217794-58f3-ee11-904b-000d3a59f246","patientName":"undefinedAADAM CHRISTOPHER","mrn":"215493","formName":"Patient Onboarding Assessment","status":"Pending","sentOn":"4/5/2024 7:57 PM","comments":""},{"formResponseId":"4bb5006e-22f3-ee11-904b-000d3a59f35d","patientName":"undefinedJILL ABARA","mrn":"217009","formName":"Patient Benefit Notification/Assignment of Benefits","status":"Pending","sentOn":"4/5/2024 1:29 PM","comments":""},{"formResponseId":"e4cf5dc7-22f3-ee11-904b-000d3a59f35d","patientName":"undefinedJILL ABARA","mrn":"217009","formName":"Patient Benefit Notification/Assignment of Benefits","status":"Pending","sentOn":"4/5/2024 1:32 PM","comments":""},{"formResponseId":"b7f921c9-55f3-ee11-904b-000d3a59f35d","patientName":"undefinedJILL ABARA","mrn":"217009","formName":"Patient Benefit Notification/Assignment of Benefits","status":"Pending","sentOn":"4/5/2024 7:37 PM","comments":""},{"formResponseId":"ed3b27b2-22f3-ee11-904b-000d3a59f9c3","patientName":"undefinedJILL ABARA","mrn":"217009","formName":"Patient Benefit Notification/Assignment of Benefits","status":"Pending","sentOn":"4/5/2024 1:31 PM","comments":""},{"formResponseId":"34cbef94-23f3-ee11-904b-000d3a59f9c3","patientName":"undefinedJILL ABARA","mrn":"217009","formName":"Patient Benefit Notification/Assignment of Benefits","status":"Pending","sentOn":"4/5/2024 1:37 PM","comments":""},{"formResponseId":"759564ee-23f3-ee11-904b-000d3a59f9c3","patientName":"undefinedJILL ABARA","mrn":"217009","formName":"Patient Benefit Notification/Assignment of Benefits","status":"Pending","sentOn":"4/5/2024 1:40 PM","comments":""},{"formResponseId":"3bfd56ee-4af3-ee11-904b-000d3a59f9c3","patientName":"undefinedJILL ABARA","mrn":"217009","formName":"Patient Benefit Notification/Assignment of Benefits","status":"Pending","sentOn":"4/5/2024 6:19 PM","comments":""},{"formResponseId":"dd1a9e6d-58f3-ee11-904b-000d3a59f9c3","patientName":"undefinedAADAM CHRISTOPHER","mrn":"215493","formName":"Patient Onboarding Assessment","status":"Pending","sentOn":"4/5/2024 7:56 PM","comments":""},{"formResponseId":"bcbfbc9a-58f3-ee11-904b-000d3a59f9c3","patientName":"undefinedAADAM CHRISTOPHER","mrn":"215493","formName":"Patient Onboarding Assessment","status":"Pending","sentOn":"4/5/2024 7:57 PM","comments":""},{"formResponseId":"12cd7fb4-54e7-ee11-904c-00224808d435","patientName":"undefinedAADAM CHRISTOPHER","mrn":"215493","formName":"Patient Benefit Notification/Assignment of Benefits","status":"Pending","sentOn":"3/21/2024 12:59 PM","comments":""},{"formResponseId":"93e8be66-b9d4-ee11-9078-0022480b5094","patientName":"undefinedAADAM CHRISTOPHER","mrn":"215493","formName":"Patient Benefit Notification/Assignment of Benefits","status":"Pending","sentOn":"2/26/2024 8:42 PM","comments":""},{"formResponseId":"a82ad58a-49d5-ee11-9078-0022480b5094","formName":"Patient Benefit Notification/Assignment of Benefits","status":"Pending","sentOn":"2/27/2024 1:53 PM","comments":""},{"formResponseId":"abd098cd-49d5-ee11-9078-0022480b5094","formName":"Patient Benefit Notification/Assignment of Benefits","status":"Pending","sentOn":"2/27/2024 1:55 PM","comments":""},{"formResponseId":"81d40788-b0d7-ee11-9078-0022480b5094","formName":"Patient Benefit Notification/Assignment of Benefits","status":"Pending","sentOn":"3/1/2024 3:16 PM","comments":""},{"formResponseId":"15d612e0-b0d7-ee11-9078-0022480b5094","formName":"Patient Benefit Notification/Assignment of Benefits","status":"Pending","sentOn":"3/1/2024 3:18 PM","comments":""},{"formResponseId":"5c81804d-28d6-ee11-9078-0022480b5dbd","formName":"Patient Benefit Notification/Assignment of Benefits","status":"Pending","sentOn":"2/28/2024 4:28 PM","comments":""},{"formResponseId":"13d4445a-d6d6-ee11-9078-0022480b5dbd","formName":"Patient Benefit Notification/Assignment of Benefits","status":"Pending","sentOn":"2/29/2024 1:14 PM","comments":""},{"formResponseId":"035c3cec-a2d7-ee11-9078-0022480b5dbd","formName":"Patient Benefit Notification/Assignment of Benefits","status":"Completed","sentOn":"3/1/2024 1:38 PM","comments":""},{"formResponseId":"3726d50f-c9d7-ee11-9078-0022480b5dbd","formName":"Patient Benefit Notification/Assignment of Benefits","status":"Pending","sentOn":"3/1/2024 6:11 PM","comments":""},{"formResponseId":"2bb53c25-cad7-ee11-9078-0022480b5dbd","formName":"Patient Benefit Notification/Assignment of Benefits","status":"Pending","sentOn":"3/1/2024 6:19 PM","comments":""}]');
+        tableObj.setData(allData);
+    }
+    document.addEventListener("DOMContentLoaded", function () {
+        tableObj = drawCustomTable('.data-container', [{
+            id: 'patientName',
+            header: 'Patient Name',
+            size: '20%',
+        }, {
+            id: 'mrn',
+            header: 'MRN',
+            size: '8%',
+        },{
+            id: 'formName',
+            header: 'Form Name',
+            size: '22%',
+        },{
+            id: 'status',
+            header: 'Status',
+            size: '8%',
+        },{
+            id: 'sentOn',
+            header: 'Sent On',
+            size: '10%',
+        },{
+            id: 'comments',
+            header: 'Comments',
+            size: '17%',
+        },{
+            id: 'actions',
+            header: 'Actions',
+            size: '15%',
+            enableSorting: false,
+            cell: (info)=>{
+                const status = info.row.original.status;
+                const div = document.createElement('div');
+                if (status === "Pending") {
+                    div.innerHTML += `
+                    <button class="btn btn-link text-decoration-none p-0 px-1 btn-delete">Delete</button>
+                    <button class="btn btn-link text-decoration-none p-0 px-1 btn-edit">Edit</button>
+                    <button class="btn btn-link text-decoration-none p-0 px-1 btn-download">Download</button>
+                    `;
+                } else if(status === 'Review') {
+                    div.innerHTML += `
+                    <button class="btn btn-link text-decoration-none p-0 px-1 btn-delete">Delete</button>
+                    <button class="btn btn-link text-decoration-none p-0 px-1 btn-edit">Edit</button>
+                    <button class="btn btn-link text-decoration-none p-0 px-1 btn-send-back">Send Back</button>
+                    <button class="btn btn-link text-decoration-none p-0 px-1 btn-history">History</button>
+                    <button class="btn btn-link text-decoration-none p-0 px-1 btn-download">Download</button>
+                    <button class="btn btn-link text-decoration-none p-0 px-1 btn-move-cpr">Move To CPR</button>
+                    `;
+                } else if(status === 'Completed') {
+                    div.innerHTML += `
+                    <button class="btn btn-link text-decoration-none p-0 px-1 btn-view">View</button>
+                    <button class="btn btn-link text-decoration-none p-0 px-1 btn-download">Download</button>
+                    `;
+                }
+                div.querySelector('.btn-view')?.addEventListener('click', ()=>alert('clicked!'));
+                div.querySelector('.btn-delete')?.addEventListener('click', ()=>{
+                    confirmModal('Confirm Delete', `Are you sure you want to delete the record for patient name: ${info.row.original.patientName}?`, (closeModal)=>{
+                        // showSpinner('overlay-spinner', true)
+                        // DeleteFormReponse(info.row.original.formResponseId).then(()=>{
+                        //     refreshData();
+                        //     notify('Form response deleted successfully!', 'success');
+                        // }).catch((e)=>{
+                        //     showSpinner('overlay-spinner', true)
+                        //     notify('Error delete the form response!', 'error');
+                        //     console.log(e);
+                        // });
+                        closeModal();
+                    });
+                });
+                div.querySelector('.btn-edit')?.addEventListener('click', ()=>alert('clicked!'));
+                div.querySelector('.btn-send-back')?.addEventListener('click', ()=>alert('clicked!'));
+                div.querySelector('.btn-history')?.addEventListener('click', ()=>{
+                    showHistory(info.row.original.formResponseId);
+                });
+                div.querySelector('.btn-download')?.addEventListener('click', ()=>alert('clicked!'));
+                div.querySelector('.btn-move-cpr')?.addEventListener('click', ()=>alert('clicked!'));
+                return div;
+            }
+        }]);
+
+        refreshData();
+        
+        tableObj.setColumnFilters([{
+            id: 'status',
+            value: 'Pending'
+        }]);
+
+        document.querySelectorAll('.summary-cards .card').forEach((card)=>{
+            card.addEventListener("click", function (e) {
+                const ele = e.currentTarget;
+                if (ele.classList.contains('selected')) {
+                    return;
+                }
+
+                ele.closest('.summary-cards').querySelectorAll('.card').forEach((b) => b.classList.remove('selected'));
+                ele.classList.add('selected');
+
+                tableObj.setColumnFilters([{
+                    id: 'status',
+                    value: ele.dataset.status,
+                }]);
+            });
+        });
+
+        document.querySelector('input.search')?.addEventListener('input', (e)=>{
+            tableObj.setGlobalFilter(e.target.value);
+        })
+    });
+</script>

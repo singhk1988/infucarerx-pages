@@ -1,0 +1,353 @@
+<!-- <div class="row sectionBlockLayout text-start" style="min-height: auto; padding: 8px;">
+    <div class="container" style="display: flex; flex-wrap: wrap;">
+      <div class="col-lg-12 columnBlockLayout" style="padding: 16px; margin: 60px 0px; min-height: 200px;"></div>
+    </div>
+  </div> -->
+  <link rel="stylesheet" href="../assets/bootstrap.min.css">
+  <link rel="stylesheet" href="../assets/portalbasictheme.css">
+  <link rel="stylesheet" href="../assets/index.css">
+  <script src="../component/CustomFormComponents.js"></script>
+  
+  <main class="parent-main" id="main" style="display: block;">
+    <section id="igzv8" class="main-container">
+      <main class="main-section">
+        <div class="patient-form">
+          <form action="" method="post" class="form p-4" id="form">
+            <div class="main-form-container container"
+              style="border-top-left-radius: 20px; border-top-right-radius: 20px; border-bottom-right-radius: 20px; border-bottom-left-radius: 20px; padding-top: 15px; padding-right: 20px; padding-bottom: 15px; padding-left: 20px; background-color: var(--form-container-background-color);">
+              <!-- for left section  -->
+              <div class="row">
+                <div class="form-group col-md-4"><custom-input label="Patient First name :" value="" id="fname"
+                    name="fname" placeholder="First name" error=""> </custom-input></div>
+                <div class="form-group col-md-4"><custom-input type="text" label="Patient Last Name:" value="" id="lname"
+                    name="lname" placeholder="Last Name"> </custom-input></div>
+                <div class="form-group col-md-4"><custom-input label="Patient MRN:" type="number" id="mrn" name="mrn"
+                    value="" placeholder=""> </custom-input></div>
+              </div>
+              <div class="row">
+                <div class="form-group col-md-4"><custom-input label="Therapy:" type="text" id="therapy" name="therapy"
+                    placeholder="Enter Therapy" value=""> </custom-input></div>
+                <div class="form-group col-md-4 date-picker"><custom-input type="date" label="Based on benefits as of: "
+                    id="benefits_date" name="benefits_date"> </custom-input></div>
+              </div>
+              <div class="payment-method row-cols-1">
+                <custom-input-checkradio id="payment_method" name="payment_method"
+                  label="Payment Method"><custom-input-checkradio-item label="Commercial Plan" value="Commercial Plan"
+                    id="commercial"></custom-input-checkradio-item><custom-input-checkradio-item label="Medicare"
+                    value="Medicare" id="medicare"></custom-input-checkradio-item><custom-input-checkradio-item
+                    label="Medicaid" value="Medicaid"
+                    id="medicaid"></custom-input-checkradio-item><custom-input-checkradio-item
+                    label="Private Pay, No Insurance Coverage" value="Private Pay, No Insurance Coverage"
+                    id="private_pay"></custom-input-checkradio-item><custom-input-checkradio-item label="Unverified"
+                    value="Unverified" id="unverified"></custom-input-checkradio-item></custom-input-checkradio>
+              </div>
+              <!-- Container for payment option Details -->
+              <div id="commercial-details-container" class="selected-items" style="display: block;">
+                <h3 id="isqxqa" style="font-family: 'Josefin Sans', sans-serif; font-weight: 700; font-size: 16px;">
+                  COMMERCIAL PLAN</h3>
+                <div class="row">
+                  <div class="form-group col-md-6">
+                    <custom-input type="text" label="Insurance:" value="" id="comm_insurance" name="comm_insurance"
+                      placeholder="Enter Insurance"></custom-input>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="form-group col-md-6">
+                    <custom-input type="text"
+                      label="I have commercial insurance and have authorized payments to the following:"
+                      id="comm_authorized" name="comm_authorized" value placeholder=""></custom-input>
+  
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="form-group col-md-6">
+                    <custom-input type="text"
+                      label="Upon receipt, any payment made to me will be forwarded to the following:" id="comm_forwarded"
+                      name="comm_forwarded" value="" placeholder=""></custom-input>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="form-group col-md-6">
+                    <custom-input type="text"
+                      label="I will pay all applicable charges not paid by my insurance as billed by:" id="comm_billed"
+                      name="comm_billed" value="" placeholder=""></custom-input>
+                  </div>
+                </div>
+                <div class="row" id="iqslcm">
+                  <div class="form-group col-md-4">
+                    <custom-input type="text" label="Deductible Amount:" id="comm_deductible" name="comm_deductible"
+                      value="" placeholder="Enter Deductible Amount"></custom-input>
+                  </div>
+                  <div class="form-group col-md-4">
+                    <custom-input type="text" label="Amount Met:" id="comm_d_met" name="comm_d_met" value=""
+                      placeholder="Enter Amount Met"></custom-input>
+                  </div>
+                  <div class="form-group col-md-4">
+                    <custom-input type="text" label="Coverage Once Met:" id="comm_d_coverage_met"
+                      name="comm_d_coverage_met" value="" placeholder="Enter Coverage Once Met"></custom-input>
+                  </div>
+                </div>
+                <div class="row" id="ibg5h3">
+                  <div class="form-group col-md-4">
+                    <custom-input type="text" label="Out of Pocket:" id="comm_pocket" name="comm_pocket" value=""
+                      placeholder="Out of Pocket"></custom-input>
+                  </div>
+                  <div class="form-group col-md-4">
+                    <custom-input type="text" label="Amount Met:" id="comm_p_met" name="comm_p_met" value=""
+                      placeholder="Enter Amount Met"></custom-input>
+                  </div>
+                  <div class="form-group col-md-4">
+                    <custom-input type="text" label="Coverage Once Met:" id="comm_p_coverage_met"
+                      name="comm_p_coverage_met" value="" placeholder="Enter Coverage Once Met"></custom-input>
+                  </div>
+  
+                </div>
+              </div>
+              <div id="medicare-container" class="selected-items" style="display: block;">
+                <h3 id="i5flff" style="font-family: 'Josefin Sans', sans-serif; font-weight: 700; font-size: 16px;">
+                  MEDICARE</h3>
+                <div class="row" id="ib3zye">
+                  <custom-input-checkradio id="medi_part" name="medi_part" label="Medicare Part:" type="radio" value="A">
+                    <custom-input-checkradio-item label="Part A" value="A" id="medi_part_a" />
+                    </custom-input-checkradio-item>
+                    <custom-input-checkradio-item label="Part B" value="B" id="medi_part_b">
+                    </custom-input-checkradio-item>
+                  </custom-input-checkradio>
+                </div>
+                <div class="row">
+                  <div class="form-group col-md-6">
+                    <custom-input type="text" label="I have Medicare coverage and have authorized payment to:"
+                      id="medi_authorized" name="medi_authorized" value="" placeholder=""></custom-input>
+                  </div>
+                </div>
+                <div class="row" id="i7gh87">
+                  <div class="form-group col-md-4">
+                    <custom-input type="text" label="Total Medicare Deductible:" id="medi_deductible"
+                      name="medi_deductible" value="" placeholder="Enter total medicare deductible"></custom-input>
+                  </div>
+                  <div class="form-group col-md-4">
+                    <custom-input type="text" label="Amount Met:" id="medi_met" name="medi_met" value=""
+                      placeholder="Enter Amount Met"></custom-input>
+                  </div>
+  
+                </div>
+                <div class="form-group">
+                  <h3 id="idndp4" style="font-family: 'Josefin Sans', sans-serif; font-weight: 700; font-size: 16px;">
+                    By
+                    signing below I have read and acknowledge the statement:</h3>
+                  <h4 class="paragraph">Medicare does not pay for this equipment/supply for your condition. Medicare
+                    Advanced Beneficiary Notification (waiver) may be applicable.</h4>
+                </div>
+              </div>
+              <div id="medicaid-container" class="selected-items" style="padding-bottom: 10px; display: block;">
+                <h3 id="iwmzmc" style="font-family: 'Josefin Sans', sans-serif; font-weight: 700; font-size: 16px;">
+                  MEDICAID</h3>
+                <div id="ip34kh" class="row">
+                  <div id="iek104" class="medicaid-div">
+                    <div class="row">
+                      <div class="form-group col-md-6"><custom-input type="text" label="Medicaid #:" id="medicaid_id"
+                          name="medicaid_id" value="" placeholder=""></custom-input></div>
+                    </div>
+                    <div class="row">
+                      <div class="form-group col-md-6"><custom-input type="text"
+                          label="I have Medicaid. My financial responsibility is $0.00 for Medicaid Covered Services, unless I am responsible for a spend-down of $:"
+                          id="medicaid_resp" name="medicaid_resp" value="" placeholder=""></custom-input></div>
+                    </div>
+                    <div class="row">
+                      <div class="form-group col-md-6"><custom-input type="text"
+                          label="If I have a Medicaid pending and my application is denied or I am not eligible on any date of service, I will assume financial responsibility for all charges. I agree to make payment in full within following day(s) of my first delivery:"
+                          id="medicaid_days" name="medicaid_days" value="" placeholder="day(s)"
+                          disabled=""></custom-input></div>
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <div id="ibb89a" class="row">
+                    <div class="form-group col-md-4">
+                      <label for="medicaid_state" class="form-label" id="i7aycp"
+                        style="font-weight: normal; font-size: 16px;">Eligible State:</label><select id="medicaid_state"
+                        name="medicaid_state" class="form-select">
+                        <option value="">Select a option</option>
+                        <option value="4">Alabama</option>
+                        <option value="5">Alaska</option>
+                        <option value="6">Arizona</option>
+                        <option value="7">Arkansas</option>
+                        <option value="8">California</option>
+                        <option value="9">Colorado</option>
+                        <option value="10">Connecticut</option>
+                        <option value="11">Delaware</option>
+                        <option value="12">District of Columbia</option>
+                        <option value="13">Florida</option>
+                        <option value="14">Georgia</option>
+                        <option value="15">Hawaii</option>
+                        <option value="16">Idaho</option>
+                        <option value="17">Illinois</option>
+                        <option value="18">Indiana</option>
+                        <option value="19">Iowa</option>
+                        <option value="20">Kansas</option>
+                        <option value="21">Kentucky</option>
+                        <option value="22">Louisiana</option>
+                        <option value="23">Maine</option>
+                        <option value="24">Maryland</option>
+                        <option value="25">Massachusetts</option>
+                        <option value="26">Michigan</option>
+                        <option value="27">Minnesota</option>
+                        <option value="28">Mississippi</option>
+                        <option value="29">Missouri</option>
+                        <option value="30">Montana</option>
+                        <option value="31">Nebraska</option>
+                        <option value="32">Nevada</option>
+                        <option value="33">New Hampshire</option>
+                        <option value="34">New Jersey</option>
+                        <option value="35">New Mexico</option>
+                        <option value="36">New York</option>
+                        <option value="37">North Carolina</option>
+                        <option value="38">North Dakota</option>
+                        <option value="39">Ohio</option>
+                        <option value="40">Oklahoma</option>
+                        <option value="41">Oregon</option>
+                        <option value="42">Pennsylvania</option>
+                        <option value="43">Rhode Island</option>
+                        <option value="44">South Carolina</option>
+                        <option value="45">South Dakota</option>
+                        <option value="46">Tennessee</option>
+                        <option value="47">Texas</option>
+                        <option value="48">Utah</option>
+                        <option value="49">Vermont</option>
+                        <option value="50">Virginia</option>
+                        <option value="51">Washington</option>
+                        <option value="52">West Virginia</option>
+                        <option value="53">Wisconsin</option>
+                        <option value="54">Wyoming</option>
+                      </select>
+                    </div>
+                    <div class="form-group col-md-4"><custom-input type="text" label="HMO Plan:" id="medicaid_hmo"
+                        name="medicaid_hmo" value="" placeholder=""> </custom-input></div>
+                    <div class="form-group col-md-4"><custom-input type="text" label="Medicaid RX CoPay Amt:"
+                        id="medicaid_copay" name="medicaid_copay" value="" placeholder=""> </custom-input></div>
+                  </div>
+                </div>
+              </div>
+              <div id="private-pay-container" class="selected-items" style="padding-bottom: 10px; display: block;">
+                <h3 id="ixvwuq" style="font-family: 'Josefin Sans', sans-serif; font-weight: 700; font-size: 16px;">
+                  PRIVATE PAY, NO INSURANCE COVERAGE</h3>
+                <div id="im6w0f" class="private-pay row">
+                  <div class="form-group col-md-4"><custom-input type="text" label="The cost of your therapy will be:"
+                      id="private_cost" name="private_cost" value="" placeholder=""> </custom-input></div>
+                  <div class="form-group col-md-4"><custom-input type="text" label="Per:" id="private_per"
+                      name="private_per" value="" placeholder=""> </custom-input></div>
+                  <div>
+                    <div>
+                      <div class="form-group private-pay-textarea"><label for="private_notes" id="i8pb5l"
+                          class="question-label" style="font-weight: normal; font-size: 16px;">Notes:</label><span
+                          id="required_private_notes" class="required_fields"></span><textarea rows="3" cols="70"
+                          id="private_notes" name="private_notes" class="form-control input"
+                          style="box-shadow: none;"></textarea></div>
+                      <div id="iorbyi" class="payment-total-partial row">
+                        <custom-input-checkradio id="private_orders" name="private_orders"
+                          label="Based upon the treatment currently ordered by your physician. Should your medication orders change or a new therapy start (including IV line care after medication discontinues), a price will need to be discussed. Based on this information and a discussion with you, the following terms will be extended.">
+                          <div class="col-md-4"><custom-input-checkradio-item label="I will pay total due."
+                              value="private_total" id="private_total"></custom-input-checkradio-item></div>
+                          <div class="col-md-4"><custom-input-checkradio-item
+                              label="I will pay partial amount on initial delivery." value="private_partial"
+                              id="private_partial"></custom-input-checkradio-item></div>
+                        </custom-input-checkradio>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="form-group col-md-4 private-pay-input"><custom-input type="text"
+                          label="Amount to be paid on initial delivery:" id="private_initial" name="private_initial"
+                          value="" placeholder=""> </custom-input></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div id="unverified-container" class="selected-items" style="padding-bottom: 10px; display: block;">
+                <h3 id="iyeroq" style="font-family: 'Josefin Sans', sans-serif; font-weight: 700; font-size: 16px;">
+                  UNVERIFIED</h3>
+                <div class="row">
+                  <div class="form-group col-md-6 unverified"><custom-input type="text"
+                      label="I have insurance and have assigned benefits to:" id="unverified_assigned"
+                      name="unverified_assigned" value="" placeholder=""> </custom-input></div>
+                </div>
+                <div class="note">
+                  <h3 style="font-family: var(--font-family); font-weight: 700; font-size: 16px;">By signing below I have
+                    read and acknowledge the statement:</h3>
+                  <h4 class="paragraph"
+                    style="margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; font-family: var(--font-family); border-top-width: initial; border-right-width: initial; border-bottom-width: initial; border-left-width: initial; border-top-style: none; border-right-style: none; border-bottom-style: none; border-left-style: none; border-top-color: initial; border-right-color: initial; border-bottom-color: initial; border-left-color: initial; border-image-source: initial; border-image-slice: initial; border-image-width: initial; border-image-outset: initial; border-image-repeat: initial; color: rgb(31, 31, 31); display: block; font-size: 16px; font-weight: 400; line-height: 150%; float: none; padding-top: 5px; padding-right: 0px; padding-bottom: 5px; padding-left: 0px;">
+                    I agree to pay for all medications, supplies, equipment, and nursing services provided until such
+                    coverage can be verified.</h4>
+                </div>
+              </div>
+              <div class="contract-details">
+                <h3 style="font-family: var(--font-family); font-weight: 700; font-size: 16px;">CONTRACT DETAILS</h3>
+                <div class="row">
+                  <div class="form-group col-md-6"><custom-input type="text" label="This is a contract between you and:"
+                      id="contract" name="contract" value="" placeholder=""> </custom-input></div>
+                </div>
+              </div>
+              <div class="note">
+                <h3 id="i6lf3r" style="font-family: var(--font-family); font-weight: 700; font-size: 16px;">By signing
+                  below I have read and acknowledge the statement:</h3>
+                <h4 class="paragraph"
+                  style="margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; font-family: var(--font-family); border-top-width: initial; border-right-width: initial; border-bottom-width: initial; border-left-width: initial; border-top-style: none; border-right-style: none; border-bottom-style: none; border-left-style: none; border-top-color: initial; border-right-color: initial; border-bottom-color: initial; border-left-color: initial; border-image-source: initial; border-image-slice: initial; border-image-width: initial; border-image-outset: initial; border-image-repeat: initial; color: rgb(31, 31, 31); display: block; font-size: 16px; font-weight: 400; line-height: 150%; float: none; padding-top: 5px; padding-right: 0px; padding-bottom: 5px; padding-left: 0px;">
+                  Should my Insurance change, expired, or not pay for any other reason, I must understand that I will be
+                  responsible for 100% of charges.</h4>
+              </div>
+              <div class="form-group additional-notes"><label for="additional_notes" id="il0gwc" class="question-label"
+                  style="font-weight: normal; font-size: 16px;">Additional Notes</label><textarea rows="8" cols="70"
+                  id="additional_notes" name="additional_notes" class="form-control input"
+                  style="box-shadow: none;"></textarea></div>
+              <div class="row mb-3 mt-3">
+                <div class="signature col-md-6">
+                  <label for="patient_sign" id="i0n4kz" class="question-label"
+                    style="font-weight: normal; font-size: 16px;">Patient/Responsible Party Signature </label><span
+                    id="required_patient_sign" class="required_fields"></span>
+                  <div id="i4s2zf" class="signature-canvas"><canvas id="patient_sign" width="500" name="signature"
+                      style="padding-top: 10px; padding-right: 10px; padding-bottom: 10px; padding-left: 10px; border-top-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-bottom-left-radius: 10px; cursor: url('../assets/pen.png') 16 16, crosshair;"></canvas><br />
+                      <button
+                      type="button" id="clearButton" class="btn btn-primary"
+                      style="border-top-width: initial; border-right-width: initial; border-bottom-width: initial; border-left-width: initial; border-top-style: none; border-right-style: none; border-bottom-style: none; border-left-style: none; border-top-color: initial; border-right-color: initial; border-bottom-color: initial; border-left-color: initial; border-image-source: initial; border-image-slice: initial; border-image-width: initial; border-image-outset: initial; border-image-repeat: initial; border-top-left-radius: 5px; border-top-right-radius: 5px; border-bottom-right-radius: 5px; border-bottom-left-radius: 5px; background-color: var(--btn-primary-color); font-size: 16px; font-weight: 400; cursor: pointer;">Clear</button>
+                  </div>
+                </div>
+                <div class="form-group col-md-4 date-picker">
+                  <label for="benefits_date_sign" id="i7thcg" class="question-label">Based on benefits as of:
+                  </label><span id="required_benefits_date_sign"
+                    class="required_fields"></span><!-- Date picker fields --><span><input type="date"
+                      id="benefits_date_sign" name="benefits_date_sign" class="form-control input"
+                      style="box-shadow: none;" /></span>
+                </div>
+              </div>
+              <div class="submit"><button id="save-draft" type="button" class="btn btn-primary" onclick="getFormData()"
+                  style="border-top-width: initial; border-right-width: initial; border-bottom-width: initial; border-left-width: initial; border-top-style: none; border-right-style: none; border-bottom-style: none; border-left-style: none; border-top-color: initial; border-right-color: initial; border-bottom-color: initial; border-left-color: initial; border-image-source: initial; border-image-slice: initial; border-image-width: initial; border-image-outset: initial; border-image-repeat: initial; border-top-left-radius: 5px; border-top-right-radius: 5px; border-bottom-right-radius: 5px; border-bottom-left-radius: 5px; background-color: var(--btn-primary-color); font-size: 16px; font-weight: 400; cursor: pointer;">Save
+                  as draft</button><button id="saveBtn" type="button" class="btn btn-primary"
+                  style="border-top-width: initial; border-right-width: initial; border-bottom-width: initial; border-left-width: initial; border-top-style: none; border-right-style: none; border-bottom-style: none; border-left-style: none; border-top-color: initial; border-right-color: initial; border-bottom-color: initial; border-left-color: initial; border-image-source: initial; border-image-slice: initial; border-image-width: initial; border-image-outset: initial; border-image-repeat: initial; border-top-left-radius: 5px; border-top-right-radius: 5px; border-bottom-right-radius: 5px; border-bottom-left-radius: 5px; background-color: var(--btn-primary-color); font-size: 16px; font-weight: 400; cursor: pointer;">Save</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </main>
+      <!-- Confirmation Modal -->
+      <div id="confirmationModal" aria-labelledby="exampleModalLabel" aria-hidden="true" class="modal fade">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-body">
+              <p style="font-size: 14px; font-weight: 400;">Are you sure you want to submit?</p>
+            </div>
+            <div class="modal-footer"><button type="button" id="confirmSubmit" class="btn btn-primary"
+                style="border-top-width: initial; border-right-width: initial; border-bottom-width: initial; border-left-width: initial; border-top-style: none; border-right-style: none; border-bottom-style: none; border-left-style: none; border-top-color: initial; border-right-color: initial; border-bottom-color: initial; border-left-color: initial; border-image-source: initial; border-image-slice: initial; border-image-width: initial; border-image-outset: initial; border-image-repeat: initial; border-top-left-radius: 5px; border-top-right-radius: 5px; border-bottom-right-radius: 5px; border-bottom-left-radius: 5px; background-color: var(--btn-primary-color); font-size: 16px; font-weight: 400; cursor: pointer;">Submit</button><button
+                type="button" data-bs-dismiss="modal" id="cancelSubmit" class="btn btn-secondary"
+                style="border-top-width: initial; border-right-width: initial; border-bottom-width: initial; border-left-width: initial; border-top-style: none; border-right-style: none; border-bottom-style: none; border-left-style: none; border-top-color: initial; border-right-color: initial; border-bottom-color: initial; border-left-color: initial; border-image-source: initial; border-image-slice: initial; border-image-width: initial; border-image-outset: initial; border-image-repeat: initial; border-top-left-radius: 5px; border-top-right-radius: 5px; border-bottom-right-radius: 5px; border-bottom-left-radius: 5px; background-color: var(--btn-primary-color); font-size: 16px; font-weight: 400; cursor: pointer;">Cancel</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <div id="ijpyuk" class="row sectionBlockLayout text-start"
+    style="display: flex; flex-wrap: wrap; margin: 0px; min-height: auto; padding: 8px;">
+    <div class="container" id="ijwexr" style="padding: 0px; display: flex; flex-wrap: wrap;">
+      <div class="col-lg-12 columnBlockLayout"
+        style="flex-grow: 1; display: flex; flex-direction: column; min-width: 250px; word-break: break-word;"></div>
+    </div>
+  </div>
