@@ -89,14 +89,7 @@ h3 {
 .selected-items {
     padding-bottom: 10px;
 }
-
  
-p {
-    font-size: 14px;
-    font-weight: 400;
-}
-
-
 input.form-control {
     border-color: var(--border-color);
 }
@@ -114,11 +107,31 @@ input.form-control:hover {
     font-size: 20px;
     font-weight: 300;
 }
-p{
-    margin-bottom: 0px;
+ 
+ 
+.main-form-container {
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    padding: 15px 20px;
+    background-color: var(--form-container-background-color);
 }
 
+.heading-color {
+color: #54a0be;
+}
+h3.fields-title{
+    font-family: var(--font-family);
+    font-weight: 700;
+    font-size: 16px;
+  }
 /* Media query for smaller screens */
+  @media(min-width:1200px) {
+    .container-xl-custom {
+        width: 990px;
+        margin: 0 auto;
+    }
+  }
+   
 @media screen and (max-width: 1200px) {
     .signature {
         width: 100%;
@@ -128,17 +141,3 @@ p{
         height: 150px;
     }
 }
-
-.main-form-container {
-    border: 1px solid var(--border-color);
-    border-radius: 20px;
-    padding: 15px 20px;
-    background-color: var(--form-container-background-color);
-}
-
-
-h3.fields-title{
-    font-family: var(--font-family);
-    font-weight: 700;
-    font-size: 16px;
-  }
