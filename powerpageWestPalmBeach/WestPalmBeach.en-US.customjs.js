@@ -98,3 +98,37 @@ const hideAndShowLogic = () => {
       
 
 }
+document.addEventListener("DOMContentLoaded", function() {
+  var vwpCheckbox = document.querySelector("#view_welcome_packet input");
+  var vpnCheckbox = document.querySelector("#view_Privacy_Notice input");
+  var lrCheckbox = document.querySelector("#legal_represenative input");
+  var welcomePacketDiv = document.querySelector("#customer_policy");
+  var termsConditionsDiv = document.querySelector("#notice_of_privacy_practices");
+  var privacyPolicyDiv = document.querySelector("#show_legal_represenative");
+
+  // Add event listener to each checkbox
+  vwpCheckbox.addEventListener("change", function() {
+      if (vwpCheckbox.checked) {
+          welcomePacketDiv.style.display = "block";
+      } else {
+          welcomePacketDiv.style.display = "none";
+      }
+  });
+
+  vpnCheckbox.addEventListener("change", function() {
+      if (vpnCheckbox.checked) {
+          termsConditionsDiv.style.display = "block";
+      } else {
+          termsConditionsDiv.style.display = "none";
+      }
+  });
+
+  lrCheckbox.addEventListener("change", function() {
+      if (lrCheckbox.checked) {
+          privacyPolicyDiv.style.display = "block";
+      } else {
+          privacyPolicyDiv.style.display = "none";
+      }
+  });
+});
+ 

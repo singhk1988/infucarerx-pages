@@ -124,6 +124,20 @@ h3.fields-title{
     font-weight: 700;
     font-size: 16px;
   }
+#view_Privacy_Notice .form-label {
+    font-weight: 700;
+}
+.notice_of_privacy_practices table th,.notice_of_privacy_practices table tr {
+    line-height: 1.2;
+}
+
+.signature canvas {
+    border: 1px solid var(--border-color);
+    padding: 10px;
+    border-radius: 10px;
+    cursor: url(../assets/pen.png) 16 16, crosshair;
+}
+
 /* Media query for smaller screens */
   @media(min-width:1200px) {
     .container-xl-custom {
