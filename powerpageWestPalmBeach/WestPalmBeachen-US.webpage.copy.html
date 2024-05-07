@@ -59,8 +59,7 @@
             </div>
 
              <!-- Welcome step 1-->
-            <div class="rows justify-content-left align-items-left" id="APChecklist"
-              style="display: none;">
+            <div class="rows justify-content-left align-items-left" id="APChecklist" style="display: none;">
               <!-- Content of APChecklist div goes here -->
               <div class="booklet container-xl-custom">  
                 <div class="row justify-content-center align-items-center text-center">
@@ -806,7 +805,7 @@
                         <div id="p-last-name" class="invalid-feedback" style="margin-top: 0px; display: none; color: red;">Please enter last name.</div>
                       </div> 
                       <div class="form-group col-md-4">
-                        <custom-input label="Date:*" type="Date" id="sign_date" name="sign_date" value="" placeholder=""> </custom-input>
+                        <custom-input label="Signature Date:*" type="Date" id="sign_date" name="sign_date" value="" placeholder=""> </custom-input>
                         <div id="p-dob" class="invalid-feedback" style="margin-top: 0px; display: none; color: red;">Please enter your DOB.</div>
                       </div>
                       <div class="signature col-md-12 mt-3">
@@ -848,10 +847,11 @@
                           <custom-input type="text" label="Last Name:*" value="" id="lname" name="lname" placeholder="Last Name" required=""> </custom-input>
                           <div id="p-last-name" class="invalid-feedback" style="margin-top: 0px; display: none; color: red;">Please enter last name.</div>
                         </div> 
+
                         <div class="form-group col-md-4">
-                          <custom-input label="Date:*" type="Date" id="sign_date" name="sign_date" value="" placeholder=""> </custom-input>
+                          <custom-input label="Signature Date:*" type="Date" id="sign_date" name="sign_date" value="" placeholder=""> </custom-input>
                           <div id="p-dob" class="invalid-feedback" style="margin-top: 0px; display: none; color: red;">Please enter your DOB.</div>
-                        </div>
+                        </div> 
                         <div class="signature col-md-12 mt-3">
                           <label for="patient_sign" class="form-label question-label" id="i0n4kz">Legal Represenative Signature
                           *</label><span class="required_fields" id="required_patient_sign"></span>
@@ -870,9 +870,342 @@
                   </div>
               </div>
             </div> 
-            <!-- end of Notice of Privacy Practices step -->
+            <!-- end of Notice of Privacy Practices step 4--> 
+            <!-- Patient Authorization to Use and Disclose Protected Health Information step 6 -->
+            <div class="rows justify-content-left align-items-left" id="patientAuthorization" style="display: none;">
+              <div class="booklet container-xl-custom">   
+                <div class="notice_of_privacy_practices pt-3"> 
+                  
+                  <h5 class="text-center text-uppercase">Patient Authorization to Use and Disclose Protected Health Information</h5>
+                  <p>I authorize InfuCare Rx, Inc. and all of its subsidiaries and affiliates (“InfuCare Rx”) to use and/or disclose my protected health information (“PHI”), including but not limited to my medical records and other health information created by other persons, entities, physicians, and health care providers, including substance use disorder treatment services and mental health services (excluding psychotherapy notes) (collectively, “Protected Health Information”) to InfuCare Rx and its agents, representatives, and direct and indirect service providers for the purposes of:
+                    <ul class="mt-3">
+                      <li>Facilitating the scheduling, filling, delivery, and administration of the medications dispensed by InfuCare Rx</li>
+                      <li>Assisting me in obtaining insurance coverage for medications dispensed by InfuCare Rx</li>
+                      <li>Contacting me via mail, email and/or telephone, including text messages, to enroll me and administer programs that provide support services</li>
+                      <li>Marketing of services provided by InfuCare Rx</li>
+                      <li>Sending me promotional materials about certain products</li>
+                    </ul> 
+                  </p>
+                  <p>I understand that once my Protected Health Information is disclosed pursuant to this authorization, it may no longer be protected by federal privacy laws and regulations known as “HIPAA” or state privacy laws and may be subject to further disclosure by InfuCare Rx and third parties with whom InfuCare Rx may share this information. However, other state and federal laws may prohibit the recipient from disclosing specially protected information such as certain HIV/AIDSrelated information, substance use disorder treatment information, and mental health information.</p>
+                  <p>I understand that I may refuse to sign this authorization. My refusal will not affect my ability to receive my prescription(s) from InfuCare Rx, treatment, payment, enrollment in any health plan or eligibility for benefits but my refusal may limit my ability to receive certain support services that are provided by InfuCare Rx.</p>
+                  <p>I understand that InfuCare Rx may receive compensation, remuneration, or other value as a result of their use and disclosure of my Protected Health Information as described in this authorization.</p>
+                  <p>I understand that this authorization will remain in effect from the date of my signature until I revoke it in writing, unless limited by state laws and regulations, by contacting InfuCare Rx, Attn: Compliance Officer, PO Box 2578, Secaucus, NJ 07096.</p>
+                  <p>If I revoke this authorization, InfuCare Rx and any third parties that are notified of my revocation will stop using my Protected Health Information for the purposes outlined in this authorization, but the revocation will not affect prior use or disclosure of my Protected Health Information in reliance on this authorization. I have the right to receive a copy of this authorization after I sign it. I understand that the support services provided by InfuCare Rx that are described in this authorization can be changed at any time, without prior notification.</p>
+                  <form action="" class="form">
+                    <div class="row">
+                      <div class="col-md-4">
+                        <custom-input label="Patient First name:*" value="" id="patient_fname" name="patient_fname" placeholder="First name" error="" required=""> </custom-input>
+                        <div id="p-first-name" class="invalid-feedback" style="margin-top: 0px; display: none; color: red;">first name.</div>
+                      </div>
+                      <div class="col-md-4">
+                        <custom-input type="text" label="Patient Last Name:*" value="" id="patient_lname" name="patient_lname" placeholder="Last Name" required=""> </custom-input>
+                        <div id="p-last-name" class="invalid-feedback" style="margin-top: 0px; display: none; color: red;">Please enter last name.</div>
+                      </div> 
+                      <div class="form-group col-md-4">
+                        <custom-input label="Patient Date of Birth:*" type="Date" id="do_date" name="do_date" value="" placeholder=""> </custom-input>
+                        <div id="p-dob" class="invalid-feedback" style="margin-top: 0px; display: none; color: red;">Please enter your DOB.</div>
+                      </div>
+                      <div class="form-group col-md-4"> 
+                          <custom-input type="text" label="Patient Address:" value="" id="patient_address" name="patient_address" placeholder="Patient Address"> </custom-input>  
+                        </div>  
+                      <div class="form-group col-md-4">  
+                          <custom-input type="text" label="Patient Cell Phone:*" value="" id="patient_cell_phone: " name="patient_cell_phone" placeholder="Patient Cell Phone" required=""> </custom-input>
+                          <div id="p-last-name" class="invalid-feedback" style="margin-top: 0px; display: none; color: red;">Please enter your cell phone.</div> 
+                      </div>
+                      
+                      <div class="form-group col-md-4">
+                        <custom-input label="Signature Date:*" type="Date" id="sign_date" name="sign_date" value="" placeholder=""> </custom-input>
+                        <div id="p-dob" class="invalid-feedback" style="margin-top: 0px; display: none; color: red;">Please enter your sign date.</div>
+                      </div>
+
+                      <div class="signature col-md-12 mt-3">
+                        <label for="patient_sign" class="form-label question-label" id="i0n4kz">Patient/Responsible Party Signature
+                        *</label><span class="required_fields" id="required_patient_sign"></span>
+                        <div class="signature-canvas mb-3" id="i4s2zf">
+                           <canvas id="patient_sign" width="500" name="signature" required style="display: block;"></canvas>
+                           <img id="patient_sign" class="form-control" width="500" src="" alt="" style="display: none;"/>
+                           <div class="invalid-feedback" style="margin-top: 0px;" id="signature_validation">Please enter
+                              signature.
+                           </div>
+                           
+                           <button type="button" id="clearButton" class="btn btn-primary mt-3">Clear</button>
+                        </div>
+                     </div>
+                    </div>
+                  </form> 
+                  <!-- view_support_organizations -->
+                  <div class="view_support_organizations  mt-3">
+                    <custom-input-checkradio id="support_organizations" name="support_organizations"
+                      label="">
+                      <custom-input-checkradio-item label="View Support Organizations" value="View Support Organizations" id="see_SupportOrganizations"></custom-input-checkradio-item>
+                    </custom-input-checkradio>
+                  </div> 
+                  <div id="Support_Organizations_area" style="display: none;">
+                    <hr class="border-dark-subtle">
+                    <h5 class="text-center">Support Organizations</h5>
+                    <p>We suggest that you discuss any information you receive from these organizations with a qualified professional before making any changes to your healthcare, insurance or home care provider. Infucare Rx is not endorsing these organizations, or information they may disseminate. Please be aware that some of these sites may charge a fee for access to services.
+                      <table class="table table-bordered mt-3">
+                        <tbody>
+                          <thead>
+                            <th>Therapy/Condition</th>
+                            <th>Support Organizations</th>
+                            <th>Website</th>
+                          </thead>
+                          <tr>
+                            <td>All</td>
+                            <td>Centers for Medicare & Medicaid Services</td>
+                            <td><a href="www.cms.hhs.gov">www.cms.hhs.gov</a></td>
+                          </tr>
+                          <tr>
+                            <td>All</td>
+                            <td>Medicare</td>
+                            <td><a href="www.medicare.goy">www.medicare.goy</a></td>
+                          </tr>
+                          <tr>
+                            <td>All</td>
+                            <td>Medicaid</td>
+                            <td><a href="www.medicaid.gov">www.medicaid.gov</a></td>
+                          </tr>
+                          <tr>
+                            <td>All</td>
+                            <td>Patient Advocate Foundations (PAF)</td>
+                            <td><a href="www.patientadvocate.org">www.patientadvocate.org</a></td>
+                          </tr>
+                          <tr>
+                            <td>All</td>
+                            <td>Today's Caregiver: Toll Free 1-800-829-2734</td>
+                            <td><a href="www.caregiver.com">www.caregiver.com</a></td>
+                          </tr>
+                          <tr>
+                            <td>All</td>
+                            <td>Centers for Disease Control and Prevention (CDC)</td>
+                            <td><a href="www.cdc.org">www.cdc.org</a></td>
+                          </tr>
+                          <tr>
+                            <td>Arthritis</td>
+                            <td>Arthritis Foundation</td>
+                            <td><a href="www.arthritis.org">www.arthritis.org</a></td>
+                          </tr>
+                          <tr>
+                            <td>Diabetes</td>
+                            <td>American Diabetes Association (ADA)</td>
+                            <td><a href="www.diabetes.org">www.diabetes.org</a></td>
+                          </tr>
+                          <tr>
+                            <td>Heart Failure</td>
+                            <td>American Heart Association (AHA)</td>
+                            <td><a href="www.americanheart.org">www.americanheart.org</a></td>
+                          </tr>
+                          <tr>
+                            <td>Heart Failure</td>
+                            <td>Heart Failure Society of America</td>
+                            <td><a href="www.hfsa.org">www.hfsa.org</a></td>
+                          </tr>
+
+                          <tr>
+                            <td>Immunoglobulin</td>
+                            <td>Immune Deficiency Foundation</td>
+                            <td><a href="www.primaryimmune.org">www.primaryimmune.org</a></td>
+                          </tr>
+                          <tr>
+                            <td>Kidney Failure</td>
+                            <td>National Kidney Foundation (NKF)</td>
+                            <td><a href="www.kidney.org">www.kidney.org</a></td>
+                          </tr>
+                          <tr>
+                            <td>Multiple Sclerosis</td>
+                            <td>National Multiple Sclerosis Society</td>
+                            <td><a href="www.nationalmssociety.org">www.nationalmssociety.org</a></td>
+                          </tr>
+                          <tr>
+                            <td>Psoriasis</td>
+                            <td>National Psoriasis Foundation</td>
+                            <td><a href="www.psoriasis.org">www.psoriasis.org</a></td>
+                          </tr>
+                          <tr>
+                            <td>Nutrition</td>
+                            <td>American Society for Parental and Enteral Nutrition</td>
+                            <td><a href="www.nutritioncare.org">www.nutritioncare.org</a></td>
+                          </tr>
+                          <tr>
+                            <td>Nutrition</td>
+                            <td>Short Bowel Syndrome Foundation</td>
+                            <td><a href="www.shortbowelfoundation.org">www.shortbowelfoundation.org</a></td>
+                          </tr>
+                          <tr>
+                            <td>Nutrition</td>
+                            <td>Association of GI Motility Disorders (AGMD)</td>
+                            <td><a href="https://rarediseases.org/">https://rarediseases.org/</a></td>
+                          </tr>
+                          <tr>
+                            <td>Nutrition</td>
+                            <td>Celiac Disease Foundations (CDF)</td>
+                            <td><a href="www.celiac.org">www.celiac.org</a></td>
+                          </tr>
+                          <tr>
+                            <td>Nutrition</td>
+                            <td>Crohn's & Colitis Foundation of America (CCFA)</td>
+                            <td><a href="https://www.crohnscolitisfoundation.org/">https://www.crohnscolitisfoundation.org/</a></td>
+                          </tr>
+                          <tr>
+                            <td>Pregnancy</td>
+                            <td>HER Foundation-Hyperemesis</td>
+                            <td><a href="www.helpher.org">www.helpher.org www.aotaonline.org</a></td>
+                          </tr>
+                          <tr>
+                            <td>Transplants</td>
+                            <td>American Organ Transplant Association (AOTA)</td>
+                            <td><a href="www.aotaonline.org">www.aotaonline.org</a></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </p>
+                    <p><b>Connect With Others</b></p>
+                    <p>We believe that well-being improves when people with the same chronic condition can connect and learn from each other. Connecting with people living with the same chronic conditions may help answer questions, get referrals and even share tips. <i>My Health Teams</i> is an online program that will help you connect with, share and learn from others with the same chronic condition. <a href="www.myhealthteams.com">www.myhealthteams.com</a></p>
+                    <p><b>Emergency Resources</b></p>
+                    <p><i>If you are experiencing a serious, threatening, or dangerous situation, call 911 or the local police for immediate help.</i>
+                    <table class="table table-bordered mt-3">
+                      <thead>
+                        <th>Situation</th>
+                        <th>Agency</th>
+                        <th>Website</th>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>Domestic Violence</td>
+                          <td>National Domestic Violence Hotline: Toll Free 1-800-799-7233 </td>
+                          <td><a href="www.thehotline.org">www.thehotline.org</a></td>
+                        </tr>
+                        <tr>
+                          <td>Child Abuse</td>
+                          <td>Child Welfare: Toll Free 1-800-422-4453</td>
+                          <td><a href="www.childwelfare.gov">www.childwelfare.gov</a></td>
+                        </tr>
+                        <tr>
+                          <td>Elder Abuse</td>
+                          <td>National Center on Elder Abuse</td>
+                          <td><a href="https://ncea.ac.gov/Resources/State.aspx">https://ncea.ac.gov/Resources/State.aspx</a></td>
+                        </tr>
+                        <tr>
+                          <td>Substance Abuse/Mental Health</td>
+                          <td>SAMHSA: Toll Free 1-800-662-4357</td>
+                          <td><a href="https://www.samhsa.gov/find-help/national-helpline">https://www.samhsa.gov/find-help/national-helpline</a></td>
+                        </tr>
+                        <tr>
+                          <td>Suicide</td>
+                          <td>National Suicide Prevention Lifeline: Toll Free 1-800-273-8255</td>
+                          <td><a href="https://suicidepreventionlifeline.org/">https://suicidepreventionlifeline.org/</a></td>
+                        </tr>
+                        <tr>
+                          <td>Poison Control</td>
+                          <td>National Capital Poison Control: Toll Free 1-800-222-1222</td>
+                          <td><a href="https://www.polson.org/">https://www.polson.org/</a></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    </p>
+                  </div>
+                   <!-- view_medicare_DMEPOS -->
+                   <div class="view_medicare_DMEPOS  mt-3">
+                    <custom-input-checkradio id="view_medicare_DMEPOS" name="view_medicare_DMEPOS"
+                      label="">
+                      <custom-input-checkradio-item label="View Medicare DMEPOS Supplier Standards (English)" value="View Medicare DMEPOS Supplier Standards (English)" id="see_medicare_DMEPOS"></custom-input-checkradio-item>
+                    </custom-input-checkradio>
+                  </div> 
+                  <div id="medicare_DMEPOS_english" style="display: none;">
+                    <hr class="border-dark-subtle">
+                    <h5 class="text-center mt-4">MEDICARE DMEPOS SUPPLIER STANDARDS</h5>
+                    <p><b>Note: This is an abbreviated version of the supplier standards every Medicare DMEPOS supplier must meet in order to obtain and retain their billing privileges. These standards, in their entirety, are listed in 42 C.F.R. 424.57(e).</b>
+                    <ol type="1">
+                      <li>A supplier must be in compliance with all applicable Federal and State licensure and regulatory requirements.</li>
+                      <li>A supplier must provide complete and accurate information on the DMEPOS supplier application. Any changes to this information must be reported to the National Supplier Clearinghouse within 30 days.</li>
+                      <li>A supplier must have an authorized individual (whose signature is binding) sign the enrollment application for billing privileges.</li>
+                      <li>A supplier must fill orders from its own inventory, or contract with other companies for the purchase of items necessary to fill orders. A supplier may not contract with any entity that is currently excluded from the Medicare program, any State health care programs, or any other Federal procurement or non-procurement programs.</li>
+                      <li>A supplier must advise beneficiaries that they may rent or purchase inexpensive or routinely purchased durable medical equipment, and of the purchase option for capped rental equipment.</li>
+                      <li>A supplier must notify beneficiaries of warranty coverage and honor all warranties under applicable State law, and repair or replace free of charge Medicare covered items that are under warranty.</li>
+                      <li>A supplier must maintain a physical facility on an appropriate site and must maintain a visible sign with posted hours of operation. The location must be accessible to the public and staffed during posted hours of business. The location must be at least 200 square feet and contain space for storing records.</li>
+                      <li>A supplier must permit CMS or its agents to conduct on-site inspections to ascertain the supplier's compliance with these standards.</li>
+                      <li>A supplier must maintain a primary business telephone listed under the name of the business in a local directory or a toll free number available through directory assistance. The exclusive use of a beeper, answering machine, answering service or cell phone during posted business hours is prohibited.</li>
+                      <li>A supplier must have comprehensive liability insurance in the amount of at least $300,000 that covers both the supplier's place of business and all customers and employees of the supplier. If the supplier manufactures its own items, this insurance must also cover product liability and completed operations.</li>
+                      <li>A supplier is prohibited from direct solicitation to Medicare beneficiaries. For complete details on this prohibition see 42 CFR § 424.57 (c) (11).</li>
+                      <li>A supplier is responsible for delivery of and must instruct beneficiaries on the use of Medicare covered items, and maintain proof of delivery and beneficiary instruction.</li>
+                      <li>A supplier must answer questions and respond to complaints of beneficiaries, and maintain documentation of such contacts.</li>
+                      <li>A supplier must maintain and replace at no charge or repair cost either directly, or through a service contract with another company, any Medicare-covered items it has rented to beneficiaries.</li>
+                      <li>A supplier must accept returns of substandard (less than full quality for the particular item) or unsuitable items (inappropriate for the beneficiary at the time it was fitted and rented or sold) from beneficiaries.</li>
+                      <li>A supplier must disclose these standards to each beneficiary it supplies a Medicare-covered item.</li>
+                      <li>A supplier must disclose any person having ownership, financial, or control interest in the supplier.</li>
+                      <li>A supplier must not convey or reassign a supplier number, i.e., the supplier may not sell or allow another entity to use its Medicare billing number.</li>
+                      <li>A supplier must have a complaint resolution protocol established to address beneficiary complaints that relate to these standards. A record of these complaints must be maintained at the physical facility.</li>
+                      <li>Complaint records must include: the name, address, telephone number and health insurance claim number of the beneficiary, a summary of the complaint, and any actions taken to resolve it.</li>
+                      <li>A supplier must agree to furnish CMS any information required by the Medicare statute and regulations.</li>
+                      <li>All suppliers must be accredited by a CMS-approved accreditation organization in order to receive and retain a supplier billing number. The accreditation must indicate the specific products and services, for which the supplier is accredited in order for the supplier to receive payment for those specific products and services (except for certain exempt pharmaceuticals).</li>
+                      <li>All suppliers must notify their accreditation organization when a new DMEPOS location is opened.</li>
+                      <li>All supplier locations, whether owned or subcontracted, must meet the DMEPOS quality standards and be separately accredited in order to bill Medicare.</li>
+                      <li>All suppliers must disclose upon enrollment all products and services, including the addition of new product lines for which they are seeking accreditation.
+                      </li>
+                      <li>A supplier must meet the surety bond requirements specified in 42 CFR § 424.57 (d).</li>
+                      <li>A supplier must obtain oxygen from a state-licensed oxygen supplier.</li>
+                      <li>A supplier must maintain ordering and referring documentation consistent with provisions found in 42 CFR § 424.516(f).</li>
+                      <li>A supplier is prohibited from sharing a practice location with other Medicare providers and suppliers.</li>
+                      <li>A supplier-must remain open to the public for a minimum of 30 hours per week except physicians (as defined in section 1848(j) (3) of the Act) or physical and occupational therapists or a DMEPOS supplier working with custom made orthotics and prosthetics.</li>
+                    </ol>
+                  </p>
+                
+                  <h5 class="text-center mt-4">MEDICARE DMEPOS SUPPLIER STANDARDS</h5>
+                  <p>DMEPOS suppliers have the option to disclose the following statement to satisfy the requirement outlined in Supplier Standard 16 in lieu of providing a copy of the standards to the beneficiary.</p>
+                  <p>The products and/or services provided to you by (supplier legal business name or DBA) are subject to the supplier standards contained in the Federal regulations shown at 42 Code of Federal Regulations Section 424.57(c). These standards concern business professional and operational matters (e.g. honoring warranties and hours of operation). The full text of these standards can be obtained at <a href="http://www.ecfr.gov">http://www.ecfr.gov</a>. Upon request we will furnish you a written copy of the standards.</p>
+                  </div>
+                   <!-- view_medicare_DMEPOS -->
+                   <div class="view_medicare_DMEPOS_spanish  mt-3">
+                    <custom-input-checkradio id="view_medicare_DMEPOS_spanish" name="view_medicare_DMEPOS_spanish"
+                      label="">
+                      <custom-input-checkradio-item label="View Medicare DMEPOS Supplier Standards (Spanish)" value="View Medicare DMEPOS Supplier Standards (Spanish)" id="see_medicare_DMEPOS_span"></custom-input-checkradio-item>
+                    </custom-input-checkradio>
+                  </div> 
+                  <div id="see_medicare_DMEPOS_sp_area" style="display: none;"> 
+                    <hr class="border-dark-subtle pdf-border">
+                    <h5 class="text-center mt-4">MEDICARE DMEPOS ESTANDARES PARA SUPLIDORES</h5>
+                    <p><b>Nota: Esta lista es una versión abreviada de los estándares todo suplidor de Medicare DMEPOS debe reunir para obtener y retener sus privilegios para facturación. La lista completa de éstos estándares, está en 42 C.F.R. pt. 424, see 424.57(e).</b>
+                    <ol type="1">
+                      <li>El suplidor deberá cumplir con toda licencia aplicable del Gobierno Federal y Estatal y con todo requerimiento regulatorio, y no podrá contratar a un individuo o entidad para proveer esos servicios que requieran licencia.</li>
+                      <li>El suplidor deberá proveer información completa y actualizada en la solicitud para suplidor de DMEPOS. Cualquier cambio de ésta información deberá ser reportada al National Supplier Clearinghouse en 30 dias.</li>
+                      <li>Una persona autorizada (alguien cuya firma ate a la compañía) deberá firmar la solicitud para obtener privilegios de facturación.</li>
+                      <li>El suplidor dispensará las recetas órdenes de su propio inventario o deberá tener un contrato con otras compañías para la compra de los articulos necesarios para dispensar las recetas/ordenes. El suplidor no podrá tener contratos con ninguna entidad que esté excluida del programa de Medicare, cualquier programa de salud Estatal, o de los programas Federales de procuramiento y no procuramiento.</li>
+                      <li>El suplidor deberá informar a los beneficiarios de que pueden alquilar o comprar equipo médico durable económico o rutinariamente comprado, y de la opción de compra de los equipos alquilados una vez que lleguen a su término de alquiler.</li>
+                      <li>El suplidor deberá notificar a los beneficiarios de la cobertura de las garantías y honrar toda garantia aplicable bajo la ley Estatal y reparar o remplazar sin costo alguno, todo articulo cubierto por Medicare.</li>
+                      <li>El suplidor deberá mantener un local fisico en un lugar apropiado. Este estándard requiere que el local sea accesible al público y esté atendido durante las horas de operación. El local deberá medir por lo menos 200 pies cúbicos y tener espacio para guardar los expedients médicos.</li>
+                      <li>El suplidor deberá permitirle a CMS, o a sus agentes, que conduzcan inspecciones, para asegurar que el suplidor esté en cumplimiento con éstos estándares. El local del suplidor deberá ser accesible a los beneficiarios durante horas de negocios razonables y deberá mantener un letrero visible incluyendo las horas de operación.</li>
+                      <li>El suplidor debe mantener una linea de teléfono para el negocio la cual esté registrada bajo el nombre del negocio en el directorio local, o un número sin costo, disponible a través de la operadora. El uso exclusivo de un beeper, de una grabadora, de un servicio de contestadora o de un teléfono celular durante las horas de operación, está prohibido.</li>
+                      <li>El suplidor debe tener seguro comprensivo de riesgo y responsabilidad por una cantidad de por lo menos $300,000 que cubra los dos, el negocio y los clientes y empleados del suplidor. Si el suplidor manufactura sus propios articulos, éste seguro debe también cubrir riesgo y responsabilidad del producto y la operación en su totalidad.</li>
+                      <li>El suplidor debe estar de acuerdo en no iniciar contacto telefónico con beneficiarios, con algunas excepciones. Este estándard les prohibe a los suplidores contactar a los beneficiarios de Medicare basados en alguna receta médica verbal a menos de que le aplique alguna excepción.</li>
+                      <li>El suplidor es responsable de entregar y explicar a los beneficiarios cómo usar todo articulo cubierto por Medicare, y mantener prueba de entrega.</li>
+                      <li>El suplidor debe contestar preguntas y responder a toda queja que los beneficiarios tengan, y mantener documentación de dichos contactos.</li>
+                      <li>El suplidor debe dar mantenimiento y remplazar sin costo alguno o reparar directamente, o a través de un contrato de servicio con otra compañía, articulos cubiertos por Medicare que el suplidor haya alquilado a los beneficiarios.</li>
+                      <li>El suplidor debe aceptar devoluciones de articulos de baja calidad o inadecuados de los beneficiarios (articulos cuya calidad sea inferior a la establecida para dicho articulo, o artículos que son inapropiados para el beneficiario en el momento de haber sido medidos y alquilados o vendidos).</li>
+                      <li>El suplidor debe revelar éstos estándares para suplidores a cada beneficiario a quien provee articulos cubiertos por Medicare.</li>
+                      <li>El suplidor debe revelar al Gobierno toda persona dueña, que tenga participación financiera o participación en el control del negocio.</li>
+                      <li>El suplidor no deberá transferir o reasignar su número de suplidor (eje: el suplidor no puede vender o permitir que otra entidad use su número de suplidor de Medicare). </li>
+                      <li>El suplidor debe establecer un protocolo para resolver quejas de los beneficiarios relacionadas a estos estándares. Un registro de éstas quejas deberá ser mantenido en el local del suplidor.</li>
+                      <li>El registro de las quejas debe incluir: nombre, dirección, número de teléfono y el número de Medicare (HICN) del beneficiario, un resumen de la queja y cualquier acción tomada para resolverla.</li>
+                      <li>El suplidor debe acceder a proporcionarle a CMS cualquier información requerida por el estatuto y regulaciones de implementación de Medicare.</li>
+                      <li>Todo suplidor debe ser acreditado por una organización de acreditación aprobada por CMS para obtener y retener sus privilegios para facturación. La acreditación debe indicar los productos y servicios especificos para los cuales el suplidor está acreditado, para que el suplidor reciba pago por esos productos (excepto ciertos productos farmacéuticos exentos).</li>
+                      <li>Todo suplidor debe notificar a su organización de acreditación cuando abra un nuevo local de DMEPOS.</li>
+                      <li>Cada local del suplidor, propio o subcontratado, debe cumplir con los estándares de calidad de DMEPOS y ser acreditado por separado para facturar a Medicare.</li>
+                      <li>Todo suplidor debe revelar durante el periodo de inscripción, todos sus productos y servicios, incluyendo la adición de nuevos productos para los cuales está solicitando acreditación.</li>
+                      <li>Debe cumplir con los requisitos de fianza de garantía especificados en 42 C.F.R. 424.57 (c). Fecha de implementación Mayo 4, 2009</li>
+                      <li>El suplidor debe obtener oxigeno de un suplidor que tenga licencia del Estado para suplir oxígeno.</li>
+                      <li>El suplidor debe mantener documentación, órdenes y referidos, de acuerdo con las provisiones que se encuentran en 42 C.F.R. 424.516(1).</li>
+                      <li>Los suplidores de DMEPOS tienen prohibido compartir su local con ciertos otros proveedores y suplidores de Medicare.</li>
+                      <li>Los suplidores de DMEPOS deben permanecer abiertos al público por un mínimo de 30 horas por semana con ciertas excepciones.</li> 
+                    </ol>
+                    </p>
+                  </div>
+                </div> 
+              </div>
+            </div> 
+            <!-- end of step 6-->
             <!--  -->
-            <!--  -->
+            <!--  --> 
             <!--  -->
             <!--  -->
             <!--  -->

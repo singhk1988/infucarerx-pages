@@ -94,41 +94,24 @@ const hideAndShowLogic = () => {
         // Function to hide page at given index
         function hidePage(index) {
           pages[index].style.display = 'none';
-        }
-      
+        } 
+    }
+    document.addEventListener("DOMContentLoaded", function() {
+      const checkboxes = [
+        { checkbox: "#view_welcome_packet input", div: "#customer_policy" },
+        { checkbox: "#view_Privacy_Notice input", div: "#notice_of_privacy_practices" },
+        { checkbox: "#legal_represenative input", div: "#show_legal_represenative" },
+        { checkbox: "#support_organizations input", div: "#Support_Organizations_area" },
+        { checkbox: "#view_medicare_DMEPOS input", div: "#medicare_DMEPOS_english" },
+        { checkbox: "#view_medicare_DMEPOS_spanish input", div: "#see_medicare_DMEPOS_sp_area" }
+      ];
 
-}
-document.addEventListener("DOMContentLoaded", function() {
-  var vwpCheckbox = document.querySelector("#view_welcome_packet input");
-  var vpnCheckbox = document.querySelector("#view_Privacy_Notice input");
-  var lrCheckbox = document.querySelector("#legal_represenative input");
-  var welcomePacketDiv = document.querySelector("#customer_policy");
-  var termsConditionsDiv = document.querySelector("#notice_of_privacy_practices");
-  var privacyPolicyDiv = document.querySelector("#show_legal_represenative");
+      checkboxes.forEach(({ checkbox, div }) => {
+        const checkboxElem = document.querySelector(checkbox);
+        const divElem = document.querySelector(div);
 
-  // Add event listener to each checkbox
-  vwpCheckbox.addEventListener("change", function() {
-      if (vwpCheckbox.checked) {
-          welcomePacketDiv.style.display = "block";
-      } else {
-          welcomePacketDiv.style.display = "none";
-      }
-  });
-
-  vpnCheckbox.addEventListener("change", function() {
-      if (vpnCheckbox.checked) {
-          termsConditionsDiv.style.display = "block";
-      } else {
-          termsConditionsDiv.style.display = "none";
-      }
-  });
-
-  lrCheckbox.addEventListener("change", function() {
-      if (lrCheckbox.checked) {
-          privacyPolicyDiv.style.display = "block";
-      } else {
-          privacyPolicyDiv.style.display = "none";
-      }
-  });
-});
- 
+        checkboxElem.addEventListener("change", function() {
+          divElem.style.display = checkboxElem.checked ? "block" : "none";
+        });
+      });
+    });
