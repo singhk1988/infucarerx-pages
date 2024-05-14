@@ -137,8 +137,36 @@ h3.fields-title{
     border-radius: 10px;
     cursor: url(../assets/pen.png) 16 16, crosshair;
 }
-
+.radio_btn_inline .form-check {
+    display: inline-block;
+    margin-right: 10px;
+}
+.radio_btn_inline .form-label {
+    display: block;
+    padding-left: 0 !important;
+    font-weight: 700;
+}
+ 
+#txtInsuranceTypeOther .form-item {
+    padding-top: 0;
+}
+.container-xl-custom .multiple-checkbox { 
+    line-height: 1.2;
+    vertical-align: middle;
+}
+.multiple-checkbox tr th {
+    width: 350px;
+}
+.multiple-checkbox tr td {
+    text-align: center;
+}
 /* Media query for smaller screens */
+
+@media(min-width:768px) {
+#txtInsuranceTypeOther input {
+    width: 306px;
+}
+}
   @media(min-width:1200px) {
     .container-xl-custom {
         width: 990px;
