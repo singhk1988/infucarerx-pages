@@ -9,13 +9,13 @@
 };
 const requiredControlsStep4 = {
   'view_Privacy_Notice': 'Please check.',
-  'legal_represenative': 'Please check.',
+  //'legal_represenative': 'Please check.',
   'sign_date': 'Please select signature date.',
   'NPPlname': 'Please enter last name.',
   'NPPfname': 'Please enter first name.',
-  'LRfname': 'Please enter first name.',
-  'LRlname':'Please enter last name.',
-  'LRsign_date': 'Please select signature date.',
+  //'LRfname': 'Please enter first name.',
+  //'LRlname':'Please enter last name.',
+  //'LRsign_date': 'Please select signature date.',
 };
 const requiredControlsStep6 = {
   'patient_fname': 'Please enter last name.',
@@ -255,7 +255,7 @@ function validateFormData(requiredControls,currentIndex) {
   }
   } else if(currentIndex === 3) {
     const canvas_patient_rp_sign = document.getElementById('patient_rp_sign');
-    const canvas_legalRepresentative = document.getElementById('legalRepresentative');
+    //const canvas_legalRepresentative = document.getElementById('legalRepresentative');
 
     if (isCanvasBlank(canvas_patient_rp_sign)) {
         hasError = true;
@@ -264,12 +264,12 @@ function validateFormData(requiredControls,currentIndex) {
         document.getElementById('patient_rp_sign_validation').style.display = 'block';
     }
 
-    if (isCanvasBlank(canvas_legalRepresentative)) {
+    /*if (isCanvasBlank(canvas_legalRepresentative)) {
         hasError = true;
         ValidationErrorStatus.legalRepresentative = true;
         canvas_legalRepresentative.style.borderColor = 'red';
         document.getElementById('legalRepresentative_validation').style.display = 'block';
-    }
+    }*/
 }
  else if(currentIndex === 4) {
     const canvas_CGPatSignCanvas = document.getElementById('CGPatSignCanvas');
