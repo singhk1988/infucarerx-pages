@@ -187,6 +187,11 @@ h3.fields-title{
 #txtInsuranceTypeOther input {
     width: 306px;
 }
+
+.w-750 {
+    width: 750px;
+    margin: 0 auto;
+}
 }
   @media(min-width:1200px) {
     /* .container-xl-custom {
