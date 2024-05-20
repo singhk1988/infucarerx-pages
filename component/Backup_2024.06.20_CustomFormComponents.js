@@ -9,7 +9,7 @@ function getFormControlTemplate(label) {
 }
 
 customElements.define("custom-input", class extends HTMLElement {
-  static observedAttributes = ["label", "value", "error"];
+  static observedAttributes = ["label", "value", "error", "disabled"];
 
   constructor() {
     super();
@@ -25,6 +25,7 @@ customElements.define("custom-input", class extends HTMLElement {
       this.innerHTML = getFormControlTemplate(this.getAttribute('label'));
       const inputTemplate = document.createElement('template');
       const type = this.getAttribute('type') ?? 'text';
+      const disabled = this.getAttribute('disabled') !== null ? 'disabled' : '';
       inputTemplate.innerHTML = `
         <input type="${type}"
           id="${this.id}-input"
@@ -32,6 +33,7 @@ customElements.define("custom-input", class extends HTMLElement {
           placeholder="${this.getAttribute('placeholder')}"
           value="${this.getAttribute('value')}"
           class="form-control"
+          ${disabled}
         />
       `;
       this.querySelector('slot[name="input"]').replaceWith(inputTemplate.content);
@@ -91,6 +93,13 @@ customElements.define("custom-input", class extends HTMLElement {
       this.querySelector('.form-item').classList.remove('is-invalid');
       this.inputElement.classList.remove('is-invalid');
       this.querySelector('.invalid-feedback').textContent = '';
+    }
+
+    // Update disabled state
+    if (this.getAttribute('disabled') !== null) {
+      this.inputElement.setAttribute('disabled', '');
+    } else {
+      this.inputElement.removeAttribute('disabled');
     }
   }
 
@@ -210,201 +219,3 @@ customElements.define("custom-input-checkradio-item", class extends HTMLElement 
   }
 });
 
-class CommonStepper extends HTMLElement {
-  constructor() {
-      super();
-      this.currentStep = 1;
-      this.steps = [];
-      this.render();
-  }
-
-  connectedCallback() {
-      // Parse the steps attribute value as JSON array
-      this.steps = JSON.parse(this.getAttribute('steps'));
-      this.render();
-  }
-  
-  render() {
-      const steps = JSON.parse(this.getAttribute('steps'));
-      const totalSteps = steps.length;
-      this.innerHTML = `
-      <style>
-      .steps {
-          display: flex;
-          align-items: flex-start;
-          justify-content: center;
-      }
-      p {
-          margin-top: 0 !important; 
-          margin-bottom: 0 !important;
-      }
-      h4 {
-          margin-top: 0 !important; 
-          margin-bottom: 0 !important;
-      }
-      .step {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          flex-direction:column;
-          gap: 5px;
-          flex: 1;
-          cursor: pointer;
-          
-      }
-      .step-number {
-          width: 40px;
-          height: 40px;
-          border: 2px solid #ddd;
-          border-radius: 50%;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          
-      }
-      .step h4 {  
-          font-size: 12px;
-          text-align: center;
-      }
-      .active {
-          background-color: #007bff;
-          color: #fff;
-      }
-      .active-header {
-          color: #444;
-          font-weight: bold;
-          font-size:20px;
-      }
-      .progress-bar {
-          height: 4px;
-          background-color: #007bff;
-          margin-top: 10px;
-      }
-      .line-wrapper {
-          width: 100%;
-      }
-      .line1 {
-          height:50px;
-          width: 100%;
-          display: flex;
-          align-items: center;
-      }
-      .line {
-          width: 100%;
-          height: 4px;
-          background-color: #ddd;
-          
-      }
-      .line-completed .line{
-          background-color: green;
-      }
-      .line-blue .line {
-          background-color: #007bff;
-      }
-      .completed {
-          background-color: green;
-          color: white;
-      }
-      .step-number .check {
-          display: none;
-      }
-      
-      .completed .check {
-          display: block !important;
-      }
-
-      
-      
-      </style>
-      <div class="steps mt-2">
-          ${steps.map((label, index) => `
-              <div class="step" data-step="${index + 1}">
-              <p class="step-number ${index === 0 ? 'active' : ''}">
-                  <span class="step-index-number">${index + 1}</span>
-                  <span class="check">✔</span>
-              </p>
-
-              <h4 class="step-header ${index === 0 ? 'active-header' : ''}">${label}</h4>
-              </div>
-              ${index < totalSteps - 1 ? '<div class="line1"><div class="line" id="line"></div></div>' : ''}
-          `).join('')}
-      </div>
-      <!-- <div class="progress-bar-container">
-          <div class="progress-bar" style="width: ${this.currentStep * (100 / totalSteps)}%;"></div>
-          <div class="content"></div>
-      </div> -->
-  `;
-      this.loadStepContent(1);
-  }
-
-  static get observedAttributes() {
-      return ['steps','current-step', 'next-button', 'prev-button'];
-  }
-
-  attributeChangedCallback(name, oldValue, newValue) {
-      console.log("Attribute changed:", name, "Old value:", oldValue, "New value:", newValue);
-      if (name === 'current-step' && newValue) {
-          this.currentStep = parseInt(newValue);
-          this.loadStepContent(this.currentStep);
-      }
-  }
-  loadStepContent(step) {
-      const stepContentDiv = document.getElementById(`stepContent${step}`);
-      if (stepContentDiv) {
-          const stepContentDivs = document.querySelectorAll('.step-content');
-          stepContentDivs.forEach(div => div.style.display = 'none');
-          stepContentDiv.style.display = 'block';
-  
-          const steps = this.querySelectorAll('.step-number');
-          const stepsHeader = this.querySelectorAll('.step-header');
-          const stepsLine = this.querySelectorAll('.line1');
-          
-          if (steps && stepsHeader && stepsLine) {
-              steps.forEach(stepEl => stepEl.classList.remove('active', 'completed'));
-              stepsHeader.forEach(header => header.classList.remove('active-header'));
-              stepsLine.forEach(line => line.classList.remove('line-completed', 'line-blue'));
-  
-              for (let i = 0; i < step - 1; i++) {
-                  if (steps[i] && stepsLine[i]) {
-                      steps[i].classList.add('completed');
-                      stepsLine[i].classList.add('line-completed');
-                      steps[i].querySelector('.step-index-number').style.display = 'none';
-                  }
-              }
-  
-              if (steps[step - 1] && stepsHeader[step - 1]) {
-                  steps[step - 1].querySelector('.step-index-number').style.display = 'block';
-                  steps[step - 1].classList.add('active');
-                  stepsHeader[step - 1].classList.add('active-header');
-              }
-  
-              if (step > 1 && stepsLine[step - 2]) {
-                  stepsLine[step - 2].classList.add('line-blue');
-              }
-              if (step < steps.length && stepsLine[step - 1]) {
-                  stepsLine[step - 1].classList.add('line-green');
-              }
-          }
-      }
-  }
-  
-  getStepLabel(stepIndex) {
-      const steps = JSON.parse(this.getAttribute('steps'));
-      if (stepIndex >= 0 && stepIndex < steps.length) {
-          return steps[stepIndex];
-      } else {
-          return null;
-      }
-  }
-
-  setStepLabel(stepIndex, newLabel) {
-      const steps = JSON.parse(this.getAttribute('steps'));
-      if (stepIndex >= 0 && stepIndex < steps.length) {
-          steps[stepIndex] = newLabel;
-          this.setAttribute('steps', JSON.stringify(steps));
-          this.render(); 
-      }
-  }
-}
-
-customElements.define('common-stepper', CommonStepper);
