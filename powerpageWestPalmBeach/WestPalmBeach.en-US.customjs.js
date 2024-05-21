@@ -135,7 +135,7 @@ const hideAndShowLogic = () => {
   showPage(currentIndex);
 
 // Next button click event
-document.getElementById('nextBtn').addEventListener('click', function () {
+document.getElementById('nextButton').addEventListener('click', function () {
   // Check if current index meets the condition to prevent moving to the next index
   if (validateForm()) {
     if (currentIndex < pages.length - 1) {
@@ -145,7 +145,7 @@ document.getElementById('nextBtn').addEventListener('click', function () {
     }
     // Check if it's on the last step, hide the next button
     if (currentIndex === pages.length - 1) {
-      document.getElementById('nextBtn').innerHTML = 'Submit'; 
+      document.getElementById('nextButton').innerHTML = 'Submit'; 
       
     }
      

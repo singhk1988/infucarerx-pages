@@ -11,7 +11,7 @@
 <body>  
   <main class="main-container pt-4">
     <div class="container">
-      <!-- <form action="">  -->
+      <form action="" > 
       <common-stepper
         steps='["Welcome Page", "Patient Admission Packet Checklist", "Patient Admission Agreement", "Notice of Privacy Practices", "Patient Concern / Grievance Form", "Patient Authorization"]'
         current-step="1">
@@ -51,8 +51,8 @@
           </div>
         </div>
         <div class="mt-4">
-          <button id="saveAsDraft" class="btn btn-success">Save as Draft</button>
-          <button id="nextButton" class="nextStep btn btn-primary me-2" onclick="handleNext()">Next</button>
+          <button id="saveAsDraft" type="button" class="btn btn-success">Save as Draft</button>
+          <button id="nextButton" type="button" class="nextStep btn btn-primary me-2" onclick="handleNext()">Next</button>
         </div>
       </div>
       <!-- Patient Admission Packet Checklist ✔ -->
@@ -451,9 +451,9 @@
             </div>
           </div>
           <div class="mt-4">
-            <button id="prevButton" class="prevStep btn btn-secondary me-2" onclick="handlePrevious()">Previous</button>
-            <button id="saveAsDraft" class="btn btn-success">Save as Draft</button>
-            <button id="nextButton" class="nextStep btn btn-primary me-2" onclick="handleNext()">Continue</button>
+            <button id="prevButton" type="button" class="prevStep btn btn-secondary me-2" onclick="handlePrevious()">Previous</button>
+            <button id="saveAsDraft" type="button" class="btn btn-success">Save as Draft</button>
+            <button id="nextButton" type="button" class="nextStep btn btn-primary me-2" onclick="handleNext()">Continue</button>
           </div>
         </div>
       </div>
@@ -498,8 +498,8 @@
         </div>
          
         <div class="mt-4">
-          <button id="prevButton" class="prevStep btn btn-secondary me-2" onclick="handlePrevious()">Previous</button>
-          <button id="nextButton" class="nextStep btn btn-primary me-2" onclick="handleNext()">Next</button>
+          <button id="prevButton" type="button" class="prevStep btn btn-secondary me-2" onclick="handlePrevious()">Previous</button>
+          <button id="nextButton" type="button" class="nextStep btn btn-primary me-2" onclick="handleNext()">Next</button>
         </div>
       </div>
       <!-- NOTICE OF PRIVACY PRACTICES ACKNOWLEDMENT FORM -->
@@ -810,8 +810,8 @@
           </div>
         </div>
         <div class="mt-4">
-          <button id="prevButton" class="prevStep btn btn-secondary me-2" onclick="handlePrevious()">Previous</button>
-          <button id="nextButton" class="nextStep btn btn-primary me-2" onclick="handleNext()">Next</button>
+          <button id="prevButton" type="button" class="prevStep btn btn-secondary me-2" onclick="handlePrevious()">Previous</button>
+          <button id="nextButton" type="button" class="nextStep btn btn-primary me-2" onclick="handleNext()">Next</button>
         </div>
       </div>
 
@@ -961,8 +961,8 @@
           </div>
         </div>
         <div class="mt-4">
-          <button id="prevButton" class="prevStep btn btn-secondary me-2" onclick="handlePrevious()">Previous</button>
-          <button id="nextButton" class="nextStep btn btn-primary me-2" onclick="handleNext()">Next</button>
+          <button id="prevButton" type="button" class="prevStep btn btn-secondary me-2" onclick="handlePrevious()">Previous</button>
+          <button id="nextButton" type="button" class="nextStep btn btn-primary me-2" onclick="handleNext()">Next</button>
         </div>
       </div>
       <!-- Patient Authorization -->
@@ -1283,8 +1283,8 @@
           </div>
         </div>
         <div class="mt-4">
-          <button id="prevButton" class="prevStep btn btn-secondary me-2" onclick="handlePrevious()">Previous</button>
-          <button id="submit" class="prevStep btn btn-secondary me-2" onclick="onSubmit()">Submit</button>
+          <button id="prevButton" type="button" class="prevStep btn btn-secondary me-2" onclick="handlePrevious()">Previous</button>
+          <button id="submit" type="button" class="prevStep btn btn-secondary me-2" onclick="onSubmit()">Submit</button>
         </div>
       </div>
     </form>
