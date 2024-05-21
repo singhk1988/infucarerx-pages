@@ -7,6 +7,7 @@
   'date': 'Please select witness date.',
 
 };
+ 
 const requiredControlsStep4 = {
   'view_Privacy_Notice': 'Please check.',
   //'legal_represenative': 'Please check.',
@@ -33,45 +34,12 @@ let ValidationErrorStatus = {
   legalRepresentative: false,
   PAuthorization: false
  };
-
-document.addEventListener("DOMContentLoaded", function () {
-
-  const checkboxes = [
-    { checkbox: "#view_welcome_packet input", div: "#customer_policy" },
-    { checkbox: "#view_Privacy_Notice input", div: "#notice_of_privacy_practices" },
-    { checkbox: "#legal_represenative input", div: "#show_legal_represenative" },
-    { checkbox: "#support_organizations input", div: "#Support_Organizations_area" },
-    { checkbox: "#view_medicare_DMEPOS input", div: "#medicare_DMEPOS_english" },
-    { checkbox: "#view_medicare_DMEPOS_spanish input", div: "#see_medicare_DMEPOS_sp_area" },
-    { checkbox: "#click_pat_survey input", div: "#pat_satistaction_survey" }
-  ];
-
-  checkboxes.forEach(({ checkbox, div }) => {
-    const checkboxElem = document.querySelector(checkbox);
-    const divElem = document.querySelector(div);
-
-    checkboxElem.addEventListener("change", function () {
-      divElem.style.display = checkboxElem.checked ? "block" : "none";
-    });
-  });
-
-
-  // Step 3
-  showPatientSignature('patient_sign', 'clearButton', 'patient_sign_validation',ValidationErrorStatus.patient_sign);
-  hideAndShowLogic();
-  // Step 4
-  showPatientSignature('patient_rp_sign', 'RPClearButton','patient_rp_sign_validation',ValidationErrorStatus.patient_rp_sign );
-  // Step 5
-  showPatientSignature('CGPatSignCanvas', 'CGPatSignClearButton','CGPatSignCanvas_validation',ValidationErrorStatus.CGPatSignCanvas);
-  // Step 6
-  showPatientSignature('legalRepresentative', 'LRClearButton','legalRepresentative_validation',ValidationErrorStatus.legalRepresentative);
-  
-  showPatientSignature('PAuthorization', 'PAClearButton','PAuthorization_validation',ValidationErrorStatus.PAuthorization);
-});
+ 
 
 function showPatientSignature(canvasId,clearButtonId,ValidationCanvasID,ValSignErrorName) {
-  // signature functinality
+  // signature functinality 
   const canvas = document.getElementById(canvasId);
+ 
   if (!canvas) { 
     return;
   }
@@ -195,10 +163,10 @@ document.getElementById('nextButton').addEventListener('click', function () {
     // Return true if no errors found
     return !hasError;
   }
-
 }
 
 function validateFormData(requiredControls,currentIndex) {
+  console.log('check valition function')
   // reset validation status.
   ValidationErrorStatus = {
     view_Privacy_Notice:false, 
@@ -291,6 +259,20 @@ function validateFormData(requiredControls,currentIndex) {
 
   return hasError;
 }
+
+function validateForm(currentIndex) {
+  let hasError = false;
+  // Perform validation specific to the current index
+  if (currentIndex === 2) {
+    hasError = validateFormData(requiredControlsStep3,currentIndex);
+  } else if (currentIndex === 3) {
+    hasError = validateFormData(requiredControlsStep4,currentIndex);
+  } else if (currentIndex === 6) {
+    hasError = validateFormData(requiredControlsStep6,currentIndex);
+  }
+  // Return true if no errors found
+  return !hasError;
+}
   
 const isCanvasBlank = (canvas) => {
   return !canvas.getContext('2d')
@@ -301,6 +283,42 @@ const isCanvasBlank = (canvas) => {
 
 let formResponseId, signatureData;
 document.addEventListener("DOMContentLoaded", async function () {
+
+
+ const checkboxes = [
+    { checkbox: "#view_welcome_packet input", div: "#customer_policy" },
+    { checkbox: "#view_Privacy_Notice input", div: "#notice_of_privacy_practices" },
+    { checkbox: "#legal_represenative input", div: "#show_legal_represenative" },
+    { checkbox: "#support_organizations input", div: "#Support_Organizations_area" },
+    { checkbox: "#view_medicare_DMEPOS input", div: "#medicare_DMEPOS_english" },
+    { checkbox: "#view_medicare_DMEPOS_spanish input", div: "#see_medicare_DMEPOS_sp_area" },
+    { checkbox: "#click_pat_survey input", div: "#pat_satistaction_survey" }
+  ];
+
+  checkboxes.forEach(({ checkbox, div }) => {
+    const checkboxElem = document.querySelector(checkbox);
+    const divElem = document.querySelector(div);
+
+    checkboxElem.addEventListener("change", function () {
+      divElem.style.display = checkboxElem.checked ? "block" : "none";
+    });
+  });
+
+
+  // Step 3
+  showPatientSignature('patient_sign', 'clearButton', 'patient_sign_validation',ValidationErrorStatus.patient_sign);
+  hideAndShowLogic();
+  // Step 4
+  showPatientSignature('patient_rp_sign', 'RPClearButton','patient_rp_sign_validation',ValidationErrorStatus.patient_rp_sign );
+  // Step 5
+  showPatientSignature('CGPatSignCanvas', 'CGPatSignClearButton','CGPatSignCanvas_validation',ValidationErrorStatus.CGPatSignCanvas);
+  // Step 6
+  showPatientSignature('legalRepresentative', 'LRClearButton','legalRepresentative_validation',ValidationErrorStatus.legalRepresentative);
+  
+  showPatientSignature('PAuthorization', 'PAClearButton','PAuthorization_validation',ValidationErrorStatus.PAuthorization);
+
+
+
   commonFormOpeation.showSpinner('overlay-spinner', true);
 
   {
@@ -547,6 +565,36 @@ const prepareDataForPdf = (formResponses) => {
 
   return formResponseMap;
 }
+
+function handleNext() {
+  console.log('next handle')
+ // validateFormData();
+  const stepper = document.querySelector('common-stepper');
+  const currentStepAttr = stepper.getAttribute('current-step');
+  const currentStep = currentStepAttr ? parseInt(currentStepAttr, 10) : 0;
+  const stepsAttr = stepper.getAttribute('steps');
+  const totalSteps = stepsAttr ? stepsAttr.split(',').length : 0;
+
+  if (!validateForm(currentStep - 1)) {
+    return;
+  }
+
+  if (currentStep < totalSteps) {
+    stepper.setAttribute('current-step', currentStep + 1);
+  }
+}
+
+// Function to handle the previous step
+function handlePrevious() {
+  const stepper = document.querySelector('common-stepper');
+  const currentStepAttr = stepper.getAttribute('current-step');
+  const currentStep = currentStepAttr ? parseInt(currentStepAttr, 10) : 0;
+
+  if (currentStep > 1) {
+    stepper.setAttribute('current-step', currentStep - 1);
+  }
+} 
+
 
 const getQuestionToIdMap = () => {
   const idToQueMap = {

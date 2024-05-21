@@ -1293,29 +1293,5 @@
 
    
   <script src="../component/CustomFormComponents.js"></script>
-  <script>
-    function handleNext() {
-      const stepper = document.querySelector('common-stepper');
-      const currentStepAttr = stepper.getAttribute('current-step');
-      const currentStep = currentStepAttr ? parseInt(currentStepAttr, 10) : 0;
-      const stepsAttr = stepper.getAttribute('steps');
-      const totalSteps = stepsAttr ? stepsAttr.split(',').length : 0;
-
-      if (currentStep < totalSteps) {
-        stepper.setAttribute('current-step', currentStep + 1);
-      }
-    }
-
-    // Function to handle the previous step
-    function handlePrevious() {
-      const stepper = document.querySelector('common-stepper');
-      const currentStepAttr = stepper.getAttribute('current-step');
-      const currentStep = currentStepAttr ? parseInt(currentStepAttr, 10) : 0;
-
-      if (currentStep > 1) {
-        stepper.setAttribute('current-step', currentStep - 1);
-      }
-    } 
-  </script>
   
 </body>
