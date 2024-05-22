@@ -12,6 +12,7 @@
   <main class="main-container pt-4">
     <div class="container">
       <form action="" > 
+        <div id="form_hide"> 
       <common-stepper
         steps='["Welcome Page", "Patient Admission Packet Checklist", "Patient Admission Agreement", "Notice of Privacy Practices", "Patient Concern / Grievance Form", "Patient Authorization"]'
         current-step="1">
@@ -452,7 +453,7 @@
           </div>
           <div class="mt-4">
             <button id="prevButton" type="button" class="prevStep btn btn-secondary me-2" onclick="handlePrevious()">Previous</button>
-            <button id="saveAsDraft" type="button" class="btn btn-success">Save as Draft</button>
+            <button id="save-draft" type="button" class="btn btn-success">Save as Draft</button>
             <button id="nextButton" type="button" class="nextStep btn btn-primary me-2" onclick="handleNext()">Continue</button>
           </div>
         </div>
@@ -477,7 +478,7 @@
           <div class="row">
             <div class="form-group col-md-4"><custom-input type="text" label="Patient First name: *" value="" id="fname" name="fname" placeholder="First name" error="" required=""> </custom-input></div>
             <div class="form-group col-md-4"><custom-input type="text" label="Patient Last Name: *" value="" id="lname" name="lname" placeholder="Last Name" required=""> </custom-input></div>
-            <div class="form-group col-md-4"><custom-input label="Patient MRN: *" type="number" id="mrn" name="mrn" value="" placeholder="" required=""> </custom-input></div>
+            <div class="form-group col-md-4"><custom-input label="Patient MRN: *" type="number" id="mrn" name="mrn" value="" placeholder="Patient MRN" required=""> </custom-input></div>
             <div class="form-group col-md-4 date-picker"><custom-input type="date" label="Signature Date: *" id="date_sign" name="date_sign" required=""> </custom-input></div>
             <div class="form-group col-md-4"><custom-input label="Legal Guardian Name: " value="" id="LegalGName" name="LegalGName" placeholder="Legal Guardian Name" error=""> </custom-input></div>
             <div class="signature col-md-8 mt-3">
@@ -499,6 +500,7 @@
          
         <div class="mt-4">
           <button id="prevButton" type="button" class="prevStep btn btn-secondary me-2" onclick="handlePrevious()">Previous</button>
+          <button id="save-draft" type="button" class="btn btn-success">Save as Draft</button>
           <button id="nextButton" type="button" class="nextStep btn btn-primary me-2" onclick="handleNext()">Next</button>
         </div>
       </div>
@@ -811,6 +813,7 @@
         </div>
         <div class="mt-4">
           <button id="prevButton" type="button" class="prevStep btn btn-secondary me-2" onclick="handlePrevious()">Previous</button>
+          <button id="save-draft" type="button" class="btn btn-success">Save as Draft</button>
           <button id="nextButton" type="button" class="nextStep btn btn-primary me-2" onclick="handleNext()">Next</button>
         </div>
       </div>
@@ -862,12 +865,12 @@
                   <custom-input-checkradio id="resp_type" name="resp_type" label="Respondent Type:" type="radio" value="Part A" class="radio_btn_inline fw-bold"><custom-input-checkradio-item label="Patient" value="Patient" id="resp_type_Patient" type="radio" class="form-check" style="display: inline-block; margin-right: 10px;"> </custom-input-checkradio-item><custom-input-checkradio-item label="Caregiver" value="Caregiver" id="resp_type_Caregiver" type="radio" class="form-check" style="display: inline-block; margin-right: 10px;"> </custom-input-checkradio-item><custom-input-checkradio-item label="Other" value="Other" id="resp_type_Other" type="radio" class="form-check" style="display: inline-block; margin-right: 10px;"> </custom-input-checkradio-item></custom-input-checkradio>
                 </div>
                 <div class="col-md-4">
-                  <div class="form-group mt-3"><custom-input value="" id="txtRespTypeOther" name="txtRespTypeOther" placeholder="Other:" error=""> </custom-input></div>
+                  <div class="form-group mt-3"><custom-input value="" id="txtRespTypeOther" style="display: none;" name="txtRespTypeOther" placeholder="Other:" error=""> </custom-input></div>
                 </div>
               </div>
               <div id="fb6zye" class="row">
                 <div>
-                  <custom-input-checkradio id="insurance_type" name="insurance_type" label="Insurance Type:" type="radio" value="Part A" class="radio_btn_inline"><custom-input-checkradio-item label="Medicare" value="Medicare" id="insurance_type_Medicare" type="radio" class="form-check" style="display: inline-block; margin-right: 10px;"> </custom-input-checkradio-item><custom-input-checkradio-item label="Medicaid" value="Medicaid" id="insurance_type_Medicaid" type="radio" class="form-check" style="display: inline-block; margin-right: 10px;"> </custom-input-checkradio-item><custom-input-checkradio-item label="Prime Therapeutics" value="Prime Therapeutics" id="insurance_type_Prime_Therapeutics" type="radio" class="form-check" style="display: inline-block; margin-right: 10px;"> </custom-input-checkradio-item><custom-input-checkradio-item label="CIGNA" value="CIGNA" id="insurance_type_CIGNA" type="radio" class="form-check" style="display: inline-block; margin-right: 10px;"> </custom-input-checkradio-item><custom-input-checkradio-item label="United Healthcare" value="United Healthcare" id="insurance_type_United_Healthcare" type="radio" class="form-check" style="display: inline-block; margin-right: 10px;"> </custom-input-checkradio-item><custom-input-checkradio-item label="Anthem" value="Anthem" id="insurance_type_Anthem" type="radio" class="form-check" style="display: inline-block; margin-right: 10px;"> </custom-input-checkradio-item><custom-input-checkradio-item label="Humana" value="Humana" id="insurance_type_Humana" type="radio" class="form-check" style="display: inline-block; margin-right: 10px;"> </custom-input-checkradio-item><custom-input-checkradio-item label="BCBS" value="BCBS" id="insurance_type_BCBS" type="radio" class="form-check" style="display: inline-block; margin-right: 10px;"> </custom-input-checkradio-item><custom-input-checkradio-item label="Other" value="Other" id="insurance_type_Other" type="radio" class="form-check" style="display: inline-block; margin-right: 10px;"> </custom-input-checkradio-item></custom-input-checkradio><custom-input value="" id="txtInsuranceTypeOther" name="txtInsuranceTypeOther" placeholder="Other:" error="" style="width: 200px;"> </custom-input>
+                  <custom-input-checkradio id="insurance_type" name="insurance_type" label="Insurance Type:" type="radio" value="Part A" class="radio_btn_inline"><custom-input-checkradio-item label="Medicare" value="Medicare" id="insurance_type_Medicare" type="radio" class="form-check" style="display: inline-block; margin-right: 10px;"> </custom-input-checkradio-item><custom-input-checkradio-item label="Medicaid" value="Medicaid" id="insurance_type_Medicaid" type="radio" class="form-check" style="display: inline-block; margin-right: 10px;"> </custom-input-checkradio-item><custom-input-checkradio-item label="Prime Therapeutics" value="Prime Therapeutics" id="insurance_type_Prime_Therapeutics" type="radio" class="form-check" style="display: inline-block; margin-right: 10px;"> </custom-input-checkradio-item><custom-input-checkradio-item label="CIGNA" value="CIGNA" id="insurance_type_CIGNA" type="radio" class="form-check" style="display: inline-block; margin-right: 10px;"> </custom-input-checkradio-item><custom-input-checkradio-item label="United Healthcare" value="United Healthcare" id="insurance_type_United_Healthcare" type="radio" class="form-check" style="display: inline-block; margin-right: 10px;"> </custom-input-checkradio-item><custom-input-checkradio-item label="Anthem" value="Anthem" id="insurance_type_Anthem" type="radio" class="form-check" style="display: inline-block; margin-right: 10px;"> </custom-input-checkradio-item><custom-input-checkradio-item label="Humana" value="Humana" id="insurance_type_Humana" type="radio" class="form-check" style="display: inline-block; margin-right: 10px;"> </custom-input-checkradio-item><custom-input-checkradio-item label="BCBS" value="BCBS" id="insurance_type_BCBS" type="radio" class="form-check" style="display: inline-block; margin-right: 10px;"> </custom-input-checkradio-item><custom-input-checkradio-item label="Other" value="Other" id="insurance_type_Other" type="radio" class="form-check" style="display: inline-block; margin-right: 10px;"> </custom-input-checkradio-item></custom-input-checkradio><custom-input value="" id="txtInsuranceTypeOther" style="display: none;" name="txtInsuranceTypeOther" placeholder="Other:" error="" style="width: 200px;"> </custom-input>
                 </div>
               </div>
               <div id="fb6zye-2" class="row">
@@ -962,6 +965,7 @@
         </div>
         <div class="mt-4">
           <button id="prevButton" type="button" class="prevStep btn btn-secondary me-2" onclick="handlePrevious()">Previous</button>
+          <button id="save-draft" type="button" class="btn btn-success">Save as Draft</button>
           <button id="nextButton" type="button" class="nextStep btn btn-primary me-2" onclick="handleNext()">Next</button>
         </div>
       </div>
@@ -1284,9 +1288,14 @@
         </div>
         <div class="mt-4">
           <button id="prevButton" type="button" class="prevStep btn btn-secondary me-2" onclick="handlePrevious()">Previous</button>
-          <button id="submit" type="button" class="prevStep btn btn-secondary me-2" onclick="onSubmit()">Submit</button>
+          <button id="save-draft" type="button" class="btn btn-success">Save as Draft</button>
+          <button id="saveBtn" type="button" class="prevStep btn btn-secondary me-2" onclick="handleNext()">Submit</button>
         </div>
       </div>
+    </div>
+      <div id="formInvalidCondition" class="alert alert-danger" role="alert" style="display: none;">
+        A simple danger alert—check it out!
+     </div>
     </form>
     </div>
   </main>
