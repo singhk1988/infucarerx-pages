@@ -8,11 +8,12 @@
   <script src="../powerpageWestPalmBeach/WestPalmBeach.en-US.customjs.js"></script>
 </head>
 
-<body>  
+<body>   
+ 
   <main class="main-container pt-4">
     <div class="container">
       <form action="" > 
-        <div id="form_hide"> 
+        <div id="form_hide" > 
       <common-stepper
         steps='["Welcome Page", "Patient Admission Packet Checklist", "Patient Admission Agreement", "Notice of Privacy Practices", "Patient Concern / Grievance Form", "Patient Authorization"]'
         current-step="1">
@@ -452,8 +453,8 @@
             </div>
           </div>
           <div class="mt-4">
-            <button id="prevButton" type="button" class="prevStep btn btn-secondary me-2" onclick="handlePrevious()">Previous</button>
-            <button id="save-draft" type="button" class="btn btn-success">Save as Draft</button>
+            <button id="prevButton" type="button" class="prevStep btn btn-success me-2" onclick="handlePrevious()">Previous</button>
+            <button id="save-draft" type="button" class="btn btn-success me-2">Save as Draft</button>
             <button id="nextButton" type="button" class="nextStep btn btn-primary me-2" onclick="handleNext()">Continue</button>
           </div>
         </div>
@@ -476,9 +477,9 @@
             <p>I have received a copy of InfuCare Rx’s Patient Admission Booklet including written statements regarding Privacy/Confidentiality Practices, Medication Instructions, Financial Responsibility, Medication Storage, Safety, Grievance Procedures and other information regarding my treatment. I had an opportunity to ask questions and understand the information provided to me. If I have questions or need additional information regarding my care, or the materials provided to me by InfuCare Rx, I know how to contact an InfuCare Rx pharmacy representative.</p>
           </div>
           <div class="row">
-            <div class="form-group col-md-4"><custom-input type="text" label="Patient First name: *" value="" id="fname" name="fname" placeholder="First name" error="" required=""> </custom-input></div>
-            <div class="form-group col-md-4"><custom-input type="text" label="Patient Last Name: *" value="" id="lname" name="lname" placeholder="Last Name" required=""> </custom-input></div>
-            <div class="form-group col-md-4"><custom-input label="Patient MRN: *" type="number" id="mrn" name="mrn" value="" placeholder="Patient MRN" required=""> </custom-input></div>
+            <div class="form-group col-md-4"><custom-input type="text" label="Patient First name: *" value="" id="fname" name="fname" placeholder="First name" error="" required="" disabled> </custom-input></div>
+            <div class="form-group col-md-4"><custom-input type="text" label="Patient Last Name: *" value="" id="lname" name="lname" placeholder="Last Name" required="" disabled> </custom-input></div>
+            <div class="form-group col-md-4"><custom-input label="Patient MRN: *" type="number" id="mrn" name="mrn" value="" placeholder="Patient MRN" required="" disabled> </custom-input></div>
             <div class="form-group col-md-4 date-picker"><custom-input type="date" label="Signature Date: *" id="date_sign" name="date_sign" required=""> </custom-input></div>
             <div class="form-group col-md-4"><custom-input label="Legal Guardian Name: " value="" id="LegalGName" name="LegalGName" placeholder="Legal Guardian Name" error=""> </custom-input></div>
             <div class="signature col-md-8 mt-3">
@@ -499,8 +500,8 @@
         </div>
          
         <div class="mt-4">
-          <button id="prevButton" type="button" class="prevStep btn btn-secondary me-2" onclick="handlePrevious()">Previous</button>
-          <button id="save-draft" type="button" class="btn btn-success">Save as Draft</button>
+          <button id="prevButton" type="button" class="prevStep btn btn-success me-2" onclick="handlePrevious()">Previous</button>
+          <button id="save-draft" type="button" class="btn btn-success me-2">Save as Draft</button>
           <button id="nextButton" type="button" class="nextStep btn btn-primary me-2" onclick="handleNext()">Next</button>
         </div>
       </div>
@@ -769,7 +770,7 @@
               <div class="signature col-md-12 mt-3">
                 <label for="responsible_party_sign" class="form-label question-label">Patient Signature *</label><span id=" " class="required_fields"></span>
                 <div id="i4s2zf-2" class="signature-canvas mb-3">
-                  <canvas id="patient_rp_sign" width="500" name="signature" required="" style="padding-top: 10px; padding-right: 10px; padding-bottom: 10px; padding-left: 10px; border-top-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-bottom-left-radius: 10px; cursor: url('../assets/pen.png') 16 16, crosshair; display: block;"></canvas><img id="patient_rp_sign-2" width="500" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTEwOCIgaGVpZ2h0PSI0NTAiIHZpZXdCb3g9IjAgMCAxMTA4IDQ1MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGcgb3BhY2l0eT0iMC45NSIgZmlsdGVyPSJ1cmwoI2ZpbHRlcjBfYl8xMzQ4XzY0MDMpIj4KPHJlY3Qgd2lkdGg9IjExMDgiIGhlaWdodD0iNDUwIiB0cmFuc2Zvcm09Im1hdHJpeCgtMSAwIDAgMSAxMTA4IDApIiBmaWxsPSJ3aGl0ZSIvPgo8cmVjdCB4PSItMSIgeT0iMSIgd2lkdGg9IjExMDYiIGhlaWdodD0iNDQ4IiB0cmFuc2Zvcm09Im1hdHJpeCgtMSAwIDAgMSAxMTA2IDApIiBzdHJva2U9IiNEMkQwQ0UiIHN0cm9rZS13aWR0aD0iMiIvPgo8L2c+CjxwYXRoIGQ9Ik01NzcuOTU4IDE4Ny41QzU4NS40MzcgMTg3LjUgNTkxLjUgMTkzLjU2MyA1OTEuNSAyMDEuMDQyVjI0OC45NThDNTkxLjUgMjU2LjQzNyA1ODUuNDM3IDI2Mi41IDU3Ny45NTggMjYyLjVINTMwLjA0MkM1MjIuNTYzIDI2Mi41IDUxNi41IDI1Ni40MzcgNTE2LjUgMjQ4Ljk1OFYyMDEuMDQyQzUxNi41IDE5My41NjMgNTIyLjU2MyAxODcuNSA1MzAuMDQyIDE4Ny41SDU3Ny45NThaTTU4MC4zNzcgMjU1LjgzOUw1NTYuMTg2IDIzMi4xNDVDNTU1LjA4MiAyMzEuMDY0IDU1My4zNzUgMjMwLjk2NSA1NTIuMTYyIDIzMS44NUw1NTEuODEzIDIzMi4xNDVMNTI3LjYxOSAyNTUuODM4QzUyOC4zNzcgMjU2LjEwNSA1MjkuMTkyIDI1Ni4yNSA1MzAuMDQyIDI1Ni4yNUg1NzcuOTU4QzU3OC44MDYgMjU2LjI1IDU3OS42MiAyNTYuMTA1IDU4MC4zNzcgMjU1LjgzOUw1NTYuMTg2IDIzMi4xNDVMNTgwLjM3NyAyNTUuODM5Wk01NzcuOTU4IDE5My43NUg1MzAuMDQyQzUyNi4wMTUgMTkzLjc1IDUyMi43NSAxOTcuMDE1IDUyMi43NSAyMDEuMDQyVjI0OC45NThDNTIyLjc1IDI0OS44MjcgNTIyLjkwMiAyNTAuNjYgNTIzLjE4IDI1MS40MzJMNTQ3LjQ0MSAyMjcuNjc5QzU1MC45MTIgMjI0LjI4IDU1Ni4zNjUgMjI0LjExOSA1NjAuMDI0IDIyNy4xOTRMNTYwLjU1OSAyMjcuNjhMNTg0LjgxOCAyNTEuNDM2QzU4NS4wOTcgMjUwLjY2MiA1ODUuMjUgMjQ5LjgyOCA1ODUuMjUgMjQ4Ljk1OFYyMDEuMDQyQzU4NS4yNSAxOTcuMDE1IDU4MS45ODUgMTkzLjc1IDU3Ny45NTggMTkzLjc1Wk01NjcuNTUgMjAyLjA4M0M1NzIuNzMzIDIwMi4wODMgNTc2LjkzNCAyMDYuMjg1IDU3Ni45MzQgMjExLjQ2N0M1NzYuOTM0IDIxNi42NSA1NzIuNzMzIDIyMC44NTEgNTY3LjU1IDIyMC44NTFDNTYyLjM2OCAyMjAuODUxIDU1OC4xNjcgMjE2LjY1IDU1OC4xNjcgMjExLjQ2N0M1NTguMTY3IDIwNi4yODUgNTYyLjM2OCAyMDIuMDgzIDU2Ny41NSAyMDIuMDgzWk01NjcuNTUgMjA4LjMzM0M1NjUuODIgMjA4LjMzMyA1NjQuNDE3IDIwOS43MzYgNTY0LjQxNyAyMTEuNDY3QzU2NC40MTcgMjEzLjE5OCA1NjUuODIgMjE0LjYwMSA1NjcuNTUgMjE0LjYwMUM1NjkuMjgxIDIxNC42MDEgNTcwLjY4NCAyMTMuMTk4IDU3MC42ODQgMjExLjQ2N0M1NzAuNjg0IDIwOS43MzYgNTY5LjI4MSAyMDguMzMzIDU2Ny41NSAyMDguMzMzWiIgZmlsbD0iI0FDQUNBQyIvPgo8ZGVmcz4KPGZpbHRlciBpZD0iZmlsdGVyMF9iXzEzNDhfNjQwMyIgeD0iLTQiIHk9Ii00IiB3aWR0aD0iMTExNiIgaGVpZ2h0PSI0NTgiIGZpbHRlclVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgY29sb3ItaW50ZXJwb2xhdGlvbi1maWx0ZXJzPSJzUkdCIj4KPGZlRmxvb2QgZmxvb2Qtb3BhY2l0eT0iMCIgcmVzdWx0PSJCYWNrZ3JvdW5kSW1hZ2VGaXgiLz4KPGZlR2F1c3NpYW5CbHVyIGluPSJCYWNrZ3JvdW5kSW1hZ2UiIHN0ZERldmlhdGlvbj0iMiIvPgo8ZmVDb21wb3NpdGUgaW4yPSJTb3VyY2VBbHBoYSIgb3BlcmF0b3I9ImluIiByZXN1bHQ9ImVmZmVjdDFfYmFja2dyb3VuZEJsdXJfMTM0OF82NDAzIi8+CjxmZUJsZW5kIG1vZGU9Im5vcm1hbCIgaW49IlNvdXJjZUdyYXBoaWMiIGluMj0iZWZmZWN0MV9iYWNrZ3JvdW5kQmx1cl8xMzQ4XzY0MDMiIHJlc3VsdD0ic2hhcGUiLz4KPC9maWx0ZXI+CjwvZGVmcz4KPC9zdmc+Cg==" alt="" class="form-control" style="display: none;" />
+                  <canvas id="patient_rp_sign" width="500" name="signature" required="" style="padding-top: 10px; padding-right: 10px; padding-bottom: 10px; padding-left: 10px; border-top-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-bottom-left-radius: 10px; cursor: url('../assets/pen.png') 16 16, crosshair; display: block;"></canvas><img id="patient_rp_sign-2" width="500" src="" alt="" class="form-control" style="display: none;" />
                   <div id="patient_rp_sign_validation" class="invalid-feedback" style="margin-top: 0px;">Please enter signature.</div>
                   <button type="button" id="RPClearButton" class="btn btn-primary mt-3" style="border-top-width: initial; border-right-width: initial; border-bottom-width: initial; border-left-width: initial; border-top-style: none; border-right-style: none; border-bottom-style: none; border-left-style: none; border-top-color: initial; border-right-color: initial; border-bottom-color: initial; border-left-color: initial; border-image-source: initial; border-image-slice: initial; border-image-width: initial; border-image-outset: initial; border-image-repeat: initial; border-top-left-radius: 5px; border-top-right-radius: 5px; border-bottom-right-radius: 5px; border-bottom-left-radius: 5px; background-color: var(--btn-primary-color); font-size: 16px; font-weight: 400; cursor: pointer;">Clear</button>
                 </div>
@@ -812,12 +813,12 @@
           </div>
         </div>
         <div class="mt-4">
-          <button id="prevButton" type="button" class="prevStep btn btn-secondary me-2" onclick="handlePrevious()">Previous</button>
-          <button id="save-draft" type="button" class="btn btn-success">Save as Draft</button>
+          <button id="prevButton" type="button" class="prevStep btn btn-success me-2" onclick="handlePrevious()">Previous</button>
+          <button id="save-draft" type="button" class="btn btn-success me-2">Save as Draft</button>
           <button id="nextButton" type="button" class="nextStep btn btn-primary me-2" onclick="handleNext()">Next</button>
         </div>
       </div>
-
+  
       <!-- PATIENT CONCERN / GRIEVANCE FORM -->
       <div class="step-content container mt-4 main-form-container" id="stepContent5" style="display: none;">
         <div class="booklet container-xl-custom ConcernGrievance">
@@ -861,21 +862,63 @@
             <div class="row justify-content-left align-items-left text-left">
               <h6>Do not include any patient identifying information in your response.</h6>
               <div id="fb3zye" class="row">
-                <div class="col-md-4">
-                  <custom-input-checkradio id="resp_type" name="resp_type" label="Respondent Type:" type="radio" value="Part A" class="radio_btn_inline fw-bold"><custom-input-checkradio-item label="Patient" value="Patient" id="resp_type_Patient" type="radio" class="form-check" style="display: inline-block; margin-right: 10px;"> </custom-input-checkradio-item><custom-input-checkradio-item label="Caregiver" value="Caregiver" id="resp_type_Caregiver" type="radio" class="form-check" style="display: inline-block; margin-right: 10px;"> </custom-input-checkradio-item><custom-input-checkradio-item label="Other" value="Other" id="resp_type_Other" type="radio" class="form-check" style="display: inline-block; margin-right: 10px;"> </custom-input-checkradio-item></custom-input-checkradio>
+                <div class="col-md-6">
+                  <custom-input-checkradio id="resp_type" name="resp_type" label="Respondent Type:" type="radio" value="Part A" class="radio_btn_inline fw-bold">
+                    
+                    <custom-input-checkradio-item label="Patient" value="Patient" id="resp_type_Patient" type="radio" class="form-check" style="display: inline-block; margin-right: 10px;"> </custom-input-checkradio-item>
+                    
+                    <custom-input-checkradio-item label="Caregiver" value="Caregiver" id="resp_type_Caregiver" type="radio" class="form-check" style="display: inline-block; margin-right: 10px;"> </custom-input-checkradio-item>
+                    
+                    <custom-input-checkradio-item label="Other" value="Other" id="resp_type_Other" type="radio" class="form-check" style="display: inline-block; margin-right: 10px;"> </custom-input-checkradio-item>
+                  
+                  </custom-input-checkradio><custom-input value="" id="txtRespTypeOther" style="display: none; width: 306px;" name="txtRespTypeOther" placeholder="Other:" error=""> </custom-input>
                 </div>
-                <div class="col-md-4">
-                  <div class="form-group mt-3"><custom-input value="" id="txtRespTypeOther" style="display: none;" name="txtRespTypeOther" placeholder="Other:" error=""> </custom-input></div>
-                </div>
+                
               </div>
               <div id="fb6zye" class="row">
-                <div>
-                  <custom-input-checkradio id="insurance_type" name="insurance_type" label="Insurance Type:" type="radio" value="Part A" class="radio_btn_inline"><custom-input-checkradio-item label="Medicare" value="Medicare" id="insurance_type_Medicare" type="radio" class="form-check" style="display: inline-block; margin-right: 10px;"> </custom-input-checkradio-item><custom-input-checkradio-item label="Medicaid" value="Medicaid" id="insurance_type_Medicaid" type="radio" class="form-check" style="display: inline-block; margin-right: 10px;"> </custom-input-checkradio-item><custom-input-checkradio-item label="Prime Therapeutics" value="Prime Therapeutics" id="insurance_type_Prime_Therapeutics" type="radio" class="form-check" style="display: inline-block; margin-right: 10px;"> </custom-input-checkradio-item><custom-input-checkradio-item label="CIGNA" value="CIGNA" id="insurance_type_CIGNA" type="radio" class="form-check" style="display: inline-block; margin-right: 10px;"> </custom-input-checkradio-item><custom-input-checkradio-item label="United Healthcare" value="United Healthcare" id="insurance_type_United_Healthcare" type="radio" class="form-check" style="display: inline-block; margin-right: 10px;"> </custom-input-checkradio-item><custom-input-checkradio-item label="Anthem" value="Anthem" id="insurance_type_Anthem" type="radio" class="form-check" style="display: inline-block; margin-right: 10px;"> </custom-input-checkradio-item><custom-input-checkradio-item label="Humana" value="Humana" id="insurance_type_Humana" type="radio" class="form-check" style="display: inline-block; margin-right: 10px;"> </custom-input-checkradio-item><custom-input-checkradio-item label="BCBS" value="BCBS" id="insurance_type_BCBS" type="radio" class="form-check" style="display: inline-block; margin-right: 10px;"> </custom-input-checkradio-item><custom-input-checkradio-item label="Other" value="Other" id="insurance_type_Other" type="radio" class="form-check" style="display: inline-block; margin-right: 10px;"> </custom-input-checkradio-item></custom-input-checkradio><custom-input value="" id="txtInsuranceTypeOther" style="display: none;" name="txtInsuranceTypeOther" placeholder="Other:" error="" style="width: 200px;"> </custom-input>
+                <div class="mt-3">
+                  <custom-input-checkradio id="insurance_type" name="insurance_type" label="Insurance Type:" type="radio" value="Part A" class="radio_btn_inline">
+                    
+                    <custom-input-checkradio-item label="Medicare" value="Medicare" id="insurance_type_Medicare" type="radio" class="form-check" style="display: inline-block; margin-right: 10px;"> </custom-input-checkradio-item>
+                    
+                    <custom-input-checkradio-item label="Medicaid" value="Medicaid" id="insurance_type_Medicaid" type="radio" class="form-check" style="display: inline-block; margin-right: 10px;"> </custom-input-checkradio-item>
+                    
+                    <custom-input-checkradio-item label="Prime Therapeutics" value="Prime Therapeutics" id="insurance_type_Prime_Therapeutics" type="radio" class="form-check" style="display: inline-block; margin-right: 10px;"> </custom-input-checkradio-item>
+                    
+                    <custom-input-checkradio-item label="CIGNA" value="CIGNA" id="insurance_type_CIGNA" type="radio" class="form-check" style="display: inline-block; margin-right: 10px;"> </custom-input-checkradio-item>
+                    
+                    <custom-input-checkradio-item label="United Healthcare" value="United Healthcare" id="insurance_type_United_Healthcare" type="radio" class="form-check" style="display: inline-block; margin-right: 10px;"> </custom-input-checkradio-item>
+                    
+                    <custom-input-checkradio-item label="Anthem" value="Anthem" id="insurance_type_Anthem" type="radio" class="form-check" style="display: inline-block; margin-right: 10px;"> </custom-input-checkradio-item>
+                    
+                    <custom-input-checkradio-item label="Humana" value="Humana" id="insurance_type_Humana" type="radio" class="form-check" style="display: inline-block; margin-right: 10px;"> </custom-input-checkradio-item>
+                    
+                    <custom-input-checkradio-item label="BCBS" value="BCBS" id="insurance_type_BCBS" type="radio" class="form-check" style="display: inline-block; margin-right: 10px;"> </custom-input-checkradio-item>
+                    
+                    <custom-input-checkradio-item label="Other" value="Other" id="insurance_type_Other" type="radio" class="form-check" style="display: inline-block; margin-right: 10px;"> </custom-input-checkradio-item></custom-input-checkradio>
+                  
+                    <custom-input value="" id="txtInsuranceTypeOther" style="display: none;" name="txtInsuranceTypeOther" placeholder="Other:" style="width: 200px;"> </custom-input>
                 </div>
               </div>
               <div id="fb6zye-2" class="row">
                 <div class="form-group mt-3">
-                  <custom-input-checkradio id="PharmacySerLoc" name="PharmacySerLoc" label="Pharmacy Servicing Location:" type="radio" value="Part A" class="radio_btn_inline"><custom-input-checkradio-item label="CA" value="CA" id="PharmacySerLoc_CA" type="radio" class="form-check" style="display: inline-block; margin-right: 10px;"> </custom-input-checkradio-item><custom-input-checkradio-item label="LA" value="LA" id="PharmacySerLoc_LA" type="radio" class="form-check" style="display: inline-block; margin-right: 10px;"> </custom-input-checkradio-item><custom-input-checkradio-item label="MD" value="MD" id="PharmacySerLoc_MD" type="radio" class="form-check" style="display: inline-block; margin-right: 10px;"> </custom-input-checkradio-item><custom-input-checkradio-item label="NJ" value="NJ" id="PharmacySerLoc_NJ" type="radio" class="form-check" style="display: inline-block; margin-right: 10px;"> </custom-input-checkradio-item><custom-input-checkradio-item label="PA" value="PA" id="PharmacySerLoc_PA" type="radio" class="form-check" style="display: inline-block; margin-right: 10px;"> </custom-input-checkradio-item><custom-input-checkradio-item label="TX" value="TX" id="PharmacySerLoc_TX" type="radio" class="form-check" style="display: inline-block; margin-right: 10px;"> </custom-input-checkradio-item><custom-input-checkradio-item label="FL" value="FL" id="PharmacySerLoc_FL" type="radio" class="form-check" style="display: inline-block; margin-right: 10px;"> </custom-input-checkradio-item><custom-input-checkradio-item label="Unknown" value="Unknown" id="PharmacySerLoc_Unknown" type="radio" class="form-check" style="display: inline-block; margin-right: 10px;"> </custom-input-checkradio-item></custom-input-checkradio>
+                  <custom-input-checkradio id="PharmacySerLoc" name="PharmacySerLoc" label="Pharmacy Servicing Location:" type="radio" value="Part A" class="radio_btn_inline">
+                    
+                    <custom-input-checkradio-item label="CA" value="CA" id="PharmacySerLoc_CA" type="radio" class="form-check" style="display: inline-block; margin-right: 10px;"> </custom-input-checkradio-item>
+                    
+                    <custom-input-checkradio-item label="LA" value="LA" id="PharmacySerLoc_LA" type="radio" class="form-check" style="display: inline-block; margin-right: 10px;"> </custom-input-checkradio-item>
+                    
+                    <custom-input-checkradio-item label="MD" value="MD" id="PharmacySerLoc_MD" type="radio" class="form-check" style="display: inline-block; margin-right: 10px;"> </custom-input-checkradio-item>
+                    
+                    <custom-input-checkradio-item label="NJ" value="NJ" id="PharmacySerLoc_NJ" type="radio" class="form-check" style="display: inline-block; margin-right: 10px;"> </custom-input-checkradio-item>
+                    
+                    <custom-input-checkradio-item label="PA" value="PA" id="PharmacySerLoc_PA" type="radio" class="form-check" style="display: inline-block; margin-right: 10px;"> </custom-input-checkradio-item>
+                    
+                    <custom-input-checkradio-item label="TX" value="TX" id="PharmacySerLoc_TX" type="radio" class="form-check" style="display: inline-block; margin-right: 10px;"> </custom-input-checkradio-item>
+                    
+                    <custom-input-checkradio-item label="FL" value="FL" id="PharmacySerLoc_FL" type="radio" class="form-check" style="display: inline-block; margin-right: 10px;"> </custom-input-checkradio-item>
+                    
+                    <custom-input-checkradio-item label="Unknown" value="Unknown" id="PharmacySerLoc_Unknown" type="radio" class="form-check" style="display: inline-block; margin-right: 10px;"> </custom-input-checkradio-item></custom-input-checkradio>
                 </div>
               </div>
               <div id="ilsxms6" class="row" style="padding-top: 20px;"><p id="iywb3sk" style="font-weight: bold;">Please answer the following questions:</p></div>
@@ -884,77 +927,77 @@
                   <thead>
                     <tr>
                       <th id="iyic5wt" style="width: 350px;"></th>
-                      <td align="center" id="i52ic3k" style="text-align: center;">5- Very satisfied</td>
-                      <td align="center" id="i4794qx" style="text-align: center;">4- Somewhat satisfied</td>
-                      <td align="center" id="i76yvqn" style="text-align: center;">3- Neutral</td>
-                      <td align="center" id="if46dfd" style="text-align: center;">2- Somewhat dissatisfied</td>
-                      <td align="center" id="i53x8ze" style="text-align: center;">1- Very dissatisfied</td>
+                      <td  id="i52ic3k" >5- Very satisfied</td>
+                      <td  id="i4794qx" >4- Somewhat satisfied</td>
+                      <td  id="i76yvqn" >3- Neutral</td>
+                      <td  id="if46dfd" >2- Somewhat dissatisfied</td>
+                      <td  id="i53x8ze" >1- Very dissatisfied</td>
                     </tr>
                   </thead>
                   <tbody>
                     <tr>
                       <th id="i76tp8w" style="width: 350px;">1. When you started service with InfuCare Rx, how satisfied were you with the process, including understanding your care plan and your financial responsibility?</th>
-                      <td align="center" id="if7o06k" style="text-align: center;"><input type="radio" name="flexRadioDefault1" id="1stflexRadioDefault5" class="form-check-input" /></td>
-                      <td align="center" id="ieobm9h" style="text-align: center;"><input type="radio" name="flexRadioDefault1" id="1stflexRadioDefault4" class="form-check-input" /></td>
-                      <td align="center" id="ihqj858" style="text-align: center;"><input type="radio" name="flexRadioDefault1" id="1stflexRadioDefault3" class="form-check-input" /></td>
-                      <td align="center" id="i6sbis3" style="text-align: center;"><input type="radio" name="flexRadioDefault1" id="1stflexRadioDefault2" class="form-check-input" /></td>
-                      <td align="center" id="isapkdm" style="text-align: center;"><input type="radio" name="flexRadioDefault1" id="1stflexRadioDefault1" class="form-check-input" /></td>
+                      <td  id="if7o06k" ><input type="radio" name="flexRadioDefault1" id="1stflexRadioDefault5" class="form-check-input" /></td>
+                      <td  id="ieobm9h" ><input type="radio" name="flexRadioDefault1" id="1stflexRadioDefault4" class="form-check-input" /></td>
+                      <td  id="ihqj858" ><input type="radio" name="flexRadioDefault1" id="1stflexRadioDefault3" class="form-check-input" /></td>
+                      <td  id="i6sbis3" ><input type="radio" name="flexRadioDefault1" id="1stflexRadioDefault2" class="form-check-input" /></td>
+                      <td  id="isapkdm" ><input type="radio" name="flexRadioDefault1" id="1stflexRadioDefault1" class="form-check-input" /></td>
                     </tr>
                     <tr>
                       <th id="idnuqp3" style="width: 350px;">2. How satisfied are you with the accuracy and timeliness of the delivery of your products?</th>
-                      <td align="center" id="isrqjj9" style="text-align: center;"><input type="radio" name="flexRadioDefault2" id="2ndflexRadioDefault5" class="form-check-input" /></td>
-                      <td align="center" id="if9l2yd" style="text-align: center;"><input type="radio" name="flexRadioDefault2" id="2ndflexRadioDefault4" class="form-check-input" /></td>
-                      <td align="center" id="iflrjvw" style="text-align: center;"><input type="radio" name="flexRadioDefault2" id="2ndflexRadioDefault3" class="form-check-input" /></td>
-                      <td align="center" id="idyxton" style="text-align: center;"><input type="radio" name="flexRadioDefault2" id="2ndflexRadioDefault2" class="form-check-input" /></td>
-                      <td align="center" id="i7f732f" style="text-align: center;"><input type="radio" name="flexRadioDefault2" id="2ndflexRadioDefault1" class="form-check-input" /></td>
+                      <td  id="isrqjj9" ><input type="radio" name="flexRadioDefault2" id="2ndflexRadioDefault5" class="form-check-input" /></td>
+                      <td  id="if9l2yd" ><input type="radio" name="flexRadioDefault2" id="2ndflexRadioDefault4" class="form-check-input" /></td>
+                      <td  id="iflrjvw" ><input type="radio" name="flexRadioDefault2" id="2ndflexRadioDefault3" class="form-check-input" /></td>
+                      <td  id="idyxton" ><input type="radio" name="flexRadioDefault2" id="2ndflexRadioDefault2" class="form-check-input" /></td>
+                      <td  id="i7f732f" ><input type="radio" name="flexRadioDefault2" id="2ndflexRadioDefault1" class="form-check-input" /></td>
                     </tr>
                     <tr>
                       <th id="itqsdai" style="width: 350px;">3. How satisfied are you with the quality of care, supplies, and equipment provided by InfuCare Rx?</th>
-                      <td align="center" id="iif2568" style="text-align: center;"><input type="radio" name="flexRadioDefault3" id="3rdflexRadioDefault5" class="form-check-input" /></td>
-                      <td align="center" id="iam5ppa" style="text-align: center;"><input type="radio" name="flexRadioDefault3" id="3rdflexRadioDefault4" class="form-check-input" /></td>
-                      <td align="center" id="iuhok7c" style="text-align: center;"><input type="radio" name="flexRadioDefault3" id="3rdflexRadioDefault3" class="form-check-input" /></td>
-                      <td align="center" id="ic3tfjx" style="text-align: center;"><input type="radio" name="flexRadioDefault3" id="3rdflexRadioDefault2" class="form-check-input" /></td>
-                      <td align="center" id="ilvfgvm" style="text-align: center;"><input type="radio" name="flexRadioDefault3" id="3rdflexRadioDefault1" class="form-check-input" /></td>
+                      <td  id="iif2568" ><input type="radio" name="flexRadioDefault3" id="3rdflexRadioDefault5" class="form-check-input" /></td>
+                      <td  id="iam5ppa" ><input type="radio" name="flexRadioDefault3" id="3rdflexRadioDefault4" class="form-check-input" /></td>
+                      <td  id="iuhok7c" ><input type="radio" name="flexRadioDefault3" id="3rdflexRadioDefault3" class="form-check-input" /></td>
+                      <td  id="ic3tfjx" ><input type="radio" name="flexRadioDefault3" id="3rdflexRadioDefault2" class="form-check-input" /></td>
+                      <td  id="ilvfgvm" ><input type="radio" name="flexRadioDefault3" id="3rdflexRadioDefault1" class="form-check-input" /></td>
                     </tr>
                     <tr>
                       <th id="iiwyewd" style="width: 350px;">4. How would you rate the effectiveness of your care plan provided by InfuCare Rx to treat your condition?</th>
-                      <td align="center" id="i6qls7f" style="text-align: center;"><input 4="" type="radio" name="flexRadioDefault" id="4thflexRadioDefault5" class="form-check-input" /></td>
-                      <td align="center" id="iy4tjeg" style="text-align: center;"><input type="radio" name="flexRadioDefault4" id="4thflexRadioDefault4" class="form-check-input" /></td>
-                      <td align="center" id="ifuzvrh" style="text-align: center;"><input type="radio" name="flexRadioDefault4" id="4thflexRadioDefault3" class="form-check-input" /></td>
-                      <td align="center" id="irjvfrw" style="text-align: center;"><input type="radio" name="flexRadioDefault4" id="4thflexRadioDefault2" class="form-check-input" /></td>
-                      <td align="center" id="ibiblyp" style="text-align: center;"><input type="radio" name="flexRadioDefault4" id="4thflexRadioDefault1" class="form-check-input" /></td>
+                      <td  id="i6qls7f" ><input 4="" type="radio" name="flexRadioDefault" id="4thflexRadioDefault5" class="form-check-input" /></td>
+                      <td  id="iy4tjeg" ><input type="radio" name="flexRadioDefault4" id="4thflexRadioDefault4" class="form-check-input" /></td>
+                      <td  id="ifuzvrh" ><input type="radio" name="flexRadioDefault4" id="4thflexRadioDefault3" class="form-check-input" /></td>
+                      <td  id="irjvfrw" ><input type="radio" name="flexRadioDefault4" id="4thflexRadioDefault2" class="form-check-input" /></td>
+                      <td  id="ibiblyp" ><input type="radio" name="flexRadioDefault4" id="4thflexRadioDefault1" class="form-check-input" /></td>
                     </tr>
                     <tr>
                       <th id="iqhqr6p" style="width: 350px;">5. How would you rate the clinical pharmacy services provided by InfuCare Rx?</th>
-                      <td align="center" id="isw7rc6" style="text-align: center;"><input type="radio" name="flexRadioDefault5" id="5thflexRadioDefault5" class="form-check-input" /></td>
-                      <td align="center" id="izup355" style="text-align: center;"><input type="radio" name="flexRadioDefault5" id="5thflexRadioDefault4" class="form-check-input" /></td>
-                      <td align="center" id="ifur8yd" style="text-align: center;"><input type="radio" name="flexRadioDefault5" id="5thflexRadioDefault3" class="form-check-input" /></td>
-                      <td align="center" id="ine865i" style="text-align: center;"><input type="radio" name="flexRadioDefault5" id="5thflexRadioDefault2" class="form-check-input" /></td>
-                      <td align="center" id="ifyi6of" style="text-align: center;"><input type="radio" name="flexRadioDefault5" id="5thflexRadioDefault1" class="form-check-input" /></td>
+                      <td  id="isw7rc6" ><input type="radio" name="flexRadioDefault5" id="5thflexRadioDefault5" class="form-check-input" /></td>
+                      <td  id="izup355" ><input type="radio" name="flexRadioDefault5" id="5thflexRadioDefault4" class="form-check-input" /></td>
+                      <td  id="ifur8yd" ><input type="radio" name="flexRadioDefault5" id="5thflexRadioDefault3" class="form-check-input" /></td>
+                      <td  id="ine865i" ><input type="radio" name="flexRadioDefault5" id="5thflexRadioDefault2" class="form-check-input" /></td>
+                      <td  id="ifyi6of" ><input type="radio" name="flexRadioDefault5" id="5thflexRadioDefault1" class="form-check-input" /></td>
                     </tr>
                     <tr>
                       <th id="ixxzm9m" style="width: 350px;">6. How satisfied are you with the nursing services provided?</th>
-                      <td align="center" id="i8ohr8w" style="text-align: center;"><input type="radio" name="flexRadioDefault6" id="6thflexRadioDefault5" class="form-check-input" /></td>
-                      <td align="center" id="iuqsa35" style="text-align: center;"><input type="radio" name="flexRadioDefault6" id="6thflexRadioDefault4" class="form-check-input" /></td>
-                      <td align="center" id="icz6bq3" style="text-align: center;"><input type="radio" name="flexRadioDefault6" id="6thflexRadioDefault3" class="form-check-input" /></td>
-                      <td align="center" id="i17wwhp" style="text-align: center;"><input type="radio" name="flexRadioDefault6" id="6thflexRadioDefault2" class="form-check-input" /></td>
-                      <td align="center" id="ijp86w1" style="text-align: center;"><input type="radio" name="flexRadioDefault6" id="6thflexRadioDefault1" class="form-check-input" /></td>
+                      <td  id="i8ohr8w" ><input type="radio" name="flexRadioDefault6" id="6thflexRadioDefault5" class="form-check-input" /></td>
+                      <td  id="iuqsa35" ><input type="radio" name="flexRadioDefault6" id="6thflexRadioDefault4" class="form-check-input" /></td>
+                      <td  id="icz6bq3" ><input type="radio" name="flexRadioDefault6" id="6thflexRadioDefault3" class="form-check-input" /></td>
+                      <td  id="i17wwhp" ><input type="radio" name="flexRadioDefault6" id="6thflexRadioDefault2" class="form-check-input" /></td>
+                      <td  id="ijp86w1" ><input type="radio" name="flexRadioDefault6" id="6thflexRadioDefault1" class="form-check-input" /></td>
                     </tr>
                     <tr>
                       <th id="iftwgta" style="width: 350px;">7. How would you rate the information/education you received regarding our services?</th>
-                      <td align="center" id="ih3xlej" style="text-align: center;"><input type="radio" name="flexRadioDefault7" id="7thflexRadioDefault5" class="form-check-input" /></td>
-                      <td align="center" id="itod6qw" style="text-align: center;"><input type="radio" name="flexRadioDefault7" id="7thflexRadioDefault4" class="form-check-input" /></td>
-                      <td align="center" id="iv8f78j" style="text-align: center;"><input type="radio" name="flexRadioDefault7" id="7thflexRadioDefault3" class="form-check-input" /></td>
-                      <td align="center" id="iwy4z1r" style="text-align: center;"><input type="radio" name="flexRadioDefault7" id="7thflexRadioDefault2" class="form-check-input" /></td>
-                      <td align="center" id="ikew49f" style="text-align: center;"><input type="radio" name="flexRadioDefault7" id="7thflexRadioDefault1" class="form-check-input" /></td>
+                      <td  id="ih3xlej" ><input type="radio" name="flexRadioDefault7" id="7thflexRadioDefault5" class="form-check-input" /></td>
+                      <td  id="itod6qw" ><input type="radio" name="flexRadioDefault7" id="7thflexRadioDefault4" class="form-check-input" /></td>
+                      <td  id="iv8f78j" ><input type="radio" name="flexRadioDefault7" id="7thflexRadioDefault3" class="form-check-input" /></td>
+                      <td  id="iwy4z1r" ><input type="radio" name="flexRadioDefault7" id="7thflexRadioDefault2" class="form-check-input" /></td>
+                      <td  id="ikew49f" ><input type="radio" name="flexRadioDefault7" id="7thflexRadioDefault1" class="form-check-input" /></td>
                     </tr>
                     <tr>
                       <th id="i8gj7hv" style="width: 350px;">8. How satisfied are you with the level of politeness, helpfulness, and ease of contacting our employees?</th>
-                      <td align="center" id="i7rz3gz" style="text-align: center;"><input type="radio" name="flexRadioDefault8" id="8thflexRadioDefault5" class="form-check-input" /></td>
-                      <td align="center" id="i48vrql" style="text-align: center;"><input type="radio" name="flexRadioDefault8" id="8thflexRadioDefault4" class="form-check-input" /></td>
-                      <td align="center" id="ih7usek" style="text-align: center;"><input type="radio" name="flexRadioDefault8" id="8thflexRadioDefault3" class="form-check-input" /></td>
-                      <td align="center" id="i79d5gj" style="text-align: center;"><input type="radio" name="flexRadioDefault8" id="8thflexRadioDefault2" class="form-check-input" /></td>
-                      <td align="center" id="ioo9xij" style="text-align: center;"><input type="radio" name="flexRadioDefault8" id="8thflexRadioDefault1" class="form-check-input" /></td>
+                      <td  id="i7rz3gz" ><input type="radio" name="flexRadioDefault8" id="8thflexRadioDefault5" class="form-check-input" /></td>
+                      <td  id="i48vrql" ><input type="radio" name="flexRadioDefault8" id="8thflexRadioDefault4" class="form-check-input" /></td>
+                      <td  id="ih7usek" ><input type="radio" name="flexRadioDefault8" id="8thflexRadioDefault3" class="form-check-input" /></td>
+                      <td  id="i79d5gj" ><input type="radio" name="flexRadioDefault8" id="8thflexRadioDefault2" class="form-check-input" /></td>
+                      <td  id="ioo9xij" ><input type="radio" name="flexRadioDefault8" id="8thflexRadioDefault1" class="form-check-input" /></td>
                     </tr>
                   </tbody>
                 </table>
@@ -964,8 +1007,8 @@
           </div>
         </div>
         <div class="mt-4">
-          <button id="prevButton" type="button" class="prevStep btn btn-secondary me-2" onclick="handlePrevious()">Previous</button>
-          <button id="save-draft" type="button" class="btn btn-success">Save as Draft</button>
+          <button id="prevButton" type="button" class="prevStep btn btn-success me-2" onclick="handlePrevious()">Previous</button>
+          <button id="save-draft" type="button" class="btn btn-success me-2">Save as Draft</button>
           <button id="nextButton" type="button" class="nextStep btn btn-primary me-2" onclick="handleNext()">Next</button>
         </div>
       </div>
@@ -1014,8 +1057,9 @@
                 <label for="PAuthorization" id="i0n4kz-2" class="form-label question-label">Patient/Responsible Party Signature *</label><span id="Patient_Authorization" class="required_fields"></span>
                 <div id="i4s2zf-3" class="signature-canvas mb-3">
                   <canvas id="PAuthorization" width="500" name="signature" required="" style="padding-top: 10px; padding-right: 10px; padding-bottom: 10px; padding-left: 10px; border-top-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-bottom-left-radius: 10px; cursor: url('../assets/pen.png') 16 16, crosshair; display: block;"></canvas>
+  
                   <div id="PAuthorization_validation" class="invalid-feedback" style="margin-top: 0px;">Please enter signature.</div>
-                  <br /><img id="PAuthorization-2" width="500" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTEwOCIgaGVpZ2h0PSI0NTAiIHZpZXdCb3g9IjAgMCAxMTA4IDQ1MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGcgb3BhY2l0eT0iMC45NSIgZmlsdGVyPSJ1cmwoI2ZpbHRlcjBfYl8xMzQ4XzY0MDMpIj4KPHJlY3Qgd2lkdGg9IjExMDgiIGhlaWdodD0iNDUwIiB0cmFuc2Zvcm09Im1hdHJpeCgtMSAwIDAgMSAxMTA4IDApIiBmaWxsPSJ3aGl0ZSIvPgo8cmVjdCB4PSItMSIgeT0iMSIgd2lkdGg9IjExMDYiIGhlaWdodD0iNDQ4IiB0cmFuc2Zvcm09Im1hdHJpeCgtMSAwIDAgMSAxMTA2IDApIiBzdHJva2U9IiNEMkQwQ0UiIHN0cm9rZS13aWR0aD0iMiIvPgo8L2c+CjxwYXRoIGQ9Ik01NzcuOTU4IDE4Ny41QzU4NS40MzcgMTg3LjUgNTkxLjUgMTkzLjU2MyA1OTEuNSAyMDEuMDQyVjI0OC45NThDNTkxLjUgMjU2LjQzNyA1ODUuNDM3IDI2Mi41IDU3Ny45NTggMjYyLjVINTMwLjA0MkM1MjIuNTYzIDI2Mi41IDUxNi41IDI1Ni40MzcgNTE2LjUgMjQ4Ljk1OFYyMDEuMDQyQzUxNi41IDE5My41NjMgNTIyLjU2MyAxODcuNSA1MzAuMDQyIDE4Ny41SDU3Ny45NThaTTU4MC4zNzcgMjU1LjgzOUw1NTYuMTg2IDIzMi4xNDVDNTU1LjA4MiAyMzEuMDY0IDU1My4zNzUgMjMwLjk2NSA1NTIuMTYyIDIzMS44NUw1NTEuODEzIDIzMi4xNDVMNTI3LjYxOSAyNTUuODM4QzUyOC4zNzcgMjU2LjEwNSA1MjkuMTkyIDI1Ni4yNSA1MzAuMDQyIDI1Ni4yNUg1NzcuOTU4QzU3OC44MDYgMjU2LjI1IDU3OS42MiAyNTYuMTA1IDU4MC4zNzcgMjU1LjgzOUw1NTYuMTg2IDIzMi4xNDVMNTgwLjM3NyAyNTUuODM5Wk01NzcuOTU4IDE5My43NUg1MzAuMDQyQzUyNi4wMTUgMTkzLjc1IDUyMi43NSAxOTcuMDE1IDUyMi43NSAyMDEuMDQyVjI0OC45NThDNTIyLjc1IDI0OS44MjcgNTIyLjkwMiAyNTAuNjYgNTIzLjE4IDI1MS40MzJMNTQ3LjQ0MSAyMjcuNjc5QzU1MC45MTIgMjI0LjI4IDU1Ni4zNjUgMjI0LjExOSA1NjAuMDI0IDIyNy4xOTRMNTYwLjU1OSAyMjcuNjhMNTg0LjgxOCAyNTEuNDM2QzU4NS4wOTcgMjUwLjY2MiA1ODUuMjUgMjQ5LjgyOCA1ODUuMjUgMjQ4Ljk1OFYyMDEuMDQyQzU4NS4yNSAxOTcuMDE1IDU4MS45ODUgMTkzLjc1IDU3Ny45NTggMTkzLjc1Wk01NjcuNTUgMjAyLjA4M0M1NzIuNzMzIDIwMi4wODMgNTc2LjkzNCAyMDYuMjg1IDU3Ni45MzQgMjExLjQ2N0M1NzYuOTM0IDIxNi42NSA1NzIuNzMzIDIyMC44NTEgNTY3LjU1IDIyMC44NTFDNTYyLjM2OCAyMjAuODUxIDU1OC4xNjcgMjE2LjY1IDU1OC4xNjcgMjExLjQ2N0M1NTguMTY3IDIwNi4yODUgNTYyLjM2OCAyMDIuMDgzIDU2Ny41NSAyMDIuMDgzWk01NjcuNTUgMjA4LjMzM0M1NjUuODIgMjA4LjMzMyA1NjQuNDE3IDIwOS43MzYgNTY0LjQxNyAyMTEuNDY3QzU2NC40MTcgMjEzLjE5OCA1NjUuODIgMjE0LjYwMSA1NjcuNTUgMjE0LjYwMUM1NjkuMjgxIDIxNC42MDEgNTcwLjY4NCAyMTMuMTk4IDU3MC42ODQgMjExLjQ2N0M1NzAuNjg0IDIwOS43MzYgNTY5LjI4MSAyMDguMzMzIDU2Ny41NSAyMDguMzMzWiIgZmlsbD0iI0FDQUNBQyIvPgo8ZGVmcz4KPGZpbHRlciBpZD0iZmlsdGVyMF9iXzEzNDhfNjQwMyIgeD0iLTQiIHk9Ii00IiB3aWR0aD0iMTExNiIgaGVpZ2h0PSI0NTgiIGZpbHRlclVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgY29sb3ItaW50ZXJwb2xhdGlvbi1maWx0ZXJzPSJzUkdCIj4KPGZlRmxvb2QgZmxvb2Qtb3BhY2l0eT0iMCIgcmVzdWx0PSJCYWNrZ3JvdW5kSW1hZ2VGaXgiLz4KPGZlR2F1c3NpYW5CbHVyIGluPSJCYWNrZ3JvdW5kSW1hZ2UiIHN0ZERldmlhdGlvbj0iMiIvPgo8ZmVDb21wb3NpdGUgaW4yPSJTb3VyY2VBbHBoYSIgb3BlcmF0b3I9ImluIiByZXN1bHQ9ImVmZmVjdDFfYmFja2dyb3VuZEJsdXJfMTM0OF82NDAzIi8+CjxmZUJsZW5kIG1vZGU9Im5vcm1hbCIgaW49IlNvdXJjZUdyYXBoaWMiIGluMj0iZWZmZWN0MV9iYWNrZ3JvdW5kQmx1cl8xMzQ4XzY0MDMiIHJlc3VsdD0ic2hhcGUiLz4KPC9maWx0ZXI+CjwvZGVmcz4KPC9zdmc+Cg==" alt="" class="form-control" style="display: none;" />
+                  <br /><img id="PAuthorization-2" width="500" src="" alt="" class="form-control" style="display: none;" />
                   <div id="signature_validation" class="invalid-feedback" style="margin-top: 0px;">Please enter signature.</div>
                   <button type="button" id="PAClearButton" class="btn btn-primary mt-3" style="border-top-width: initial; border-right-width: initial; border-bottom-width: initial; border-left-width: initial; border-top-style: none; border-right-style: none; border-bottom-style: none; border-left-style: none; border-top-color: initial; border-right-color: initial; border-bottom-color: initial; border-left-color: initial; border-image-source: initial; border-image-slice: initial; border-image-width: initial; border-image-outset: initial; border-image-repeat: initial; border-top-left-radius: 5px; border-top-right-radius: 5px; border-bottom-right-radius: 5px; border-bottom-left-radius: 5px; background-color: var(--btn-primary-color); font-size: 16px; font-weight: 400; cursor: pointer;">Clear</button>
                 </div>
@@ -1287,18 +1331,21 @@
           </div>
         </div>
         <div class="mt-4">
-          <button id="prevButton" type="button" class="prevStep btn btn-secondary me-2" onclick="handlePrevious()">Previous</button>
-          <button id="save-draft" type="button" class="btn btn-success">Save as Draft</button>
-          <button id="saveBtn" type="button" class="prevStep btn btn-secondary me-2" onclick="handleNext()">Submit</button>
+          <button id="prevButton" type="button" class="prevStep btn btn-success me-2" onclick="handlePrevious()">Previous</button>
+          <button id="save-draft" type="button" class="btn btn-success me-2">Save as Draft</button>
+          <button id="saveBtn" type="button" class="prevStep btn btn-success me-2" onclick="handleNext()" onclick="finalSave() ">Submit</button>
         </div>
       </div>
     </div>
-      <div id="formInvalidCondition" class="alert alert-danger" role="alert" style="display: none;">
-        A simple danger alert—check it out!
-     </div>
+      <div class="main-form-container" id="errorStyle" style="display: none;">
+        <div id="formInvalidCondition" class="alert alert-danger" role="alert" style="display: none; margin: 0;">
+          A simple danger alert—check it out!
+        </div>
+      </div>
     </form>
     </div>
   </main>
+   
 
    
   <script src="../component/CustomFormComponents.js"></script>

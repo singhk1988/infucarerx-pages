@@ -1,17 +1,17 @@
 const requiredControlsStep3 = {
-   'lname': 'Please enter last name.',
- 'fname': 'Please enter first name.',
+  'lname': 'Please enter last name.',
+  'fname': 'Please enter first name.',
   'mrn': 'Please select mrn.',
-   'date_sign': 'Please select signature date.',
+  'date_sign': 'Please select signature date.',
   //'date': 'Please select witness date.',
 
 };
 
 const requiredControlsStep4 = {
-   'view_Privacy_Notice': 'Please check.',
+  'view_Privacy_Notice': 'Please check.',
   //'legal_represenative': 'Please check.',
   'sign_date': 'Please select signature date.',
-   'NPPlname': 'Please enter last name.',
+  'NPPlname': 'Please enter last name.',
   'NPPfname': 'Please enter first name.',
   //'LRfname': 'Please enter first name.',
   //'LRlname':'Please enter last name.',
@@ -34,387 +34,74 @@ const requiredControlsStep6 = {
 };
 
 
-let ValidationErrorStatus = {
-  view_Privacy_Notice: false,
-  patient_sign: false,
-  patient_rp_sign: false,
-  CGPatSignCanvas: false,
-  legalRepresentative: false,
-  PAuthorization: false
+
+
+const setupSignatureCanvas = (canvasId, clearButtonId, validationId) => {
+  const canvas = document.getElementById(canvasId);
+  const context = canvas.getContext('2d');
+  let isDrawing = false;
+  let lastX = 0;
+  let lastY = 0;
+
+  const getCoordinates = (e) => {
+      let clientX, clientY;
+      if (e.type.startsWith('touch')) {
+          const touch = e.touches[0];
+          clientX = touch.clientX;
+          clientY = touch.clientY;
+      } else {
+          clientX = e.clientX;
+          clientY = e.clientY;
+      }
+      const rect = canvas.getBoundingClientRect();
+      return [clientX - rect.left, clientY - rect.top];
+  };
+
+  const startDrawing = (e) => {
+      isDrawing = true;
+      [lastX, lastY] = getCoordinates(e);
+  };
+
+  const stopDrawing = () => {
+      isDrawing = false;
+  };
+
+  const draw = (e) => {
+      if (!isDrawing) return;
+      const [x, y] = getCoordinates(e);
+      context.beginPath();
+      context.moveTo(lastX, lastY);
+      context.lineTo(x, y);
+      context.strokeStyle = '#000';
+      context.lineWidth = 2;
+      context.stroke();
+      [lastX, lastY] = [x, y];
+  };
+
+  canvas.addEventListener('mousedown', startDrawing);
+  canvas.addEventListener('mousemove', draw);
+  canvas.addEventListener('mouseup', stopDrawing);
+  canvas.addEventListener('touchstart', startDrawing);
+  canvas.addEventListener('touchmove', draw);
+  canvas.addEventListener('touchend', stopDrawing);
+
+  canvas.addEventListener('mouseup', () => {
+      isDrawing = false;
+      if (ValidationErrorStatus[canvasId]) {
+          canvas.style.borderColor = '#ccdae4';
+          document.getElementById(validationId).style.display = 'none';
+      }
+  });
+
+  document.getElementById(clearButtonId).addEventListener('click', () => {
+      context.clearRect(0, 0, canvas.width, canvas.height);
+      if (ValidationErrorStatus[canvasId]) {
+          canvas.style.borderColor = 'red';
+          document.getElementById(validationId).style.display = 'block';
+      }
+  });
 };
 
-
-
-const showPatientSignature = () => {
-  // signature functinality
-  const canvas = document.getElementById('patient_sign');
-  const context = canvas.getContext('2d');
-  let isDrawing = false;
-  let lastX = 0;
-  let lastY = 0;
-
-  function getCoordinates(e) {
-      let clientX, clientY;
-      if (e.type.startsWith('touch')) {
-          const touch = e.touches[0];
-          clientX = touch.clientX;
-          clientY = touch.clientY;
-      } else {
-          clientX = e.clientX;
-          clientY = e.clientY;
-      }
-      const rect = canvas.getBoundingClientRect();
-      return [clientX - rect.left, clientY - rect.top];
-  }
-
-  function startDrawing(e) {
-      isDrawing = true;
-      const [x, y] = getCoordinates(e);
-      [lastX, lastY] = [x, y];
-  }
-
-  function stopDrawing() {
-      isDrawing = false;
-  }
-
-  function draw(e) {
-      if (!isDrawing) return;
-      const [x, y] = getCoordinates(e);
-      context.beginPath();
-      context.moveTo(lastX, lastY);
-      context.lineTo(x, y);
-      context.strokeStyle = '#000';
-      context.lineWidth = 2;
-      context.stroke();
-      [lastX, lastY] = [x, y];
-  }
-
-  canvas.addEventListener('mousedown', startDrawing);
-  canvas.addEventListener('mousemove', draw);
-  canvas.addEventListener('mouseup', stopDrawing);
-
-  // for mobile view
-  canvas.addEventListener('touchstart', startDrawing);
-  canvas.addEventListener('touchmove', draw);
-  canvas.addEventListener('touchend', stopDrawing);
-
-
-  canvas.addEventListener('mouseout', () => {
-      isDrawing = false;
-      if (ValidationErrorStatus.patient_sign) {
-          canvas.style.borderColor = '#ccdae4';
-          document.getElementById('signature_validation').style.display = 'none';
-      }
-  });
-
-
-
-  // Function to clear the canvas
-  document.getElementById('clearButton').addEventListener('click', () => {
-      context.clearRect(0, 0, canvas.width, canvas.height);
-      if (ValidationErrorStatus.patient_sign) {
-          canvas.style.borderColor = 'red';
-          document.getElementById('signature_validation').style.display = 'block';
-      }
-  });
-}
-
-
-const showRPatientSignature = () => {
-  // signature functinality
-  const canvas = document.getElementById('patient_rp_sign');
-  const context = canvas.getContext('2d');
-  let isDrawing = false;
-  let lastX = 0;
-  let lastY = 0;
-
-  function getCoordinates(e) {
-      let clientX, clientY;
-      if (e.type.startsWith('touch')) {
-          const touch = e.touches[0];
-          clientX = touch.clientX;
-          clientY = touch.clientY;
-      } else {
-          clientX = e.clientX;
-          clientY = e.clientY;
-      }
-      const rect = canvas.getBoundingClientRect();
-      return [clientX - rect.left, clientY - rect.top];
-  }
-
-  function startDrawing(e) {
-      isDrawing = true;
-      const [x, y] = getCoordinates(e);
-      [lastX, lastY] = [x, y];
-  }
-
-  function stopDrawing() {
-      isDrawing = false;
-  }
-
-  function draw(e) {
-      if (!isDrawing) return;
-      const [x, y] = getCoordinates(e);
-      context.beginPath();
-      context.moveTo(lastX, lastY);
-      context.lineTo(x, y);
-      context.strokeStyle = '#000';
-      context.lineWidth = 2;
-      context.stroke();
-      [lastX, lastY] = [x, y];
-  }
-
-  canvas.addEventListener('mousedown', startDrawing);
-  canvas.addEventListener('mousemove', draw);
-  canvas.addEventListener('mouseup', stopDrawing);
-
-  // for mobile view
-  canvas.addEventListener('touchstart', startDrawing);
-  canvas.addEventListener('touchmove', draw);
-  canvas.addEventListener('touchend', stopDrawing);
-
-
-  canvas.addEventListener('mouseout', () => {
-      isDrawing = false;
-      if (ValidationErrorStatus.patient_sign) {
-          canvas.style.borderColor = '#ccdae4';
-          document.getElementById('patient_rp_sign_validation').style.display = 'none';
-      }
-  });
-
-
-
-  // Function to clear the canvas
-  document.getElementById('RPClearButton').addEventListener('click', () => {
-      context.clearRect(0, 0, canvas.width, canvas.height);
-      if (ValidationErrorStatus.patient_sign) {
-          canvas.style.borderColor = 'red';
-          document.getElementById('patient_rp_sign_validation').style.display = 'block';
-      }
-  });
-}
-
-const showCGPatientSignature = () => {
-  // signature functinality
-  const canvas = document.getElementById('CGPatSignCanvas');
-  const context = canvas.getContext('2d');
-  let isDrawing = false;
-  let lastX = 0;
-  let lastY = 0;
-
-  function getCoordinates(e) {
-      let clientX, clientY;
-      if (e.type.startsWith('touch')) {
-          const touch = e.touches[0];
-          clientX = touch.clientX;
-          clientY = touch.clientY;
-      } else {
-          clientX = e.clientX;
-          clientY = e.clientY;
-      }
-      const rect = canvas.getBoundingClientRect();
-      return [clientX - rect.left, clientY - rect.top];
-  }
-
-  function startDrawing(e) {
-      isDrawing = true;
-      const [x, y] = getCoordinates(e);
-      [lastX, lastY] = [x, y];
-  }
-
-  function stopDrawing() {
-      isDrawing = false;
-  }
-
-  function draw(e) {
-      if (!isDrawing) return;
-      const [x, y] = getCoordinates(e);
-      context.beginPath();
-      context.moveTo(lastX, lastY);
-      context.lineTo(x, y);
-      context.strokeStyle = '#000';
-      context.lineWidth = 2;
-      context.stroke();
-      [lastX, lastY] = [x, y];
-  }
-
-  canvas.addEventListener('mousedown', startDrawing);
-  canvas.addEventListener('mousemove', draw);
-  canvas.addEventListener('mouseup', stopDrawing);
-
-  // for mobile view
-  canvas.addEventListener('touchstart', startDrawing);
-  canvas.addEventListener('touchmove', draw);
-  canvas.addEventListener('touchend', stopDrawing);
-
-
-  canvas.addEventListener('mouseout', () => {
-      isDrawing = false;
-      if (ValidationErrorStatus.patient_sign) {
-          canvas.style.borderColor = '#ccdae4';
-          document.getElementById('CGPatSignCanvas_validation').style.display = 'none';
-      }
-  });
-
-
-
-  // Function to clear the canvas
-  document.getElementById('CGPatSignClearButton').addEventListener('click', () => {
-      context.clearRect(0, 0, canvas.width, canvas.height);
-      if (ValidationErrorStatus.patient_sign) {
-          canvas.style.borderColor = 'red';
-          document.getElementById('CGPatSignCanvas_validation').style.display = 'block';
-      }
-  });
-}
-
-const showLRPatientSignature = () => {
-  // signature functinality
-  const canvas = document.getElementById('legalRepresentative');
-  const context = canvas.getContext('2d');
-  let isDrawing = false;
-  let lastX = 0;
-  let lastY = 0;
-
-  function getCoordinates(e) {
-      let clientX, clientY;
-      if (e.type.startsWith('touch')) {
-          const touch = e.touches[0];
-          clientX = touch.clientX;
-          clientY = touch.clientY;
-      } else {
-          clientX = e.clientX;
-          clientY = e.clientY;
-      }
-      const rect = canvas.getBoundingClientRect();
-      return [clientX - rect.left, clientY - rect.top];
-  }
-
-  function startDrawing(e) {
-      isDrawing = true;
-      const [x, y] = getCoordinates(e);
-      [lastX, lastY] = [x, y];
-  }
-
-  function stopDrawing() {
-      isDrawing = false;
-  }
-
-  function draw(e) {
-      if (!isDrawing) return;
-      const [x, y] = getCoordinates(e);
-      context.beginPath();
-      context.moveTo(lastX, lastY);
-      context.lineTo(x, y);
-      context.strokeStyle = '#000';
-      context.lineWidth = 2;
-      context.stroke();
-      [lastX, lastY] = [x, y];
-  }
-
-  canvas.addEventListener('mousedown', startDrawing);
-  canvas.addEventListener('mousemove', draw);
-  canvas.addEventListener('mouseup', stopDrawing);
-
-  // for mobile view
-  canvas.addEventListener('touchstart', startDrawing);
-  canvas.addEventListener('touchmove', draw);
-  canvas.addEventListener('touchend', stopDrawing);
-
-
-  canvas.addEventListener('mouseout', () => {
-      isDrawing = false;
-      if (ValidationErrorStatus.patient_sign) {
-          canvas.style.borderColor = '#ccdae4';
-          document.getElementById('legalRepresentative_validation').style.display = 'none';
-      }
-  });
-
-
-
-  // Function to clear the canvas
-  document.getElementById('LRClearButton').addEventListener('click', () => {
-      context.clearRect(0, 0, canvas.width, canvas.height);
-      if (ValidationErrorStatus.patient_sign) {
-          canvas.style.borderColor = 'red';
-          document.getElementById('legalRepresentative_validation').style.display = 'block';
-      }
-  });
-}
-
-const showAuthPatientSignature = () => {
-  // signature functinality
-  const canvas = document.getElementById('PAuthorization');
-  const context = canvas.getContext('2d');
-  let isDrawing = false;
-  let lastX = 0;
-  let lastY = 0;
-
-  function getCoordinates(e) {
-      let clientX, clientY;
-      if (e.type.startsWith('touch')) {
-          const touch = e.touches[0];
-          clientX = touch.clientX;
-          clientY = touch.clientY;
-      } else {
-          clientX = e.clientX;
-          clientY = e.clientY;
-      }
-      const rect = canvas.getBoundingClientRect();
-      return [clientX - rect.left, clientY - rect.top];
-  }
-
-  function startDrawing(e) {
-      isDrawing = true;
-      const [x, y] = getCoordinates(e);
-      [lastX, lastY] = [x, y];
-  }
-
-  function stopDrawing() {
-      isDrawing = false;
-  }
-
-  function draw(e) {
-      if (!isDrawing) return;
-      const [x, y] = getCoordinates(e);
-      context.beginPath();
-      context.moveTo(lastX, lastY);
-      context.lineTo(x, y);
-      context.strokeStyle = '#000';
-      context.lineWidth = 2;
-      context.stroke();
-      [lastX, lastY] = [x, y];
-  }
-
-  canvas.addEventListener('mousedown', startDrawing);
-  canvas.addEventListener('mousemove', draw);
-  canvas.addEventListener('mouseup', stopDrawing);
-
-  // for mobile view
-  canvas.addEventListener('touchstart', startDrawing);
-  canvas.addEventListener('touchmove', draw);
-  canvas.addEventListener('touchend', stopDrawing);
-
-
-  canvas.addEventListener('mouseout', () => {
-      isDrawing = false;
-      if (ValidationErrorStatus.patient_sign) {
-          canvas.style.borderColor = '#ccdae4';
-          document.getElementById('PAuthorization_validation').style.display = 'none';
-      }
-  });
-
-
-
-  // Function to clear the canvas
-  document.getElementById('PAClearButton').addEventListener('click', () => {
-      context.clearRect(0, 0, canvas.width, canvas.height);
-      if (ValidationErrorStatus.patient_sign) {
-          canvas.style.borderColor = 'red';
-          document.getElementById('PAuthorization_validation').style.display = 'block';
-      }
-  });
-}
 
 
 
@@ -443,8 +130,10 @@ function validateFormData(requiredControls, currentIndex) {
           });
           if (!isAnyCheckBoxSelected) {
               hasError = true;
-              ValidationErrorStatus.payment_method = true;
+              ValidationErrorStatus.viewPrivacyNotice = true;
               el.setAttribute('error', requiredControls[el.id]);
+          } else {
+
           }
       } else {
           let value = el.getAttribute('value') ?? el.value;
@@ -527,7 +216,7 @@ const isCanvasBlank = (canvas) => {
 
 
 let formResponseId, signatureData;
-document.addEventListener("DOMContentLoaded", async function() { 
+document.addEventListener("DOMContentLoaded", async function() {
   const checkboxes = [{
           checkbox: "#view_welcome_packet input",
           div: "#customer_policy"
@@ -573,7 +262,7 @@ document.addEventListener("DOMContentLoaded", async function() {
   const otherRadioButton = document.getElementById('resp_type_Other');
   const customInput = document.getElementById('txtRespTypeOther');
   const radioButtons = document.querySelectorAll('input[name="resp_type"]');
-  
+
 
   radioButtons.forEach(radio => {
       radio.addEventListener('change', function() {
@@ -586,31 +275,25 @@ document.addEventListener("DOMContentLoaded", async function() {
   });
 
   const otherRadioButton1 = document.getElementById('insurance_type_Other');
-    const customInput1 = document.getElementById('txtInsuranceTypeOther');
-    const radioButtons1 = document.querySelectorAll('input[name="insurance_type"]');
+  const customInput1 = document.getElementById('txtInsuranceTypeOther');
+  const radioButtons1 = document.querySelectorAll('input[name="insurance_type"]');
 
-    radioButtons1.forEach(radio => {
-        radio.addEventListener('change', function() {
-            if (otherRadioButton1.checked) {
-                customInput1.style.display = 'inline-block';
-            } else {
-                customInput1.style.display = 'none';
-            }
-        });
-    });
-
-  // Step 3
-  showPatientSignature('patient_sign', 'clearButton', 'patient_sign_validation', ValidationErrorStatus.patient_sign);
-  // Step 4
-  showRPatientSignature('patient_rp_sign', 'RPClearButton', 'patient_rp_sign_validation', ValidationErrorStatus.patient_rp_sign);
-  // // Step 5
-  showCGPatientSignature('CGPatSignCanvas', 'CGPatSignClearButton', 'CGPatSignCanvas_validation', ValidationErrorStatus.CGPatSignCanvas);
-  // // Step 6
-  showLRPatientSignature('legalRepresentative', 'LRClearButton', 'legalRepresentative_validation', ValidationErrorStatus.legalRepresentative);
-
-  showAuthPatientSignature('PAuthorization', 'PAClearButton', 'PAuthorization_validation', ValidationErrorStatus.PAuthorization);
+  radioButtons1.forEach(radio => {
+      radio.addEventListener('change', function() {
+          if (otherRadioButton1.checked) {
+              customInput1.style.display = 'inline-block';
+          } else {
+              customInput1.style.display = 'none';
+          }
+      });
+  });
 
 
+  setupSignatureCanvas('patient_sign', 'clearButton', 'patient_sign_validation');
+  setupSignatureCanvas('patient_rp_sign', 'RPClearButton', 'patient_rp_sign_validation');
+  setupSignatureCanvas('CGPatSignCanvas', 'CGPatSignClearButton', 'CGPatSignCanvas_validation');
+  setupSignatureCanvas('legalRepresentative', 'LRClearButton', 'legalRepresentative_validation');
+  setupSignatureCanvas('PAuthorization', 'PAClearButton', 'PAuthorization_validation');
 
   commonFormOpeation.showSpinner('overlay-spinner', true);
 
@@ -623,7 +306,7 @@ document.addEventListener("DOMContentLoaded", async function() {
   }
   const searchParams = new URLSearchParams(window.location.search);
   formResponseId = searchParams.get('id');
-  showPatientSignature();
+  //  showPatientSignature();
   // hideAndShowLogic();
 
   //get all form Data
@@ -639,11 +322,11 @@ document.addEventListener("DOMContentLoaded", async function() {
 
       var element = document.getElementById('form_hide');
       if (element !== null) {
-        // Access the style property
-        var style = element.style;
-        alert(style);
+          // Access the style property
+          var style = element.style;
+          console.log(style);
       } else {
-        // Handle the case where the element does not exist
+          // Handle the case where the element does not exist
       }
 
       document.getElementById('form_hide').style.display = 'none';
@@ -651,6 +334,7 @@ document.addEventListener("DOMContentLoaded", async function() {
       // showToast('failed', 'Not valid url.');
       document.getElementById('formInvalidCondition').innerText = 'Not valid url.';
       document.getElementById('formInvalidCondition').style.display = 'block';
+      document.getElementById('errorStyle').style.display = 'block';
       return;
   }
 
@@ -671,6 +355,7 @@ document.addEventListener("DOMContentLoaded", async function() {
 
           document.getElementById('formInvalidCondition').innerText = 'Link is already expired.';
           document.getElementById('formInvalidCondition').style.display = 'block';
+          document.getElementById('errorStyle').style.display = 'block';
           return;
       } else if (formData.happ_formstatus === statusMap.Expired) {
           document.getElementById('form_hide').style.display = 'none';
@@ -678,6 +363,7 @@ document.addEventListener("DOMContentLoaded", async function() {
           // showToast('success', 'Form is Submitted and it is under review by nurse.');
           document.getElementById('formInvalidCondition').innerText = 'Link is already expired.';
           document.getElementById('formInvalidCondition').style.display = 'block';
+          document.getElementById('errorStyle').style.display = 'block';
           return;
       } else if (formData.happ_formstatus === statusMap.InReview && isPortalUserLoggedIn === 'False') {
 
@@ -689,6 +375,7 @@ document.addEventListener("DOMContentLoaded", async function() {
           alertElement.classList.remove('alert-danger');
           alertElement.classList.add('alert-primary');
           alertElement.style.display = 'block';
+          document.getElementById('errorStyle').style.display = 'block';
           return;
       } else if (formData.happ_formstatus === statusMap.Completed) {
           document.getElementById('form_hide').style.display = 'block';
@@ -719,7 +406,6 @@ document.addEventListener("DOMContentLoaded", async function() {
   }
   // hideAndShowLogic();
   if (formData) formViewOrEdit(formData.happ_formstatus);
-
 
   document.getElementById("save-draft").addEventListener('click', async () => {
       commonFormOpeation.showSpinner('overlay-spinner', true);
@@ -814,6 +500,7 @@ Your form as successfully been submitted. We are reviewing.`;
   alertElement.classList.remove('alert-danger');
   alertElement.classList.add('alert-primary');
   alertElement.style.display = 'block';
+  document.getElementById('errorStyle').style.display = 'block';
 
 }
 
@@ -846,7 +533,7 @@ const formViewOrEdit = (formStatus = null) => {
       }
   }
 
-  [...document.querySelectorAll('input[name="fname"],input[name="lname"]')].forEach((e) => {
+  [...document.querySelectorAll('input[name="fname"],input[name="lname"],input[name="mrn"]')].forEach((e) => {
       e.setAttribute('readonly', true);
   });
 }
@@ -873,6 +560,207 @@ const prepareDataForPdf = (formResponses) => {
   return formResponseMap;
 }
 
+
+// class CommonStepper extends HTMLElement {
+//   constructor() {
+//       super();
+//       this.currentStep = 1;
+//       this.steps = [];
+//       this.render();
+//   }
+
+//   connectedCallback() {
+//       // Parse the steps attribute value as JSON array
+//       this.steps = JSON.parse(this.getAttribute('steps'));
+//       this.render();
+//   }
+
+//   render() {
+//       const steps = JSON.parse(this.getAttribute('steps'));
+//       const totalSteps = steps.length;
+//       this.innerHTML = `
+//     <style>
+//     .steps {
+//         display: flex;
+//         align-items: flex-start;
+//         justify-content: center;
+//     }
+//     p {
+//         margin-top: 0 !important; 
+//         margin-bottom: 0 !important;
+//     }
+//     h4 {
+//         margin-top: 0 !important; 
+//         margin-bottom: 0 !important;
+//     }
+//     .step {
+//         display: flex;
+//         justify-content: center;
+//         align-items: center;
+//         flex-direction:column;
+//         gap: 5px;
+//         flex: 1;
+//         cursor: pointer;
+        
+//     }
+//     .step-number {
+//         width: 40px;
+//         height: 40px;
+//         border: 2px solid #ddd;
+//         border-radius: 50%;
+//         display: flex;
+//         justify-content: center;
+//         align-items: center;
+        
+//     }
+//     .step h4 {  
+//         font-size: 12px;
+//         text-align: center;
+//     }
+//     .step .active {
+//         background-color: #007bff;
+//         color: #fff;
+//     }
+//     .active-header {
+//         color: #444;
+//         font-weight: bold;
+//         font-size:20px;
+//     }
+//     .progress-bar {
+//         height: 4px;
+//         background-color: #007bff;
+//         margin-top: 10px;
+//     }
+//     .line-wrapper {
+//         width: 100%;
+//     }
+//     .line1 {
+//         height:50px;
+//         width: 100%;
+//         display: flex;
+//         align-items: center;
+//     }
+//     .line {
+//         width: 100%;
+//         height: 4px;
+//         background-color: #ddd;
+        
+//     }
+//     .line-completed .line{
+//         background-color: green;
+//     }
+//     .line-blue .line {
+//         background-color: #007bff;
+//     }
+//     .completed {
+//         background-color: green;
+//         color: white;
+//     }
+//     .step-number .check {
+//         display: none;
+//     }
+    
+//     .completed .check {
+//         display: block !important;
+//     }
+
+    
+    
+//     </style>
+//     <div class="steps mt-2">
+//         ${steps.map((label, index) => `
+//             <div class="step" data-step="${index + 1}">
+//             <p class="step-number ${index === 0 ? 'active' : ''}">
+//                 <span class="step-index-number">${index + 1}</span>
+//                 <span class="check">✔</span>
+//             </p>
+
+//             <h4 class="step-header ${index === 0 ? 'active-header' : ''}">${label}</h4>
+//             </div>
+//             ${index < totalSteps - 1 ? '<div class="line1"><div class="line" id="line"></div></div>' : ''}
+//         `).join('')}
+//     </div>
+//     <!-- <div class="progress-bar-container">
+//         <div class="progress-bar" style="width: ${this.currentStep * (100 / totalSteps)}%;"></div>
+//         <div class="content"></div>
+//     </div> -->
+// `;
+//       this.loadStepContent(1);
+//   }
+
+//   static get observedAttributes() {
+//       return ['steps', 'current-step', 'next-button', 'prev-button'];
+//   }
+
+//   attributeChangedCallback(name, oldValue, newValue) {
+//       console.log("Attribute changed:", name, "Old value:", oldValue, "New value:", newValue);
+//       if (name === 'current-step' && newValue) {
+//           this.currentStep = parseInt(newValue);
+//           this.loadStepContent(this.currentStep);
+//       }
+//   }
+//   loadStepContent(step) {
+//       const stepContentDiv = document.getElementById(`stepContent${step}`);
+//       if (stepContentDiv) {
+//           const stepContentDivs = document.querySelectorAll('.step-content');
+//           stepContentDivs.forEach(div => div.style.display = 'none');
+//           stepContentDiv.style.display = 'block';
+
+//           const steps = this.querySelectorAll('.step-number');
+//           const stepsHeader = this.querySelectorAll('.step-header');
+//           const stepsLine = this.querySelectorAll('.line1');
+
+//           if (steps && stepsHeader && stepsLine) {
+//               steps.forEach(stepEl => stepEl.classList.remove('active', 'completed'));
+//               stepsHeader.forEach(header => header.classList.remove('active-header'));
+//               stepsLine.forEach(line => line.classList.remove('line-completed', 'line-blue'));
+
+//               for (let i = 0; i < step - 1; i++) {
+//                   if (steps[i] && stepsLine[i]) {
+//                       steps[i].classList.add('completed');
+//                       stepsLine[i].classList.add('line-completed');
+//                       steps[i].querySelector('.step-index-number').style.display = 'none';
+//                   }
+//               }
+
+//               if (steps[step - 1] && stepsHeader[step - 1]) {
+//                   steps[step - 1].querySelector('.step-index-number').style.display = 'block';
+//                   steps[step - 1].classList.add('active');
+//                   stepsHeader[step - 1].classList.add('active-header');
+//               }
+
+//               if (step > 1 && stepsLine[step - 2]) {
+//                   stepsLine[step - 2].classList.add('line-blue');
+//               }
+//               if (step < steps.length && stepsLine[step - 1]) {
+//                   stepsLine[step - 1].classList.add('line-green');
+//               }
+//           }
+//       }
+//   }
+
+//   getStepLabel(stepIndex) {
+//       const steps = JSON.parse(this.getAttribute('steps'));
+//       if (stepIndex >= 0 && stepIndex < steps.length) {
+//           return steps[stepIndex];
+//       } else {
+//           return null;
+//       }
+//   }
+
+//   setStepLabel(stepIndex, newLabel) {
+//       const steps = JSON.parse(this.getAttribute('steps'));
+//       if (stepIndex >= 0 && stepIndex < steps.length) {
+//           steps[stepIndex] = newLabel;
+//           this.setAttribute('steps', JSON.stringify(steps));
+//           this.render();
+//       }
+//   }
+// }
+
+// customElements.define('common-stepper', CommonStepper);
+
+
 function handleNext() {
   // validateFormData();
   const stepper = document.querySelector('common-stepper');
@@ -887,11 +775,7 @@ function handleNext() {
   const step6 = document.getElementById('stepContent6');
   if (currentStep < totalSteps) {
       stepper.setAttribute('current-step', currentStep + 1);
-
-
-      if (getComputedStyle(step6).display === 'block') {
-          onSubmit();
-      }
+ 
   }
 }
 
@@ -910,52 +794,52 @@ function handlePrevious() {
 
 const getQuestionToIdMap = () => {
   const idToQueMap = {
-    // step 3
-      "fname": "5f5b9926-2a18-ef11-9f89-002248095c06", 
-      "lname": "853b7a6a-2a18-ef11-9f89-000d3a5c0fc6",  
-      "mrn": "b14d4575-2a18-ef11-9f89-002248095c06",  
-      "date_sign": "604c5a8e-2a18-ef11-9f89-002248095c06",  
-      "LegalGName": "4b66d09d-2a18-ef11-9f89-000d3a371898",  
-      "patient_sign": "0f3a1ff0-2a18-ef11-9f89-002248095c06", 
-      "ProWitName": "2ab45561-2b18-ef11-9f89-000d3a371898", 
-      "date": "17f8f269-2b18-ef11-9f89-002248095c06", 
-    // step 4
-      "NPPfname": "ebe2c243-2d18-ef11-9f89-002248095c06", 
-      "NPPlname": "6aaf4059-2d18-ef11-9f89-002248095c06",  
-      "sign_date": "b7952088-2d18-ef11-9f89-002248095c06",  
-      "patient_rp_sign": "b7952088-2d18-ef11-9f89-002248095c06", 
-    // step 4.1
-      "LRfname": "41c2b4f7-2d18-ef11-9f89-002248095c06",  
-      "LRlname": "c5011a09-2e18-ef11-9f89-000d3a371898", 
-      "LRsign_date": "f6f2391b-2e18-ef11-9f89-000d3a371898", 
-      "legalRepresentative": "ac962c2d-2e18-ef11-9f89-000d3a371898",  
-    // step 5
-      "PCGfname": "62b56506-2f18-ef11-9f89-002248095c06",  
-      "PCGlname": "e4690516-2f18-ef11-9f89-000d3a371898", 
-      "RelationshipToPatient": "10883d26-2f18-ef11-9f89-002248095c06", 
-      "description_of_concern": "25de685e-2f18-ef11-9f89-000d3a371898", 
-      "formCompletedBy": "4da2496c-2f18-ef11-9f89-002248095c06", 
-      "ConcernGrievance_date": "65ea8079-2f18-ef11-9f89-002248095c06",  
-      "CGPatSignCanvas": "03318d99-2f18-ef11-9f89-002248095c06", 
-      "resp_type": "", 
-      "insurance_type": "48b75668-cc0d-ef11-9f89-000d3a30dc90", 
-      "PharmacySerLoc": "", 
-      "whenYou_started": "6a44962d-3518-ef11-9f89-002248095c06", 
-      "How_satisfied_are1": "f0da0744-3518-ef11-9f89-000d3a371898", 
-      "How_satisfied_are2": "1a28dc4e-3518-ef11-9f89-000d3a5c0fc6", 
-      "How_satisfied_are3": "7abf446c-3518-ef11-9f89-000d3a371898", 
-      "How_satisfied_are4": "2c8e1a7b-3518-ef11-9f89-002248095c06", 
-      "How_would_you_rate1": "998bec55-3518-ef11-9f89-002248095c06", 
-      "How_would_you_rate2": "12663562-3518-ef11-9f89-002248095c06", 
-      "How_would_you_rate3": "ca25c473-3518-ef11-9f89-000d3a371898",  
-    // step 6
-      "patient_fname": "84e40d28-3818-ef11-9f89-000d3a371898",  
-      "patient_lname": "e9f21735-3818-ef11-9f89-002248095c06", 
-      "do_date": "4540a883-3818-ef11-9f89-002248095c06", 
-      "patient_address": "53e62765-3818-ef11-9f89-000d3a371898", 
-      "patient_cell_phone": "3b7a0c71-3818-ef11-9f89-002248095c06", 
-      "PA_DOB_date": "5a500e41-3818-ef11-9f89-002248095c06", 
-      "PAuthorization": "0454a58f-3818-ef11-9f89-002248095c06", 
+      // step 3
+      "fname": "5f5b9926-2a18-ef11-9f89-002248095c06",
+      "lname": "853b7a6a-2a18-ef11-9f89-000d3a5c0fc6",
+      "mrn": "b14d4575-2a18-ef11-9f89-002248095c06",
+      "date_sign": "604c5a8e-2a18-ef11-9f89-002248095c06",
+      "LegalGName": "4b66d09d-2a18-ef11-9f89-000d3a371898",
+      "patient_sign": "0f3a1ff0-2a18-ef11-9f89-002248095c06",
+      "ProWitName": "2ab45561-2b18-ef11-9f89-000d3a371898",
+      "date": "17f8f269-2b18-ef11-9f89-002248095c06",
+      // step 4
+      "NPPfname": "ebe2c243-2d18-ef11-9f89-002248095c06",
+      "NPPlname": "6aaf4059-2d18-ef11-9f89-002248095c06",
+      "sign_date": "b7952088-2d18-ef11-9f89-002248095c06",
+      "patient_rp_sign": "b7952088-2d18-ef11-9f89-002248095c06",
+      // step 4.1
+      "LRfname": "41c2b4f7-2d18-ef11-9f89-002248095c06",
+      "LRlname": "c5011a09-2e18-ef11-9f89-000d3a371898",
+      "LRsign_date": "f6f2391b-2e18-ef11-9f89-000d3a371898",
+      "legalRepresentative": "ac962c2d-2e18-ef11-9f89-000d3a371898",
+      // step 5
+      "PCGfname": "62b56506-2f18-ef11-9f89-002248095c06",
+      "PCGlname": "e4690516-2f18-ef11-9f89-000d3a371898",
+      "RelationshipToPatient": "10883d26-2f18-ef11-9f89-002248095c06",
+      "description_of_concern": "25de685e-2f18-ef11-9f89-000d3a371898",
+      "formCompletedBy": "4da2496c-2f18-ef11-9f89-002248095c06",
+      "ConcernGrievance_date": "65ea8079-2f18-ef11-9f89-002248095c06",
+      "CGPatSignCanvas": "03318d99-2f18-ef11-9f89-002248095c06",
+      "resp_type": "bc79515d-3418-ef11-9f89-000d3a371898",
+      "insurance_type": "1bb88e7c-e118-ef11-9f89-002248095c06",
+      "PharmacySerLoc": "98beb90f-e118-ef11-9f89-000d3a371898",
+      "whenYou_started": "6a44962d-3518-ef11-9f89-002248095c06",
+      "How_satisfied_are1": "f0da0744-3518-ef11-9f89-000d3a371898",
+      "How_satisfied_are2": "1a28dc4e-3518-ef11-9f89-000d3a5c0fc6",
+      "How_satisfied_are3": "7abf446c-3518-ef11-9f89-000d3a371898",
+      "How_satisfied_are4": "2c8e1a7b-3518-ef11-9f89-002248095c06",
+      "How_would_you_rate1": "998bec55-3518-ef11-9f89-002248095c06",
+      "How_would_you_rate2": "12663562-3518-ef11-9f89-002248095c06",
+      "How_would_you_rate3": "ca25c473-3518-ef11-9f89-000d3a371898",
+      // step 6
+      "patient_fname": "84e40d28-3818-ef11-9f89-000d3a371898",
+      "patient_lname": "e9f21735-3818-ef11-9f89-002248095c06",
+      "do_date": "4540a883-3818-ef11-9f89-002248095c06",
+      "patient_address": "53e62765-3818-ef11-9f89-000d3a371898",
+      "patient_cell_phone": "3b7a0c71-3818-ef11-9f89-002248095c06",
+      "PA_DOB_date": "5a500e41-3818-ef11-9f89-002248095c06",
+      "PAuthorization": "0454a58f-3818-ef11-9f89-002248095c06",
   };
 
 
@@ -964,26 +848,77 @@ const getQuestionToIdMap = () => {
 }
 const getAnswerToIdMap = () => {
   const idToAnsMap = {
-    "": "",
-    "": "",
-    "": "",
-    "": "",
-    "": "",
-    "": "",
-    "": "",
-    "": "",
-    "": "",
-    "": "",
-    "": "",
-    "": "",
-    "": "",
-    "": "",
-    "": "",
-    "": "",
-    "": "",
-    "": "",
-    "": "",
-    "": "",
+      // step 5
+      "resp_type_Patient": "f7fdbd5e-3418-ef11-9f89-002248095c06",
+      "resp_type_Caregiver": "f8fdbd5e-3418-ef11-9f89-002248095c06",
+      "txtRespTypeOther": "be79515d-3418-ef11-9f89-000d3a371898",
+      "insurance_type_Medicare": "1fb88e7c-e118-ef11-9f89-002248095c06",
+      "insurance_type_Medicaid": "58134c80-e118-ef11-9f89-000d3a371898",
+      "insurance_type_Prime_Therapeutics": "5d134c80-e118-ef11-9f89-000d3a371898",
+      "insurance_type_CIGNA": "98098782-e118-ef11-9f89-002248095c06",
+      "insurance_type_United_Healthcare": "60134c80-e118-ef11-9f89-000d3a371898",
+      "insurance_type_Anthem": "99098782-e118-ef11-9f89-002248095c06",
+      "insurance_type_Humana": "9c098782-e118-ef11-9f89-002248095c06",
+      "insurance_type_BCBS": "61134c80-e118-ef11-9f89-000d3a371898",
+      "txtInsuranceTypeOther": "9d098782-e118-ef11-9f89-002248095c06",
+      // location
+      "PharmacySerLoc_CA": "93824e11-e118-ef11-9f89-002248095c06",
+      "PharmacySerLoc_LA": "9b824e11-e118-ef11-9f89-002248095c06",
+      "PharmacySerLoc_MD": "9e824e11-e118-ef11-9f89-002248095c06",
+      "PharmacySerLoc_NJ": "99beb90f-e118-ef11-9f89-000d3a371898",
+      "PharmacySerLoc_PA": "a7824e11-e118-ef11-9f89-002248095c06",
+      "PharmacySerLoc_TX": "b9824e11-e118-ef11-9f89-002248095c06",
+      "PharmacySerLoc_FL": "ba824e11-e118-ef11-9f89-002248095c06",
+      "PharmacySerLoc_Unknown": "b8beb90f-e118-ef11-9f89-000d3a371898",
+      // table answerId
+      "1stflexRadioDefault5": "5d51e82a-3518-ef11-9f89-000d3a5c0fc6",
+      "1stflexRadioDefault4": "6d44962d-3518-ef11-9f89-002248095c06",
+      "1stflexRadioDefault3": "a4d00f30-3518-ef11-9f89-000d3a371898",
+      "1stflexRadioDefault2": "6e44962d-3518-ef11-9f89-002248095c06",
+      "1stflexRadioDefault1": "6f44962d-3518-ef11-9f89-002248095c06",
+
+      "2stflexRadioDefault5": "f6da0744-3518-ef11-9f89-000d3a371898",
+      "2stflexRadioDefault4": "fdda0744-3518-ef11-9f89-000d3a371898",
+      "2stflexRadioDefault3": "d3ba6442-3518-ef11-9f89-002248095c06",
+      "2stflexRadioDefault2": "ffda0744-3518-ef11-9f89-000d3a371898",
+      "2stflexRadioDefault1": "00db0744-3518-ef11-9f89-000d3a371898",
+
+      "3stflexRadioDefault5": "abe26350-3518-ef11-9f89-000d3a371898",
+      "3stflexRadioDefault4": "ace26350-3518-ef11-9f89-000d3a371898",
+      "3stflexRadioDefault3": "afe26350-3518-ef11-9f89-000d3a371898",
+      "3stflexRadioDefault2": "b0e26350-3518-ef11-9f89-000d3a371898",
+      "3stflexRadioDefault1": "1b28dc4e-3518-ef11-9f89-000d3a5c0fc6",
+
+      "4stflexRadioDefault5": "9a8bec55-3518-ef11-9f89-002248095c06",
+      "4stflexRadioDefault4": "ad0ec957-3518-ef11-9f89-000d3a371898",
+      "4stflexRadioDefault3": "ae0ec957-3518-ef11-9f89-000d3a371898",
+      "4stflexRadioDefault2": "9f8bec55-3518-ef11-9f89-002248095c06",
+      "4stflexRadioDefault1": "1ddde45b-3518-ef11-9f89-002248095c06",
+
+      "5stflexRadioDefault5": "e278ab5e-3518-ef11-9f89-000d3a371898",
+      "5stflexRadioDefault4": "e578ab5e-3518-ef11-9f89-000d3a371898",
+      "5stflexRadioDefault3": "19663562-3518-ef11-9f89-002248095c06",
+      "5stflexRadioDefault2": "e678ab5e-3518-ef11-9f89-000d3a371898",
+      "5stflexRadioDefault1": "e878ab5e-3518-ef11-9f89-000d3a371898",
+
+      "6stflexRadioDefault5": "7ebf446c-3518-ef11-9f89-000d3a371898",
+      "6stflexRadioDefault4": "aaf14768-3518-ef11-9f89-002248095c06",
+      "6stflexRadioDefault3": "7fbf446c-3518-ef11-9f89-000d3a371898",
+      "6stflexRadioDefault2": "80bf446c-3518-ef11-9f89-000d3a371898",
+      "6stflexRadioDefault1": "81bf446c-3518-ef11-9f89-000d3a371898",
+
+      "7stflexRadioDefault5": "cb25c473-3518-ef11-9f89-000d3a371898",
+      "7stflexRadioDefault4": "ce25c473-3518-ef11-9f89-000d3a371898",
+      "7stflexRadioDefault3": "cf25c473-3518-ef11-9f89-000d3a371898",
+      "7stflexRadioDefault2": "87428774-3518-ef11-9f89-002248095c06",
+      "7stflexRadioDefault1": "d025c473-3518-ef11-9f89-000d3a371898",
+
+      "8stflexRadioDefault5": "04b8af7a-3518-ef11-9f89-000d3a371898",
+      "8stflexRadioDefault4": "2e8e1a7b-3518-ef11-9f89-002248095c06",
+      "8stflexRadioDefault3": "2f8e1a7b-3518-ef11-9f89-002248095c06",
+      "8stflexRadioDefault2": "328e1a7b-3518-ef11-9f89-002248095c06",
+      "8stflexRadioDefault1": "338e1a7b-3518-ef11-9f89-002248095c06",
+
   };
   return idToAnsMap;
 }
