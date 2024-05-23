@@ -761,35 +761,59 @@ const prepareDataForPdf = (formResponses) => {
 // customElements.define('common-stepper', CommonStepper);
 
 
+// Function to handle next step
 function handleNext() {
-  // validateFormData();
   const stepper = document.querySelector('common-stepper');
-  const currentStepAttr = stepper.getAttribute('current-step');
-  const currentStep = currentStepAttr ? parseInt(currentStepAttr, 10) : 0;
-  const stepsAttr = stepper.getAttribute('steps');
-  const totalSteps = stepsAttr ? stepsAttr.split(',').length : 0;
+  const currentStep = parseInt(stepper.getAttribute('current-step'));
+  const totalSteps = stepper.getAttribute('steps').split(',').length;
 
   if (!validateForm(currentStep - 1)) {
-      return;
-  }
-  const step6 = document.getElementById('stepContent6');
+    return;
+}
+
   if (currentStep < totalSteps) {
-      stepper.setAttribute('current-step', currentStep + 1);
- 
+    stepper.setAttribute('current-step', currentStep + 1);
+    updateButtonVisibility(currentStep + 1, totalSteps);
   }
 }
 
-// Function to handle the previous step
-function handlePrevious() {
+// Function to handle previous step
+function handlePrevious(totalSteps) {
   const stepper = document.querySelector('common-stepper');
-  const currentStepAttr = stepper.getAttribute('current-step');
-  const currentStep = currentStepAttr ? parseInt(currentStepAttr, 10) : 0;
+  const currentStep = parseInt(stepper.getAttribute('current-step'));
 
   if (currentStep > 1) {
-      stepper.setAttribute('current-step', currentStep - 1);
+    stepper.setAttribute('current-step', currentStep - 1);
+    updateButtonVisibility(currentStep - 1, totalSteps);
   }
 }
 
+function updateButtonVisibility(currentStep, totalSteps) {
+  const prevButton = document.getElementById('prevButton');
+
+  if (currentStep === 1) {
+    prevButton.style.display = 'none';
+  } else {
+    prevButton.style.display = 'inline-block';
+  }
+  const saveBtnStep = document.getElementById('saveBtn');
+  const nextButton = document.getElementById('nextButton');
+  if (currentStep === totalSteps) {
+    nextButton.style.display = 'none';
+    saveBtnStep.style.display = 'inline-block';
+
+  } else {
+    nextButton.style.display = 'inline-block';
+    saveBtnStep.style.display = 'none';
+  }
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  const stepper = document.querySelector('common-stepper');
+  const currentStep = parseInt(stepper.getAttribute('current-step'));
+  const totalSteps = stepper.getAttribute('steps').split(',').length;
+  updateButtonVisibility(currentStep, totalSteps);
+});
 
 
 const getQuestionToIdMap = () => {
