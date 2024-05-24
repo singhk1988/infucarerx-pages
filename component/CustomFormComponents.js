@@ -236,10 +236,7 @@ class CommonStepper extends HTMLElement {
           position: relative;
           min-height: 70px;
       }
-      p {
-          margin-top: 0 !important; 
-          margin-bottom: 0 !important;
-      }
+       
       h4 {
           margin-top: 0 !important; 
           margin-bottom: 0 !important;
