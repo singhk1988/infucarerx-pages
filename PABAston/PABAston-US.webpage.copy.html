@@ -541,16 +541,14 @@
                                   </div>
                                   <div class="form-group col-md-4">
                                       <custom-input type="text" label="Patient Last Name: *" value="" id="lname" name="lname" placeholder="Last Name" required="" disabled> </custom-input>
-                                  </div>
-                                  <div class="form-group col-md-4">
-                                      <custom-input label="Patient MRN: *" type="number" id="mrn" name="mrn" value="" placeholder="Patient MRN" required="" disabled> </custom-input>
-                                  </div>
+                                  </div> 
                                   <div class="form-group col-md-4 date-picker">
                                       <custom-input type="date" label="Signature Date: *" id="date_sign" name="date_sign" required=""> </custom-input>
                                   </div>
                                   <div class="form-group col-md-4">
                                       <custom-input label="Legal Guardian Name: " value="" id="LegalGName" name="LegalGName" placeholder="Legal Guardian Name" error=""> </custom-input>
                                   </div>
+                                  <div class="form-group col-md-4"></div>
                                   <div class="signature col-md-8 mt-3">
                                       <label for="patient_sign" id="i0n4kz" class="form-label question-label" style="font-weight: normal; font-size: 16px;">Signature of Patient or Legal Guardian: * </label><span id="required_patient_sign" class="required_fields"></span>
                                       <div id="i4s2zf" class="signature-canvas">
@@ -829,15 +827,7 @@
                               <div>
                                   <h5 class="text-center fw-bold">NOTICE OF PRIVACY PRACTICES ACKNOWLEDMENT FORM</h5>
                                   <p class="mt-4">By signing this statement, I acknowledge that I have received and reviewed InfuCare Rx's Notice of Privacy Practice's.</p>
-                                  <div class="row">
-                                      <div class="col-md-4">
-                                          <custom-input label="First name:*" value="" id="NPPfname" name="NPPfname" placeholder="First name" error="" required=""> </custom-input>
-                                          <div id="p-first-name" class="invalid-feedback" style="margin-top: 0px; display: none; color: red;">first name.</div>
-                                      </div>
-                                      <div class="col-md-4">
-                                          <custom-input type="text" label="Last Name:*" value="" id="NPPlname" name="NPPlname" placeholder="Last Name" required=""> </custom-input>
-                                          <div id="p-last-name" class="invalid-feedback" style="margin-top: 0px; display: none; color: red;">Please enter last name.</div>
-                                      </div>
+                                  <div class="row"> 
                                       <div class="form-group col-md-4">
                                           <custom-input label="Signature Date:*" type="Date" id="sign_date" name="sign_date" value="" placeholder=""> </custom-input>
                                           <div id="p-dob" class="invalid-feedback" style="margin-top: 0px; display: none; color: red;">Please enter your DOB.</div>
@@ -1544,7 +1534,7 @@
                       <div class="mt-4">
                           <button id="prevButton" type="button" class="prevStep btn btn-success me-2" onclick="handlePrevious()">Previous</button>
                           <button id="save-draft" type="button" class="btn btn-success me-2">Save as Draft</button>
-                          <button id="nextbtn" type="button" class="prevStep btn btn-success me-2" onclick="handleNext()">Next</button>
+                          <button id="nextButton" type="button" class="prevStep btn btn-success me-2" onclick="handleNext()">Next</button>
                           <button id="saveBtn" type="button" class="btn btn-success me-2" style="display: none;">Submit</button>
                       </div>
                   </div>
