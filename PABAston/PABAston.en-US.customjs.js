@@ -8,14 +8,10 @@ const requiredControlsStep3 = {
 };
 
 const requiredControlsStep4 = {
-  'view_Privacy_Notice': 'Please check.',
-  //'legal_represenative': 'Please check.',
+  'view_Privacy_Notice': 'Please check.', 
   'sign_date': 'Please select signature date.',
   'NPPlname': 'Please enter last name.',
-  'NPPfname': 'Please enter first name.',
-  //'LRfname': 'Please enter first name.',
-  //'LRlname':'Please enter last name.',
-  //'LRsign_date': 'Please select signature date.',
+  'NPPfname': 'Please enter first name.', 
 };
 const requiredControlsStep5 = {
   'ConcernGrievance_date': 'Please select signature date.',
@@ -789,24 +785,25 @@ function handlePrevious(totalSteps) {
 }
 
 function updateButtonVisibility(currentStep, totalSteps) {
-  const prevButton = document.getElementById('prevButton');
-
-  if (currentStep === 1) {
-    prevButton.style.display = 'none';
-  } else {
-    prevButton.style.display = 'inline-block';
+    const prevButton = document.getElementById('prevButton');
+  
+    if (currentStep === null || 1) {
+        if(prevButton) prevButton.style.display = 'none';
+    } else {
+        if(prevButton) prevButton.style.display = 'inline-block';
+    }
+   // const saveBtnStep = document.getElementById('saveBtn');
+    const nextButton = document.getElementById('nextButton');
+    if (currentStep === totalSteps) {
+      if(nextButton) nextButton.style.display = 'none';
+     // if(saveBtnStep) saveBtnStep.style.display = 'inline-block';
+  
+    } else {
+        if(nextButton) nextButton.style.display = 'inline-block';
+        //if(saveBtnStep) saveBtnStep.style.display = 'none';
+    }
   }
-  const saveBtnStep = document.getElementById('saveBtn');
-  const nextButton = document.getElementById('nextButton');
-  if (currentStep === totalSteps) {
-    nextButton.style.display = 'none';
-    saveBtnStep.style.display = 'inline-block';
-
-  } else {
-    nextButton.style.display = 'inline-block';
-    saveBtnStep.style.display = 'none';
-  }
-}
+  
 
 document.addEventListener('DOMContentLoaded', function() {
   const stepper = document.querySelector('common-stepper');
@@ -819,51 +816,51 @@ document.addEventListener('DOMContentLoaded', function() {
 const getQuestionToIdMap = () => {
   const idToQueMap = {
       // step 3
-      "fname": "5f5b9926-2a18-ef11-9f89-002248095c06",
-      "lname": "853b7a6a-2a18-ef11-9f89-000d3a5c0fc6",
-      "mrn": "b14d4575-2a18-ef11-9f89-002248095c06",
-      "date_sign": "604c5a8e-2a18-ef11-9f89-002248095c06",
-      "LegalGName": "4b66d09d-2a18-ef11-9f89-000d3a371898",
-      "patient_sign": "0f3a1ff0-2a18-ef11-9f89-002248095c06",
-      "ProWitName": "2ab45561-2b18-ef11-9f89-000d3a371898",
-      "date": "17f8f269-2b18-ef11-9f89-002248095c06",
-      // step 4
-      "NPPfname": "ebe2c243-2d18-ef11-9f89-002248095c06",
-      "NPPlname": "6aaf4059-2d18-ef11-9f89-002248095c06",
-      "sign_date": "b7952088-2d18-ef11-9f89-002248095c06",
-      "patient_rp_sign": "b7952088-2d18-ef11-9f89-002248095c06",
+      "fname": "c0c72e46-eb1b-ef11-840a-000d3a371898",
+      "lname": "18d6454e-eb1b-ef11-840a-000d3a371898", 
+      "date_sign": "68a4b554-eb1b-ef11-840a-000d3a371898",
+      "LegalGName": "b9d18769-eb1b-ef11-840a-002248095c06",
+      "patient_sign": "8ab7c590-eb1b-ef11-840a-002248095c06",
+      "ProWitName": "4e8bfb72-eb1b-ef11-840a-000d3a371898",
+      "date": "88c61f7b-eb1b-ef11-840a-002248095c06",
+      // step 4 
+      "sign_date": "ad2813a7-eb1b-ef11-840a-000d3a371898",
+      "patient_rp_sign": "1f4b2dbb-eb1b-ef11-840a-002248095c06",
       // step 4.1
-      "LRfname": "41c2b4f7-2d18-ef11-9f89-002248095c06",
-      "LRlname": "c5011a09-2e18-ef11-9f89-000d3a371898",
-      "LRsign_date": "f6f2391b-2e18-ef11-9f89-000d3a371898",
-      "legalRepresentative": "ac962c2d-2e18-ef11-9f89-000d3a371898",
+      "LRfname": "daca68ce-eb1b-ef11-840a-002248095c06",
+      "LRlname": "c16c5fde-eb1b-ef11-840a-002248095c06",
+      "LRsign_date": "eaf5111a-ec1b-ef11-840a-000d3a371898",
+      "legalRepresentative": "36073d22-ec1b-ef11-840a-000d3a371898",
       // step 5
-      "PCGfname": "62b56506-2f18-ef11-9f89-002248095c06",
-      "PCGlname": "e4690516-2f18-ef11-9f89-000d3a371898",
-      "RelationshipToPatient": "10883d26-2f18-ef11-9f89-002248095c06",
-      "description_of_concern": "25de685e-2f18-ef11-9f89-000d3a371898",
-      "formCompletedBy": "4da2496c-2f18-ef11-9f89-002248095c06",
-      "ConcernGrievance_date": "65ea8079-2f18-ef11-9f89-002248095c06",
-      "CGPatSignCanvas": "03318d99-2f18-ef11-9f89-002248095c06",
-      "resp_type": "bc79515d-3418-ef11-9f89-000d3a371898",
-      "insurance_type": "1bb88e7c-e118-ef11-9f89-002248095c06",
-      "PharmacySerLoc": "98beb90f-e118-ef11-9f89-000d3a371898",
-      "whenYou_started": "6a44962d-3518-ef11-9f89-002248095c06",
-      "How_satisfied_are1": "f0da0744-3518-ef11-9f89-000d3a371898",
-      "How_satisfied_are2": "1a28dc4e-3518-ef11-9f89-000d3a5c0fc6",
-      "How_satisfied_are3": "7abf446c-3518-ef11-9f89-000d3a371898",
-      "How_satisfied_are4": "2c8e1a7b-3518-ef11-9f89-002248095c06",
-      "How_would_you_rate1": "998bec55-3518-ef11-9f89-002248095c06",
-      "How_would_you_rate2": "12663562-3518-ef11-9f89-002248095c06",
-      "How_would_you_rate3": "ca25c473-3518-ef11-9f89-000d3a371898",
+      "PCGfname": "e2cab33a-ec1b-ef11-840a-000d3a371898",
+      "PCGlname": "5aa54150-ec1b-ef11-840a-000d3a371898",
+      "RelationshipToPatient": "f8f80964-ec1b-ef11-840a-000d3a371898",
+      "description_of_concern": "96a7d06e-ec1b-ef11-840a-000d3a371898",
+      "formCompletedBy": "0f77c574-ec1b-ef11-840a-002248095c06",
+      "ConcernGrievance_date": "bf577b7b-ec1b-ef11-840a-000d3a371898",
+      "CGPatSignCanvas": "dbcff89f-ec1b-ef11-840a-002248095c06",
+      "resp_type": "d0d9edc0-ec1b-ef11-840a-000d3a371898",
+      "insurance_type": "5c36f70a-ed1b-ef11-840a-000d3a371898",
+      "PharmacySerLoc": "0ad9d93f-ed1b-ef11-840a-002248095c06",
+
+      "whenYou_started": "ddc5f884-ed1b-ef11-840a-002248095c06",
+
+      "How_satisfied_are1": "30366088-ed1b-ef11-840a-000d3a371898",      
+      "How_satisfied_are2": "df0c4f92-ed1b-ef11-840a-002248095c06",
+      "How_satisfied_are3": "c5cab1aa-ed1b-ef11-840a-002248095c06",
+      "How_satisfied_are4": "df9679ba-ed1b-ef11-840a-000d3a371898",
+
+      "How_would_you_rate1": "00fa4e9b-ed1b-ef11-840a-002248095c06",
+      "How_would_you_rate2": "a1ce0da4-ed1b-ef11-840a-002248095c06",
+      "How_would_you_rate3": "a25018b4-ed1b-ef11-840a-000d3a371898",
       // step 6
-      "patient_fname": "84e40d28-3818-ef11-9f89-000d3a371898",
-      "patient_lname": "e9f21735-3818-ef11-9f89-002248095c06",
-      "do_date": "4540a883-3818-ef11-9f89-002248095c06",
-      "patient_address": "53e62765-3818-ef11-9f89-000d3a371898",
-      "patient_cell_phone": "3b7a0c71-3818-ef11-9f89-002248095c06",
-      "PA_DOB_date": "5a500e41-3818-ef11-9f89-002248095c06",
-      "PAuthorization": "0454a58f-3818-ef11-9f89-002248095c06",
+      "patient_fname": "43e056d2-ed1b-ef11-840a-000d3a371898",
+      "patient_lname": "a574f7db-ed1b-ef11-840a-000d3a371898",
+      "do_date": "abc2f9fe-ed1b-ef11-840a-002248095c06",
+      "patient_address": "31abf0f0-ed1b-ef11-840a-002248095c06",
+      "patient_cell_phone": "bb69d7f7-ed1b-ef11-840a-002248095c06",
+      "PA_DOB_date": "e47610e8-ed1b-ef11-840a-002248095c06",
+      "PAuthorization": "0c6bb405-ee1b-ef11-840a-000d3a371898",
   };
 
 
@@ -873,75 +870,75 @@ const getQuestionToIdMap = () => {
 const getAnswerToIdMap = () => {
   const idToAnsMap = {
       // step 5
-      "resp_type_Patient": "f7fdbd5e-3418-ef11-9f89-002248095c06",
-      "resp_type_Caregiver": "f8fdbd5e-3418-ef11-9f89-002248095c06",
-      "txtRespTypeOther": "be79515d-3418-ef11-9f89-000d3a371898",
+      "resp_type_Patient": "d1d9edc0-ec1b-ef11-840a-000d3a371898",
+      "resp_type_Caregiver": "d2d9edc0-ec1b-ef11-840a-000d3a371898",
+      "txtRespTypeOther": "d41f1811-ed1b-ef11-840a-000d3a371898",
       "insurance_type_Medicare": "1fb88e7c-e118-ef11-9f89-002248095c06",
-      "insurance_type_Medicaid": "58134c80-e118-ef11-9f89-000d3a371898",
-      "insurance_type_Prime_Therapeutics": "5d134c80-e118-ef11-9f89-000d3a371898",
-      "insurance_type_CIGNA": "98098782-e118-ef11-9f89-002248095c06",
-      "insurance_type_United_Healthcare": "60134c80-e118-ef11-9f89-000d3a371898",
-      "insurance_type_Anthem": "99098782-e118-ef11-9f89-002248095c06",
-      "insurance_type_Humana": "9c098782-e118-ef11-9f89-002248095c06",
-      "insurance_type_BCBS": "61134c80-e118-ef11-9f89-000d3a371898",
-      "txtInsuranceTypeOther": "9d098782-e118-ef11-9f89-002248095c06",
+      "insurance_type_Medicaid": "5e36f70a-ed1b-ef11-840a-000d3a371898",
+      "insurance_type_Prime_Therapeutics": "5f36f70a-ed1b-ef11-840a-000d3a371898",
+      "insurance_type_CIGNA": "e86d7f0c-ed1b-ef11-840a-002248095c06",
+      "insurance_type_United_Healthcare": "d01f1811-ed1b-ef11-840a-000d3a371898",
+      "insurance_type_Anthem": "e96d7f0c-ed1b-ef11-840a-002248095c06",
+      "insurance_type_Humana": "ea6d7f0c-ed1b-ef11-840a-002248095c06",
+      "insurance_type_BCBS": "d31f1811-ed1b-ef11-840a-000d3a371898",
+      "txtInsuranceTypeOther": "ab0612c2-ec1b-ef11-840a-002248095c06",
       // location
-      "PharmacySerLoc_CA": "93824e11-e118-ef11-9f89-002248095c06",
-      "PharmacySerLoc_LA": "9b824e11-e118-ef11-9f89-002248095c06",
-      "PharmacySerLoc_MD": "9e824e11-e118-ef11-9f89-002248095c06",
-      "PharmacySerLoc_NJ": "99beb90f-e118-ef11-9f89-000d3a371898",
-      "PharmacySerLoc_PA": "a7824e11-e118-ef11-9f89-002248095c06",
-      "PharmacySerLoc_TX": "b9824e11-e118-ef11-9f89-002248095c06",
-      "PharmacySerLoc_FL": "ba824e11-e118-ef11-9f89-002248095c06",
-      "PharmacySerLoc_Unknown": "b8beb90f-e118-ef11-9f89-000d3a371898",
+      "PharmacySerLoc_CA": "8e32383d-ed1b-ef11-840a-000d3a371898",
+      "PharmacySerLoc_LA": "8f32383d-ed1b-ef11-840a-000d3a371898",
+      "PharmacySerLoc_MD": "0bd9d93f-ed1b-ef11-840a-002248095c06",
+      "PharmacySerLoc_NJ": "9032383d-ed1b-ef11-840a-000d3a371898",
+      "PharmacySerLoc_PA": "9132383d-ed1b-ef11-840a-000d3a371898",
+      "PharmacySerLoc_TX": "0cd9d93f-ed1b-ef11-840a-002248095c06",
+      "PharmacySerLoc_FL": "9232383d-ed1b-ef11-840a-000d3a371898",
+      "PharmacySerLoc_Unknown": "9332383d-ed1b-ef11-840a-000d3a371898",
       // table answerId
-      "1stflexRadioDefault5": "5d51e82a-3518-ef11-9f89-000d3a5c0fc6",
-      "1stflexRadioDefault4": "6d44962d-3518-ef11-9f89-002248095c06",
-      "1stflexRadioDefault3": "a4d00f30-3518-ef11-9f89-000d3a371898",
-      "1stflexRadioDefault2": "6e44962d-3518-ef11-9f89-002248095c06",
-      "1stflexRadioDefault1": "6f44962d-3518-ef11-9f89-002248095c06",
+      "1stflexRadioDefault5": "dec5f884-ed1b-ef11-840a-002248095c06",
+      "1stflexRadioDefault4": "99d56782-ed1b-ef11-840a-000d3a371898",
+      "1stflexRadioDefault3": "dfc5f884-ed1b-ef11-840a-002248095c06",
+      "1stflexRadioDefault2": "9ad56782-ed1b-ef11-840a-000d3a371898",
+      "1stflexRadioDefault1": "9bd56782-ed1b-ef11-840a-000d3a371898",
 
-      "2stflexRadioDefault5": "f6da0744-3518-ef11-9f89-000d3a371898",
-      "2stflexRadioDefault4": "fdda0744-3518-ef11-9f89-000d3a371898",
-      "2stflexRadioDefault3": "d3ba6442-3518-ef11-9f89-002248095c06",
-      "2stflexRadioDefault2": "ffda0744-3518-ef11-9f89-000d3a371898",
-      "2stflexRadioDefault1": "00db0744-3518-ef11-9f89-000d3a371898",
+      "2stflexRadioDefault5": "3f0d088c-ed1b-ef11-840a-002248095c06",
+      "2stflexRadioDefault4": "31366088-ed1b-ef11-840a-000d3a371898",
+      "2stflexRadioDefault3": "32366088-ed1b-ef11-840a-000d3a371898",
+      "2stflexRadioDefault2": "450d088c-ed1b-ef11-840a-002248095c06",
+      "2stflexRadioDefault1": "460d088c-ed1b-ef11-840a-002248095c06",
 
-      "3stflexRadioDefault5": "abe26350-3518-ef11-9f89-000d3a371898",
-      "3stflexRadioDefault4": "ace26350-3518-ef11-9f89-000d3a371898",
-      "3stflexRadioDefault3": "afe26350-3518-ef11-9f89-000d3a371898",
-      "3stflexRadioDefault2": "b0e26350-3518-ef11-9f89-000d3a371898",
-      "3stflexRadioDefault1": "1b28dc4e-3518-ef11-9f89-000d3a5c0fc6",
+      "3stflexRadioDefault5": "1a9c828f-ed1b-ef11-840a-000d3a371898",
+      "3stflexRadioDefault4": "1b9c828f-ed1b-ef11-840a-000d3a371898",
+      "3stflexRadioDefault3": "e00c4f92-ed1b-ef11-840a-002248095c06",
+      "3stflexRadioDefault2": "e10c4f92-ed1b-ef11-840a-002248095c06",
+      "3stflexRadioDefault1": "1c9c828f-ed1b-ef11-840a-000d3a371898",
 
-      "4stflexRadioDefault5": "9a8bec55-3518-ef11-9f89-002248095c06",
-      "4stflexRadioDefault4": "ad0ec957-3518-ef11-9f89-000d3a371898",
-      "4stflexRadioDefault3": "ae0ec957-3518-ef11-9f89-000d3a371898",
-      "4stflexRadioDefault2": "9f8bec55-3518-ef11-9f89-002248095c06",
-      "4stflexRadioDefault1": "1ddde45b-3518-ef11-9f89-002248095c06",
+      "4stflexRadioDefault5": "d0d34d9d-ed1b-ef11-840a-000d3a371898",
+      "4stflexRadioDefault4": "d1d34d9d-ed1b-ef11-840a-000d3a371898",
+      "4stflexRadioDefault3": "d2d34d9d-ed1b-ef11-840a-000d3a371898",
+      "4stflexRadioDefault2": "01fa4e9b-ed1b-ef11-840a-002248095c06",
+      "4stflexRadioDefault1": "02fa4e9b-ed1b-ef11-840a-002248095c06",
 
-      "5stflexRadioDefault5": "e278ab5e-3518-ef11-9f89-000d3a371898",
-      "5stflexRadioDefault4": "e578ab5e-3518-ef11-9f89-000d3a371898",
-      "5stflexRadioDefault3": "19663562-3518-ef11-9f89-002248095c06",
-      "5stflexRadioDefault2": "e678ab5e-3518-ef11-9f89-000d3a371898",
-      "5stflexRadioDefault1": "e878ab5e-3518-ef11-9f89-000d3a371898",
+      "5stflexRadioDefault5": "a2ce0da4-ed1b-ef11-840a-002248095c06",
+      "5stflexRadioDefault4": "3e73e7a4-ed1b-ef11-840a-000d3a371898",
+      "5stflexRadioDefault3": "a3ce0da4-ed1b-ef11-840a-002248095c06",
+      "5stflexRadioDefault2": "a4ce0da4-ed1b-ef11-840a-002248095c06",
+      "5stflexRadioDefault1": "a5ce0da4-ed1b-ef11-840a-002248095c06",
 
-      "6stflexRadioDefault5": "7ebf446c-3518-ef11-9f89-000d3a371898",
-      "6stflexRadioDefault4": "aaf14768-3518-ef11-9f89-002248095c06",
-      "6stflexRadioDefault3": "7fbf446c-3518-ef11-9f89-000d3a371898",
-      "6stflexRadioDefault2": "80bf446c-3518-ef11-9f89-000d3a371898",
-      "6stflexRadioDefault1": "81bf446c-3518-ef11-9f89-000d3a371898",
+      "6stflexRadioDefault5": "bb54a3ab-ed1b-ef11-840a-000d3a371898",
+      "6stflexRadioDefault4": "bc54a3ab-ed1b-ef11-840a-000d3a371898",
+      "6stflexRadioDefault3": "bd54a3ab-ed1b-ef11-840a-000d3a371898",
+      "6stflexRadioDefault2": "be54a3ab-ed1b-ef11-840a-000d3a371898",
+      "6stflexRadioDefault1": "c6cab1aa-ed1b-ef11-840a-002248095c06",
 
-      "7stflexRadioDefault5": "cb25c473-3518-ef11-9f89-000d3a371898",
-      "7stflexRadioDefault4": "ce25c473-3518-ef11-9f89-000d3a371898",
-      "7stflexRadioDefault3": "cf25c473-3518-ef11-9f89-000d3a371898",
-      "7stflexRadioDefault2": "87428774-3518-ef11-9f89-002248095c06",
-      "7stflexRadioDefault1": "d025c473-3518-ef11-9f89-000d3a371898",
+      "7stflexRadioDefault5": "d6e557b4-ed1b-ef11-840a-002248095c06",
+      "7stflexRadioDefault4": "d7e557b4-ed1b-ef11-840a-002248095c06",
+      "7stflexRadioDefault3": "d8e557b4-ed1b-ef11-840a-002248095c06",
+      "7stflexRadioDefault2": "a35018b4-ed1b-ef11-840a-000d3a371898",
+      "7stflexRadioDefault1": "d9e557b4-ed1b-ef11-840a-002248095c06",
 
-      "8stflexRadioDefault5": "04b8af7a-3518-ef11-9f89-000d3a371898",
-      "8stflexRadioDefault4": "2e8e1a7b-3518-ef11-9f89-002248095c06",
-      "8stflexRadioDefault3": "2f8e1a7b-3518-ef11-9f89-002248095c06",
-      "8stflexRadioDefault2": "328e1a7b-3518-ef11-9f89-002248095c06",
-      "8stflexRadioDefault1": "338e1a7b-3518-ef11-9f89-002248095c06",
+      "8stflexRadioDefault5": "e09679ba-ed1b-ef11-840a-000d3a371898",
+      "8stflexRadioDefault4": "f8bcb9bc-ed1b-ef11-840a-002248095c06",
+      "8stflexRadioDefault3": "f9bcb9bc-ed1b-ef11-840a-002248095c06",
+      "8stflexRadioDefault2": "169879ba-ed1b-ef11-840a-000d3a371898",
+      "8stflexRadioDefault1": "5a9879ba-ed1b-ef11-840a-000d3a371898",
 
   };
   return idToAnsMap;
