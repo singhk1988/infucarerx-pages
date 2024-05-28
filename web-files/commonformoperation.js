@@ -1,5 +1,7 @@
 
 const commonFormOpeation = (function () {
+
+    
     let pr_questions = [];
     let pr_panswers = [];
 
