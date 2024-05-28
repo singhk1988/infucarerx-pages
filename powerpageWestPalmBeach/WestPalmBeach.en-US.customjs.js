@@ -168,10 +168,7 @@ const setSignatureDatas = (elementId) => {
             //step 3
             fname: formData.happ_PatientList.happ_patientfirstname,
             lname: formData.happ_PatientList.happ_patientlastname,
-            mrn: formData.happ_PatientList.happ_mrn,
-            //step 4
-            NPPfname: formData.happ_PatientList.happ_patientfirstname,
-            NPPlname: formData.happ_PatientList.happ_patientlastname,
+            mrn: formData.happ_PatientList.happ_mrn, 
             //step 5
             PCGfname: formData.happ_PatientList.happ_patientfirstname,
             PCGlname: formData.happ_PatientList.happ_patientlastname,
