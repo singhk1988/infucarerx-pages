@@ -57,199 +57,209 @@ const setSignatureDatas = (elementId) => {
 }
 
    
-  let formResponseId, signatureData, fromResponses;
-  document.addEventListener("DOMContentLoaded", async function() {
-    nextAndprevbtnwithsavedraft();
-    checkboxHideandShow();
-    showOtherInputOnchecked();
-  
-    setupSignatureCanvas('patient_sign', 'clearButton', 'patient_sign_validation');
-    setupSignatureCanvas('patient_rp_sign', 'RPClearButton', 'patient_rp_sign_validation');
-    setupSignatureCanvas('CGPatSignCanvas', 'CGPatSignClearButton', 'CGPatSignCanvas_validation');
-    setupSignatureCanvas('legalRepresentative', 'LRClearButton', 'legalRepresentative_validation');
-    setupSignatureCanvas('PAuthorization', 'PAClearButton', 'PAuthorization_validation');
-  
-    commonFormOpeation.showSpinner('overlay-spinner', true);
-  
-    {
-        const headerForm = document.getElementById('header_form');
-        const headerFormText = document.getElementById('header_form_text');
-  
-        headerForm.style.display = 'block';
-        headerFormText.innerText = 'Patient Admission Booklet - West Palm Beach';
-    }
-    const searchParams = new URLSearchParams(window.location.search);
-    formResponseId = searchParams.get('id');
+let formResponseId, signatureData, fromResponses;
+document.addEventListener("DOMContentLoaded", async function() {
+  nextAndprevbtnwithsavedraft();
+  checkboxHideandShow();
+  showOtherInputOnchecked();
+  handleUndefinedInput();
 
-    fromResponses = window.localStorage.getItem(formResponseId);
-    commonFormOpeation.setFormDataFromSave(getQuestionToIdMap(), getAnswerToIdMap(), fromResponses ? JSON.parse(fromResponses) : undefined, 'False');
-    //  showPatientSignature();
-    // hideAndShowLogic();
-  
-    //get all form Data
-    let formData, signatureData;
-    let signatureTask = getSignatureData(formResponseId);
-    try {
-        // let signatureTask = GetSignatrureByForResponseId(formResponseId);
-        formData = await GetFormResponseById(formResponseId);
-        // [formData, signatureData] = await Promise.all([GetFormResponseById(formResponseId), GetSignatrureByForResponseId(formResponseId)])
-    } // error checking code
-    catch (error) {
-        formData = null;
-  
-        // let element = document.getElementById('form_hide');
-        // if (element !== null) {
-        //     // Access the style property
-        //     var style = element.style;
-        //     console.log(style);
-        // } else {
-        //     // Handle the case where the element does not exist
-        // }
-  
-        document.getElementById('form_hide').style.display = 'none';
-        commonFormOpeation.showSpinner('overlay-spinner', false);
-        // showToast('failed', 'Not valid url.');
-        document.getElementById('formInvalidCondition').innerText = 'Not valid url.';
-        document.getElementById('formInvalidCondition').style.display = '';
-        // document.getElementById('errorStyle').style.display = 'block';
-        return;
-    }
-  
-  
-  
-    // try {
-    //     signatureData = await signatureTask;
-    // } catch (error) {
-  
-    // }
-    //
-    if (formData) {
-  
-        if (formData.statecode === 1) {
-            document.getElementById('form_hide').style.display = 'none';
-            commonFormOpeation.showSpinner('overlay-spinner', false);
-            // showToast('failed', 'Link is already expired.');
-  
-            document.getElementById('formInvalidCondition').innerText = 'Link is already expired.';
-            document.getElementById('formInvalidCondition').style.display = 'block';
-            document.getElementById('errorStyle').style.display = 'block';
-            return;
-        } else if (formData.happ_formstatus === statusMap.Expired) {
-            document.getElementById('form_hide').style.display = 'none';
-            commonFormOpeation.showSpinner('overlay-spinner', false);
-            // showToast('success', 'Form is Submitted and it is under review by nurse.');
-            document.getElementById('formInvalidCondition').innerText = 'Link is already expired.';
-            document.getElementById('formInvalidCondition').style.display = 'block';
-            document.getElementById('errorStyle').style.display = 'block';
-            return;
-        } else if (formData.happ_formstatus === statusMap.InReview && isPortalUserLoggedIn === 'False') {
-  
-            document.getElementById('form_hide').style.display = 'none';
-            commonFormOpeation.showSpinner('overlay-spinner', false);
-            // showToast('success', 'Form is Submitted and it is under review by nurse.');
-            const alertElement = document.getElementById('formInvalidCondition')
-            alertElement.innerText = 'Form is Submitted and it is under review by nurse.';
-            alertElement.classList.remove('alert-danger');
-            alertElement.classList.add('alert-primary');
-            alertElement.style.display = 'block';
-            document.getElementById('errorStyle').style.display = 'block';
-            return;
-        } else if (formData.happ_formstatus === statusMap.Completed) {
-            document.getElementById('form_hide').style.display = 'block';
-            // commonFormOpeation.showSpinner('overlay-spinner', false);
-            // showToast('success', 'Form is Submitted.');
-            // return;
-        } else {
-            document.getElementById('form_hide').style.display = 'block';
-        }
-  
-        CreateHistoryByFormResponseId(formResponseId, 'AccessLink', `Patient has access the link.`);
-        const fromResponses = formData?.happ_formresponse;
-        commonFormOpeation.populatePatientData({
-            //step 3
-            fname: formData.happ_PatientList.happ_patientfirstname,
-            lname: formData.happ_PatientList.happ_patientlastname,
-            mrn: formData.happ_PatientList.happ_mrn, 
-            //step 5
-            PCGfname: formData.happ_PatientList.happ_patientfirstname,
-            PCGlname: formData.happ_PatientList.happ_patientlastname,
-            //step 6
-            patient_fname: formData.happ_PatientList.happ_patientfirstname,
-            patient_lname: formData.happ_PatientList.happ_patientlastname, 
-            patient_cell_phone: formData.happ_PatientList.happ_phonenumber,
-            do_date: formData.happ_PatientList.happ_dateofbirth
-             
-        });
-        
+  setupSignatureCanvas('patient_sign', 'clearButton', 'patient_sign_validation');
+  setupSignatureCanvas('patient_rp_sign', 'RPClearButton', 'patient_rp_sign_validation');
+  setupSignatureCanvas('CGPatSignCanvas', 'CGPatSignClearButton', 'CGPatSignCanvas_validation');
+  setupSignatureCanvas('legalRepresentative', 'LRClearButton', 'legalRepresentative_validation');
+  setupSignatureCanvas('PAuthorization', 'PAClearButton', 'PAuthorization_validation');
+
+  commonFormOpeation.showSpinner('overlay-spinner', true);
+
+  {
+      const headerForm = document.getElementById('header_form');
+      const headerFormText = document.getElementById('header_form_text');
+
+      headerForm.style.display = 'block';
+      headerFormText.innerText = 'Patient Admission Booklet - West Palm Beach';
+  }
+  const searchParams = new URLSearchParams(window.location.search);
+  formResponseId = searchParams.get('id');
+
+  fromResponses = window.localStorage.getItem(formResponseId);
+  commonFormOpeation.setFormDataFromSave(getQuestionToIdMap(), getAnswerToIdMap(), fromResponses ? JSON.parse(fromResponses) : undefined, 'False');
+  //  showPatientSignature();
+  // hideAndShowLogic();
+
+  //get all form Data
+  let formData, signatureData;
+  let signatureTask = getSignatureData(formResponseId);
+  try {
+      // let signatureTask = GetSignatrureByForResponseId(formResponseId);
+      formData = await GetFormResponseById(formResponseId);
+      // [formData, signatureData] = await Promise.all([GetFormResponseById(formResponseId), GetSignatrureByForResponseId(formResponseId)])
+  } // error checking code
+  catch (error) {
+      formData = null;
+
+      // let element = document.getElementById('form_hide');
+      // if (element !== null) {
+      //     // Access the style property
+      //     var style = element.style;
+      //     console.log(style);
+      // } else {
+      //     // Handle the case where the element does not exist
+      // }
+
+      document.getElementById('form_hide').style.display = 'none';
+      commonFormOpeation.showSpinner('overlay-spinner', false);
+      // showToast('failed', 'Not valid url.');
+      document.getElementById('formInvalidCondition').innerText = 'Not valid url.';
+      document.getElementById('formInvalidCondition').style.display = '';
+      // document.getElementById('errorStyle').style.display = 'block';
+      return;
+  }
+
+
+
+  // try {
+  //     signatureData = await signatureTask;
+  // } catch (error) {
+
+  // }
+  //
+  if (formData) {
+
+      if (formData.statecode === 1) {
+          document.getElementById('form_hide').style.display = 'none';
+          commonFormOpeation.showSpinner('overlay-spinner', false);
+          // showToast('failed', 'Link is already expired.');
+
+          document.getElementById('formInvalidCondition').innerText = 'Link is already expired.';
+          document.getElementById('formInvalidCondition').style.display = 'block';
+          document.getElementById('errorStyle').style.display = 'block';
+          return;
+      } else if (formData.happ_formstatus === statusMap.Expired) {
+          document.getElementById('form_hide').style.display = 'none';
+          commonFormOpeation.showSpinner('overlay-spinner', false);
+          // showToast('success', 'Form is Submitted and it is under review by nurse.');
+          document.getElementById('formInvalidCondition').innerText = 'Link is already expired.';
+          document.getElementById('formInvalidCondition').style.display = 'block';
+          document.getElementById('errorStyle').style.display = 'block';
+          return;
+      } else if (formData.happ_formstatus === statusMap.InReview && isPortalUserLoggedIn === 'False') {
+
+          document.getElementById('form_hide').style.display = 'none';
+          commonFormOpeation.showSpinner('overlay-spinner', false);
+          // showToast('success', 'Form is Submitted and it is under review by nurse.');
+          const alertElement = document.getElementById('formInvalidCondition')
+          alertElement.innerText = 'Form is Submitted and it is under review by nurse.';
+          alertElement.classList.remove('alert-danger');
+          alertElement.classList.add('alert-primary');
+          alertElement.style.display = 'block';
+          document.getElementById('errorStyle').style.display = 'block';
+          return;
+      } else if (formData.happ_formstatus === statusMap.Completed) {
+          document.getElementById('form_hide').style.display = 'block';
+          // commonFormOpeation.showSpinner('overlay-spinner', false);
+          // showToast('success', 'Form is Submitted.');
+          // return;
+      } else {
+          document.getElementById('form_hide').style.display = 'block';
+      }
+
+      CreateHistoryByFormResponseId(formResponseId, 'AccessLink', `Patient has access the link.`);
+
+      const fromResponses = formData?.happ_formresponse;
+      commonFormOpeation.populatePatientData({
+          //step 3
+          fname: formData.happ_PatientList.happ_patientfirstname,
+          lname: formData.happ_PatientList.happ_patientlastname,
+          mrn: formData.happ_PatientList.happ_mrn, 
+          //step 5
+          PCGfname: formData.happ_PatientList.happ_patientfirstname,
+          PCGlname: formData.happ_PatientList.happ_patientlastname,
+          //step 6
+          patient_fname: formData.happ_PatientList.happ_patientfirstname,
+          patient_lname: formData.happ_PatientList.happ_patientlastname, 
+          patient_cell_phone: formData.happ_PatientList.happ_phonenumber,
+          do_date: formData.happ_PatientList.happ_dateofbirth
+           
          
-  
-        // signatureData = signatureData?.value;
-        //
-        console.log('formData', formData, fromResponses);
-  
-        commonFormOpeation.setFormDataFromSave(getQuestionToIdMap(), getAnswerToIdMap(), JSON.parse(fromResponses));
-    }
-    signatureData = await signatureTask;
-    if (signatureData) {
-        commonFormOpeation.setSignatureFromSave('patient_sign', signatureData[0]?.happ_signature /*window.localStorage.getItem(`${formResponseId}-sig`)*/ );
-    }
-    // hideAndShowLogic();
-    if (formData) formViewOrEdit(formData.happ_formstatus);
-  
-    document.getElementById("save-draft").addEventListener('click', async () => {
-        commonFormOpeation.showSpinner('overlay-spinner', true);
-        const formDataMap = commonFormOpeation.getFormDataToSave(getQuestionToIdMap(), getAnswerToIdMap());
-        console.log('formValues', formDataMap);
-        await SaveFormResponse(formResponseId, statusMap.Pending, JSON.stringify(formDataMap));
-        const signatureURLData = commonFormOpeation.getSignatureDataToSave('patient_sign');
-        CreateHistoryByFormResponseId(formResponseId, 'SaveAsDraft', `Patient saved the form as a draft.`);
-        if (signatureData) await SaveSignature(signatureData[0].happ_esignatureid, signatureURLData);
-        commonFormOpeation.showSpinner('overlay-spinner', false);
-        notify('Your form has been successfully saved as a draft!.', 'success');
-    });
-  
-    document.getElementById("saveBtn").addEventListener('click', async () => {
-  
-        commonFormOpeation.showSpinner('overlay-spinner', true);
-        let hasError = validateFormData();
-        if (hasError) {
-            showToast('failed', 'Please Fill the Required Fields.');
-        } else {
-  
-            let confirm_button = document.getElementById('confirmbtn');
-            // let myInput = document.getElementById('myInput')
-            confirm_button.click();
-  
-            // myModal.addEventListener('shown.bs.modal', function () {
-            // myInput.focus()
-            // })
-  
-  
-        }
-        commonFormOpeation.showSpinner('overlay-spinner', false);
-    });
-  
-    commonFormOpeation.showSpinner('overlay-spinner', false);
-  
-  
-    const saveFormData = () => {
-        const formDataMap = commonFormOpeation.getFormDataToSave(getQuestionToIdMap(), getAnswerToIdMap());
-        const fromResponses = window.localStorage.getItem(formResponseId);
-        if (JSON.stringify(formDataMap) !== fromResponses) {
-            console.log('Periodic save');
-            window.localStorage.setItem(formResponseId, JSON.stringify(formDataMap));
-            SaveFormResponse(formResponseId, statusMap.Pending, JSON.stringify(formDataMap));
-        }
-    };
-  
-    // setInterval(() => {
-    saveFormData();
-    // }, 1000); // 30 seconds
-  
+      });
+      
+      console.log('formData', formData, fromResponses);
+
+      commonFormOpeation.setFormDataFromSave(getQuestionToIdMap(), getAnswerToIdMap(), JSON.parse(fromResponses));
+  }
+  signatureData = await signatureTask;
+  if (signatureData) {
+      commonFormOpeation.setSignatureFromSave('patient_sign', signatureData[0]?.happ_signature /*window.localStorage.getItem(`${formResponseId}-sig`)*/ );
+  }
+  // hideAndShowLogic();
+  if (formData) formViewOrEdit(formData.happ_formstatus);
+
+  document.getElementById("save-draft").addEventListener('click', async () => {
+      commonFormOpeation.showSpinner('overlay-spinner', true);
+      const formDataMap = commonFormOpeation.getFormDataToSave(getQuestionToIdMap(), getAnswerToIdMap());
+      console.log('formValues', formDataMap);
+      await SaveFormResponse(formResponseId, statusMap.Pending, JSON.stringify(formDataMap));
+      const signatureURLData = commonFormOpeation.getSignatureDataToSave('patient_sign');
+      CreateHistoryByFormResponseId(formResponseId, 'SaveAsDraft', `Patient saved the form as a draft.`);
+      if (signatureData) await SaveSignature(signatureData[0].happ_esignatureid, signatureURLData);
+      commonFormOpeation.showSpinner('overlay-spinner', false);
+      notify('Your form has been successfully saved as a draft!.', 'success');
   });
-  
-  
-function checkboxHideandShow() {
+
+  document.getElementById("saveBtn").addEventListener('click', async () => {
+
+      commonFormOpeation.showSpinner('overlay-spinner', true);
+      let hasError = validateFormData();
+      if (hasError) {
+          showToast('failed', 'Please Fill the Required Fields.');
+      } else {
+
+          let confirm_button = document.getElementById('confirmbtn');
+          // let myInput = document.getElementById('myInput')
+          confirm_button.click();
+
+          // myModal.addEventListener('shown.bs.modal', function () {
+          // myInput.focus()
+          // })
+
+
+      }
+      commonFormOpeation.showSpinner('overlay-spinner', false);
+  });
+
+  commonFormOpeation.showSpinner('overlay-spinner', false);
+
+
+  const saveFormData = () => {
+      const formDataMap = commonFormOpeation.getFormDataToSave(getQuestionToIdMap(), getAnswerToIdMap());
+      const fromResponses = window.localStorage.getItem(formResponseId);
+      if (JSON.stringify(formDataMap) !== fromResponses) {
+          console.log('Periodic save');
+          window.localStorage.setItem(formResponseId, JSON.stringify(formDataMap));
+          SaveFormResponse(formResponseId, statusMap.Pending, JSON.stringify(formDataMap));
+      }
+  };
+
+  // setInterval(() => {
+  saveFormData();
+  // }, 1000); // 30 seconds
+
+ 
+});
+
+var patientPhoneUndefined = document.getElementById("patient_cell_phone");
+
+// Function to check and handle the undefined value
+function handleUndefinedInput() {
+if (patientPhoneUndefined.value === "undefined") {
+  patientPhoneUndefined.value = "";
+}
+} 
+// patientPhoneUndefined.addEventListener("input", handleUndefinedInput);
+ 
+
+  function checkboxHideandShow() {
     const checkboxes = [
         { checkbox: "#view_welcome_packet input", div: "#customer_policy" },
         { checkbox: "#view_Privacy_Notice input", div: "#notice_of_privacy_practices" },
@@ -263,7 +273,9 @@ function checkboxHideandShow() {
     checkboxes.forEach(item => {
         const checkboxElement = document.querySelector(item.checkbox);
         const divElement = document.querySelector(item.div); 
-        divElement.style.display = 'none'; 
+         
+        divElement.style.display = checkboxElement.checked ? 'block' : 'none';
+        
         checkboxElement.addEventListener('change', () => {
             if (checkboxElement.checked) {
                 divElement.style.display = 'block';
@@ -272,8 +284,8 @@ function checkboxHideandShow() {
             }
         });
     });
-    
 }
+
 
 function showOtherInputOnchecked(){
     const otherRadioButton = document.getElementById('respodent_type_Other');
