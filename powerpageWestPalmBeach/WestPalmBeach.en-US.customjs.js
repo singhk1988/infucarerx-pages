@@ -57,208 +57,197 @@ const setSignatureDatas = (elementId) => {
 }
 
    
-let formResponseId, signatureData, fromResponses;
-document.addEventListener("DOMContentLoaded", async function() {
-  nextAndprevbtnwithsavedraft();
-  checkboxHideandShow();
-  showOtherInputOnchecked();
-  handleUndefinedInput();
+  let formResponseId, signatureData, fromResponses;
+  document.addEventListener("DOMContentLoaded", async function() {
+    nextAndprevbtnwithsavedraft();
+    checkboxHideandShow();
+    showOtherInputOnchecked();
+  
+    setupSignatureCanvas('patient_sign', 'clearButton', 'patient_sign_validation');
+    setupSignatureCanvas('patient_rp_sign', 'RPClearButton', 'patient_rp_sign_validation');
+    setupSignatureCanvas('CGPatSignCanvas', 'CGPatSignClearButton', 'CGPatSignCanvas_validation');
+    setupSignatureCanvas('legalRepresentative', 'LRClearButton', 'legalRepresentative_validation');
+    setupSignatureCanvas('PAuthorization', 'PAClearButton', 'PAuthorization_validation');
+  
+    commonFormOpeation.showSpinner('overlay-spinner', true);
+  
+    {
+        const headerForm = document.getElementById('header_form');
+        const headerFormText = document.getElementById('header_form_text');
+  
+        headerForm.style.display = 'block';
+        headerFormText.innerText = 'Patient Admission Booklet - West Palm Beach';
+    }
+    const searchParams = new URLSearchParams(window.location.search);
+    formResponseId = searchParams.get('id');
 
-  setupSignatureCanvas('patient_sign', 'clearButton', 'patient_sign_validation');
-  setupSignatureCanvas('patient_rp_sign', 'RPClearButton', 'patient_rp_sign_validation');
-  setupSignatureCanvas('CGPatSignCanvas', 'CGPatSignClearButton', 'CGPatSignCanvas_validation');
-  setupSignatureCanvas('legalRepresentative', 'LRClearButton', 'legalRepresentative_validation');
-  setupSignatureCanvas('PAuthorization', 'PAClearButton', 'PAuthorization_validation');
-
-  commonFormOpeation.showSpinner('overlay-spinner', true);
-
-  {
-      const headerForm = document.getElementById('header_form');
-      const headerFormText = document.getElementById('header_form_text');
-
-      headerForm.style.display = 'block';
-      headerFormText.innerText = 'Patient Admission Booklet - West Palm Beach';
-  }
-  const searchParams = new URLSearchParams(window.location.search);
-  formResponseId = searchParams.get('id');
-
-  fromResponses = window.localStorage.getItem(formResponseId);
-  commonFormOpeation.setFormDataFromSave(getQuestionToIdMap(), getAnswerToIdMap(), fromResponses ? JSON.parse(fromResponses) : undefined, 'False');
-  //  showPatientSignature();
-  // hideAndShowLogic();
-
-  //get all form Data
-  let formData, signatureData;
-  let signatureTask = getSignatureData(formResponseId);
-  try {
-      // let signatureTask = GetSignatrureByForResponseId(formResponseId);
-      formData = await GetFormResponseById(formResponseId);
-      // [formData, signatureData] = await Promise.all([GetFormResponseById(formResponseId), GetSignatrureByForResponseId(formResponseId)])
-  } // error checking code
-  catch (error) {
-      formData = null;
-
-      // let element = document.getElementById('form_hide');
-      // if (element !== null) {
-      //     // Access the style property
-      //     var style = element.style;
-      //     console.log(style);
-      // } else {
-      //     // Handle the case where the element does not exist
-      // }
-
-      document.getElementById('form_hide').style.display = 'none';
-      commonFormOpeation.showSpinner('overlay-spinner', false);
-      // showToast('failed', 'Not valid url.');
-      document.getElementById('formInvalidCondition').innerText = 'Not valid url.';
-      document.getElementById('formInvalidCondition').style.display = '';
-      // document.getElementById('errorStyle').style.display = 'block';
-      return;
-  }
-
-
-
-  // try {
-  //     signatureData = await signatureTask;
-  // } catch (error) {
-
-  // }
-  //
-  if (formData) {
-
-      if (formData.statecode === 1) {
-          document.getElementById('form_hide').style.display = 'none';
-          commonFormOpeation.showSpinner('overlay-spinner', false);
-          // showToast('failed', 'Link is already expired.');
-
-          document.getElementById('formInvalidCondition').innerText = 'Link is already expired.';
-          document.getElementById('formInvalidCondition').style.display = 'block';
-          document.getElementById('errorStyle').style.display = 'block';
-          return;
-      } else if (formData.happ_formstatus === statusMap.Expired) {
-          document.getElementById('form_hide').style.display = 'none';
-          commonFormOpeation.showSpinner('overlay-spinner', false);
-          // showToast('success', 'Form is Submitted and it is under review by nurse.');
-          document.getElementById('formInvalidCondition').innerText = 'Link is already expired.';
-          document.getElementById('formInvalidCondition').style.display = 'block';
-          document.getElementById('errorStyle').style.display = 'block';
-          return;
-      } else if (formData.happ_formstatus === statusMap.InReview && isPortalUserLoggedIn === 'False') {
-
-          document.getElementById('form_hide').style.display = 'none';
-          commonFormOpeation.showSpinner('overlay-spinner', false);
-          // showToast('success', 'Form is Submitted and it is under review by nurse.');
-          const alertElement = document.getElementById('formInvalidCondition')
-          alertElement.innerText = 'Form is Submitted and it is under review by nurse.';
-          alertElement.classList.remove('alert-danger');
-          alertElement.classList.add('alert-primary');
-          alertElement.style.display = 'block';
-          document.getElementById('errorStyle').style.display = 'block';
-          return;
-      } else if (formData.happ_formstatus === statusMap.Completed) {
-          document.getElementById('form_hide').style.display = 'block';
-          // commonFormOpeation.showSpinner('overlay-spinner', false);
-          // showToast('success', 'Form is Submitted.');
-          // return;
-      } else {
-          document.getElementById('form_hide').style.display = 'block';
-      }
-
-      CreateHistoryByFormResponseId(formResponseId, 'AccessLink', `Patient has access the link.`);
-
-      const fromResponses = formData?.happ_formresponse;
-      commonFormOpeation.populatePatientData({
-          //step 3
-          fname: formData.happ_PatientList.happ_patientfirstname,
-          lname: formData.happ_PatientList.happ_patientlastname,
-          mrn: formData.happ_PatientList.happ_mrn, 
-          //step 5
-          PCGfname: formData.happ_PatientList.happ_patientfirstname,
-          PCGlname: formData.happ_PatientList.happ_patientlastname,
-          //step 6
-          patient_fname: formData.happ_PatientList.happ_patientfirstname,
-          patient_lname: formData.happ_PatientList.happ_patientlastname, 
-          patient_cell_phone: formData.happ_PatientList.happ_phonenumber,
-          do_date: formData.happ_PatientList.happ_dateofbirth
-           
+    fromResponses = window.localStorage.getItem(formResponseId);
+    commonFormOpeation.setFormDataFromSave(getQuestionToIdMap(), getAnswerToIdMap(), fromResponses ? JSON.parse(fromResponses) : undefined, 'False');
+    //  showPatientSignature();
+    // hideAndShowLogic();
+  
+    //get all form Data
+    let formData, signatureData;
+    let signatureTask = getSignatureData(formResponseId);
+    try {
+        // let signatureTask = GetSignatrureByForResponseId(formResponseId);
+        formData = await GetFormResponseById(formResponseId);
+        // [formData, signatureData] = await Promise.all([GetFormResponseById(formResponseId), GetSignatrureByForResponseId(formResponseId)])
+    } // error checking code
+    catch (error) {
+        formData = null;
+  
+        // let element = document.getElementById('form_hide');
+        // if (element !== null) {
+        //     // Access the style property
+        //     var style = element.style;
+        //     console.log(style);
+        // } else {
+        //     // Handle the case where the element does not exist
+        // }
+  
+        document.getElementById('form_hide').style.display = 'none';
+        commonFormOpeation.showSpinner('overlay-spinner', false);
+        // showToast('failed', 'Not valid url.');
+        document.getElementById('formInvalidCondition').innerText = 'Not valid url.';
+        document.getElementById('formInvalidCondition').style.display = '';
+        // document.getElementById('errorStyle').style.display = 'block';
+        return;
+    }
+  
+  
+  
+    // try {
+    //     signatureData = await signatureTask;
+    // } catch (error) {
+  
+    // }
+    //
+    if (formData) {
+  
+        if (formData.statecode === 1) {
+            document.getElementById('form_hide').style.display = 'none';
+            commonFormOpeation.showSpinner('overlay-spinner', false);
+            // showToast('failed', 'Link is already expired.');
+  
+            document.getElementById('formInvalidCondition').innerText = 'Link is already expired.';
+            document.getElementById('formInvalidCondition').style.display = 'block';
+            document.getElementById('errorStyle').style.display = 'block';
+            return;
+        } else if (formData.happ_formstatus === statusMap.Expired) {
+            document.getElementById('form_hide').style.display = 'none';
+            commonFormOpeation.showSpinner('overlay-spinner', false);
+            // showToast('success', 'Form is Submitted and it is under review by nurse.');
+            document.getElementById('formInvalidCondition').innerText = 'Link is already expired.';
+            document.getElementById('formInvalidCondition').style.display = 'block';
+            document.getElementById('errorStyle').style.display = 'block';
+            return;
+        } else if (formData.happ_formstatus === statusMap.InReview && isPortalUserLoggedIn === 'False') {
+  
+            document.getElementById('form_hide').style.display = 'none';
+            commonFormOpeation.showSpinner('overlay-spinner', false);
+            // showToast('success', 'Form is Submitted and it is under review by nurse.');
+            const alertElement = document.getElementById('formInvalidCondition')
+            alertElement.innerText = 'Form is Submitted and it is under review by nurse.';
+            alertElement.classList.remove('alert-danger');
+            alertElement.classList.add('alert-primary');
+            alertElement.style.display = 'block';
+            document.getElementById('errorStyle').style.display = 'block';
+            return;
+        } else if (formData.happ_formstatus === statusMap.Completed) {
+            document.getElementById('form_hide').style.display = 'block';
+            // commonFormOpeation.showSpinner('overlay-spinner', false);
+            // showToast('success', 'Form is Submitted.');
+            // return;
+        } else {
+            document.getElementById('form_hide').style.display = 'block';
+        }
+  
+        CreateHistoryByFormResponseId(formResponseId, 'AccessLink', `Patient has access the link.`);
+        const fromResponses = formData?.happ_formresponse;
+        commonFormOpeation.populatePatientData({
+            //step 3
+            fname: formData.happ_PatientList.happ_patientfirstname,
+            lname: formData.happ_PatientList.happ_patientlastname,
+            mrn: formData.happ_PatientList.happ_mrn, 
+            //step 5
+            PCGfname: formData.happ_PatientList.happ_patientfirstname,
+            PCGlname: formData.happ_PatientList.happ_patientlastname,
+            //step 6
+            patient_fname: formData.happ_PatientList.happ_patientfirstname,
+            patient_lname: formData.happ_PatientList.happ_patientlastname, 
+            patient_cell_phone: formData.happ_PatientList.happ_phonenumber,
+            do_date: formData.happ_PatientList.happ_dateofbirth
+             
+        });
          
-      });
-      
-      console.log('formData', formData, fromResponses);
-
-      commonFormOpeation.setFormDataFromSave(getQuestionToIdMap(), getAnswerToIdMap(), JSON.parse(fromResponses));
-  }
-  signatureData = await signatureTask;
-  if (signatureData) {
-      commonFormOpeation.setSignatureFromSave('patient_sign', signatureData[0]?.happ_signature /*window.localStorage.getItem(`${formResponseId}-sig`)*/ );
-  }
-  // hideAndShowLogic();
-  if (formData) formViewOrEdit(formData.happ_formstatus);
-
-  document.getElementById("save-draft").addEventListener('click', async () => {
-      commonFormOpeation.showSpinner('overlay-spinner', true);
-      const formDataMap = commonFormOpeation.getFormDataToSave(getQuestionToIdMap(), getAnswerToIdMap());
-      console.log('formValues', formDataMap);
-      await SaveFormResponse(formResponseId, statusMap.Pending, JSON.stringify(formDataMap));
-      const signatureURLData = commonFormOpeation.getSignatureDataToSave('patient_sign');
-      CreateHistoryByFormResponseId(formResponseId, 'SaveAsDraft', `Patient saved the form as a draft.`);
-      if (signatureData) await SaveSignature(signatureData[0].happ_esignatureid, signatureURLData);
-      commonFormOpeation.showSpinner('overlay-spinner', false);
-      notify('Your form has been successfully saved as a draft!.', 'success');
+  
+        // signatureData = signatureData?.value;
+        //
+        console.log('formData', formData, fromResponses);
+  
+        commonFormOpeation.setFormDataFromSave(getQuestionToIdMap(), getAnswerToIdMap(), JSON.parse(fromResponses));
+    }
+    signatureData = await signatureTask;
+    if (signatureData) {
+        commonFormOpeation.setSignatureFromSave('patient_sign', signatureData[0]?.happ_signature /*window.localStorage.getItem(`${formResponseId}-sig`)*/ );
+    }
+    // hideAndShowLogic();
+    if (formData) formViewOrEdit(formData.happ_formstatus);
+  
+    document.getElementById("save-draft").addEventListener('click', async () => {
+        commonFormOpeation.showSpinner('overlay-spinner', true);
+        const formDataMap = commonFormOpeation.getFormDataToSave(getQuestionToIdMap(), getAnswerToIdMap());
+        console.log('formValues', formDataMap);
+        await SaveFormResponse(formResponseId, statusMap.Pending, JSON.stringify(formDataMap));
+        const signatureURLData = commonFormOpeation.getSignatureDataToSave('patient_sign');
+        CreateHistoryByFormResponseId(formResponseId, 'SaveAsDraft', `Patient saved the form as a draft.`);
+        if (signatureData) await SaveSignature(signatureData[0].happ_esignatureid, signatureURLData);
+        commonFormOpeation.showSpinner('overlay-spinner', false);
+        notify('Your form has been successfully saved as a draft!.', 'success');
+    });
+  
+    document.getElementById("saveBtn").addEventListener('click', async () => {
+  
+        commonFormOpeation.showSpinner('overlay-spinner', true);
+        let hasError = validateFormData();
+        if (hasError) {
+            showToast('failed', 'Please Fill the Required Fields.');
+        } else {
+  
+            let confirm_button = document.getElementById('confirmbtn');
+            // let myInput = document.getElementById('myInput')
+            confirm_button.click();
+  
+            // myModal.addEventListener('shown.bs.modal', function () {
+            // myInput.focus()
+            // })
+  
+  
+        }
+        commonFormOpeation.showSpinner('overlay-spinner', false);
+    });
+  
+    commonFormOpeation.showSpinner('overlay-spinner', false);
+  
+  
+    const saveFormData = () => {
+        const formDataMap = commonFormOpeation.getFormDataToSave(getQuestionToIdMap(), getAnswerToIdMap());
+        const fromResponses = window.localStorage.getItem(formResponseId);
+        if (JSON.stringify(formDataMap) !== fromResponses) {
+            console.log('Periodic save');
+            window.localStorage.setItem(formResponseId, JSON.stringify(formDataMap));
+            SaveFormResponse(formResponseId, statusMap.Pending, JSON.stringify(formDataMap));
+        }
+    };
+  
+    // setInterval(() => {
+    saveFormData();
+    // }, 1000); // 30 seconds
+  
   });
-
-  document.getElementById("saveBtn").addEventListener('click', async () => {
-
-      commonFormOpeation.showSpinner('overlay-spinner', true);
-      let hasError = validateFormData();
-      if (hasError) {
-          showToast('failed', 'Please Fill the Required Fields.');
-      } else {
-
-          let confirm_button = document.getElementById('confirmbtn');
-          // let myInput = document.getElementById('myInput')
-          confirm_button.click();
-
-          // myModal.addEventListener('shown.bs.modal', function () {
-          // myInput.focus()
-          // })
-
-
-      }
-      commonFormOpeation.showSpinner('overlay-spinner', false);
-  });
-
-  commonFormOpeation.showSpinner('overlay-spinner', false);
-
-
-  const saveFormData = () => {
-      const formDataMap = commonFormOpeation.getFormDataToSave(getQuestionToIdMap(), getAnswerToIdMap());
-      const fromResponses = window.localStorage.getItem(formResponseId);
-      if (JSON.stringify(formDataMap) !== fromResponses) {
-          console.log('Periodic save');
-          window.localStorage.setItem(formResponseId, JSON.stringify(formDataMap));
-          SaveFormResponse(formResponseId, statusMap.Pending, JSON.stringify(formDataMap));
-      }
-  };
-
-  // setInterval(() => {
-  saveFormData();
-  // }, 1000); // 30 seconds
-
- 
-});
-
-var patientPhoneUndefined = document.getElementById("patient_cell_phone");
-
-// Function to check and handle the undefined value
-function handleUndefinedInput() {
-if (patientPhoneUndefined.value === "undefined") {
-  patientPhoneUndefined.value = "";
-}
-} 
-// patientPhoneUndefined.addEventListener("input", handleUndefinedInput);
- 
-
+  
+  
   function checkboxHideandShow() {
     const checkboxes = [
         { checkbox: "#view_welcome_packet input", div: "#customer_policy" },
@@ -871,6 +860,25 @@ radioButtons1.forEach(radio => {
   
   const getQuestionToIdMap = () => {
     const idToQueMap = {
+
+        // step 2
+        "view_welcome_packet": "2dc07b5c-161c-ef11-840a-002248095c06", 
+        
+        // step 4
+        
+        "legal_represenative":"884b583f-171c-ef11-840a-002248095c06", 
+        "view_Privacy_Notice":"d1078924-171c-ef11-840a-002248095c06",
+        
+        // step 5
+        
+        "click_pat_survey":"98195b57-171c-ef11-840a-002248095c06",
+        // step 6
+        
+        "support_organizations":"f158056a-171c-ef11-840a-002248095c06",
+        "view_medicare_DMEPOS":"cf6c2472-171c-ef11-840a-002248095c06",
+        "view_medicare_DMEPOS_spanish":"f0e0e17c-171c-ef11-840a-000d3a5c0fc6",
+
+
         // step 3
         "fname": "5f5b9926-2a18-ef11-9f89-002248095c06",
         "lname": "853b7a6a-2a18-ef11-9f89-000d3a5c0fc6",
@@ -925,6 +933,19 @@ radioButtons1.forEach(radio => {
   }
   const getAnswerToIdMap = () => {
     const idToAnsMap = {
+        // step 2
+        "chkWelcomePacket": "5bcc395f-161c-ef11-840a-000d3a5c0fc6",
+        // step 4
+        "chkPrivacyNotice":"d2078924-171c-ef11-840a-002248095c06",
+        "see_legal_represenative":"894b583f-171c-ef11-840a-002248095c06",
+        // step 5 
+        "chkCGClickPatSurvey":"20550456-171c-ef11-840a-000d3a5c0fc6",
+        // step 6 
+        
+        "see_medicare_DMEPOS_span":"4f70b077-171c-ef11-840a-000d3a371898",
+        "see_medicare_DMEPOS":"22316572-171c-ef11-840a-000d3a5c0fc6",
+        "see_SupportOrganizations":"8049b46a-171c-ef11-840a-000d3a371898",
+        
         // step 5
         "resp_type_Patient": "f7fdbd5e-3418-ef11-9f89-002248095c06",
         "resp_type_Caregiver": "f8fdbd5e-3418-ef11-9f89-002248095c06",
@@ -999,3 +1020,43 @@ radioButtons1.forEach(radio => {
     };
     return idToAnsMap;
   }
+
+
+
+  const idToQueMap = {
+    // step 2
+     "view_welcome_packet": "2dc07b5c-161c-ef11-840a-002248095c06", 
+     
+     // step 4
+    
+     "legal_represenative":"884b583f-171c-ef11-840a-002248095c06", 
+     "view_Privacy_Notice":"d1078924-171c-ef11-840a-002248095c06",
+    
+     // step 5
+      
+     "click_pat_survey":"98195b57-171c-ef11-840a-002248095c06",
+     // step 6
+    
+     "support_organizations":"f158056a-171c-ef11-840a-002248095c06",
+     "view_medicare_DMEPOS":"cf6c2472-171c-ef11-840a-002248095c06",
+     "view_medicare_DMEPOS_spanish":"f0e0e17c-171c-ef11-840a-000d3a5c0fc6",
+ };
+
+
+////// Answers Ids
+
+const idToAnsMap = {
+     // step 2
+     "chkWelcomePacket": "5bcc395f-161c-ef11-840a-000d3a5c0fc6",
+     // step 4
+     "chkPrivacyNotice":"d2078924-171c-ef11-840a-002248095c06",
+     "see_legal_represenative":"894b583f-171c-ef11-840a-002248095c06",
+     // step 5 
+     "chkCGClickPatSurvey":"20550456-171c-ef11-840a-000d3a5c0fc6",
+     // step 6 
+      
+     "see_medicare_DMEPOS_span":"4f70b077-171c-ef11-840a-000d3a371898",
+     "see_medicare_DMEPOS":"22316572-171c-ef11-840a-000d3a5c0fc6",
+     "see_SupportOrganizations":"8049b46a-171c-ef11-840a-000d3a371898",
+
+ };
