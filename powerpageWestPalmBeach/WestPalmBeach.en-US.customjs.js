@@ -38,6 +38,7 @@ const requiredControlsStep3 = {
   document.addEventListener("DOMContentLoaded", async function() {
     nextAndprevbtnwithsavedraft();
     checkboxHideandShow();
+    showOtherInputOnchecked();
   
     setupSignatureCanvas('patient_sign', 'clearButton', 'patient_sign_validation');
     setupSignatureCanvas('patient_rp_sign', 'RPClearButton', 'patient_rp_sign_validation');
@@ -248,7 +249,37 @@ function checkboxHideandShow() {
     
 }
 
+function showOtherInputOnchecked(){
+    const otherRadioButton = document.getElementById('respodent_type_Other');
+const customInput = document.getElementById('respodent_type_Other-text');
+const radioButtons = document.querySelectorAll('input[name="resp_type"]');
 
+
+radioButtons.forEach(radio => {
+    radio.addEventListener('change', function() {
+        if (otherRadioButton.checked) {
+            customInput.style.display = 'block';
+        } else {
+            customInput.style.display = 'none';
+        }
+    });
+});
+
+const otherRadioButton1 = document.getElementById('insurance_type_Other');
+const customInput1 = document.getElementById('txtInsuranceTypeOther');
+const radioButtons1 = document.querySelectorAll('input[name="insurance_type"]');
+
+radioButtons1.forEach(radio => {
+    radio.addEventListener('change', function() {
+        if (otherRadioButton1.checked) {
+            customInput1.style.display = 'inline-block';
+        } else {
+            customInput1.style.display = 'none';
+        }
+    });
+});
+
+}
   const setupSignatureCanvas = (canvasId, clearButtonId, validationId) => {
     const canvas = document.getElementById(canvasId);
     const context = canvas.getContext('2d');
