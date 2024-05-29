@@ -33,8 +33,31 @@ const requiredControlsStep3 = {
     'patient_cell_phone': 'Please enter cell phone. ',
   };
   
+  const handleSaveAsDraft = () => {
+    const formDataMap = commonFormOpeation.getFormDataToSave(getQuestionToIdMap(), getAnswerToIdMap(), 'False', fromResponses ? JSON.parse(fromResponses) : undefined);
+    console.log('formDataMap', formDataMap);
+    window.localStorage.setItem(formResponseId, JSON.stringify(formDataMap));
+    /// save all signature
+    saveSignatureDatas('patient_sign');
+    saveSignatureDatas('patient_rp_sign');
+    saveSignatureDatas('CGPatSignCanvas');
+    saveSignatureDatas('legalRepresentative');
+    saveSignatureDatas('PAuthorization');
    
-  let formResponseId, signatureData;
+};
+
+
+const saveSignatureDatas = (elementId) => {
+    const signatureURLData = commonFormOpeation.getSignatureDataToSave(elementId);
+    window.localStorage.setItem(`${formResponseId}-${elementId}-sig`, signatureURLData);
+}
+
+const setSignatureDatas = (elementId) => {
+    commonFormOpeation.setSignatureFromSave(elementId, window.localStorage.getItem(`${formResponseId}-${elementId}-sig`));
+}
+
+   
+  let formResponseId, signatureData, fromResponses;
   document.addEventListener("DOMContentLoaded", async function() {
     nextAndprevbtnwithsavedraft();
     checkboxHideandShow();
@@ -57,6 +80,9 @@ const requiredControlsStep3 = {
     }
     const searchParams = new URLSearchParams(window.location.search);
     formResponseId = searchParams.get('id');
+
+    fromResponses = window.localStorage.getItem(formResponseId);
+    commonFormOpeation.setFormDataFromSave(getQuestionToIdMap(), getAnswerToIdMap(), fromResponses ? JSON.parse(fromResponses) : undefined, 'False');
     //  showPatientSignature();
     // hideAndShowLogic();
   
