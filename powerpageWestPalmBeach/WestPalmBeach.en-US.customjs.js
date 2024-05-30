@@ -969,94 +969,55 @@ radioButtons1.forEach(radio => {
         "PharmacySerLoc_FL": "ba824e11-e118-ef11-9f89-002248095c06",
         "PharmacySerLoc_Unknown": "b8beb90f-e118-ef11-9f89-000d3a371898",
         // table answerId
-        "1stflexRadioDefault5": "5d51e82a-3518-ef11-9f89-000d3a5c0fc6",
-        "1stflexRadioDefault4": "6d44962d-3518-ef11-9f89-002248095c06",
-        "1stflexRadioDefault3": "a4d00f30-3518-ef11-9f89-000d3a371898",
-        "1stflexRadioDefault2": "6e44962d-3518-ef11-9f89-002248095c06",
-        "1stflexRadioDefault1": "6f44962d-3518-ef11-9f89-002248095c06",
+        "when_you_started_service5": "5d51e82a-3518-ef11-9f89-000d3a5c0fc6",
+        "when_you_started_service4": "6d44962d-3518-ef11-9f89-002248095c06",
+        "when_you_started_service3": "a4d00f30-3518-ef11-9f89-000d3a371898",
+        "when_you_started_service2": "6e44962d-3518-ef11-9f89-002248095c06",
+        "when_you_started_service1": "6f44962d-3518-ef11-9f89-002248095c06",
   
-        "2stflexRadioDefault5": "f6da0744-3518-ef11-9f89-000d3a371898",
-        "2stflexRadioDefault4": "fdda0744-3518-ef11-9f89-000d3a371898",
-        "2stflexRadioDefault3": "d3ba6442-3518-ef11-9f89-002248095c06",
-        "2stflexRadioDefault2": "ffda0744-3518-ef11-9f89-000d3a371898",
-        "2stflexRadioDefault1": "00db0744-3518-ef11-9f89-000d3a371898",
+        "how_satisfied_are_you1_5": "f6da0744-3518-ef11-9f89-000d3a371898",
+        "how_satisfied_are_you1_4": "fdda0744-3518-ef11-9f89-000d3a371898",
+        "how_satisfied_are_you1_3": "d3ba6442-3518-ef11-9f89-002248095c06",
+        "how_satisfied_are_you1_2": "ffda0744-3518-ef11-9f89-000d3a371898",
+        "how_satisfied_are_you1_1": "00db0744-3518-ef11-9f89-000d3a371898",
   
-        "3stflexRadioDefault5": "abe26350-3518-ef11-9f89-000d3a371898",
-        "3stflexRadioDefault4": "ace26350-3518-ef11-9f89-000d3a371898",
-        "3stflexRadioDefault3": "afe26350-3518-ef11-9f89-000d3a371898",
-        "3stflexRadioDefault2": "b0e26350-3518-ef11-9f89-000d3a371898",
-        "3stflexRadioDefault1": "1b28dc4e-3518-ef11-9f89-000d3a5c0fc6",
+        "how_satisfied_are_you2_5": "abe26350-3518-ef11-9f89-000d3a371898",
+        "how_satisfied_are_you2_4": "ace26350-3518-ef11-9f89-000d3a371898",
+        "how_satisfied_are_you2_3": "afe26350-3518-ef11-9f89-000d3a371898",
+        "how_satisfied_are_you2_2": "b0e26350-3518-ef11-9f89-000d3a371898",
+        "how_satisfied_are_you2_1": "1b28dc4e-3518-ef11-9f89-000d3a5c0fc6",
   
-        "4stflexRadioDefault5": "9a8bec55-3518-ef11-9f89-002248095c06",
-        "4stflexRadioDefault4": "ad0ec957-3518-ef11-9f89-000d3a371898",
-        "4stflexRadioDefault3": "ae0ec957-3518-ef11-9f89-000d3a371898",
-        "4stflexRadioDefault2": "9f8bec55-3518-ef11-9f89-002248095c06",
-        "4stflexRadioDefault1": "1ddde45b-3518-ef11-9f89-002248095c06",
+        "how_would_you_rate1_5": "9a8bec55-3518-ef11-9f89-002248095c06",
+        "how_would_you_rate1_4": "ad0ec957-3518-ef11-9f89-000d3a371898",
+        "how_would_you_rate1_3": "ae0ec957-3518-ef11-9f89-000d3a371898",
+        "how_would_you_rate1_2": "9f8bec55-3518-ef11-9f89-002248095c06",
+        "how_would_you_rate1_1": "1ddde45b-3518-ef11-9f89-002248095c06",
   
-        "5stflexRadioDefault5": "e278ab5e-3518-ef11-9f89-000d3a371898",
-        "5stflexRadioDefault4": "e578ab5e-3518-ef11-9f89-000d3a371898",
-        "5stflexRadioDefault3": "19663562-3518-ef11-9f89-002248095c06",
-        "5stflexRadioDefault2": "e678ab5e-3518-ef11-9f89-000d3a371898",
-        "5stflexRadioDefault1": "e878ab5e-3518-ef11-9f89-000d3a371898",
+        "how_would_you_rate2_5": "e278ab5e-3518-ef11-9f89-000d3a371898",
+        "how_would_you_rate2_4": "e578ab5e-3518-ef11-9f89-000d3a371898",
+        "how_would_you_rate2_3": "19663562-3518-ef11-9f89-002248095c06",
+        "how_would_you_rate2_2": "e678ab5e-3518-ef11-9f89-000d3a371898",
+        "how_would_you_rate2_1": "e878ab5e-3518-ef11-9f89-000d3a371898",
   
-        "6stflexRadioDefault5": "7ebf446c-3518-ef11-9f89-000d3a371898",
-        "6stflexRadioDefault4": "aaf14768-3518-ef11-9f89-002248095c06",
-        "6stflexRadioDefault3": "7fbf446c-3518-ef11-9f89-000d3a371898",
-        "6stflexRadioDefault2": "80bf446c-3518-ef11-9f89-000d3a371898",
-        "6stflexRadioDefault1": "81bf446c-3518-ef11-9f89-000d3a371898",
+        "how_satisfied_are_you3_5": "7ebf446c-3518-ef11-9f89-000d3a371898",
+        "how_satisfied_are_you3_4": "aaf14768-3518-ef11-9f89-002248095c06",
+        "how_satisfied_are_you3_3": "7fbf446c-3518-ef11-9f89-000d3a371898",
+        "how_satisfied_are_you3_2": "80bf446c-3518-ef11-9f89-000d3a371898",
+        "how_satisfied_are_you3_1": "81bf446c-3518-ef11-9f89-000d3a371898",
   
-        "7stflexRadioDefault5": "cb25c473-3518-ef11-9f89-000d3a371898",
-        "7stflexRadioDefault4": "ce25c473-3518-ef11-9f89-000d3a371898",
-        "7stflexRadioDefault3": "cf25c473-3518-ef11-9f89-000d3a371898",
-        "7stflexRadioDefault2": "87428774-3518-ef11-9f89-002248095c06",
-        "7stflexRadioDefault1": "d025c473-3518-ef11-9f89-000d3a371898",
+        "how_would_you_rate3_5": "cb25c473-3518-ef11-9f89-000d3a371898",
+        "how_would_you_rate3_4": "ce25c473-3518-ef11-9f89-000d3a371898",
+        "how_would_you_rate3_3": "cf25c473-3518-ef11-9f89-000d3a371898",
+        "how_would_you_rate3_2": "87428774-3518-ef11-9f89-002248095c06",
+        "how_would_you_rate3_1": "d025c473-3518-ef11-9f89-000d3a371898",
   
-        "8stflexRadioDefault5": "04b8af7a-3518-ef11-9f89-000d3a371898",
-        "8stflexRadioDefault4": "2e8e1a7b-3518-ef11-9f89-002248095c06",
-        "8stflexRadioDefault3": "2f8e1a7b-3518-ef11-9f89-002248095c06",
-        "8stflexRadioDefault2": "328e1a7b-3518-ef11-9f89-002248095c06",
-        "8stflexRadioDefault1": "338e1a7b-3518-ef11-9f89-002248095c06",
+        "how_satisfied_are_you4_5": "04b8af7a-3518-ef11-9f89-000d3a371898",
+        "how_satisfied_are_you4_4": "2e8e1a7b-3518-ef11-9f89-002248095c06",
+        "how_satisfied_are_you4_3": "2f8e1a7b-3518-ef11-9f89-002248095c06",
+        "how_satisfied_are_you4_2": "328e1a7b-3518-ef11-9f89-002248095c06",
+        "how_satisfied_are_you4_1": "338e1a7b-3518-ef11-9f89-002248095c06",
   
     };
     return idToAnsMap;
   }
-
-
-
-  const idToQueMap = {
-    // step 2
-     "view_welcome_packet": "2dc07b5c-161c-ef11-840a-002248095c06", 
-     
-     // step 4
-    
-     "legal_represenative":"884b583f-171c-ef11-840a-002248095c06", 
-     "view_Privacy_Notice":"d1078924-171c-ef11-840a-002248095c06",
-    
-     // step 5
-      
-     "click_pat_survey":"98195b57-171c-ef11-840a-002248095c06",
-     // step 6
-    
-     "support_organizations":"f158056a-171c-ef11-840a-002248095c06",
-     "view_medicare_DMEPOS":"cf6c2472-171c-ef11-840a-002248095c06",
-     "view_medicare_DMEPOS_spanish":"f0e0e17c-171c-ef11-840a-000d3a5c0fc6",
- };
-
-
-////// Answers Ids
-
-const idToAnsMap = {
-     // step 2
-     "chkWelcomePacket": "5bcc395f-161c-ef11-840a-000d3a5c0fc6",
-     // step 4
-     "chkPrivacyNotice":"d2078924-171c-ef11-840a-002248095c06",
-     "see_legal_represenative":"894b583f-171c-ef11-840a-002248095c06",
-     // step 5 
-     "chkCGClickPatSurvey":"20550456-171c-ef11-840a-000d3a5c0fc6",
-     // step 6 
-      
-     "see_medicare_DMEPOS_span":"4f70b077-171c-ef11-840a-000d3a371898",
-     "see_medicare_DMEPOS":"22316572-171c-ef11-840a-000d3a5c0fc6",
-     "see_SupportOrganizations":"8049b46a-171c-ef11-840a-000d3a371898",
-
- };
+ 
