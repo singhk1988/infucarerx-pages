@@ -541,30 +541,32 @@
                                   </div>
                                   <div class="form-group col-md-4">
                                       <custom-input type="text" label="Patient Last Name: *" value="" id="lname" name="lname" placeholder="Last Name" required="" disabled> </custom-input>
-                                  </div> 
+                                  </div>
+                                  <div class="form-group col-md-4">
+                                      <custom-input label="Patient MRN: *" type="number" id="mrn" name="mrn" value="" placeholder="Patient MRN" required="" disabled> </custom-input>
+                                  </div>
+                                  <div class="form-group col-md-4 date-picker">
+                                      <custom-input type="date" label="Signature Date: *" id="date_sign" name="date_sign" required=""> </custom-input>
+                                  </div>
                                   <div class="form-group col-md-4">
                                       <custom-input label="Legal Guardian Name: " value="" id="LegalGName" name="LegalGName" placeholder="Legal Guardian Name" error=""> </custom-input>
                                   </div>
-                                  <div class="form-group col-md-4">
-                                    <custom-input label="Provider Witness Name: " value="" id="ProWitName" name="ProWitName" placeholder="Provider Witness Name" error="" style="padding-bottom: 10px;"> </custom-input> 
-                                   
-                                </div>
-                                <div class="form-group col-md-4 "> 
-                                    <custom-input type="date" label="Date:" id="date" name="date" required=""> </custom-input> 
-                                </div>
-                                  <div class="signature col-md-6 mt-3">
+                                  <div class="signature col-md-8 mt-3">
                                       <label for="patient_sign" id="i0n4kz" class="form-label question-label" style="font-weight: normal; font-size: 16px;">Signature of Patient or Legal Guardian: * </label><span id="required_patient_sign" class="required_fields"></span>
                                       <div id="i4s2zf" class="signature-canvas">
-                                          <canvas id="patient_sign" width="580" name="signature" required="" style="padding-top: 10px; padding-right: 10px; padding-bottom: 10px; padding-left: 10px; border-top-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-bottom-left-radius: 10px; cursor: url('../assets/pen.png') 16 16, crosshair;"></canvas>
+                                          <canvas id="patient_sign" width="500" name="signature" required="" style="padding-top: 10px; padding-right: 10px; padding-bottom: 10px; padding-left: 10px; border-top-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-bottom-left-radius: 10px; cursor: url('../assets/pen.png') 16 16, crosshair;"></canvas>
                                           <div id="patient_sign_validation" class="invalid-feedback" style="margin-top: 0px;">Please enter signature.</div>
                                           <br />
                                           <button type="button" id="clearButton" class="btn btn-primary mt-3" style="border-top-width: initial; border-right-width: initial; border-bottom-width: initial; border-left-width: initial; border-top-style: none; border-right-style: none; border-bottom-style: none; border-left-style: none; border-top-color: initial; border-right-color: initial; border-bottom-color: initial; border-left-color: initial; border-image-source: initial; border-image-slice: initial; border-image-width: initial; border-image-outset: initial; border-image-repeat: initial; border-top-left-radius: 5px; border-top-right-radius: 5px; border-bottom-right-radius: 5px; border-bottom-left-radius: 5px; background-color: var(--btn-primary-color); font-size: 16px; font-weight: 400; cursor: pointer;">Clear</button>
                                       </div>
                                   </div>
-                                  <div class="form-group col-md-4 mt-1">
-                                    <custom-input type="date" label="Signature Date: *" id="date_sign" name="date_sign" required=""> </custom-input>
-                                </div>
-                                  
+                                  <div class="form-group col-md-4 date-picker mt-3">
+                                      <custom-input label="Provider Witness Name: " value="" id="ProWitName" name="ProWitName" placeholder="Provider Witness Name" error="" style="padding-bottom: 10px;"> </custom-input>
+                                      <custom-input type="date" label="Date:" id="date" name="date" required=""> </custom-input>
+                                      <!-- <label for="date_sign" id="i7thcg" class="form-label question-label mt-2"> </label><span id="required_date_sign" required="">
+           </span
+         > <span><input type="date" id="date_sign" name="date_sign" class="form-control input" style="box-shadow: none;" /></span> -->
+                                  </div>
                               </div>
                           </div>
                       </div>
@@ -827,20 +829,27 @@
                               <div>
                                   <h5 class="text-center fw-bold">NOTICE OF PRIVACY PRACTICES ACKNOWLEDMENT FORM</h5>
                                   <p class="mt-4">By signing this statement, I acknowledge that I have received and reviewed InfuCare Rx's Notice of Privacy Practice's.</p>
-                                  <div class="row"> 
-                                    <div class="signature col-md-6 mt-3">
-                                        <label for="responsible_party_sign" class="form-label question-label">Patient Signature *</label><span id=" " class="required_fields"></span>
-                                        <div id="i4s2zf-2" class="signature-canvas mb-3">
-                                            <canvas id="patient_rp_sign" width="580" name="signature" required="" style="padding-top: 10px; padding-right: 10px; padding-bottom: 10px; padding-left: 10px; border-top-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-bottom-left-radius: 10px; cursor: url('../assets/pen.png') 16 16, crosshair; display: block;"></canvas><img id="patient_rp_sign-2" width="580" src="" alt="" class="form-control" style="display: none;" />
-                                            <div id="patient_rp_sign_validation" class="invalid-feedback" style="margin-top: 0px;">Please enter signature.</div>
-                                            <button type="button" id="RPClearButton" class="btn btn-primary mt-3" style="border-top-width: initial; border-right-width: initial; border-bottom-width: initial; border-left-width: initial; border-top-style: none; border-right-style: none; border-bottom-style: none; border-left-style: none; border-top-color: initial; border-right-color: initial; border-bottom-color: initial; border-left-color: initial; border-image-source: initial; border-image-slice: initial; border-image-width: initial; border-image-outset: initial; border-image-repeat: initial; border-top-left-radius: 5px; border-top-right-radius: 5px; border-bottom-right-radius: 5px; border-bottom-left-radius: 5px; background-color: var(--btn-primary-color); font-size: 16px; font-weight: 400; cursor: pointer;">Clear</button>
-                                        </div>
-                                    </div>
-                                      <div class="form-group col-md-4 mt-1">
+                                  <div class="row">
+                                      <div class="col-md-4">
+                                          <custom-input label="First name:*" value="" id="NPPfname" name="NPPfname" placeholder="First name" error="" required=""> </custom-input>
+                                          <div id="p-first-name" class="invalid-feedback" style="margin-top: 0px; display: none; color: red;">first name.</div>
+                                      </div>
+                                      <div class="col-md-4">
+                                          <custom-input type="text" label="Last Name:*" value="" id="NPPlname" name="NPPlname" placeholder="Last Name" required=""> </custom-input>
+                                          <div id="p-last-name" class="invalid-feedback" style="margin-top: 0px; display: none; color: red;">Please enter last name.</div>
+                                      </div>
+                                      <div class="form-group col-md-4">
                                           <custom-input label="Signature Date:*" type="Date" id="sign_date" name="sign_date" value="" placeholder=""> </custom-input>
                                           <div id="p-dob" class="invalid-feedback" style="margin-top: 0px; display: none; color: red;">Please enter your DOB.</div>
                                       </div>
-                                      
+                                      <div class="signature col-md-12 mt-3">
+                                          <label for="responsible_party_sign" class="form-label question-label">Patient Signature *</label><span id=" " class="required_fields"></span>
+                                          <div id="i4s2zf-2" class="signature-canvas mb-3">
+                                              <canvas id="patient_rp_sign" width="500" name="signature" required="" style="padding-top: 10px; padding-right: 10px; padding-bottom: 10px; padding-left: 10px; border-top-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-bottom-left-radius: 10px; cursor: url('../assets/pen.png') 16 16, crosshair; display: block;"></canvas><img id="patient_rp_sign-2" width="500" src="" alt="" class="form-control" style="display: none;" />
+                                              <div id="patient_rp_sign_validation" class="invalid-feedback" style="margin-top: 0px;">Please enter signature.</div>
+                                              <button type="button" id="RPClearButton" class="btn btn-primary mt-3" style="border-top-width: initial; border-right-width: initial; border-bottom-width: initial; border-left-width: initial; border-top-style: none; border-right-style: none; border-bottom-style: none; border-left-style: none; border-top-color: initial; border-right-color: initial; border-bottom-color: initial; border-left-color: initial; border-image-source: initial; border-image-slice: initial; border-image-width: initial; border-image-outset: initial; border-image-repeat: initial; border-top-left-radius: 5px; border-top-right-radius: 5px; border-bottom-right-radius: 5px; border-bottom-left-radius: 5px; background-color: var(--btn-primary-color); font-size: 16px; font-weight: 400; cursor: pointer;">Clear</button>
+                                          </div>
+                                      </div>
                                   </div>
                               </div>
                               <!-- checkbox for Legal Represenative -->
@@ -870,9 +879,9 @@
                                           <div id="p-dob-2" class="invalid-feedback" style="margin-top: 0px; display: none; color: red;">Please enter your DOB.</div>
                                       </div>
                                       <div class="signature col-md-12 mt-3">
-                                          <label for="legalRepresentative" class="form-label question-label">Legal Represenative Signature:</label><span id="requiredLRsign" class="required_fields"></span>
+                                          <label for="legalRepresentative" class="form-label question-label">Legal Represenative Signature *</label><span id="requiredLRsign" class="required_fields"></span>
                                           <div id="representative_sign" class="signature-canvas mt-3">
-                                              <canvas id="legalRepresentative" width="580" name="signature" style="padding-top: 10px; padding-right: 10px; padding-bottom: 10px; padding-left: 10px; border-top-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-bottom-left-radius: 10px; cursor: url('../assets/pen.png') 16 16, crosshair;"></canvas>
+                                              <canvas id="legalRepresentative" width="500" name="signature" style="padding-top: 10px; padding-right: 10px; padding-bottom: 10px; padding-left: 10px; border-top-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-bottom-left-radius: 10px; cursor: url('../assets/pen.png') 16 16, crosshair;"></canvas>
                                               <div id="legalRepresentative_validation" class="invalid-feedback" style="margin-top: 0px;">Please enter signature.</div>
                                               <br />
                                               <button type="button" id="LRClearButton" class="btn btn-primary mt-3" style="border-top-width: initial; border-right-width: initial; border-bottom-width: initial; border-left-width: initial; border-top-style: none; border-right-style: none; border-bottom-style: none; border-left-style: none; border-top-color: initial; border-right-color: initial; border-bottom-color: initial; border-left-color: initial; border-image-source: initial; border-image-slice: initial; border-image-width: initial; border-image-outset: initial; border-image-repeat: initial; border-top-left-radius: 5px; border-top-right-radius: 5px; border-bottom-right-radius: 5px; border-bottom-left-radius: 5px; background-color: var(--btn-primary-color); font-size: 16px; font-weight: 400; cursor: pointer;">Clear</button>
@@ -903,36 +912,35 @@
                               <p></p>
                               <p>Thank you in advance for bringing your concern to our attention. Your feedback will assist us in our continued effort to improve our quality of service to you.</p>
                               <div class="row">
-                                <div class="form-group col-md-4">
-                                    <custom-input label="Patient First name :" value="" id="PCGfname" name="PCGfname" placeholder="First name" error="" disabled> </custom-input>
-                                </div>
-                                <div class="form-group col-md-4">
-                                    <custom-input type="text" label="Patient Last Name:" value="" id="PCGlname" name="PCGlname" placeholder="Last Name" disabled> </custom-input>
-                                </div>
-                                <div class="form-group col-md-4">
-                                    <custom-input type="text" label="Relationship to patient:" value="" id="RelationshipToPatient" name="RelationshipToPatient" placeholder="Relationship to patient"> </custom-input>
-                                </div>
-                                <div id="i5d17uz" class="form-group description-of-concern col-md-6" style="padding-top: 20px;">
-                                    <label for="description_of_concern" id="il0gwc" class="question-label mb-2" style="font-weight: normal; font-size: 16px;">Description of concern (include date(s), time(s), and name(s) if possible):</label>
-                                    <textarea rows="5" cols="70" id="description_of_concern" name="description_of_concern" class="form-control input" style="box-shadow: none;"></textarea>
-                                </div>
-                                <div class="form-group col-md-4 mt-1">
-                                    <custom-input label="Form Completed By:" value="" id="formCompletedBy" name="formCompletedBy" placeholder="Form Completed By:" error=""> </custom-input>
-                                </div>
-                                
-                                <div class="signature col-md-6 mt-3">
-                                    <label for="CGPatSign" id="CGPatSign" class="mb-2 question-label" style="font-weight: normal; font-size: 16px;">Signature:</label><span id="CGPatSign-2" class="required_fields"></span>
-                                    <div id="CGPatSign-3" class="signature-canvas">
-                                        <canvas id="CGPatSignCanvas" width="580" name="signature" style="padding-top: 10px; padding-right: 10px; padding-bottom: 10px; padding-left: 10px; border-top-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-bottom-left-radius: 10px; cursor: url('../assets/pen.png') 16 16, crosshair;"></canvas>
-                                        <div id="CGPatSignCanvas_validation" class="invalid-feedback" style="margin-top: 0px;">Please enter signature.</div>
-                                        <br />
-                                        <button type="button" id="CGPatSignClearButton" class="btn btn-primary mt-3" style="border-top-width: initial; border-right-width: initial; border-bottom-width: initial; border-left-width: initial; border-top-style: none; border-right-style: none; border-bottom-style: none; border-left-style: none; border-top-color: initial; border-right-color: initial; border-bottom-color: initial; border-left-color: initial; border-image-source: initial; border-image-slice: initial; border-image-width: initial; border-image-outset: initial; border-image-repeat: initial; border-top-left-radius: 5px; border-top-right-radius: 5px; border-bottom-right-radius: 5px; border-bottom-left-radius: 5px; background-color: var(--btn-primary-color); font-size: 16px; font-weight: 400; cursor: pointer;">Clear</button>
-                                    </div>
-                                </div>
-                                <div class="form-group col-md-4 date-picker mt-1">
-                                  <custom-input type="date" label="Date: " id="ConcernGrievance_date" name="ConcernGrievance_date"> </custom-input>
+                                  <div class="form-group col-md-4">
+                                      <custom-input label="Patient First name :" value="" id="PCGfname" name="PCGfname" placeholder="First name" error=""> </custom-input>
+                                  </div>
+                                  <div class="form-group col-md-4">
+                                      <custom-input type="text" label="Patient Last Name:" value="" id="PCGlname" name="PCGlname" placeholder="Last Name"> </custom-input>
+                                  </div>
+                                  <div class="form-group col-md-4">
+                                      <custom-input type="text" label="Relationship to patient:" value="" id="RelationshipToPatient" name="RelationshipToPatient" placeholder="Relationship to patient"> </custom-input>
+                                  </div>
+                                  <div id="i5d17uz" class="form-group description-of-concern" style="padding-top: 20px;">
+                                      <label for="description_of_concern" id="il0gwc" class="question-label mb-2" style="font-weight: normal; font-size: 16px;">Description of concern (include date(s), time(s), and name(s) if possible):</label>
+                                      <textarea rows="5" cols="70" id="description_of_concern" name="description_of_concern" class="form-control input" style="box-shadow: none;"></textarea>
+                                  </div>
+                                  <div class="form-group col-md-4">
+                                      <custom-input label="Form Completed By:" value="" id="formCompletedBy" name="formCompletedBy" placeholder="Form Completed By:" error=""> </custom-input>
+                                  </div>
+                                  <div class="form-group col-md-4 date-picker">
+                                      <custom-input type="date" label="Date: " id="ConcernGrievance_date" name="ConcernGrievance_date"> </custom-input>
+                                  </div>
+                                  <div class="signature col-md-6 mt-3">
+                                      <label for="CGPatSign" id="CGPatSign" class="mb-2 question-label" style="font-weight: normal; font-size: 16px;">Signature:</label><span id="CGPatSign-2" class="required_fields"></span>
+                                      <div id="CGPatSign-3" class="signature-canvas">
+                                          <canvas id="CGPatSignCanvas" width="500" name="signature" style="padding-top: 10px; padding-right: 10px; padding-bottom: 10px; padding-left: 10px; border-top-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-bottom-left-radius: 10px; cursor: url('../assets/pen.png') 16 16, crosshair;"></canvas>
+                                          <div id="CGPatSignCanvas_validation" class="invalid-feedback" style="margin-top: 0px;">Please enter signature.</div>
+                                          <br />
+                                          <button type="button" id="CGPatSignClearButton" class="btn btn-primary mt-3" style="border-top-width: initial; border-right-width: initial; border-bottom-width: initial; border-left-width: initial; border-top-style: none; border-right-style: none; border-bottom-style: none; border-left-style: none; border-top-color: initial; border-right-color: initial; border-bottom-color: initial; border-left-color: initial; border-image-source: initial; border-image-slice: initial; border-image-width: initial; border-image-outset: initial; border-image-repeat: initial; border-top-left-radius: 5px; border-top-right-radius: 5px; border-bottom-right-radius: 5px; border-bottom-left-radius: 5px; background-color: var(--btn-primary-color); font-size: 16px; font-weight: 400; cursor: pointer;">Clear</button>
+                                      </div>
+                                  </div>
                               </div>
-                            </div>
                               <hr class="border-dark-subtle" />
                               <div class="click-pat-survey row-cols-1 mt-3">
                                   <custom-input-checkradio id="click_pat_survey" name="click_pat_survey" label="">
@@ -952,9 +960,10 @@
 
                                                   <custom-input-checkradio-item label="Caregiver" value="Caregiver" id="resp_type_Caregiver" type="radio" class="form-check" style="display: inline-block; margin-right: 10px;"> </custom-input-checkradio-item>
 
-                                                  <custom-input-checkradio-item label="Other" value="Other" id="respodent_type_Other" type="radio" class="form-check" style="display: inline-block; margin-right: 10px;"> </custom-input-checkradio-item> 
+                                                  <custom-input-checkradio-item label="Other" value="Other" id="resp_type_Other" type="radio" class="form-check" style="display: inline-block; margin-right: 10px;"> </custom-input-checkradio-item>
+
                                               </custom-input-checkradio>
-                                              <custom-input value="" id="respodent_type_Other-text" style="display: none; width: 306px;" name="respodent_type_Other-text" placeholder="Other:" error=""> </custom-input>
+                                              <custom-input value="" id="txtRespTypeOther" style="display: none; width: 306px;" name="txtRespTypeOther" placeholder="Other:" error=""> </custom-input>
                                           </div>
 
                                       </div>
@@ -1010,165 +1019,165 @@
                                           <p id="iywb3sk" style="font-weight: bold;">Please answer the following questions:</p>
                                       </div>
                                       <div class="table-responsive">
-                                        <table valign="middle" id="i4k8dgf" class="table table-striped multiple-checkbox" style="line-height: 1.2; vertical-align: middle;">
-                                            <thead>
-                                                <tr>
-                                                    <th id="iyic5wt" style="width: 350px;"></th>
-                                                    <td id="i52ic3k">5- Very satisfied</td>
-                                                    <td id="i4794qx">4- Somewhat satisfied</td>
-                                                    <td id="i76yvqn">3- Neutral</td>
-                                                    <td id="if46dfd">2- Somewhat dissatisfied</td>
-                                                    <td id="i53x8ze">1- Very dissatisfied</td>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr id="whenYou_started">
-                                                    <th id="i76tp8w" style="width: 350px;">1. When you started service with InfuCare Rx, how satisfied were you with the process, including understanding your care plan and your financial responsibility?</th>
-                                                    <td id="if7o06k">
-                                                        <input type="radio" name="when_you_started_service" id="when_you_started_service5" class="form-check-input" value="5- Very satisfied"/>
-                                                    </td>
-                                                    <td id="ieobm9h">
-                                                        <input type="radio" name="when_you_started_service" id="when_you_started_service4" class="form-check-input" value="4- Somewhat satisfied"/>
-                                                    </td>
-                                                    <td id="ihqj858">
-                                                        <input type="radio" name="when_you_started_service" id="when_you_started_service1" class="form-check-input" value="3- Neutral"/>
-                                                    </td>
-                                                    <td id="i6sbis3">
-                                                        <input type="radio" name="when_you_started_service" id="when_you_started_service1" class="form-check-input" value="2- Somewhat dissatisfied"/>
-                                                    </td>
-                                                    <td id="isapkdm">
-                                                        <input type="radio" name="when_you_started_service" id="when_you_started_service1" class="form-check-input" value="1- Very dissatisfied"/>
-                                                    </td>
-                                                </tr>
-                                                <tr id="How_satisfied_are_1">
-                                                    <th id="idnuqp3" style="width: 350px;">2. How satisfied are you with the accuracy and timeliness of the delivery of your products?</th>
-                                                    <td id="isrqjj9">
-                                                        <input type="radio" name="how_satisfied_are_you1" id="how_satisfied_are_you1_5" class="form-check-input" value="5- Very satisfied" />
-                                                    </td>
-                                                    <td id="if9l2yd">
-                                                        <input type="radio" name="how_satisfied_are_you1" id="how_satisfied_are_you1_4" class="form-check-input" value="4- Somewhat satisfied" />
-                                                    </td>
-                                                    <td id="iflrjvw">
-                                                        <input type="radio" name="how_satisfied_are_you1" id="how_satisfied_are_you1_3" class="form-check-input" value="3- Neutral"/>
-                                                    </td>
-                                                    <td id="idyxton">
-                                                        <input type="radio" name="how_satisfied_are_you1" id="how_satisfied_are_you1_2" class="form-check-input" value="2- Somewhat dissatisfied"/>
-                                                    </td>
-                                                    <td id="i7f732f">
-                                                        <input type="radio" name="how_satisfied_are_you1" id="how_satisfied_are_you1_1" class="form-check-input" value="1- Very dissatisfied"/>
-                                                    </td>
-                                                </tr>
-                                                <tr id="How_satisfied_are_2">
-                                                    <th id="itqsdai" style="width: 350px;">3. How satisfied are you with the quality of care, supplies, and equipment provided by InfuCare Rx?</th>
-                                                    <td id="iif2568">
-                                                        <input type="radio" name="how_satisfied_are_you2" id="how_satisfied_are_you2_5" class="form-check-input" value="5- Very satisfied"/>
-                                                    </td>
-                                                    <td id="iam5ppa">
-                                                        <input type="radio" name="how_satisfied_are_you2" id="how_satisfied_are_you2_4" class="form-check-input" value="4- Somewhat satisfied"/>
-                                                    </td>
-                                                    <td id="iuhok7c">
-                                                        <input type="radio" name="how_satisfied_are_you2" id="how_satisfied_are_you2_3" class="form-check-input" value="3- Neutral"/>
-                                                    </td>
-                                                    <td id="ic3tfjx">
-                                                        <input type="radio" name="how_satisfied_are_you2" id="how_satisfied_are_you2_2" class="form-check-input" value="2- Somewhat dissatisfied"/>
-                                                    </td>
-                                                    <td id="ilvfgvm">
-                                                        <input type="radio" name="how_satisfied_are_you2" id="how_satisfied_are_you2_1" class="form-check-input" value="1- Very dissatisfied"/>
-                                                    </td>
-                                                </tr>
-                                                <tr id="How_would_you_rate_1">
-                                                    <th id="iiwyewd" style="width: 350px;">4. How would you rate the effectiveness of your care plan provided by InfuCare Rx to treat your condition?</th>
-                                                    <td id="i6qls7f">
-                                                        <input 4="" type="radio" name="how_would_you_rate1" id="how_would_you_rate1_5" class="form-check-input" value="5- Very satisfied"/>
-                                                    </td>
-                                                    <td id="iy4tjeg">
-                                                        <input type="radio" name="how_would_you_rate1" id="how_would_you_rate1_4" class="form-check-input" value="4- Somewhat satisfied"/>
-                                                    </td>
-                                                    <td id="ifuzvrh">
-                                                        <input type="radio" name="how_would_you_rate1" id="how_would_you_rate1_3" class="form-check-input" value="3- Neutral"/>
-                                                    </td>
-                                                    <td id="irjvfrw">
-                                                        <input type="radio" name="how_would_you_rate1" id="how_would_you_rate1_2" class="form-check-input" value="2- Somewhat dissatisfied"/>
-                                                    </td>
-                                                    <td id="ibiblyp">
-                                                        <input type="radio" name="how_would_you_rate1" id="how_would_you_rate1_1" class="form-check-input" value="1- Very dissatisfied"/>
-                                                    </td>
-                                                </tr>
-                                                <tr id="How_would_you_rate_2">
-                                                    <th id="iqhqr6p" style="width: 350px;">5. How would you rate the clinical pharmacy services provided by InfuCare Rx?</th>
-                                                    <td id="isw7rc6">
-                                                        <input type="radio" name="how_would_you_rate2" id="how_would_you_rate2_5" class="form-check-input" value="5- Very satisfied"/>
-                                                    </td>
-                                                    <td id="izup355">
-                                                        <input type="radio" name="how_would_you_rate2" id="how_would_you_rate2_4" class="form-check-input" value="4- Somewhat satisfied"/>
-                                                    </td>
-                                                    <td id="ifur8yd">
-                                                        <input type="radio" name="how_would_you_rate2" id="how_would_you_rate2_3" class="form-check-input" value="3- Neutral"/>
-                                                    </td>
-                                                    <td id="ine865i">
-                                                        <input type="radio" name="how_would_you_rate2" id="how_would_you_rate2_2" class="form-check-input" value="2- Somewhat dissatisfied"/>
-                                                    </td>
-                                                    <td id="ifyi6of">
-                                                        <input type="radio" name="how_would_you_rate2" id="how_would_you_rate2_1" class="form-check-input" value="1- Very dissatisfied"/>
-                                                    </td>
-                                                </tr>
-                                                <tr id="How_satisfied_are_3">
-                                                    <th id="ixxzm9m" style="width: 350px;">6. How satisfied are you with the nursing services provided?</th>
-                                                    <td id="i8ohr8w">
-                                                        <input type="radio" name="how_satisfied_are_you3" id="how_satisfied_are_you3_5" class="form-check-input" value="5- Very satisfied"/>
-                                                    </td>
-                                                    <td id="iuqsa35">
-                                                        <input type="radio" name="how_satisfied_are_you3" id="how_satisfied_are_you3_4" class="form-check-input" value="4- Somewhat satisfied"/>
-                                                    </td>
-                                                    <td id="icz6bq3">
-                                                        <input type="radio" name="how_satisfied_are_you3" id="how_satisfied_are_you3_3" class="form-check-input" value="3- Neutral"/>
-                                                    </td>
-                                                    <td id="i17wwhp">
-                                                        <input type="radio" name="how_satisfied_are_you3" id="how_satisfied_are_you3_2" class="form-check-input" value="2- Somewhat dissatisfied"/>
-                                                    </td>
-                                                    <td id="ijp86w1">
-                                                        <input type="radio" name="how_satisfied_are_you3" id="how_satisfied_are_you3_1" class="form-check-input" value="1- Very dissatisfied"/>
-                                                    </td>
-                                                </tr>
-                                                <tr id="How_would_you_rate_3">
-                                                    <th id="iftwgta" style="width: 350px;">7. How would you rate the information/education you received regarding our services?</th>
-                                                    <td id="ih3xlej">
-                                                        <input type="radio" name="how_would_you_rate3" id="how_would_you_rate3_5" class="form-check-input" value="5- Very satisfied"/>
-                                                    </td>
-                                                    <td id="itod6qw">
-                                                        <input type="radio" name="how_would_you_rate3" id="how_would_you_rate3_4" class="form-check-input" value="4- Somewhat satisfied"/>
-                                                    </td>
-                                                    <td id="iv8f78j">
-                                                        <input type="radio" name="how_would_you_rate3" id="how_would_you_rate3_3" class="form-check-input" value="3- Neutral"/>
-                                                    </td>
-                                                    <td id="iwy4z1r">
-                                                        <input type="radio" name="how_would_you_rate3" id="how_would_you_rate3_2" class="form-check-input" value="2- Somewhat dissatisfied"/>
-                                                    </td>
-                                                    <td id="ikew49f">
-                                                        <input type="radio" name="how_would_you_rate3" id="how_would_you_rate3_1" class="form-check-input" value="1- Very dissatisfied"/>
-                                                    </td>
-                                                </tr>
-                                                <tr id="How_satisfied_are_4">
-                                                    <th id="i8gj7hv" style="width: 350px;">8. How satisfied are you with the level of politeness, helpfulness, and ease of contacting our employees?</th>
-                                                    <td id="i7rz3gz">
-                                                        <input type="radio" name="how_satisfied_are_you4" id="how_satisfied_are_you4_5" class="form-check-input" value="5- Very satisfied"/>
-                                                    </td>
-                                                    <td id="i48vrql">
-                                                        <input type="radio" name="how_satisfied_are_you4" id="how_satisfied_are_you4_4" class="form-check-input" value="4- Somewhat satisfied"/>
-                                                    </td>
-                                                    <td id="ih7usek">
-                                                        <input type="radio" name="how_satisfied_are_you4" id="how_satisfied_are_you4_3" class="form-check-input" value="3- Neutral"/>
-                                                    </td>
-                                                    <td id="i79d5gj">
-                                                        <input type="radio" name="how_satisfied_are_you4" id="how_satisfied_are_you4_2" class="form-check-input" value="2- Somewhat dissatisfied"/>
-                                                    </td>
-                                                    <td id="ioo9xij">
-                                                        <input type="radio" name="how_satisfied_are_you4" id="how_satisfied_are_you4_1" class="form-check-input" value="1- Very dissatisfied"/>
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
+                                          <table valign="middle" id="i4k8dgf" class="table table-striped multiple-checkbox" style="line-height: 1.2; vertical-align: middle;">
+                                              <thead>
+                                                  <tr>
+                                                      <th id="iyic5wt" style="width: 350px;"></th>
+                                                      <td id="i52ic3k">5- Very satisfied</td>
+                                                      <td id="i4794qx">4- Somewhat satisfied</td>
+                                                      <td id="i76yvqn">3- Neutral</td>
+                                                      <td id="if46dfd">2- Somewhat dissatisfied</td>
+                                                      <td id="i53x8ze">1- Very dissatisfied</td>
+                                                  </tr>
+                                              </thead>
+                                              <tbody>
+                                                  <tr>
+                                                      <th id="i76tp8w" style="width: 350px;">1. When you started service with InfuCare Rx, how satisfied were you with the process, including understanding your care plan and your financial responsibility?</th>
+                                                      <td id="if7o06k">
+                                                          <input type="radio" name="flexRadioDefault1" id="1stflexRadioDefault5" class="form-check-input" />
+                                                      </td>
+                                                      <td id="ieobm9h">
+                                                          <input type="radio" name="flexRadioDefault1" id="1stflexRadioDefault4" class="form-check-input" />
+                                                      </td>
+                                                      <td id="ihqj858">
+                                                          <input type="radio" name="flexRadioDefault1" id="1stflexRadioDefault3" class="form-check-input" />
+                                                      </td>
+                                                      <td id="i6sbis3">
+                                                          <input type="radio" name="flexRadioDefault1" id="1stflexRadioDefault2" class="form-check-input" />
+                                                      </td>
+                                                      <td id="isapkdm">
+                                                          <input type="radio" name="flexRadioDefault1" id="1stflexRadioDefault1" class="form-check-input" />
+                                                      </td>
+                                                  </tr>
+                                                  <tr>
+                                                      <th id="idnuqp3" style="width: 350px;">2. How satisfied are you with the accuracy and timeliness of the delivery of your products?</th>
+                                                      <td id="isrqjj9">
+                                                          <input type="radio" name="flexRadioDefault2" id="2ndflexRadioDefault5" class="form-check-input" />
+                                                      </td>
+                                                      <td id="if9l2yd">
+                                                          <input type="radio" name="flexRadioDefault2" id="2ndflexRadioDefault4" class="form-check-input" />
+                                                      </td>
+                                                      <td id="iflrjvw">
+                                                          <input type="radio" name="flexRadioDefault2" id="2ndflexRadioDefault3" class="form-check-input" />
+                                                      </td>
+                                                      <td id="idyxton">
+                                                          <input type="radio" name="flexRadioDefault2" id="2ndflexRadioDefault2" class="form-check-input" />
+                                                      </td>
+                                                      <td id="i7f732f">
+                                                          <input type="radio" name="flexRadioDefault2" id="2ndflexRadioDefault1" class="form-check-input" />
+                                                      </td>
+                                                  </tr>
+                                                  <tr>
+                                                      <th id="itqsdai" style="width: 350px;">3. How satisfied are you with the quality of care, supplies, and equipment provided by InfuCare Rx?</th>
+                                                      <td id="iif2568">
+                                                          <input type="radio" name="flexRadioDefault3" id="3rdflexRadioDefault5" class="form-check-input" />
+                                                      </td>
+                                                      <td id="iam5ppa">
+                                                          <input type="radio" name="flexRadioDefault3" id="3rdflexRadioDefault4" class="form-check-input" />
+                                                      </td>
+                                                      <td id="iuhok7c">
+                                                          <input type="radio" name="flexRadioDefault3" id="3rdflexRadioDefault3" class="form-check-input" />
+                                                      </td>
+                                                      <td id="ic3tfjx">
+                                                          <input type="radio" name="flexRadioDefault3" id="3rdflexRadioDefault2" class="form-check-input" />
+                                                      </td>
+                                                      <td id="ilvfgvm">
+                                                          <input type="radio" name="flexRadioDefault3" id="3rdflexRadioDefault1" class="form-check-input" />
+                                                      </td>
+                                                  </tr>
+                                                  <tr>
+                                                      <th id="iiwyewd" style="width: 350px;">4. How would you rate the effectiveness of your care plan provided by InfuCare Rx to treat your condition?</th>
+                                                      <td id="i6qls7f">
+                                                          <input 4="" type="radio" name="flexRadioDefault" id="4thflexRadioDefault5" class="form-check-input" />
+                                                      </td>
+                                                      <td id="iy4tjeg">
+                                                          <input type="radio" name="flexRadioDefault4" id="4thflexRadioDefault4" class="form-check-input" />
+                                                      </td>
+                                                      <td id="ifuzvrh">
+                                                          <input type="radio" name="flexRadioDefault4" id="4thflexRadioDefault3" class="form-check-input" />
+                                                      </td>
+                                                      <td id="irjvfrw">
+                                                          <input type="radio" name="flexRadioDefault4" id="4thflexRadioDefault2" class="form-check-input" />
+                                                      </td>
+                                                      <td id="ibiblyp">
+                                                          <input type="radio" name="flexRadioDefault4" id="4thflexRadioDefault1" class="form-check-input" />
+                                                      </td>
+                                                  </tr>
+                                                  <tr>
+                                                      <th id="iqhqr6p" style="width: 350px;">5. How would you rate the clinical pharmacy services provided by InfuCare Rx?</th>
+                                                      <td id="isw7rc6">
+                                                          <input type="radio" name="flexRadioDefault5" id="5thflexRadioDefault5" class="form-check-input" />
+                                                      </td>
+                                                      <td id="izup355">
+                                                          <input type="radio" name="flexRadioDefault5" id="5thflexRadioDefault4" class="form-check-input" />
+                                                      </td>
+                                                      <td id="ifur8yd">
+                                                          <input type="radio" name="flexRadioDefault5" id="5thflexRadioDefault3" class="form-check-input" />
+                                                      </td>
+                                                      <td id="ine865i">
+                                                          <input type="radio" name="flexRadioDefault5" id="5thflexRadioDefault2" class="form-check-input" />
+                                                      </td>
+                                                      <td id="ifyi6of">
+                                                          <input type="radio" name="flexRadioDefault5" id="5thflexRadioDefault1" class="form-check-input" />
+                                                      </td>
+                                                  </tr>
+                                                  <tr>
+                                                      <th id="ixxzm9m" style="width: 350px;">6. How satisfied are you with the nursing services provided?</th>
+                                                      <td id="i8ohr8w">
+                                                          <input type="radio" name="flexRadioDefault6" id="6thflexRadioDefault5" class="form-check-input" />
+                                                      </td>
+                                                      <td id="iuqsa35">
+                                                          <input type="radio" name="flexRadioDefault6" id="6thflexRadioDefault4" class="form-check-input" />
+                                                      </td>
+                                                      <td id="icz6bq3">
+                                                          <input type="radio" name="flexRadioDefault6" id="6thflexRadioDefault3" class="form-check-input" />
+                                                      </td>
+                                                      <td id="i17wwhp">
+                                                          <input type="radio" name="flexRadioDefault6" id="6thflexRadioDefault2" class="form-check-input" />
+                                                      </td>
+                                                      <td id="ijp86w1">
+                                                          <input type="radio" name="flexRadioDefault6" id="6thflexRadioDefault1" class="form-check-input" />
+                                                      </td>
+                                                  </tr>
+                                                  <tr>
+                                                      <th id="iftwgta" style="width: 350px;">7. How would you rate the information/education you received regarding our services?</th>
+                                                      <td id="ih3xlej">
+                                                          <input type="radio" name="flexRadioDefault7" id="7thflexRadioDefault5" class="form-check-input" />
+                                                      </td>
+                                                      <td id="itod6qw">
+                                                          <input type="radio" name="flexRadioDefault7" id="7thflexRadioDefault4" class="form-check-input" />
+                                                      </td>
+                                                      <td id="iv8f78j">
+                                                          <input type="radio" name="flexRadioDefault7" id="7thflexRadioDefault3" class="form-check-input" />
+                                                      </td>
+                                                      <td id="iwy4z1r">
+                                                          <input type="radio" name="flexRadioDefault7" id="7thflexRadioDefault2" class="form-check-input" />
+                                                      </td>
+                                                      <td id="ikew49f">
+                                                          <input type="radio" name="flexRadioDefault7" id="7thflexRadioDefault1" class="form-check-input" />
+                                                      </td>
+                                                  </tr>
+                                                  <tr>
+                                                      <th id="i8gj7hv" style="width: 350px;">8. How satisfied are you with the level of politeness, helpfulness, and ease of contacting our employees?</th>
+                                                      <td id="i7rz3gz">
+                                                          <input type="radio" name="flexRadioDefault8" id="8thflexRadioDefault5" class="form-check-input" />
+                                                      </td>
+                                                      <td id="i48vrql">
+                                                          <input type="radio" name="flexRadioDefault8" id="8thflexRadioDefault4" class="form-check-input" />
+                                                      </td>
+                                                      <td id="ih7usek">
+                                                          <input type="radio" name="flexRadioDefault8" id="8thflexRadioDefault3" class="form-check-input" />
+                                                      </td>
+                                                      <td id="i79d5gj">
+                                                          <input type="radio" name="flexRadioDefault8" id="8thflexRadioDefault2" class="form-check-input" />
+                                                      </td>
+                                                      <td id="ioo9xij">
+                                                          <input type="radio" name="flexRadioDefault8" id="8thflexRadioDefault1" class="form-check-input" />
+                                                      </td>
+                                                  </tr>
+                                              </tbody>
+                                          </table>
+                                      </div>
                                       <div id="i576jdl" class="row" style="padding-top: 20px;">
                                           <p id="iwqaxx9" style="font-weight: 600;">Feedback is important to us, and your input will help us serve you better. If you would like to discuss your answers further with an InfuCare Rx representative, please call 1-877-828-3940.</p>
                                       </div>
@@ -1203,43 +1212,42 @@
                                   <p>If I revoke this authorization, InfuCare Rx and any third parties that are notified of my revocation will stop using my Protected Health Information for the purposes outlined in this authorization, but the revocation
                                       will not affect prior use or disclosure of my Protected Health Information in reliance on this authorization. I have the right to receive a copy of this authorization after I sign it. I understand that the support
                                       services provided by InfuCare Rx that are described in this authorization can be changed at any time, without prior notification.</p>
-                                      <div class="row">
-                                        <div class="col-md-4">
-                                            <custom-input label="Patient First name:*" value="" id="patient_fname" name="patient_fname" placeholder="First name" error="" required="" disabled> </custom-input>
-                                            <div id="p-first-name-3" class="invalid-feedback" style="margin-top: 0px; display: none; color: red;">first name.</div>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <custom-input type="text" label="Patient Last Name:*" value="" id="patient_lname" name="patient_lname" placeholder="Last Name" required="" disabled> </custom-input>
-                                            <div id="p-last-name-3" class="invalid-feedback" style="margin-top: 0px; display: none; color: red;">Please enter last name.</div>
-                                        </div>
-                                        <div class="form-group col-md-4">
-                                            <custom-input label="Patient Date of Birth:*" type="Date" id="do_date" name="do_date" value="" placeholder=""> </custom-input>
-                                            <div id="p-dob-3" class="invalid-feedback" style="margin-top: 0px; display: none; color: red;">Please enter your DOB.</div>
-                                        </div>
-                                        <div class="form-group col-md-4">
-                                            <custom-input type="text" label="Patient Address:" value="" id="patient_address" name="patient_address" placeholder="Patient Address"> </custom-input>
-                                        </div>
-                                        <div class="form-group col-md-4">
-                                            <custom-input type="text" label="Patient Cell Phone:*" value="" id="patient_cell_phone" name="patient_cell_phone" placeholder="Patient Cell Phone" required=""> </custom-input>
-                                            <div id="p-last-name-4" class="invalid-feedback" style="margin-top: 0px; display: none; color: red;">Please enter your cell phone.</div>
-                                        </div>
-                                        
-                                        <div class="signature col-md-6 mt-3">
-                                            <label for="PAuthorization" id="i0n4kz-2" class="form-label question-label">Patient/Responsible Party Signature *</label><span id="Patient_Authorization" class="required_fields"></span>
-                                            <div id="i4s2zf-3" class="signature-canvas mb-3">
-                                                <canvas id="PAuthorization" width="580" name="signature" required="" style="padding-top: 10px; padding-right: 10px; padding-bottom: 10px; padding-left: 10px; border-top-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-bottom-left-radius: 10px; cursor: url('../assets/pen.png') 16 16, crosshair; display: block;"></canvas>
-  
-                                                <div id="PAuthorization_validation" class="invalid-feedback" style="margin-top: 0px;">Please enter signature.</div>
-                                                <br /><img id="PAuthorization-2" width="580" src="" alt="" class="form-control" style="display: none;" />
-                                                <div id="signature_validation" class="invalid-feedback" style="margin-top: 0px;">Please enter signature.</div>
-                                                <button type="button" id="PAClearButton" class="btn btn-primary mt-3" style="border-top-width: initial; border-right-width: initial; border-bottom-width: initial; border-left-width: initial; border-top-style: none; border-right-style: none; border-bottom-style: none; border-left-style: none; border-top-color: initial; border-right-color: initial; border-bottom-color: initial; border-left-color: initial; border-image-source: initial; border-image-slice: initial; border-image-width: initial; border-image-outset: initial; border-image-repeat: initial; border-top-left-radius: 5px; border-top-right-radius: 5px; border-bottom-right-radius: 5px; border-bottom-left-radius: 5px; background-color: var(--btn-primary-color); font-size: 16px; font-weight: 400; cursor: pointer;">Clear</button>
-                                            </div>
-                                        </div>
-                                        <div class="form-group col-md-4 mt-1">
-                                          <custom-input label="Signature Date:*" type="Date" id="signature_date" name="signature_date" value="" placeholder=""> </custom-input>
+                                  <div class="row">
+                                      <div class="col-md-4">
+                                          <custom-input label="Patient First name:*" value="" id="patient_fname" name="patient_fname" placeholder="First name" error="" required=""> </custom-input>
+                                          <div id="p-first-name-3" class="invalid-feedback" style="margin-top: 0px; display: none; color: red;">first name.</div>
+                                      </div>
+                                      <div class="col-md-4">
+                                          <custom-input type="text" label="Patient Last Name:*" value="" id="patient_lname" name="patient_lname" placeholder="Last Name" required=""> </custom-input>
+                                          <div id="p-last-name-3" class="invalid-feedback" style="margin-top: 0px; display: none; color: red;">Please enter last name.</div>
+                                      </div>
+                                      <div class="form-group col-md-4">
+                                          <custom-input label="Patient Date of Birth:*" type="Date" id="do_date" name="do_date" value="" placeholder=""> </custom-input>
+                                          <div id="p-dob-3" class="invalid-feedback" style="margin-top: 0px; display: none; color: red;">Please enter your DOB.</div>
+                                      </div>
+                                      <div class="form-group col-md-4">
+                                          <custom-input type="text" label="Patient Address:" value="" id="patient_address" name="patient_address" placeholder="Patient Address"> </custom-input>
+                                      </div>
+                                      <div class="form-group col-md-4">
+                                          <custom-input type="text" label="Patient Cell Phone:*" value="" id="patient_cell_phone" name="patient_cell_phone" placeholder="Patient Cell Phone" required=""> </custom-input>
+                                          <div id="p-last-name-4" class="invalid-feedback" style="margin-top: 0px; display: none; color: red;">Please enter your cell phone.</div>
+                                      </div>
+                                      <div class="form-group col-md-4">
+                                          <custom-input label="Signature Date:*" type="Date" id="PA_DOB_date" name="PA_DOB_date" value="" placeholder=""> </custom-input>
                                           <div id="p-dob-4" class="invalid-feedback" style="margin-top: 0px; display: none; color: red;">Please enter your sign date.</div>
                                       </div>
-                                    </div>
+                                      <div class="signature col-md-12 mt-3">
+                                          <label for="PAuthorization" id="i0n4kz-2" class="form-label question-label">Patient/Responsible Party Signature *</label><span id="Patient_Authorization" class="required_fields"></span>
+                                          <div id="i4s2zf-3" class="signature-canvas mb-3">
+                                              <canvas id="PAuthorization" width="500" name="signature" required="" style="padding-top: 10px; padding-right: 10px; padding-bottom: 10px; padding-left: 10px; border-top-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-bottom-left-radius: 10px; cursor: url('../assets/pen.png') 16 16, crosshair; display: block;"></canvas>
+
+                                              <div id="PAuthorization_validation" class="invalid-feedback" style="margin-top: 0px;">Please enter signature.</div>
+                                              <br /><img id="PAuthorization-2" width="500" src="" alt="" class="form-control" style="display: none;" />
+                                              <div id="signature_validation" class="invalid-feedback" style="margin-top: 0px;">Please enter signature.</div>
+                                              <button type="button" id="PAClearButton" class="btn btn-primary mt-3" style="border-top-width: initial; border-right-width: initial; border-bottom-width: initial; border-left-width: initial; border-top-style: none; border-right-style: none; border-bottom-style: none; border-left-style: none; border-top-color: initial; border-right-color: initial; border-bottom-color: initial; border-left-color: initial; border-image-source: initial; border-image-slice: initial; border-image-width: initial; border-image-outset: initial; border-image-repeat: initial; border-top-left-radius: 5px; border-top-right-radius: 5px; border-bottom-right-radius: 5px; border-bottom-left-radius: 5px; background-color: var(--btn-primary-color); font-size: 16px; font-weight: 400; cursor: pointer;">Clear</button>
+                                          </div>
+                                      </div>
+                                  </div>
                                   <!-- view_support_organizations -->
                                   <div class="view_support_organizations mt-3">
                                       <custom-input-checkradio id="support_organizations" name="support_organizations" label="">
@@ -1536,7 +1544,7 @@
                       <div class="mt-4">
                           <button id="prevButton" type="button" class="prevStep btn btn-success me-2" onclick="handlePrevious()">Previous</button>
                           <button id="save-draft" type="button" class="btn btn-success me-2">Save as Draft</button>
-                          <button id="nextButton" type="button" class="prevStep btn btn-success me-2" onclick="handleNext()">Next</button>
+                          <button id="nextbtn" type="button" class="prevStep btn btn-success me-2" onclick="handleNext()">Next</button>
                           <button id="saveBtn" type="button" class="btn btn-success me-2" style="display: none;">Submit</button>
                       </div>
                   </div>
