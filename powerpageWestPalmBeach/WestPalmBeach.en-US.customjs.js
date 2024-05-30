@@ -59,6 +59,17 @@ const setSignatureDatas = (elementId) => {
    
   let formResponseId, signatureData, fromResponses;
   document.addEventListener("DOMContentLoaded", async function() {
+     const searchParams = new URLSearchParams(window.location.search);
+    formResponseId = searchParams.get('id');
+    fromResponses = window.localStorage.getItem(formResponseId);
+    commonFormOpeation.setFormDataFromSave(getQuestionToIdMap(), getAnswerToIdMap(), fromResponses ? JSON.parse(fromResponses) : undefined, 'False');
+
+    setSignatureDatas('patient_sign');
+    setSignatureDatas('patient_rp_sign');
+    setSignatureDatas('CGPatSignCanvas');
+    setSignatureDatas('legalRepresentative');
+    setSignatureDatas('PAuthorization');
+
     nextAndprevbtnwithsavedraft();
     checkboxHideandShow();
     showOtherInputOnchecked();
@@ -78,11 +89,7 @@ const setSignatureDatas = (elementId) => {
         headerForm.style.display = 'block';
         headerFormText.innerText = 'Patient Admission Booklet - West Palm Beach';
     }
-    const searchParams = new URLSearchParams(window.location.search);
-    formResponseId = searchParams.get('id');
-
-    fromResponses = window.localStorage.getItem(formResponseId);
-    commonFormOpeation.setFormDataFromSave(getQuestionToIdMap(), getAnswerToIdMap(), fromResponses ? JSON.parse(fromResponses) : undefined, 'False');
+   
     //  showPatientSignature();
     // hideAndShowLogic();
   
