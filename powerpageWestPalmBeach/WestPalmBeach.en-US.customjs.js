@@ -208,17 +208,17 @@ document.addEventListener("DOMContentLoaded", async function () {
     // hideAndShowLogic();
     if (formData) formViewOrEdit(formData.happ_formstatus);
 
-    document.getElementById("save-draft").addEventListener('click', async () => {
-        commonFormOpeation.showSpinner('overlay-spinner', true);
-        const formDataMap = commonFormOpeation.getFormDataToSave(getQuestionToIdMap(), getAnswerToIdMap());
-        console.log('formValues', formDataMap);
-        await SaveFormResponse(formResponseId, statusMap.Pending, JSON.stringify(formDataMap));
-        const signatureURLData = commonFormOpeation.getSignatureDataToSave('patient_sign');
-        CreateHistoryByFormResponseId(formResponseId, 'SaveAsDraft', `Patient saved the form as a draft.`);
-        if (signatureData) await SaveSignature(signatureData[0].happ_esignatureid, signatureURLData);
-        commonFormOpeation.showSpinner('overlay-spinner', false);
-        notify('Your form has been successfully saved as a draft!.', 'success');
-    });
+    // document.getElementById("save-draft").addEventListener('click', async () => {
+    //     commonFormOpeation.showSpinner('overlay-spinner', true);
+    //     const formDataMap = commonFormOpeation.getFormDataToSave(getQuestionToIdMap(), getAnswerToIdMap());
+    //     console.log('formValues', formDataMap);
+    //     await SaveFormResponse(formResponseId, statusMap.Pending, JSON.stringify(formDataMap));
+    //     const signatureURLData = commonFormOpeation.getSignatureDataToSave('patient_sign');
+    //     CreateHistoryByFormResponseId(formResponseId, 'SaveAsDraft', `Patient saved the form as a draft.`);
+    //     if (signatureData) await SaveSignature(signatureData[0].happ_esignatureid, signatureURLData);
+    //     commonFormOpeation.showSpinner('overlay-spinner', false);
+    //     notify('Your form has been successfully saved as a draft!.', 'success');
+    // });
 
     document.getElementById("saveBtn").addEventListener('click', async () => {
 
@@ -830,3 +830,4 @@ const showOtherSelectedRadioButtons = () => {
         }
     });
 }
+

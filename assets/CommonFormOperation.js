@@ -155,7 +155,7 @@ const commonFormOpeation = (function () {
                         });
                     }
                 });
-            } else if (elementType == 'radio') {
+            } else if (elementType == 'radio' || elementType === 'radion-input') {
                 const radioElements = el.querySelectorAll('.form-check-input');
                 radioElements.forEach(radioEl => {
                     if (radioEl.checked) {
