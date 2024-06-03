@@ -88,6 +88,13 @@ const commonFormOpeation = (function () {
                     if (questionValue == idToAnsMap[radioEl.id]) {
                         isChecked = true
                         radioEl.click();
+
+                        const radioValue = radioEl.getAttribute('value') ?? radioEl.value;
+
+                        if(radioValue === 'Other') {
+                            const otherElement = document.getElementById(`${radioEl.id}-text`);
+                            otherElement.setAttribute('value', formResponses[`${questionId}-other`]?.value);
+                        }
                     }
                 });
 
@@ -118,8 +125,6 @@ const commonFormOpeation = (function () {
         const elements = document.querySelectorAll(selectors);
         // if form status is draft then it filed by nurse.
         let filledByLoggedInUser = isPortalUserLoggedIn === 'True' ? nurseBy : patientBy;
-        console.log('isPortalUserLoggedIn', isPortalUserLoggedIn);
-        console.log('filledBy', filledByLoggedInUser);
         elements.forEach(el => {
             const nameOfControl = el.getAttribute('name');
             const questionId = idToQueMap[el.getAttribute('name')];
@@ -161,6 +166,17 @@ const commonFormOpeation = (function () {
                             answerId: idToAnsMap[radioEl.id],
                             by: filledBy
                         };
+                        const radioValue = radioEl.getAttribute('value') ?? radioEl.value;
+                        if(radioValue === 'Other') {
+                            const otherElement = document.getElementById(`${radioEl.id}-text`);
+                            retVal[`${questionId}-other`] = {
+                                value: otherElement.value,
+                                name: otherElement.getAttribute('name'),
+                                type: 'text',
+                                by: filledBy
+                            };
+                        }
+                        
                     }
                 });
             } else if (elementType === 'select-one') {

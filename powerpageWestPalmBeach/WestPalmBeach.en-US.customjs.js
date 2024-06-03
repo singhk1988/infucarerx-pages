@@ -80,6 +80,9 @@ document.addEventListener("DOMContentLoaded", async function () {
     setupSignatureCanvas('legalRepresentative', 'LRClearButton', 'legalRepresentative_validation');
     setupSignatureCanvas('PAuthorization', 'PAClearButton', 'PAuthorization_validation');
 
+
+    showOtherSelectedRadioButtons();
+    
     commonFormOpeation.showSpinner('overlay-spinner', true);
 
     {
@@ -194,7 +197,10 @@ document.addEventListener("DOMContentLoaded", async function () {
         console.log('formData', formData, fromResponses);
 
         commonFormOpeation.setFormDataFromSave(getQuestionToIdMap(), getAnswerToIdMap(), JSON.parse(fromResponses));
+        
     }
+
+  
     signatureData = await signatureTask;
     if (signatureData) {
         commonFormOpeation.setSignatureFromSave('patient_sign', signatureData[0]?.happ_signature /*window.localStorage.getItem(`${formResponseId}-sig`)*/);
@@ -812,4 +818,15 @@ const getAnswerToIdMap = () => {
 
     };
     return idToAnsMap;
+}
+
+
+const showOtherSelectedRadioButtons = () => {
+    const otherRadioButtons = ['respodent_type_Other', 'insurance_type_Other'];
+    otherRadioButtons.forEach(otherRadioButton => {
+        const el = document.getElementById(otherRadioButton);
+        if (el.checked) {
+            document.getElementById(`${otherRadioButton}-text`).style.display = 'block';;
+        }
+    });
 }
