@@ -233,10 +233,11 @@ class CommonStepper extends HTMLElement {
           display: flex;
           align-items: flex-start;
           justify-content: center;
-          position: relative;
-          min-height: 70px;
       }
-       
+      p {
+          margin-top: 0 !important; 
+          margin-bottom: 0 !important;
+      }
       h4 {
           margin-top: 0 !important; 
           margin-bottom: 0 !important;
@@ -311,19 +312,7 @@ class CommonStepper extends HTMLElement {
       .completed .check {
           display: block !important;
       }
-      @media(min-width:1200px) {
-        h4.step-header {
-            position: absolute;
-            top: 43px;
-            width: 130px;
-        }
-    }
-    @media(min-width:1366px) {
-        h4.step-header { 
-            width: 210px;
-            top: 50px;
-        }
-    }
+
       
       
       </style>

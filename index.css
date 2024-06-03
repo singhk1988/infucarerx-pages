@@ -15,7 +15,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "Josefin Sans", "sans-serif" !important;
+    font-family: var(--font-family);
 }
 .paragraph {
    font-family: var(--font-family);
@@ -27,9 +27,7 @@
 .main-container {
     background-color: var(--form-background-color);
 }
-.main-section {
-    background-color: #ebeff4;
-}
+ 
 .container-custom {
     border: 1px solid var(--border-color);
     border-radius: 20px;
@@ -162,42 +160,18 @@ h3.fields-title{
 .multiple-checkbox tr td {
     text-align: center;
 }
-/* Media query for smaller screens 
-1. Completed UI and Signature issue of west plam beach form (5.30) 
-2. forms bugs/status meeting (0.10) 
-
-*/
-.container-xl-custom .multiple-checkbox { 
-    line-height: 1.2;
-    vertical-align: middle;
-}
-.multiple-checkbox tr th {
-    width: 350px;
-}
-.multiple-checkbox tr td {
-    text-align: center;
-}
-#click_pat_survey .form-label, #support_organizations .form-label, #view_medicare_DMEPOS .form-label, #view_medicare_DMEPOS_spanish .form-label, #legal_represenative .form-label {
-    display: none;
-}
-
-
+/* Media query for smaller screens */
 
 @media(min-width:768px) {
 #txtInsuranceTypeOther input {
     width: 306px;
 }
-
-.w-750 {
-    width: 750px;
-    margin: 0 auto;
-}
 }
   @media(min-width:1200px) {
-    /* .container-xl-custom {
+    .container-xl-custom {
         width: 990px;
         margin: 0 auto;
-    } */
+    }
   }
    
 @media screen and (max-width: 1200px) {
