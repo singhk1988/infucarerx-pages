@@ -181,7 +181,10 @@ h3.fields-title{
     display: none;
 }
 
-
+/* modified the radio button design */
+.table-responsive .form-check{
+    display: inline-block;
+}
 
 @media(min-width:768px) {
 #txtInsuranceTypeOther input {
