@@ -1,0 +1,251 @@
+
+{
+    "@odata.context": "https://org9cf531a5.crm.dynamics.com/api/data/v9.2/$metadata#happ_questions(happ_question)",
+    "value": [
+      {
+        "@odata.etag": "W/\"7882473\"",
+        "happ_question": "Provider Witness Name:",
+        "happ_questionid": "1726c4df-a221-ef11-840a-000d3a371898"
+      },
+      {
+        "@odata.etag": "W/\"7882476\"",
+        "happ_question": "Step 4a Last Name:",
+        "happ_questionid": "7b47e10f-a321-ef11-840a-000d3a371898"
+      },
+      {
+        "@odata.etag": "W/\"7882568\"",
+        "happ_question": "Pharmacy Servicing Location:",
+        "happ_questionid": "facf297a-a521-ef11-840a-000d3a371898"
+      },
+      {
+        "@odata.etag": "W/\"7882591\"",
+        "happ_question": "View Medicare DMEPOS Supplier Standards (Spanish)",
+        "happ_questionid": "696697a4-a521-ef11-840a-000d3a371898"
+      },
+      {
+        "@odata.etag": "W/\"7882612\"",
+        "happ_question": "3. How satisfied are you with the quality of care, supplies, and equipment provided by InfuCare Rx?",
+        "happ_questionid": "85d966ef-a521-ef11-840a-000d3a371898"
+      },
+      {
+        "@odata.etag": "W/\"7882624\"",
+        "happ_question": "Click to view Welcome Packet",
+        "happ_questionid": "5afd9607-a621-ef11-840a-000d3a371898"
+      },
+      {
+        "@odata.etag": "W/\"7882678\"",
+        "happ_question": "View Support Organizations",
+        "happ_questionid": "568a5045-a621-ef11-840a-000d3a371898"
+      },
+      {
+        "@odata.etag": "W/\"7882699\"",
+        "happ_question": "Patient First name:",
+        "happ_questionid": "84d51284-a621-ef11-840a-000d3a371898"
+      },
+      {
+        "@odata.etag": "W/\"7882715\"",
+        "happ_question": "Signature of Patient or Legal Guardian:",
+        "happ_questionid": "e699b1b4-a621-ef11-840a-000d3a371898"
+      },
+      {
+        "@odata.etag": "W/\"7882718\"",
+        "happ_question": "Date:",
+        "happ_questionid": "1efaa9ba-a621-ef11-840a-000d3a371898"
+      },
+      {
+        "@odata.etag": "W/\"7882744\"",
+        "happ_question": "Last Name:",
+        "happ_questionid": "d88fa7d0-a621-ef11-840a-000d3a371898"
+      },
+      {
+        "@odata.etag": "W/\"7882797\"",
+        "happ_question": "Step 4 Signature Date: ",
+        "happ_questionid": "6af298de-a621-ef11-840a-000d3a371898"
+      },
+      {
+        "@odata.etag": "W/\"7882904\"",
+        "happ_question": "Step 4 Patient Signature:",
+        "happ_questionid": "1250cfe4-a621-ef11-840a-000d3a371898"
+      },
+      {
+        "@odata.etag": "W/\"7883041\"",
+        "happ_question": "Step 4a First name:",
+        "happ_questionid": "f66555f2-a621-ef11-840a-000d3a371898"
+      },
+      {
+        "@odata.etag": "W/\"7883047\"",
+        "happ_question": "Relationship to patient:",
+        "happ_questionid": "4c817c04-a721-ef11-840a-000d3a371898"
+      },
+      {
+        "@odata.etag": "W/\"7883050\"",
+        "happ_question": "Form Completed By:",
+        "happ_questionid": "1faa9432-a721-ef11-840a-000d3a371898"
+      },
+      {
+        "@odata.etag": "W/\"7883053\"",
+        "happ_question": "Step 5 Date:",
+        "happ_questionid": "454f5d46-a721-ef11-840a-000d3a371898"
+      },
+      {
+        "@odata.etag": "W/\"7883056\"",
+        "happ_question": "Step 5 Signature:",
+        "happ_questionid": "407bc24d-a721-ef11-840a-000d3a371898"
+      },
+      {
+        "@odata.etag": "W/\"7883141\"",
+        "happ_question": "9. How would you feel referring others to our services?",
+        "happ_questionid": "8dc8d3b5-a721-ef11-840a-000d3a371898"
+      },
+      {
+        "@odata.etag": "W/\"7883153\"",
+        "happ_question": "Step 6 Patient Last Name:",
+        "happ_questionid": "9bd74dce-a721-ef11-840a-000d3a371898"
+      },
+      {
+        "@odata.etag": "W/\"7883159\"",
+        "happ_question": "Step 6 Patient Date of Birth:",
+        "happ_questionid": "bc8451d5-a721-ef11-840a-000d3a371898"
+      },
+      {
+        "@odata.etag": "W/\"7883168\"",
+        "happ_question": "Step 6 Patient/Responsible Party Signature:",
+        "happ_questionid": "cfeb9301-a821-ef11-840a-000d3a371898"
+      },
+      {
+        "@odata.etag": "W/\"7883171\"",
+        "happ_question": "Insurance Type:",
+        "happ_questionid": "075aaa4e-a821-ef11-840a-000d3a371898"
+      },
+      {
+        "@odata.etag": "W/\"7882497\"",
+        "happ_question": "Legal Guardian Name:",
+        "happ_questionid": "bacf5ab4-a221-ef11-840a-000d3a5c0fc6"
+      },
+      {
+        "@odata.etag": "W/\"7882499\"",
+        "happ_question": "Legal Represenative Signature:",
+        "happ_questionid": "2e58c2d3-a321-ef11-840a-000d3a5c0fc6"
+      },
+      {
+        "@odata.etag": "W/\"7882505\"",
+        "happ_question": "Description of concern (include date(s), time(s), and name(s) if possible):",
+        "happ_questionid": "2f6910f8-a321-ef11-840a-000d3a5c0fc6"
+      },
+      {
+        "@odata.etag": "W/\"7882542\"",
+        "happ_question": "7. How would you rate the information/education you received regarding our services?",
+        "happ_questionid": "638636e6-a421-ef11-840a-000d3a5c0fc6"
+      },
+      {
+        "@odata.etag": "W/\"7882552\"",
+        "happ_question": "Step 6 Patient First name:",
+        "happ_questionid": "4565dcf2-a421-ef11-840a-000d3a5c0fc6"
+      },
+      {
+        "@odata.etag": "W/\"7882555\"",
+        "happ_question": "Step 6 Patient Address:",
+        "happ_questionid": "79bf5eff-a421-ef11-840a-000d3a5c0fc6"
+      },
+      {
+        "@odata.etag": "W/\"7882606\"",
+        "happ_question": "Patient Last Name:",
+        "happ_questionid": "dcfb7ed8-a521-ef11-840a-000d3a5c0fc6"
+      },
+      {
+        "@odata.etag": "W/\"7882671\"",
+        "happ_question": "Click to take Patient Satisfaction Survey",
+        "happ_questionid": "4fd79439-a621-ef11-840a-000d3a5c0fc6"
+      },
+      {
+        "@odata.etag": "W/\"7882694\"",
+        "happ_question": "View Medicare DMEPOS Supplier Standards (English)",
+        "happ_questionid": "a2353778-a621-ef11-840a-000d3a5c0fc6"
+      },
+      {
+        "@odata.etag": "W/\"7882729\"",
+        "happ_question": "First name:",
+        "happ_questionid": "153266c7-a621-ef11-840a-000d3a5c0fc6"
+      },
+      {
+        "@odata.etag": "W/\"7883115\"",
+        "happ_question": "5. How would you rate the clinical pharmacy services provided by InfuCare Rx?",
+        "happ_questionid": "2670867d-a721-ef11-840a-000d3a5c0fc6"
+      },
+      {
+        "@odata.etag": "W/\"7883130\"",
+        "happ_question": "8. How satisfied are you with the level of politeness, helpfulness, and ease of contacting our employees?",
+        "happ_questionid": "e1e0f48f-a721-ef11-840a-000d3a5c0fc6"
+      },
+      {
+        "@odata.etag": "W/\"7883162\"",
+        "happ_question": "Step 6 Patient Cell Phone:",
+        "happ_questionid": "d8db2de7-a721-ef11-840a-000d3a5c0fc6"
+      },
+      {
+        "@odata.etag": "W/\"7882487\"",
+        "happ_question": "Step 4a Signature Date:",
+        "happ_questionid": "4e5f83a8-a321-ef11-840a-002248095c06"
+      },
+      {
+        "@odata.etag": "W/\"7882502\"",
+        "happ_question": "Step 5 Patient Last Name:",
+        "happ_questionid": "30f446e5-a321-ef11-840a-002248095c06"
+      },
+      {
+        "@odata.etag": "W/\"7882513\"",
+        "happ_question": "2. How satisfied are you with the accuracy and timeliness of the delivery of your products?",
+        "happ_questionid": "07ed4e5f-a421-ef11-840a-002248095c06"
+      },
+      {
+        "@odata.etag": "W/\"7882525\"",
+        "happ_question": "Respondent Type:",
+        "happ_questionid": "a3d07d83-a421-ef11-840a-002248095c06"
+      },
+      {
+        "@odata.etag": "W/\"7882533\"",
+        "happ_question": "6. How satisfied are you with the nursing services provided?",
+        "happ_questionid": "4106e1c5-a421-ef11-840a-002248095c06"
+      },
+      {
+        "@odata.etag": "W/\"7882645\"",
+        "happ_question": "Click to View Notice of Privacy Practices",
+        "happ_questionid": "290f081d-a621-ef11-840a-002248095c06"
+      },
+      {
+        "@odata.etag": "W/\"7882658\"",
+        "happ_question": "Legal Represenative",
+        "happ_questionid": "23614729-a621-ef11-840a-002248095c06"
+      },
+      {
+        "@odata.etag": "W/\"7882702\"",
+        "happ_question": "Patient MRN:",
+        "happ_questionid": "d823b18f-a621-ef11-840a-002248095c06"
+      },
+      {
+        "@odata.etag": "W/\"7882712\"",
+        "happ_question": "Signature Date:",
+        "happ_questionid": "5d62dd9b-a621-ef11-840a-002248095c06"
+      },
+      {
+        "@odata.etag": "W/\"7883044\"",
+        "happ_question": "Step 5 Patient First name:",
+        "happ_questionid": "a0cd27f6-a621-ef11-840a-002248095c06"
+      },
+      {
+        "@odata.etag": "W/\"7883096\"",
+        "happ_question": "1. When you started service with InfuCare Rx, how satisfied were you with the process, including understanding your care plan and your financial responsibility?",
+        "happ_questionid": "2a6f545c-a721-ef11-840a-002248095c06"
+      },
+      {
+        "@odata.etag": "W/\"7883106\"",
+        "happ_question": "4. How would you rate the effectiveness of your care plan provided by InfuCare Rx to treat your condition?",
+        "happ_questionid": "3bea5c68-a721-ef11-840a-002248095c06"
+      },
+      {
+        "@odata.etag": "W/\"7883165\"",
+        "happ_question": "Step 6 Signature Date:",
+        "happ_questionid": "dd1d1fef-a721-ef11-840a-002248095c06"
+      }
+    ]
+  }
