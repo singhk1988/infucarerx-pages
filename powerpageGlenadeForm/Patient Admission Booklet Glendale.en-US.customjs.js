@@ -90,7 +90,7 @@ document.addEventListener("DOMContentLoaded", async function () {
         const headerFormText = document.getElementById('header_form_text');
 
         headerForm.style.display = 'block';
-        headerFormText.innerText = 'Patient Admission Booklet - West Palm Beach';
+        headerFormText.innerText = 'Patient Admission Booklet - Glenade';
     }
 
     //  showPatientSignature();
