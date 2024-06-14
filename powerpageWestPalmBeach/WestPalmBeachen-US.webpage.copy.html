@@ -1,22 +1,28 @@
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="../assets/bootstrap.min.css">
-  <!-- <link rel="stylesheet" href="../assets/portalbasictheme.css"> -->
-  <link rel="stylesheet" href="../assets/index.css">
-  <!-- <script src="../component/CustomFormComponents.js"></script> -->
-  <script src="../powerpageWestPalmBeach/WestPalmBeach.en-US.customjs.js"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../assets/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="../assets/portalbasictheme.css"> -->
+    <link rel="stylesheet" href="../assets/index.css">
+    <!-- <script src="../component/CustomFormComponents.js"></script> -->
+    <script src="../powerpageWestPalmBeach/WestPalmBeach.en-US.customjs.js"></script>
 </head>
 
 <body>
-  
-  <main class="main-container pt-4">
-      <div class="container">
+
+    <main class="main-container pt-4 pb-5">
+        <div class="container">
+          
           <form action="">
+      
+              <div id="formComment" class="alert alert-primary form-comment container" role="alert" style="display: none;">
+                  A simple danger alert—check it out!
+               </div>
+      
               <div id="form_hide">
                   <common-stepper steps='["Welcome Page", "Patient Admission Packet Checklist", "Patient Admission Agreement", "Notice of Privacy Practices", "Patient Concern / Grievance Form", "Patient Authorization"]' current-step="1">
                   </common-stepper>
-
+      
                   <!-- all step contents will comes here -->
                   <div class="main-form-container mt-3">
                       <!-- welcome page: Pateint Admission Booklet -->
@@ -48,6 +54,16 @@
                                       <p>Monday through Friday - 8:30 AM to 5:00 PM</p>
                                       <p>On-Call Availability 24/7/365, including weekends and holidays</p>
                                   </div>
+                              </div>
+                              <div class="py-2 row justify-content-center align-items-center">
+                                  <div class="w-50">
+                                  <p>To Report a patient safety concern or complaint, please call our corporate office at <span class="fw-bold">877.828.3940</span> or you may contact.</p>
+                                  <p>Accreditation Commission for Health Care, Inc (ACHC)</p>
+                                  <p>Phone: (855) 937-2242 or Online <a href="https://www.achc.org/">https://www.achc.org/</a></p>
+                                  <p>Agency for Health Care Administration (AHCA)</p>
+                                  <p>Phone: (888) 419-3456 or Online <a href="https://apps.ahca.myfigrida.com/hcfc/">https://apps.ahca.myfigrida.com/hcfc/</a> </p>
+      
+                                </div>
                               </div>
                           </div>
                       </div>
@@ -116,7 +132,7 @@
                                                       <li>Patient/Caregiver Instructional Checklist</li>
                                                   </div>
                                                   <div class="col-md-6">
-                                                      <li>Planof Care for Home</li>
+                                                      <li>Plan of Care for Home</li>
                                                       <li>IV Documentation Flow Sheet</li>
                                                       <li>Inventory Checklist (os needed)</li>
                                                   </div>
@@ -132,7 +148,7 @@
                                                   <div class="col-md-6">
                                                       <li>Patient Education Guide</li>
                                                       <li>Reactions Chart (for IG therapy)</li>
-                                                      <li>IW Access Care and instructions</li>
+                                                      <li>IV Access Care and instructions</li>
                                                   </div>
                                                   <div class="col-md-6">
                                                       <li>_________________________</li>
@@ -152,12 +168,12 @@
                                   </div>
                                   <div class="row justify-content-left align-items-left text-left mt-3">
                                       <p class="fw-bold text-decoration-underline">PATIENT INSTRUCTIONS:</p>
-                                      <p>Please sign, date and mail (1) copy of the <b>“Assignment of Benefits</b> form to InfuCare Rx using the self- ‘addressed stamped envelope provided. Keep (1) copy of the Assignment of Benefits for your records. If
+                                      <p>Please sign, date and mail (1) copy of the <b>“Assignment of Benefits</b> form to InfuCare Rx using the self-addressed stamped envelope provided. Keep (1) copy of the Assignment of Benefits for your records. If
                                           you <u>DO NOT</u> have a homecare nurse, please also follow <b>NURSE INSTRUCTIONS</b> below.</p>
                                   </div>
                                   <div class="row justify-content-left align-items-left text-left mt-3">
                                       <p class="fw-bold text-decoration-underline">NURSE INSTRUCTIONS:</p>
-                                      <p>Please review all documents with patient. Have patient sign and date the <b>**Admission Agreement, Notice of Privacy Practices Acknowledgement Form, Patient Authorization to Disclose PH, and Delivery Ticket.</b>                                            Patient should keep (1) copy for their records. Nurse must return signed documents to InfuCare Rx as soon as possible following the initial visit.</p>
+                                      <p>Please review all documents with patient. Have patient sign and date the <b>**Admission Agreement, Notice of Privacy Practices Acknowledgement Form, Patient Authorization to Disclose PHI, and Delivery Ticket.</b>                                            Patient should keep (1) copy for their records. Nurse must return signed documents to InfuCare Rx as soon as possible following the initial visit.</p>
                                   </div>
                                   <div class="view-welcome-packet row-cols-1 mt-3">
                                       <custom-input-checkradio id="view_welcome_packet" name="view_welcome_packet" label="">
@@ -174,7 +190,7 @@
                                               <p>Thank you for allowing InfuCare Rx the opportunity to serve you. Please read through the materials provided in your Patient Admission Packet, in order to help you become more familiar with our services and
                                                   the therapy your doctor has ordered for you.</p>
                                               <p>The InfuCare Rx Patient Admission Packet contains information on how to contact us, how we protect your privacy and disclose healthcare information, emergency preparedness and safety tips, medication instructions
-                                                  specific to your treatment, and other important information that will allow us to properly care for you. Additionally, we have provided you with instructions on completing and returning the <b>Patient Admission Agreement, Assignment of Benefits, Privacy Notice,</b>                                                    and <b>Patient Satisfaction Survey</b> enclosed in your folder. Please call our pharmacy at <b>(877) 469-6053</b> if there is anything you do not understand in this packet.</p>
+                                                  specific to your treatment, and other important information that will allow us to properly care for you. Additionally, we have provided you with instructions on completing and returning the <b>Patient Admission Agreement, Assignment of Benefits, Privacy Notice,</b>                                                    and <b>Patient Satisfaction Survey</b> enclosed in your folder. Please call our pharmacy at <b>(800) 499-6579 or (561) 842-2828</b> if there is anything you do not understand in this packet.</p>
                                               <p>InfuCare Rx's dedicated professionals are committed to ensuring that the services you receive are provided in a safe and effective manner. As our valued customer, your safety, well-being and satisfaction
                                                   is of the utmost importance to us.</p>
                                               <p>Our healthcare team is comprised of clinicians and healthcare professionals. Prior to admission to our services, you will receive a phone call from our office. We will review information with you regarding
@@ -195,7 +211,7 @@
                                                   <li>Education and clinical monitoring related to your condition, medications, adherence, side effects, food and drug interactions, safe disposal of medications, and other safety precautions</li>
                                               </ul>
                                               <p></p>
-                                              <p>Please contact our pharmacy department if you choose not to participate in our program or have additional questions regarding your care <b>(877) 469-6053</b>.</p>
+                                              <p>Please contact our pharmacy department if you choose not to participate in our program or have additional questions regarding your care <b>(800) 499-6579 or (561) 842-2828</b>.</p>
                                               <h6 class="heading-color fw-bold pt-2">Our Mission:</h6>
                                               <p>To <i>Improve the Lives of Our Patients</i>. We accomplish this by delivering customized, high quality and cost-effective immunoglobulin, parenteral nutrition, antibiotic therapy, as well as specialty infusion
                                                   medications to patients at home or in an alternate care setting. Our comprehensive infusion therapy management program provides quality care to patients with complex, chronic medical conditions. Together
@@ -219,16 +235,16 @@
                                               </ul>
                                               <hr class="border-dark-subtle pdf-border" />
                                               <h5 class="heading-color fw-bold pt-2">Important Contact Information:</h5>
-                                              <p>Our pharmacy's normal business hours is <b>9:00 AM</b> to <b>5:00 PM</b>, Monday through <b>Friday</b>. If you have an emergent need after hours and cannot wait until the next business day, we have after
-                                                  hour/on call coverage. We can be reached <b>24 hours</b> a day, <b>7 days</b> a week by calling <b>(877) 469-6053</b>.</p>
+                                              <p>Our pharmacy's normal business hours is <b>8:30 AM</b> to <b>5:00 PM</b>, Monday through <b>Friday</b>. If you have an emergent need after hours and cannot wait until the next business day, we have after
+                                                  hour/on call coverage. We can be reached <b>24 hours</b> a day, <b>7 days</b> a week by calling <b>(800) 499-6579 or (561) 842-2828</b>.</p>
                                               <p>If you experience a <b>life-threatening illness or severe symptoms, call 911</b> or go to your nearest hospital <b>emergency department</b>.</p>
-                                              <p>For <b>billing</b> questions, insurance coverage, copays, deductibles, financial responsibility, or any other business related to your services, please call <b>(877) 828-3940</b>.</p>
-                                              <p>For questions involving any clinical or <b>pharmacy</b> matters such as drug information, medication issues or concerns, supplies or equipment, please call <b>(877) 469-6053</b>. Pharmacists are available
+                                              <p>For <b>billing</b> questions, insurance coverage, copays, deductibles, financial responsibility, or any other business related to your services, please call <b>(800) 499-6579</b>.</p>
+                                              <p>For questions involving any clinical or <b>pharmacy</b> matters such as drug information, medication issues or concerns, supplies or equipment, please call <b>(800) 499-6579 or (561) 842-2828</b>. Pharmacists are available
                                                   24 hrs./day, 7 days/week including holidays and weekends.</p>
-                                              <p>For <b>nursing</b> questions or concerns including RN scheduling, please call <b>(877) 822-9240</b>. Nurses are available 24 hrs./day, 7 days/week including holidays and weekends.</p>
+                                              <p>For <b>nursing</b> questions or concerns including RN scheduling, please call <b>(800) 499-6579</b>. Nurses are available 24 hrs./day, 7 days/week including holidays and weekends.</p>
                                               <p>You may contact at corporate office in writing using our mailing address, <b>InfuCare Rx, P.O. Box 2578, Secaucus, NJ 07096</b>; by emailing <a href="mailto:contact@infucarerx.com">contact@infucarerx.com</a>;
                                                   or by fax to <b>(877) 828-3941</b>.</p>
-                                              <p>If you require <b>interpreter</b> services or <b>hearing device assistance</b> (TTY), please refer to the handout in your admission packet or call <b>(800) 752-6096</b>.</p>
+                                              <p>If you require <b>interpreter</b> services or <b>hearing device assistance</b> (TTY), please refer to the handout in your admission packet or call <b>(800) 752-6096 (The Language Line)</b>.</p>
                                               <h5 class="heading-color fw-bold pt-2">Patient Financial Responsibility:</h5>
                                               <p>InfuCare Rx will verify your insurance coverage for the services we are requested to provide, prior to performing any service. Your out-of-pocket costs, copays, deductibles and your financial responsibility,
                                                   including if InfuCare Rx is out-of-network with your insurance company, will be communicated to you verbally and in writing. This information will be explained to you prior to your treatment and provided
@@ -238,8 +254,8 @@
                                               <p><b class="fst-italic">Product Selection:</b> If your product is not available from InfuCare Rx, we can attempt to order product from a wholesaler. If we cannot obtain it or you are unable to wait for the
                                                   wholesaler's delivery, we will call other pharmacies in the area on your behalf.</p>
                                               <p><b class="fst-italic">Refilling Prescriptions:</b> If certain products are limited by your insurance companies benefit design, we can offer you a cash price and/or help you explore assistance programs.</p>
-                                              <p><b class="fst-italic">Placing an Order</b>InfuCare Rx pharmacy staff will call you prior to your next refill and will perform an assessment of your needs within an adequate amount of time before your next
-                                                  refill so that you do not run out of medication or supplies. If you wish to place an order ahead of this, you can call our pharmacy Monday through Friday, 9:00 AM to 5:00 PM at (877) 202-6017.</p>
+                                              <p><b class="fst-italic">Placing an Order:</b> InfuCare Rx pharmacy staff will call you prior to your next refill and will perform an assessment of your needs within an adequate amount of time before your next
+                                                  refill so that you do not run out of medication or supplies. If you wish to place an order ahead of this, you can call our pharmacy Monday through Friday, 9:00 AM to 5:00 PM at <b>(877) 202-6017</b>.</p>
                                               <p><b class="fst-italic">Accessing Medications in Emergency, Disaster or Delay:</b> InfuCare Rx has a plan in place so that we are prepared to care for you in the event of a natural disaster or emergency. Emergency
                                                   preparedness tips have been provided to you in your admission packet.</p>
                                               <p><b class="fst-italic">Order Status:</b> If for some reason we cannot provide a healthcare service for you, your prescriber will be notified within 5 days or sooner. You can also call our pharmacy during
@@ -290,7 +306,7 @@
                                               </ul>
                                               <p></p>
                                               <p><b class="fst-italic">Medication Storage:</b> Your medications that we deliver to you contain a label that tells you how to store them. Store all medications exactly as directed, including those that need
-                                                  refrigeration and those that should be removed from the refrigerator before use. For additional questions, please contact our <b>pharmacy</b> at <b>(877) 920-2090</b> to speak with a pharmacist.</p>
+                                                  refrigeration and those that should be removed from the refrigerator before use. For additional questions, please contact our <b>pharmacy</b> at <b>(800) 499-6579</b> to speak with a pharmacist.</p>
                                               <p><b class="fst-italic">Medication Disposal - Federal Guidelines:</b> The U.S. Food and Drug Administration has specific instructions on how consumers should dispose of unused medications at home, depending
                                                   on the drug.</p>
                                               <p><b class="fst-italic">Flushing Medicines:</b> Because some medicines could be especially harmful to others, they have specific directions to immediately flush them down the sink or toilet when they are no
@@ -339,6 +355,7 @@
                                               <h5 class="heading-color fw-bold pt-2">Home Safety:</h5>
                                               <p>Our staff will review ways to make sure your home is safe. It is important to look around your house or apartment for any areas that may potentially cause an accident or injury and correct any unsafe conditions
                                                   you find.</p>
+                                                  <p><b class="fst-italic">Avoiding Slips and falls:</b></p>
                                               <ol>
                                                   <li>Stay alert for wet or highly waxed floors.</li>
                                                   <li>Make sure all cords are out of your walkway. Do not keep cords beneath carpets.</li>
@@ -446,7 +463,7 @@
                                               </ol>
                                               <p></p>
                                               <p>
-                                                  For more information regarding Emergency Planning, visit the following:<b class="fst-italic"><span class="text-decoration-underline">https://www.emergency.cdc.gov/</span> <span class="text-decoration-underline">https://www.ready.gov/</span> <span class="text-decoration-underline">https://www.redcross.org/</span></b>
+                                                  For more information regarding Emergency Planning, visit the following:<b class="fst-italic"><span class="text-decoration-underline">https://www.emergency.cdc.gov/</span> , <span class="text-decoration-underline">https://www.ready.gov/</span> , <span class="text-decoration-underline">https://www.redcross.org/</span></b>
                                               </p>
                                               <hr class="border-dark-subtle pdf-border" />
                                               <h5 class="heading-color fw-bold pt-2">Patient Rights and Responsibilities:</h5>
@@ -502,6 +519,239 @@
                                                   <li>In the situation where the patient lacks capacity to exercise rights, the rights shall be exercised by an individual guardian or entity legally authorized to represent the patient.</li>
                                               </ol>
                                               <p></p>
+                                              <p><b class="fst-italic">As a Home Care Patient, you have the
+                                                  responsibility to:</b></p>
+                                          <ol>
+                                              <li>Submit forms that are necessary to receive services.</li>
+                                              <li>Notify the treating provider of participation in the services
+                                                  provided by the organization.</li>
+                                              <li>Provide treating providers with accurate medical and contact
+                                                  information and notify provider of any changes.</li>
+                                              <li>Maintain rental or leased (non-purchased) equipment to the
+                                                  provider in its original condition.</li>
+                                              <li>Notify the organization of any concerns about the care or
+                                                  services provided.</li>
+                                              <li>Be seen by a doctor on a regular and ongoing basis and share
+                                                  complete and accurate health information regarding your contact
+                                                  information, medical history, condition, response to treatment
+                                                  and/or changes in your health status.</li>
+                                              <li>Participate in the planning of and be responsible for following
+                                                  the recommended treatment plan.</li>
+                                              <li>Carry out your therapy as instructed and make it known if you do
+                                                  not understand or cannot follow the treatment plan.</li>
+                                              <li>Cooperate with organization staff and not discriminate against
+                                                  staff.</li>
+                                              <li>Be available to receive deliveries and nursing visits.</li>
+                                              <li>Notify the provider in advance if/when you cannot keep an
+                                                  appointment.</li>
+                                              <li>Maintain a safe home setting for storage of medication,
+                                                  administration of care and maintain confidentiality of all
+                                                  medical documents that may be left in the home.</li>
+                                              <li>Notify the organization in the event of a readmission to the
+                                                  hospital, out-of-town plans, or changes in address/phone.</li>
+                                              <li>Be responsible for your actions if you refuse treatment or do
+                                                  not follow the organization’s recommendations.</li>
+                                              <li>Take responsibility for financial obligations of your care.</li>
+                                          </ol>
+                                          <p></p>
+                                          <h5 class="heading-color fw-bold pt-2">Advanced Directives</h5>
+                                          <p>Advance directives are written, legal instructions that explain what
+                                              kind of medical care you do or do not want if you ever become
+                                              terminally ill or seriously injured and are unable to make decisions
+                                              for yourself. Advanced directives guide choices for doctors, family
+                                              members and caregivers which help you to plan ahead, so you receive
+                                              the care you want.</p>
+                                          <p>Advanced directives need to be in writing. Each state has different
+                                              forms and requirements. Below is some general information which may
+                                              be helpful.</p>
+      
+                                          <p>There are two types of Advance Directives. One is called a living
+                                              will and the other is called a <b>durable power of attorney for
+                                                  healthcare</b>.
+                                          <ul>
+                                              <li>
+                                                  A <b>living will</b> is a written, legal document that clearly
+                                                  states the medical treatments you would and would not want to be
+                                                  used to keep you alive, as well as other decisions such as pain
+                                                  management or organ donation.
+                                              </li>
+                                          </ul>
+                                          </p>
+      
+                                          <p>You should address several possible end-of-life care decisions in
+                                              your living will. Talk to your doctor if you have questions about
+                                              your options.
+                                          <ul>
+                                              <li>
+                                                  A <b>durable power of attorney for healthcare</b> is a type of
+                                                  advance directive in which you name a person to make decisions
+                                                  for you when you are unable to do so. In some states this
+                                                  directive may also be called a medical or health care power of
+                                                  attorney or a health care proxy.
+                                              </li>
+                                          </ul>
+                                          </p>
+      
+                                          <p>You may also choose one or more alternates in case the person you
+                                              choose is unable to fulfill his or her role.</p>
+      
+                                          <p>Review your advance directives with your doctor and your health care
+                                              agent to be sure you have filled out forms correctly. When you have
+                                              completed your documents, you need to do the following:
+                                          <ul>
+                                              <li>Keep the originals in a safe but easily accessible place.</li>
+                                              <li>Give a copy to your doctor.</li>
+                                              <li>Give a copy to your health care agent and any alternate agents.
+                                              </li>
+                                              <li>Keep a record of who has your advance directives.</li>
+                                              <li>Talk to your family members and other important people in your
+                                                  life about your advance directives and your health care wishes.
+                                              </li>
+                                              <li>Carry a wallet-sized card that indicates you have advance
+                                                  directives, identifies your health care agent, and states where
+                                                  a copy of your directives can be found.</li>
+                                              <li>Keep a copy with you when you are traveling if you are
+                                                  hospitalized or enter a skilled care facility.</li>
+                                              <li>Periodically review and make changes as necessary to ensure your
+                                                  choices still reflect your wishes.</li>
+                                          </ul>
+                                          </p>
+      
+                                          <p>If you want to make changes to your Advanced Directives, you must
+                                              create a new form, distribute new copies, and destroy all old
+                                              copies. Specific requirements for changing directives vary by state.
+                                          </p>
+      
+                                          <p>You do not need to have an advance directive or living will to have
+                                              Do Not Resuscitate ("DNR") and Do Not Intubate ("DNI") orders. You
+                                              can make your preferences known to your physician, who can write the
+                                              orders and put them in your medical record. If you have a living
+                                              will, however, be sure to mention whether you have a DNR or DNI
+                                              order on file. For more information on Advanced Directives, you may
+                                              want to contact your attorney, local hospital, home health agency,
+                                              hospice agency or state medical society.</p>
+      
+                                          <p></p>
+                                          <h5 class="heading-color fw-bold pt-2">Protected Health Information:
+                                          </h5>
+                                          <p>InfuCare Rx is required to maintain the confidentiality of your
+                                              healthcare information. A notice describing how your medical
+                                              information may be used and disclosed by InfuCare Rx, as well as
+                                              your rights regarding access to this information has been enclosed
+                                              in your admission packet. Patients or an authorized patient
+                                              representative is required to sign, date and return the Privacy
+                                              Notice to InfuCare Rx. If you do not understand this notice, one of
+                                              our representatives will be happy to explain it you.</p>
+                                          <p></p>
+                                          <h5 class="heading-color fw-bold pt-2">Medicare Supplier Standards:
+                                          </h5>
+                                          <p>The products and/or services provided to you by InfuCare Rx are
+                                              subject to the supplier standards contained in the Federal
+                                              regulations shown at 42 Code of Federal Regulations Section
+                                              424.57(c). These standards concern business, professional, and
+                                              operational matters (e.g. honoring warranties and hours of
+                                              operation). The full text of these standards can be obtained at <b
+                                                  class="fst-italic">http://ecfr.gpoaccess.gov</b>. Upon request
+                                              we will furnish you a written copy of the standards.</p>
+                                          <p></p>
+                                          <h5 class="heading-color fw-bold pt-2">Patient Satisfaction:
+                                          </h5>
+                                          <p>InfuCare Rx team members are committed to providing quality services,
+                                              outstanding customer service and a program of continuous performance
+                                              improvement. Your input is vital for maintaining our high standards
+                                              of quality and fulfilling our mission. Your feedback regarding your
+                                              experience while on service with InfuCare Rx is very important to
+                                              us. Please complete the Satisfaction Survey provided in your
+                                              admission folder and return to us in the self-addressed stamped
+                                              envelope provided for your convenience.</p>
+      
+                                          <p></p>
+                                          <h5 class="heading-color fw-bold pt-2">Patient Concerns/Grievance
+                                              Process:
+                                          </h5>
+                                          <p>InfuCare Rx staff strive to ensure you receive quality products and
+                                              services that are consistent with our philosophy. We understand
+                                              however, that you may have a concern from time to time. The patient
+                                              bill of rights you received states that you have the right to
+                                              appropriate, professional, and quality services without
+                                              discrimination. You also have the right to voice your concerns,
+                                              grievances, or complaints about the services you received without
+                                              being threatened, or discriminated against.
+                                              </p>
+                                              <p>
+                                              If you are not completely satisfied with the services you received
+                                              or if you suspect an error, please contact our pharmacy. The first
+                                              step to resolving an issue is to speak directly with the individuals
+                                              involved with the problem. We encourage you to share any and all
+                                              concerns you may have with us as soon as possible as part of our
+                                              performance improvement process.</p>
+                                              <p>
+                                              To register a formal complaint with our office, please call <b>(877) 828-3140</b> and request to speak with our Compliance Officer or
+                                              you may notify us in writing by completing the Grievance Form
+                                              provided in your admission folder. We will respond to your concern
+                                              within 2 business days of receipt of the notice to address your
+                                              grievance or complaint.
+                                          </p>
+                                          <p>
+                                              If you feel your concern was not resolved in a satisfactory manner,
+                                              you may contact our accrediting body, the Accreditation Commission
+                                              for Health Care, Inc (ACHC) by calling <b>(855) 937-2242</b> or
+                                              online at <b class="fst-italic">https://www.achc.org/</b> or the
+                                              Agency for Health Care Administration (AHCA) Phone: (888)
+                                                  419-3456 or Online: <a
+                                                  href="https://apps.ahca.myflorida.com/hcfc/">https://apps.ahca.myflorida.com/hcfc/</a>.
+                                          </p>
+                                          <p>The State of Florida has requested all licensed home health agencies
+                                              educate patients and families regarding Medicaid Fraud. According to
+                                              The Agency for Health Care Administration (AHCA), Medicaid Fraud is
+                                              defined as an intentional deception or misrepresentation made by a
+                                              person with knowledge that the deception could result in some
+                                              unauthorized benefit to him or herself or some other person. It
+                                              includes any act that constitutes fraud under applicable federal or
+                                              state law as it related to Medicaid.
+                                          </p>
+                                          <p>
+                                              The Office of the Inspector General at the AHCA accepts complaints
+                                              regarding suspected fraud and abuse in the Florida Medicaid system
+                                              via phone: (888) 419-3456 or online at:
+                                              <a href="www.ahca.myflorida.com/Executive/Inspector_General/medicaid.com">www.ahca.myflorida.com/Executive/Inspector_General/medicaid.com</a>
+                                              </p>
+                                              <p>Additional important contact information:</p>
+                                              <ul>
+                                                  <li>24 Hour Hotline: (800) 96ABUSE or (800) 962-2873 to report abuse, neglect or exploitation</li>
+                                                  <li>State Home Health Hotline: (800) 419-3456, Mon-Fri from 8:00am - 5:00pm EST.</li>
+                                              </ul>
+                                          <p></p>
+                                          <h5 class="heading-color fw-bold pt-2">Equipment Lease/Rental Policy:
+                                          </h5>
+                                          <p>For rental equipment such as ambulatory infusion pumps, patients must
+                                              agree to keep the equipment in the same condition as when it was
+                                              received, except for ordinary wear and tear. Patients are
+                                              responsible to pay InfuCare Rx upon return of equipment all charges
+                                              incidental to breakage and damage. Patients cannot assign the
+                                              equipment lease to another individual.</p>
+      
+                                          <p></p>
+                                          <h5 class="heading-color fw-bold pt-2">Return Policy:
+                                          </h5>
+                                          <p>In accordance with industry, state, and federal regulations, we
+                                              cannot accept returns on packages/boxes containing medical/surgical
+                                              supplies and/or medications. No credits will be issued for these
+                                              products.
+                                          </p>
+      
+                                          <p></p>
+                                          <h5 class="heading-color fw-bold pt-2"> Resources and Support
+                                              Organizations:
+                                          </h5>
+                                          <p>There are many patient resources including organizations and social
+                                              networks available for assistance, support, advocacy, and
+                                              information, for you to learn more about your condition or connect
+                                              with other individuals with the same chronic condition.
+                                              For additional educational resources and supportive services, please
+                                              refer to the Patient Resource Links handout provided in your
+                                              admission folder, follow us on social media and/or visit our website
+                                              at <b class="fst-italic">https://infucarerx.com/patients/</b> </p>
                                               <!---end of content-->
                                           </div>
                                       </div>
@@ -513,22 +763,22 @@
                       <div class="step-content container mt-4" id="stepContent3" style="display: none;">
                           <div class="booklet container-xl-custom Agreement">
                               <div class="row justify-content-center align-items-center">
-                                  <h5 class="text-center">PATIENT ADMISSION AGRREEMENT</h5>
+                                  <h5 class="text-center">PATIENT ADMISSION AGREEMENT</h5>
                                   <hr class="border-dark-subtle" />
                                   <h6 class="fw-bold">1. PATIENT SELF DETERMINATION ACT &amp; BILL OF RIGHTS:</h6>
                                   <p>I have received a written statement of my rights and responsibilities as a patient of the Provider. I understand my rights and responsibilities because they have been explained to me and my questions have been answered.
                                       I have received information about advance directives, company policy, applicable state law, my rights under state law, and other information necessary to make decisions about advance directives and my care in accordance
                                       with the Patient Self Determination Act of 1990.</p>
+                                      <h6 class="fw-bold">2. RELEASE OF INFORMATION:</h6>
+                                  <p>I consent to release of information by my Physician, Licensed Health Care Professionals, or Facility and to allow the disclosure of medical records kept by the above Provider. I consent to the release of information
+                                      by the Provider or their representatives to representatives of other health care providers involve in my care and other third-party payers in order to ensure continuity of treatment, proper communication of information
+                                      to my physician(s) and referral source, and proper reimbursement of services.</p>
                                   <h6 class="fw-bold">3. CONSENT FOR TREATMENT:</h6>
                                   <p>I voluntarily consent to receive treatment from the Provider consistent with a medical treatment plan authorized by my physician. I understand that if I am in such condition as to need services not provided by Provider,
                                       such services must be arranged by me or my legal representatives, or my physician. The Provider shall assist in locating such services but shall in no way be responsible for failure to provide the same and is hereby
                                       released from any and all liability arising from the fact that I am not provided with such additional care. In the event a health care worker sustains exposure to my blood or bodily fluids, I give permission for
                                       my blood to be tested for infectious diseases such as HIV or Hepatitis. I understand that the exposed employee will be informed to the results of the test. I understand that I will be billed for any lab fees incurred
                                       should the employee sustain any exposure.</p>
-                                  <h6 class="fw-bold">2. RELEASE OF INFORMATION:</h6>
-                                  <p>I consent to release of information by my Physician, Licensed Health Care Professionals, or Facility and to allow the disclosure of medical records kept by the above Provider. I consent to the release of information
-                                      by the Provider or their representatives to representatives of other health care providers involve in my care and other third-party payers in order to ensure continuity of treatment, proper communication of information
-                                      to my physician(s) and referral source, and proper reimbursement of services.</p>
                                   <h6 class="fw-bold">4. CONSENT FOR INFUSION SERVICES:</h6>
                                   <p>My physician has informed me of the potential risk associated with this therapy. The specifics of therapy, namely why the therapy is used, what specific agents have been prescribed, how these agents will be administered,
                                       and my role in providing the therapy have all been discussed with me prior to the initiation of the therapy. All questions regarding my care have been answered to my satisfaction. Therefore, I consent to the administration
@@ -538,41 +788,54 @@
                                       Grievance Procedures and other information regarding my treatment. I had an opportunity to ask questions and understand the information provided to me. If I have questions or need additional information regarding
                                       my care, or the materials provided to me by InfuCare Rx, I know how to contact an InfuCare Rx pharmacy representative.</p>
                               </div>
-                              <div class="row">
-                                  <div class="form-group col-md-4">
-                                      <custom-input type="text" label="Patient First name: *" value="" id="fname" name="fname" placeholder="First name" error="" required="" disabled> </custom-input>
-                                  </div>
-                                  <div class="form-group col-md-4">
-                                      <custom-input type="text" label="Patient Last Name: *" value="" id="lname" name="lname" placeholder="Last Name" required="" disabled> </custom-input>
-                                  </div>
-                                  <div class="form-group col-md-4">
-                                      <custom-input label="Patient MRN: *" type="number" id="mrn" name="mrn" value="" placeholder="Patient MRN" required="" disabled> </custom-input>
-                                  </div>
-                                 
-                                  <div class="form-group col-md-4">
-                                      <custom-input label="Legal Guardian Name: " value="" id="LegalGName" name="LegalGName" placeholder="Legal Guardian Name" error=""> </custom-input>
-                                  </div>
-                                  <div class="form-group col-md-4">
-                                    <custom-input label="Provider Witness Name: " value="" id="ProWitName" name="ProWitName" placeholder="Provider Witness Name" error="" style="padding-bottom: 10px;"> </custom-input> 
-                                   
-                                </div>
-                                <div class="form-group col-md-4 "> 
-                                    <custom-input type="date" label="Date:" id="date" name="date" required=""> </custom-input> 
-                                </div>
-                                  <div class="signature col-md-6 mt-3">
-                                      <label for="patient_sign" id="i0n4kz" class="form-label question-label" style="font-weight: normal; font-size: 16px;">Signature of Patient or Legal Guardian: * </label><span id="required_patient_sign" class="required_fields"></span>
-                                      <div id="i4s2zf" class="signature-canvas">
-                                          <canvas id="patient_sign" width="580" name="signature" required="" style="padding-top: 10px; padding-right: 10px; padding-bottom: 10px; padding-left: 10px; border-top-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-bottom-left-radius: 10px; cursor: url('../assets/pen.png') 16 16, crosshair;"></canvas>
-                                          <div id="patient_sign_validation" class="invalid-feedback" style="margin-top: 0px;">Please enter signature.</div>
-                                          <br />
-                                          <button type="button" id="clearButton" class="btn btn-primary mt-3" style="border-top-width: initial; border-right-width: initial; border-bottom-width: initial; border-left-width: initial; border-top-style: none; border-right-style: none; border-bottom-style: none; border-left-style: none; border-top-color: initial; border-right-color: initial; border-bottom-color: initial; border-left-color: initial; border-image-source: initial; border-image-slice: initial; border-image-width: initial; border-image-outset: initial; border-image-repeat: initial; border-top-left-radius: 5px; border-top-right-radius: 5px; border-bottom-right-radius: 5px; border-bottom-left-radius: 5px; background-color: var(--btn-primary-color); font-size: 16px; font-weight: 400; cursor: pointer;">Clear</button>
+                               <div class="row">
+                                          <div class="form-group col-md-4">
+                                              <custom-input type="text" label="Patient First name: *" value="" id="fname"
+                                                  name="fname" placeholder="First name" error="" required="" disabled>
+                                              </custom-input>
+                                          </div>
+                                          <div class="form-group col-md-4">
+                                              <custom-input type="text" label="Patient Last Name: *" value="" id="lname"
+                                                  name="lname" placeholder="Last Name" required="" disabled> </custom-input>
+                                          </div>
+                                          <div class="form-group col-md-4">
+                                              <custom-input label="Patient MRN: *" type="number" id="mrn" name="mrn" value=""
+                                                  placeholder="Patient MRN" required="" disabled> </custom-input>
+                                          </div>
+      
+                                          <div class="form-group col-md-4">
+                                              <custom-input label="Legal Guardian Name: " value="" id="LegalGName"
+                                                  name="LegalGName" placeholder="Legal Guardian Name" error="">
+                                              </custom-input>
+                                          </div>
+                                          <div class="row gap-4">
+                                              <div class="signature col-md-6 mt-3">
+                                                  <label for="patient_sign" id="i0n4kz" class="form-label question-label" style="font-weight: normal; font-size: 16px;">Signature of Patient or Legal Guardian: * </label><span id="required_patient_sign" class="required_fields"></span>
+                                                  <div id="i4s2zf" class="signature-canvas">
+                                                      <canvas id="patient_sign" width="500" name="signature" required="" style="padding-top: 10px; padding-right: 10px; padding-bottom: 10px; padding-left: 10px; border-top-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-bottom-left-radius: 10px; cursor: url('../assets/pen.png') 16 16, crosshair;"></canvas>
+                                                      <img id="patient_sign" class="form-control" width="500" src="" alt="" style="display: none;">
+                                                      <div id="patient_sign_validation" class="invalid-feedback" style="margin-top: 0px;">Please enter signature.</div>
+                                                      <br />
+                                                      <button type="button" id="clearButton" class="btn btn-primary mt-3" style="border-top-width: initial; border-right-width: initial; border-bottom-width: initial; border-left-width: initial; border-top-style: none; border-right-style: none; border-bottom-style: none; border-left-style: none; border-top-color: initial; border-right-color: initial; border-bottom-color: initial; border-left-color: initial; border-image-source: initial; border-image-slice: initial; border-image-width: initial; border-image-outset: initial; border-image-repeat: initial; border-top-left-radius: 5px; border-top-right-radius: 5px; border-bottom-right-radius: 5px; border-bottom-left-radius: 5px; background-color: var(--btn-primary-color); font-size: 16px; font-weight: 400; cursor: pointer;">Clear</button>
+                                                  </div>
+                                              </div>
+                                          <div class="form-group col-md-4 mt-1">
+                                              <custom-input type="date" label="Signature Date: *" id="date_sign"
+                                                  name="date_sign" required=""> </custom-input>
+                                          </div>
+                                          </div>
+                                          <div class="form-group col-md-4">
+                                              <custom-input label="Provider Witness Name: " value="" id="ProWitName"
+                                                  name="ProWitName" placeholder="Provider Witness Name" error=""
+                                                  style="padding-bottom: 10px;"> </custom-input>
+      
+                                          </div>
+                                          <div class="form-group col-md-4 ">
+                                              <custom-input type="date" label="Date:" id="date" name="date" required="">
+                                              </custom-input>
+                                          </div>
+                                          
                                       </div>
-                                  </div>
-                                  <div class="form-group col-md-4 mt-1">
-                                    <custom-input type="date" label="Signature Date: *" id="date_sign" name="date_sign" required=""> </custom-input>
-                                </div>
-                                  
-                              </div>
                           </div>
                       </div>
                       <!-- NOTICE OF PRIVACY PRACTICES ACKNOWLEDMENT FORM -->
@@ -847,7 +1110,8 @@
                                       <div class="signature col-md-6 mt-3">
                                           <label for="responsible_party_sign" class="form-label question-label">Patient Signature *</label><span id=" " class="required_fields"></span>
                                           <div id="i4s2zf-2" class="signature-canvas mb-3">
-                                              <canvas id="patient_rp_sign" width="580" name="signature" required="" style="padding-top: 10px; padding-right: 10px; padding-bottom: 10px; padding-left: 10px; border-top-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-bottom-left-radius: 10px; cursor: url('../assets/pen.png') 16 16, crosshair; display: block;"></canvas><img id="patient_rp_sign-2" width="580" src="" alt="" class="form-control" style="display: none;" />
+                                              <canvas id="patient_rp_sign" width="500" name="signature" required="" style="padding-top: 10px; padding-right: 10px; padding-bottom: 10px; padding-left: 10px; border-top-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-bottom-left-radius: 10px; cursor: url('../assets/pen.png') 16 16, crosshair; display: block;"></canvas>
+                                              <img id="patient_rp_sign" width="500" src="" alt="" class="form-control" style="display: none;" />
                                               <div id="patient_rp_sign_validation" class="invalid-feedback" style="margin-top: 0px;">Please enter signature.</div>
                                               <button type="button" id="RPClearButton" class="btn btn-primary mt-3" style="border-top-width: initial; border-right-width: initial; border-bottom-width: initial; border-left-width: initial; border-top-style: none; border-right-style: none; border-bottom-style: none; border-left-style: none; border-top-color: initial; border-right-color: initial; border-bottom-color: initial; border-left-color: initial; border-image-source: initial; border-image-slice: initial; border-image-width: initial; border-image-outset: initial; border-image-repeat: initial; border-top-left-radius: 5px; border-top-right-radius: 5px; border-bottom-right-radius: 5px; border-bottom-left-radius: 5px; background-color: var(--btn-primary-color); font-size: 16px; font-weight: 400; cursor: pointer;">Clear</button>
                                           </div>
@@ -884,21 +1148,22 @@
                                       <div class="signature col-md-6 mt-3">
                                           <label for="legalRepresentative" class="form-label question-label">Legal Represenative Signature *</label><span id="requiredLRsign" class="required_fields"></span>
                                           <div id="representative_sign" class="signature-canvas">
-                                              <canvas id="legalRepresentative" width="580" name="signature" style="padding-top: 10px; padding-right: 10px; padding-bottom: 10px; padding-left: 10px; border-top-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-bottom-left-radius: 10px; cursor: url('../assets/pen.png') 16 16, crosshair;"></canvas>
+                                              <canvas id="legalRepresentative" width="500" name="signature" style="display: block; padding-top: 10px; padding-right: 10px; padding-bottom: 10px; padding-left: 10px; border-top-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-bottom-left-radius: 10px; cursor: url('../assets/pen.png') 16 16, crosshair;"></canvas>
+                                              <img id="legalRepresentative" class="form-control" width="500" src="" alt="" style="display: none;">
                                               <div id="legalRepresentative_validation" class="invalid-feedback" style="margin-top: 0px;">Please enter signature.</div>
                                               <br />
                                               <button type="button" id="LRClearButton" class="btn btn-primary mt-3" style="border-top-width: initial; border-right-width: initial; border-bottom-width: initial; border-left-width: initial; border-top-style: none; border-right-style: none; border-bottom-style: none; border-left-style: none; border-top-color: initial; border-right-color: initial; border-bottom-color: initial; border-left-color: initial; border-image-source: initial; border-image-slice: initial; border-image-width: initial; border-image-outset: initial; border-image-repeat: initial; border-top-left-radius: 5px; border-top-right-radius: 5px; border-bottom-right-radius: 5px; border-bottom-left-radius: 5px; background-color: var(--btn-primary-color); font-size: 16px; font-weight: 400; cursor: pointer;">Clear</button>
                                           </div>
                                       </div>
                                       <div class="form-group col-md-4 mt-1">
-                                        <custom-input label="Signature Date:" type="Date" id="LRsign_date" name="LRsign_date" value="" placeholder=""> </custom-input>
+                                        <custom-input label="Signature Date: *" type="Date" id="LRsign_date" name="LRsign_date" value="" placeholder=""> </custom-input>
                                         <div id="p-dob-2" class="invalid-feedback" style="margin-top: 0px; display: none; color: red;">Please enter your DOB.</div>
                                     </div>
                                   </div>
                               </div>
                           </div>
                       </div>
-
+      
                       <!-- PATIENT CONCERN / GRIEVANCE FORM -->
                       <div class="step-content container mt-4" id="stepContent5" style="display: none;">
                           <div class="booklet container-xl-custom ConcernGrievance">
@@ -914,7 +1179,7 @@
                                   <li class="list-group-item border-0 p-0">PO Box 2578</li>
                                   <li class="list-group-item border-0 p-0">Secaucus, NJ 07096</li>
                                   <li class="list-group-item border-0 p-0">Attention: Compliance Dept.</li>
-                                  <li class="list-group-item border-0 p-0">Corporate Phone: <a href="877-828-3940">877-828-3940</a></li>
+                                  <li class="list-group-item border-0 p-0">Or Call Us: <a href="877-828-3940">877-828-3940</a></li>
                               </ul>
                               <p></p>
                               <p>Thank you in advance for bringing your concern to our attention. Your feedback will assist us in our continued effort to improve our quality of service to you.</p>
@@ -939,7 +1204,8 @@
                                   <div class="signature col-md-6 mt-3">
                                       <label for="CGPatSign" id="CGPatSign" class="mb-2 question-label" style="font-weight: normal; font-size: 16px;">Signature:</label><span id="CGPatSign-2" class="required_fields"></span>
                                       <div id="CGPatSign-3" class="signature-canvas">
-                                          <canvas id="CGPatSignCanvas" width="580" name="signature" style="padding-top: 10px; padding-right: 10px; padding-bottom: 10px; padding-left: 10px; border-top-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-bottom-left-radius: 10px; cursor: url('../assets/pen.png') 16 16, crosshair;"></canvas>
+                                          <canvas id="CGPatSignCanvas" width="500" name="signature" style="display: block; padding-top: 10px; padding-right: 10px; padding-bottom: 10px; padding-left: 10px; border-top-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-bottom-left-radius: 10px; cursor: url('../assets/pen.png') 16 16, crosshair;"></canvas>
+                                          <img id="CGPatSignCanvas" class="form-control" width="500" src="" alt="" style="display: none;">
                                           <div id="CGPatSignCanvas_validation" class="invalid-feedback" style="margin-top: 0px;">Please enter signature.</div>
                                           <br />
                                           <button type="button" id="CGPatSignClearButton" class="btn btn-primary mt-3" style="border-top-width: initial; border-right-width: initial; border-bottom-width: initial; border-left-width: initial; border-top-style: none; border-right-style: none; border-bottom-style: none; border-left-style: none; border-top-color: initial; border-right-color: initial; border-bottom-color: initial; border-left-color: initial; border-image-source: initial; border-image-slice: initial; border-image-width: initial; border-image-outset: initial; border-image-repeat: initial; border-top-left-radius: 5px; border-top-right-radius: 5px; border-bottom-right-radius: 5px; border-bottom-left-radius: 5px; background-color: var(--btn-primary-color); font-size: 16px; font-weight: 400; cursor: pointer;">Clear</button>
@@ -963,58 +1229,61 @@
                                       <div id="fb3zye" class="row">
                                           <div class="col-md-6">
                                               <custom-input-checkradio id="resp_type" name="resp_type" label="Respondent Type:" type="radio" value="Part A" class="radio_btn_inline fw-bold">
+      
                                                   <custom-input-checkradio-item label="Patient" value="Patient" id="resp_type_Patient" type="radio" class="form-check" style="display: inline-block; margin-right: 10px;"> </custom-input-checkradio-item>
+      
                                                   <custom-input-checkradio-item label="Caregiver" value="Caregiver" id="resp_type_Caregiver" type="radio" class="form-check" style="display: inline-block; margin-right: 10px;"> </custom-input-checkradio-item>
+      
                                                   <custom-input-checkradio-item label="Other" value="Other" id="respodent_type_Other" type="radio" class="form-check" style="display: inline-block; margin-right: 10px;"> </custom-input-checkradio-item> 
                                               </custom-input-checkradio>
                                               <custom-input value="" id="respodent_type_Other-text" style="display: none; width: 306px;" name="respodent_type_Other-text" placeholder="Other:" error=""> </custom-input>
                                           </div>
-
+      
                                       </div>
                                       <div id="fb6zye" class="row">
                                           <div class="mt-3">
                                               <custom-input-checkradio id="insurance_type" name="insurance_type" label="Insurance Type:" type="radio" value="Part A" class="radio_btn_inline">
-
+      
                                                   <custom-input-checkradio-item label="Medicare" value="Medicare" id="insurance_type_Medicare" type="radio" class="form-check" style="display: inline-block; margin-right: 10px;"> </custom-input-checkradio-item>
-
+      
                                                   <custom-input-checkradio-item label="Medicaid" value="Medicaid" id="insurance_type_Medicaid" type="radio" class="form-check" style="display: inline-block; margin-right: 10px;"> </custom-input-checkradio-item>
-
+      
                                                   <custom-input-checkradio-item label="Prime Therapeutics" value="Prime Therapeutics" id="insurance_type_Prime_Therapeutics" type="radio" class="form-check" style="display: inline-block; margin-right: 10px;"> </custom-input-checkradio-item>
-
+      
                                                   <custom-input-checkradio-item label="CIGNA" value="CIGNA" id="insurance_type_CIGNA" type="radio" class="form-check" style="display: inline-block; margin-right: 10px;"> </custom-input-checkradio-item>
-
+      
                                                   <custom-input-checkradio-item label="United Healthcare" value="United Healthcare" id="insurance_type_United_Healthcare" type="radio" class="form-check" style="display: inline-block; margin-right: 10px;"> </custom-input-checkradio-item>
-
+      
                                                   <custom-input-checkradio-item label="Anthem" value="Anthem" id="insurance_type_Anthem" type="radio" class="form-check" style="display: inline-block; margin-right: 10px;"> </custom-input-checkradio-item>
-
+      
                                                   <custom-input-checkradio-item label="Humana" value="Humana" id="insurance_type_Humana" type="radio" class="form-check" style="display: inline-block; margin-right: 10px;"> </custom-input-checkradio-item>
-
+      
                                                   <custom-input-checkradio-item label="BCBS" value="BCBS" id="insurance_type_BCBS" type="radio" class="form-check" style="display: inline-block; margin-right: 10px;"> </custom-input-checkradio-item>
-
+      
                                                   <custom-input-checkradio-item label="Other" value="Other" id="insurance_type_Other" type="radio" class="form-check" style="display: inline-block; margin-right: 10px;"> </custom-input-checkradio-item>
                                               </custom-input-checkradio>
-
-                                              <custom-input value="" id="insurance_type_Other-text" style="display: none;" name="txtInsuranceTypeOther" placeholder="Other:" style="width: 200px;"> </custom-input>
-                                          </div>
-                                      </div>
-                                      <div id="fb6zye-2" class="row">
-                                          <div class="form-group mt-3">
-                                              <custom-input-checkradio id="PharmacySerLoc" name="PharmacySerLoc" label="Pharmacy Servicing Location:" type="radio" value="Part A" class="radio_btn_inline">
-
+      
+                                                    <custom-input value="" id="insurance_type_Other-text" style="display: none;" name="txtInsuranceTypeOther" placeholder="Other:" style="width: 200px;"> </custom-input>
+                                                </div>
+                                            </div>
+                                            <div id="fb6zye-2" class="row">
+                                                <div class="form-group mt-3">
+                                                    <custom-input-checkradio id="PharmacySerLoc" name="PharmacySerLoc" label="Pharmacy Servicing Location:" type="radio" value="Part A" class="radio_btn_inline">
+      
                                                   <custom-input-checkradio-item label="CA" value="CA" id="PharmacySerLoc_CA" type="radio" class="form-check" style="display: inline-block; margin-right: 10px;"> </custom-input-checkradio-item>
-
+      
                                                   <custom-input-checkradio-item label="LA" value="LA" id="PharmacySerLoc_LA" type="radio" class="form-check" style="display: inline-block; margin-right: 10px;"> </custom-input-checkradio-item>
-
+      
                                                   <custom-input-checkradio-item label="MD" value="MD" id="PharmacySerLoc_MD" type="radio" class="form-check" style="display: inline-block; margin-right: 10px;"> </custom-input-checkradio-item>
-
+      
                                                   <custom-input-checkradio-item label="NJ" value="NJ" id="PharmacySerLoc_NJ" type="radio" class="form-check" style="display: inline-block; margin-right: 10px;"> </custom-input-checkradio-item>
-
+      
                                                   <custom-input-checkradio-item label="PA" value="PA" id="PharmacySerLoc_PA" type="radio" class="form-check" style="display: inline-block; margin-right: 10px;"> </custom-input-checkradio-item>
-
+      
                                                   <custom-input-checkradio-item label="TX" value="TX" id="PharmacySerLoc_TX" type="radio" class="form-check" style="display: inline-block; margin-right: 10px;"> </custom-input-checkradio-item>
-
+      
                                                   <custom-input-checkradio-item label="FL" value="FL" id="PharmacySerLoc_FL" type="radio" class="form-check" style="display: inline-block; margin-right: 10px;"> </custom-input-checkradio-item>
-
+      
                                                   <custom-input-checkradio-item label="Unknown" value="Unknown" id="PharmacySerLoc_Unknown" type="radio" class="form-check" style="display: inline-block; margin-right: 10px;"> </custom-input-checkradio-item>
                                               </custom-input-checkradio>
                                           </div>
@@ -1035,151 +1304,151 @@
                                                   </tr>
                                               </thead>
                                               <tbody>
-                                                <tr></tr>
-                                                  <tr id="whenYou_started" name="whenYou_started" type="radio">
-                                                      <th id="i76tp8w" style="width: 350px;">1. When you started service with InfuCare Rx, how satisfied were you with the process, including understanding your care plan and your financial responsibility?</th>
-                                                      <td id="if7o06k">
-                                                          <input type="radio" name="when_you_started_service" id="when_you_started_service5" class="form-check-input" value="5- Very satisfied"/>
-                                                      </td>
-                                                      <td id="ieobm9h">
-                                                          <input type="radio" name="when_you_started_service" id="when_you_started_service4" class="form-check-input" value="4- Somewhat satisfied"/>
-                                                      </td>
-                                                      <td id="ihqj858">
-                                                          <input type="radio" name="when_you_started_service" id="when_you_started_service1" class="form-check-input" value="3- Neutral"/>
-                                                      </td>
-                                                      <td id="i6sbis3">
-                                                          <input type="radio" name="when_you_started_service" id="when_you_started_service1" class="form-check-input" value="2- Somewhat dissatisfied"/>
-                                                      </td>
-                                                      <td id="isapkdm">
-                                                          <input type="radio" name="when_you_started_service" id="when_you_started_service1" class="form-check-input" value="1- Very dissatisfied"/>
-                                                      </td>
-                                                  </tr>
-                                                  <tr id="How_satisfied_are_1" name="How_satisfied_are_1" type="radio">
-                                                      <th id="idnuqp3" style="width: 350px;">2. How satisfied are you with the accuracy and timeliness of the delivery of your products?</th>
-                                                      <td id="isrqjj9">
-                                                          <input type="radio" name="how_satisfied_are_you1" id="how_satisfied_are_you1_5" class="form-check-input" value="5- Very satisfied" />
-                                                      </td>
-                                                      <td id="if9l2yd">
-                                                          <input type="radio" name="how_satisfied_are_you1" id="how_satisfied_are_you1_4" class="form-check-input" value="4- Somewhat satisfied" />
-                                                      </td>
-                                                      <td id="iflrjvw">
-                                                          <input type="radio" name="how_satisfied_are_you1" id="how_satisfied_are_you1_3" class="form-check-input" value="3- Neutral"/>
-                                                      </td>
-                                                      <td id="idyxton">
-                                                          <input type="radio" name="how_satisfied_are_you1" id="how_satisfied_are_you1_2" class="form-check-input" value="2- Somewhat dissatisfied"/>
-                                                      </td>
-                                                      <td id="i7f732f">
-                                                          <input type="radio" name="how_satisfied_are_you1" id="how_satisfied_are_you1_1" class="form-check-input" value="1- Very dissatisfied"/>
-                                                      </td>
-                                                  </tr>
-                                                  <tr id="How_satisfied_are_2" name="How_satisfied_are_2" type="radio">
-                                                      <th id="itqsdai" style="width: 350px;">3. How satisfied are you with the quality of care, supplies, and equipment provided by InfuCare Rx?</th>
-                                                      <td id="iif2568">
-                                                          <input type="radio" name="how_satisfied_are_you2" id="how_satisfied_are_you2_5" class="form-check-input" value="5- Very satisfied"/>
-                                                      </td>
-                                                      <td id="iam5ppa">
-                                                          <input type="radio" name="how_satisfied_are_you2" id="how_satisfied_are_you2_4" class="form-check-input" value="4- Somewhat satisfied"/>
-                                                      </td>
-                                                      <td id="iuhok7c">
-                                                          <input type="radio" name="how_satisfied_are_you2" id="how_satisfied_are_you2_3" class="form-check-input" value="3- Neutral"/>
-                                                      </td>
-                                                      <td id="ic3tfjx">
-                                                          <input type="radio" name="how_satisfied_are_you2" id="how_satisfied_are_you2_2" class="form-check-input" value="2- Somewhat dissatisfied"/>
-                                                      </td>
-                                                      <td id="ilvfgvm">
-                                                          <input type="radio" name="how_satisfied_are_you2" id="how_satisfied_are_you2_1" class="form-check-input" value="1- Very dissatisfied"/>
-                                                      </td>
-                                                  </tr>
-                                                  <tr id="How_would_you_rate_1" name="How_would_you_rate_1" type="radio">
-                                                      <th id="iiwyewd" style="width: 350px;">4. How would you rate the effectiveness of your care plan provided by InfuCare Rx to treat your condition?</th>
-                                                      <td id="i6qls7f">
-                                                          <input 4="" type="radio" name="how_would_you_rate1" id="how_would_you_rate1_5" class="form-check-input" value="5- Very satisfied"/>
-                                                      </td>
-                                                      <td id="iy4tjeg">
-                                                          <input type="radio" name="how_would_you_rate1" id="how_would_you_rate1_4" class="form-check-input" value="4- Somewhat satisfied"/>
-                                                      </td>
-                                                      <td id="ifuzvrh">
-                                                          <input type="radio" name="how_would_you_rate1" id="how_would_you_rate1_3" class="form-check-input" value="3- Neutral"/>
-                                                      </td>
-                                                      <td id="irjvfrw">
-                                                          <input type="radio" name="how_would_you_rate1" id="how_would_you_rate1_2" class="form-check-input" value="2- Somewhat dissatisfied"/>
-                                                      </td>
-                                                      <td id="ibiblyp">
-                                                          <input type="radio" name="how_would_you_rate1" id="how_would_you_rate1_1" class="form-check-input" value="1- Very dissatisfied"/>
-                                                      </td>
-                                                  </tr>
-                                                  <tr id="How_would_you_rate_2" name="How_would_you_rate_2" type="radio">
-                                                      <th id="iqhqr6p" style="width: 350px;">5. How would you rate the clinical pharmacy services provided by InfuCare Rx?</th>
-                                                      <td id="isw7rc6">
-                                                          <input type="radio" name="how_would_you_rate2" id="how_would_you_rate2_5" class="form-check-input" value="5- Very satisfied"/>
-                                                      </td>
-                                                      <td id="izup355">
-                                                          <input type="radio" name="how_would_you_rate2" id="how_would_you_rate2_4" class="form-check-input" value="4- Somewhat satisfied"/>
-                                                      </td>
-                                                      <td id="ifur8yd">
-                                                          <input type="radio" name="how_would_you_rate2" id="how_would_you_rate2_3" class="form-check-input" value="3- Neutral"/>
-                                                      </td>
-                                                      <td id="ine865i">
-                                                          <input type="radio" name="how_would_you_rate2" id="how_would_you_rate2_2" class="form-check-input" value="2- Somewhat dissatisfied"/>
-                                                      </td>
-                                                      <td id="ifyi6of">
-                                                          <input type="radio" name="how_would_you_rate2" id="how_would_you_rate2_1" class="form-check-input" value="1- Very dissatisfied"/>
-                                                      </td>
-                                                  </tr>
-                                                  <tr id="How_satisfied_are_3" name="How_satisfied_are_3" type="radio">
-                                                      <th id="ixxzm9m" style="width: 350px;">6. How satisfied are you with the nursing services provided?</th>
-                                                      <td id="i8ohr8w">
-                                                          <input type="radio" name="how_satisfied_are_you3" id="how_satisfied_are_you3_5" class="form-check-input" value="5- Very satisfied"/>
-                                                      </td>
-                                                      <td id="iuqsa35">
-                                                          <input type="radio" name="how_satisfied_are_you3" id="how_satisfied_are_you3_4" class="form-check-input" value="4- Somewhat satisfied"/>
-                                                      </td>
-                                                      <td id="icz6bq3">
-                                                          <input type="radio" name="how_satisfied_are_you3" id="how_satisfied_are_you3_3" class="form-check-input" value="3- Neutral"/>
-                                                      </td>
-                                                      <td id="i17wwhp">
-                                                          <input type="radio" name="how_satisfied_are_you3" id="how_satisfied_are_you3_2" class="form-check-input" value="2- Somewhat dissatisfied"/>
-                                                      </td>
-                                                      <td id="ijp86w1">
-                                                          <input type="radio" name="how_satisfied_are_you3" id="how_satisfied_are_you3_1" class="form-check-input" value="1- Very dissatisfied"/>
-                                                      </td>
-                                                  </tr>
-                                                  <tr id="How_would_you_rate_3" name="How_would_you_rate_3" type="radio">
-                                                      <th id="iftwgta" style="width: 350px;">7. How would you rate the information/education you received regarding our services?</th>
-                                                      <td id="ih3xlej">
-                                                          <input type="radio" name="how_would_you_rate3" id="how_would_you_rate3_5" class="form-check-input" value="5- Very satisfied"/>
-                                                      </td>
-                                                      <td id="itod6qw">
-                                                          <input type="radio" name="how_would_you_rate3" id="how_would_you_rate3_4" class="form-check-input" value="4- Somewhat satisfied"/>
-                                                      </td>
-                                                      <td id="iv8f78j">
-                                                          <input type="radio" name="how_would_you_rate3" id="how_would_you_rate3_3" class="form-check-input" value="3- Neutral"/>
-                                                      </td>
-                                                      <td id="iwy4z1r">
-                                                          <input type="radio" name="how_would_you_rate3" id="how_would_you_rate3_2" class="form-check-input" value="2- Somewhat dissatisfied"/>
-                                                      </td>
-                                                      <td id="ikew49f">
-                                                          <input type="radio" name="how_would_you_rate3" id="how_would_you_rate3_1" class="form-check-input" value="1- Very dissatisfied"/>
-                                                      </td>
-                                                  </tr>
-                                                  <tr id="How_satisfied_are_4" name="How_satisfied_are_4" type="radio">
-                                                      <th id="i8gj7hv" style="width: 350px;">8. How satisfied are you with the level of politeness, helpfulness, and ease of contacting our employees?</th>
-                                                      <td id="i7rz3gz">
-                                                          <input type="radio" name="how_satisfied_are_you4" id="how_satisfied_are_you4_5" class="form-check-input" value="5- Very satisfied"/>
-                                                      </td>
-                                                      <td id="i48vrql">
-                                                          <input type="radio" name="how_satisfied_are_you4" id="how_satisfied_are_you4_4" class="form-check-input" value="4- Somewhat satisfied"/>
-                                                      </td>
-                                                      <td id="ih7usek">
-                                                          <input type="radio" name="how_satisfied_are_you4" id="how_satisfied_are_you4_3" class="form-check-input" value="3- Neutral"/>
-                                                      </td>
-                                                      <td id="i79d5gj">
-                                                          <input type="radio" name="how_satisfied_are_you4" id="how_satisfied_are_you4_2" class="form-check-input" value="2- Somewhat dissatisfied"/>
-                                                      </td>
-                                                      <td id="ioo9xij">
-                                                          <input type="radio" name="how_satisfied_are_you4" id="how_satisfied_are_you4_1" class="form-check-input" value="1- Very dissatisfied"/>
-                                                      </td>
-                                                  </tr>
+                                                      <tr></tr>
+                                                        <tr id="whenYou_started" name="whenYou_started" type="radio">
+                                                            <th id="i76tp8w" style="width: 350px;">1. When you started service with InfuCare Rx, how satisfied were you with the process, including understanding your care plan and your financial responsibility?</th>
+                                                            <td id="if7o06k">
+                                                                <input type="radio" name="when_you_started_service" id="when_you_started_service5" class="form-check-input" value="5- Very satisfied"/>
+                                                            </td>
+                                                            <td id="ieobm9h">
+                                                                <input type="radio" name="when_you_started_service" id="when_you_started_service4" class="form-check-input" value="4- Somewhat satisfied"/>
+                                                            </td>
+                                                            <td id="ihqj858">
+                                                                <input type="radio" name="when_you_started_service" id="when_you_started_service1" class="form-check-input" value="3- Neutral"/>
+                                                            </td>
+                                                            <td id="i6sbis3">
+                                                                <input type="radio" name="when_you_started_service" id="when_you_started_service1" class="form-check-input" value="2- Somewhat dissatisfied"/>
+                                                            </td>
+                                                            <td id="isapkdm">
+                                                                <input type="radio" name="when_you_started_service" id="when_you_started_service1" class="form-check-input" value="1- Very dissatisfied"/>
+                                                            </td>
+                                                        </tr>
+                                                        <tr id="How_satisfied_are_1" name="How_satisfied_are_1" type="radio">
+                                                            <th id="idnuqp3" style="width: 350px;">2. How satisfied are you with the accuracy and timeliness of the delivery of your products?</th>
+                                                            <td id="isrqjj9">
+                                                                <input type="radio" name="how_satisfied_are_you1" id="how_satisfied_are_you1_5" class="form-check-input" value="5- Very satisfied" />
+                                                            </td>
+                                                            <td id="if9l2yd">
+                                                                <input type="radio" name="how_satisfied_are_you1" id="how_satisfied_are_you1_4" class="form-check-input" value="4- Somewhat satisfied" />
+                                                            </td>
+                                                            <td id="iflrjvw">
+                                                                <input type="radio" name="how_satisfied_are_you1" id="how_satisfied_are_you1_3" class="form-check-input" value="3- Neutral"/>
+                                                            </td>
+                                                            <td id="idyxton">
+                                                                <input type="radio" name="how_satisfied_are_you1" id="how_satisfied_are_you1_2" class="form-check-input" value="2- Somewhat dissatisfied"/>
+                                                            </td>
+                                                            <td id="i7f732f">
+                                                                <input type="radio" name="how_satisfied_are_you1" id="how_satisfied_are_you1_1" class="form-check-input" value="1- Very dissatisfied"/>
+                                                            </td>
+                                                        </tr>
+                                                        <tr id="How_satisfied_are_2" name="How_satisfied_are_2" type="radio">
+                                                            <th id="itqsdai" style="width: 350px;">3. How satisfied are you with the quality of care, supplies, and equipment provided by InfuCare Rx?</th>
+                                                            <td id="iif2568">
+                                                                <input type="radio" name="how_satisfied_are_you2" id="how_satisfied_are_you2_5" class="form-check-input" value="5- Very satisfied"/>
+                                                            </td>
+                                                            <td id="iam5ppa">
+                                                                <input type="radio" name="how_satisfied_are_you2" id="how_satisfied_are_you2_4" class="form-check-input" value="4- Somewhat satisfied"/>
+                                                            </td>
+                                                            <td id="iuhok7c">
+                                                                <input type="radio" name="how_satisfied_are_you2" id="how_satisfied_are_you2_3" class="form-check-input" value="3- Neutral"/>
+                                                            </td>
+                                                            <td id="ic3tfjx">
+                                                                <input type="radio" name="how_satisfied_are_you2" id="how_satisfied_are_you2_2" class="form-check-input" value="2- Somewhat dissatisfied"/>
+                                                            </td>
+                                                            <td id="ilvfgvm">
+                                                                <input type="radio" name="how_satisfied_are_you2" id="how_satisfied_are_you2_1" class="form-check-input" value="1- Very dissatisfied"/>
+                                                            </td>
+                                                        </tr>
+                                                        <tr id="How_would_you_rate_1" name="How_would_you_rate_1" type="radio">
+                                                            <th id="iiwyewd" style="width: 350px;">4. How would you rate the effectiveness of your care plan provided by InfuCare Rx to treat your condition?</th>
+                                                            <td id="i6qls7f">
+                                                                <input 4="" type="radio" name="how_would_you_rate1" id="how_would_you_rate1_5" class="form-check-input" value="5- Very satisfied"/>
+                                                            </td>
+                                                            <td id="iy4tjeg">
+                                                                <input type="radio" name="how_would_you_rate1" id="how_would_you_rate1_4" class="form-check-input" value="4- Somewhat satisfied"/>
+                                                            </td>
+                                                            <td id="ifuzvrh">
+                                                                <input type="radio" name="how_would_you_rate1" id="how_would_you_rate1_3" class="form-check-input" value="3- Neutral"/>
+                                                            </td>
+                                                            <td id="irjvfrw">
+                                                                <input type="radio" name="how_would_you_rate1" id="how_would_you_rate1_2" class="form-check-input" value="2- Somewhat dissatisfied"/>
+                                                            </td>
+                                                            <td id="ibiblyp">
+                                                                <input type="radio" name="how_would_you_rate1" id="how_would_you_rate1_1" class="form-check-input" value="1- Very dissatisfied"/>
+                                                            </td>
+                                                        </tr>
+                                                        <tr id="How_would_you_rate_2" name="How_would_you_rate_2" type="radio">
+                                                            <th id="iqhqr6p" style="width: 350px;">5. How would you rate the clinical pharmacy services provided by InfuCare Rx?</th>
+                                                            <td id="isw7rc6">
+                                                                <input type="radio" name="how_would_you_rate2" id="how_would_you_rate2_5" class="form-check-input" value="5- Very satisfied"/>
+                                                            </td>
+                                                            <td id="izup355">
+                                                                <input type="radio" name="how_would_you_rate2" id="how_would_you_rate2_4" class="form-check-input" value="4- Somewhat satisfied"/>
+                                                            </td>
+                                                            <td id="ifur8yd">
+                                                                <input type="radio" name="how_would_you_rate2" id="how_would_you_rate2_3" class="form-check-input" value="3- Neutral"/>
+                                                            </td>
+                                                            <td id="ine865i">
+                                                                <input type="radio" name="how_would_you_rate2" id="how_would_you_rate2_2" class="form-check-input" value="2- Somewhat dissatisfied"/>
+                                                            </td>
+                                                            <td id="ifyi6of">
+                                                                <input type="radio" name="how_would_you_rate2" id="how_would_you_rate2_1" class="form-check-input" value="1- Very dissatisfied"/>
+                                                            </td>
+                                                        </tr>
+                                                        <tr id="How_satisfied_are_3" name="How_satisfied_are_3" type="radio">
+                                                            <th id="ixxzm9m" style="width: 350px;">6. How satisfied are you with the nursing services provided?</th>
+                                                            <td id="i8ohr8w">
+                                                                <input type="radio" name="how_satisfied_are_you3" id="how_satisfied_are_you3_5" class="form-check-input" value="5- Very satisfied"/>
+                                                            </td>
+                                                            <td id="iuqsa35">
+                                                                <input type="radio" name="how_satisfied_are_you3" id="how_satisfied_are_you3_4" class="form-check-input" value="4- Somewhat satisfied"/>
+                                                            </td>
+                                                            <td id="icz6bq3">
+                                                                <input type="radio" name="how_satisfied_are_you3" id="how_satisfied_are_you3_3" class="form-check-input" value="3- Neutral"/>
+                                                            </td>
+                                                            <td id="i17wwhp">
+                                                                <input type="radio" name="how_satisfied_are_you3" id="how_satisfied_are_you3_2" class="form-check-input" value="2- Somewhat dissatisfied"/>
+                                                            </td>
+                                                            <td id="ijp86w1">
+                                                                <input type="radio" name="how_satisfied_are_you3" id="how_satisfied_are_you3_1" class="form-check-input" value="1- Very dissatisfied"/>
+                                                            </td>
+                                                        </tr>
+                                                        <tr id="How_would_you_rate_3" name="How_would_you_rate_3" type="radio">
+                                                            <th id="iftwgta" style="width: 350px;">7. How would you rate the information/education you received regarding our services?</th>
+                                                            <td id="ih3xlej">
+                                                                <input type="radio" name="how_would_you_rate3" id="how_would_you_rate3_5" class="form-check-input" value="5- Very satisfied"/>
+                                                            </td>
+                                                            <td id="itod6qw">
+                                                                <input type="radio" name="how_would_you_rate3" id="how_would_you_rate3_4" class="form-check-input" value="4- Somewhat satisfied"/>
+                                                            </td>
+                                                            <td id="iv8f78j">
+                                                                <input type="radio" name="how_would_you_rate3" id="how_would_you_rate3_3" class="form-check-input" value="3- Neutral"/>
+                                                            </td>
+                                                            <td id="iwy4z1r">
+                                                                <input type="radio" name="how_would_you_rate3" id="how_would_you_rate3_2" class="form-check-input" value="2- Somewhat dissatisfied"/>
+                                                            </td>
+                                                            <td id="ikew49f">
+                                                                <input type="radio" name="how_would_you_rate3" id="how_would_you_rate3_1" class="form-check-input" value="1- Very dissatisfied"/>
+                                                            </td>
+                                                        </tr>
+                                                        <tr id="How_satisfied_are_4" name="How_satisfied_are_4" type="radio">
+                                                            <th id="i8gj7hv" style="width: 350px;">8. How satisfied are you with the level of politeness, helpfulness, and ease of contacting our employees?</th>
+                                                            <td id="i7rz3gz">
+                                                                <input type="radio" name="how_satisfied_are_you4" id="how_satisfied_are_you4_5" class="form-check-input" value="5- Very satisfied"/>
+                                                            </td>
+                                                            <td id="i48vrql">
+                                                                <input type="radio" name="how_satisfied_are_you4" id="how_satisfied_are_you4_4" class="form-check-input" value="4- Somewhat satisfied"/>
+                                                            </td>
+                                                            <td id="ih7usek">
+                                                                <input type="radio" name="how_satisfied_are_you4" id="how_satisfied_are_you4_3" class="form-check-input" value="3- Neutral"/>
+                                                            </td>
+                                                            <td id="i79d5gj">
+                                                                <input type="radio" name="how_satisfied_are_you4" id="how_satisfied_are_you4_2" class="form-check-input" value="2- Somewhat dissatisfied"/>
+                                                            </td>
+                                                            <td id="ioo9xij">
+                                                                <input type="radio" name="how_satisfied_are_you4" id="how_satisfied_are_you4_1" class="form-check-input" value="1- Very dissatisfied"/>
+                                                            </td>
+                                                        </tr>
                                               </tbody>
                                           </table>
                                       </div>
@@ -1234,18 +1503,19 @@
                                           <custom-input type="text" label="Patient Address:" value="" id="patient_address" name="patient_address" placeholder="Patient Address"> </custom-input>
                                       </div>
                                       <div class="form-group col-md-4">
-                                          <custom-input type="text" label="Patient Cell Phone:*" value="" id="patient_cell_phone" name="patient_cell_phone" placeholder="Patient Cell Phone" required=""> </custom-input>
+                                          <custom-input type="number" label="Patient Cell Phone:*" value="" id="patient_cell_phone" name="patient_cell_phone" placeholder="Patient Cell Phone" required=""> </custom-input>
                                           <div id="p-last-name-4" class="invalid-feedback" style="margin-top: 0px; display: none; color: red;">Please enter your cell phone.</div>
                                       </div>
                                       
                                       <div class="signature col-md-6 mt-3">
                                           <label for="PAuthorization" id="i0n4kz-2" class="form-label question-label">Patient/Responsible Party Signature *</label><span id="Patient_Authorization" class="required_fields"></span>
                                           <div id="i4s2zf-3" class="signature-canvas mb-3">
-                                              <canvas id="PAuthorization" width="580" name="signature" required="" style="padding-top: 10px; padding-right: 10px; padding-bottom: 10px; padding-left: 10px; border-top-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-bottom-left-radius: 10px; cursor: url('../assets/pen.png') 16 16, crosshair; display: block;"></canvas>
-
+                                              <canvas id="PAuthorization" width="500" name="signature" required="" style="display: none; padding-top: 10px; padding-right: 10px; padding-bottom: 10px; padding-left: 10px; border-top-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-bottom-left-radius: 10px; cursor: url('../assets/pen.png') 16 16, crosshair; display: block;"></canvas>
+                                              <img id="PAuthorization" width="500" src="" alt="" class="form-control" style="display: none;" />
+      
                                               <div id="PAuthorization_validation" class="invalid-feedback" style="margin-top: 0px;">Please enter signature.</div>
-                                              <br /><img id="PAuthorization-2" width="580" src="" alt="" class="form-control" style="display: none;" />
-                                              <div id="signature_validation" class="invalid-feedback" style="margin-top: 0px;">Please enter signature.</div>
+                                              <br />
+                                              <!-- <div id="signature_validation" class="invalid-feedback" style="margin-top: 0px;">Please enter signature.</div> -->
                                               <button type="button" id="PAClearButton" class="btn btn-primary mt-3" style="border-top-width: initial; border-right-width: initial; border-bottom-width: initial; border-left-width: initial; border-top-style: none; border-right-style: none; border-bottom-style: none; border-left-style: none; border-top-color: initial; border-right-color: initial; border-bottom-color: initial; border-left-color: initial; border-image-source: initial; border-image-slice: initial; border-image-width: initial; border-image-outset: initial; border-image-repeat: initial; border-top-left-radius: 5px; border-top-right-radius: 5px; border-bottom-right-radius: 5px; border-bottom-left-radius: 5px; background-color: var(--btn-primary-color); font-size: 16px; font-weight: 400; cursor: pointer;">Clear</button>
                                           </div>
                                       </div>
@@ -1373,7 +1643,7 @@
                                                   <tr id="i2v8cyr" style="line-height: 1.2;">
                                                       <td>Pregnancy</td>
                                                       <td>HER Foundation-Hyperemesis</td>
-                                                      <td><a href="www.helpher.org">www.helpher.org www.aotaonline.org</a></td>
+                                                      <td><a href="www.helpher.org">www.helpher.org</a></td>
                                                   </tr>
                                                   <tr id="iph1cj9" style="line-height: 1.2;">
                                                       <td>Transplants</td>
@@ -1427,7 +1697,7 @@
                                                   <tr id="izsdx2h" style="line-height: 1.2;">
                                                       <td>Poison Control</td>
                                                       <td>National Capital Poison Control: Toll Free 1-800-222-1222</td>
-                                                      <td><a href="https://www.polson.org/">https://www.polson.org/</a></td>
+                                                      <td><a href="https://www.poison.org/">https://www.poison.org/</a></td>
                                                   </tr>
                                               </tbody>
                                           </table>
@@ -1552,28 +1822,44 @@
                           <button id="save-draft" type="button" class="btn btn-success me-2" onclick="handleSaveAsDraft()">Save as Draft</button>
                           <button id="nextButton" type="button" class="prevStep btn btn-success me-2" onclick="handleNext()">Next</button>
                           <button id="saveBtn" type="button" class="btn btn-success me-2" style="display: none;">Submit</button>
+      
+                          <!-- {% substitution %}
+                              {% if user %} -->
+                                  <button id="sendbtn" type="button" onclick="finalSend()" class="btn btn-success me-2" style="display: none;">Send</button>
+                              <!-- {% endif %}
+                          {% endsubstitution %} -->
                       </div>
-                  </div>
-                  <div class="main-form-container" id="errorStyle" style="display: none;">
-                      <div id="formInvalidCondition" class="alert alert-danger" role="alert" style="display: none; margin: 0;">
-                          A simple danger alert—check it out!
-                      </div>
-                  </div>
+                  </div> 
                </div>
+      
+               <div class="main-form-container" id="errorStyle" style="display: none;">
+                  <div id="formInvalidCondition" class="alert alert-danger" role="alert" style="display: none; margin: 0;">
+                      A simple danger alert—check it out!
+                  </div>
+              </div>
           </form>
+        </div>
+      </main>
+      <!-- Modal --><button type="button" id="confirmbtn" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-primary" style="border-top-width: initial; border-right-width: initial; border-bottom-width: initial; border-left-width: initial; border-top-style: none; border-right-style: none; border-bottom-style: none; border-left-style: none; border-top-color: initial; border-right-color: initial; border-bottom-color: initial; border-left-color: initial; border-image-source: initial; border-image-slice: initial; border-image-width: initial; border-image-outset: initial; border-image-repeat: initial; border-top-left-radius: 5px; border-top-right-radius: 5px; border-bottom-right-radius: 5px; border-bottom-left-radius: 5px; background-color: var(--btn-primary-color); font-size: 16px; font-weight: 400; cursor: pointer; margin-right: 15px; display: none;">Launch demo modal</button>
+      <div id="exampleModal" aria-labelledby="exampleModalLabel" aria-hidden="true" class="modal fade">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 id="exampleModalLabel" class="modal-title">Confirm Submission</h5>
+              <button type="button" data-bs-dismiss="modal" aria-label="Close" class="btn-close"></button>
+            </div>
+            <div id="isue8g" class="modal-body" style="padding: 20px;">Are you sure you want to submit this form?</div>
+            <div class="modal-footer">
+              <button type="button" data-bs-dismiss="modal" id="iobsx8" class="btn btn-primary" style="border-top-width: initial; border-right-width: initial; border-bottom-width: initial; border-left-width: initial; border-top-style: none; border-right-style: none; border-bottom-style: none; border-left-style: none; border-top-color: initial; border-right-color: initial; border-bottom-color: initial; border-left-color: initial; border-image-source: initial; border-image-slice: initial; border-image-width: initial; border-image-outset: initial; border-image-repeat: initial; border-top-left-radius: 5px; border-top-right-radius: 5px; border-bottom-right-radius: 5px; border-bottom-left-radius: 5px; background-color: var(--btn-primary-color); font-size: 16px; font-weight: 400; cursor: pointer; margin-right: 15px;">Close</button><button onclick="finalSave()" type="button" data-bs-dismiss="modal" id="iszii4" class="btn btn-primary" style="border-top-width: initial; border-right-width: initial; border-bottom-width: initial; border-left-width: initial; border-top-style: none; border-right-style: none; border-bottom-style: none; border-left-style: none; border-top-color: initial; border-right-color: initial; border-bottom-color: initial; border-left-color: initial; border-image-source: initial; border-image-slice: initial; border-image-width: initial; border-image-outset: initial; border-image-repeat: initial; border-top-left-radius: 5px; border-top-right-radius: 5px; border-bottom-right-radius: 5px; border-bottom-left-radius: 5px; background-color: var(--btn-primary-color); font-size: 16px; font-weight: 400; cursor: pointer; margin-right: 15px;">Confirm Submit</button></div>
+          </div>
+        </div>
       </div>
-  </main>
-
-  <div id="overlay-spinner">
-    <div class="spinneroverlay"></div>
-    <div class="spinner-container"> <!-- Spinner container for visibility -->
-      <div class="spinner-border text-primary" role="status">
+      <div id="i21cxvw" class="row sectionBlockLayout text-start" style="display: none; flex-wrap: wrap; margin: 0px; min-height: auto; padding: 8px;">
+        <div class="container" id="innsn59" style="padding: 0px; display: flex; flex-wrap: wrap;"><div class="col-lg-12 columnBlockLayout" style="flex-grow: 1; display: flex; flex-direction: column; min-width: 250px; word-break: break-word;"></div></div>
       </div>
-    </div>
-  </div>
 
 
-  <script src="../component/CustomFormComponents.js"></script>
-  <script src="../assets/CommonFormOperation.js"></script>
+    <script src="../component/CustomFormComponents.js"></script>
+    <script src="../assets/CommonFormOperation.js"></script>
 
 </body>

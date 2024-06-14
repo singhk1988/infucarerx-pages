@@ -15,7 +15,7 @@ const requiredControlsStep4 = {
     'NPPfname': 'Please enter first name.',
     //'LRfname': 'Please enter first name.',
     //'LRlname':'Please enter last name.',
-    //'LRsign_date': 'Please select signature date.',
+    'LRsign_date': 'Please select signature date.',
 };
 const requiredControlsStep5 = {
     'ConcernGrievance_date': 'Please select signature date.',
@@ -31,6 +31,8 @@ const requiredControlsStep6 = {
     'PA_DOB_date': 'Please enter date of birth.',
     'do_date': 'Please select signature date.',
     'patient_cell_phone': 'Please enter cell phone. ',
+    'signature_date': 'Please select signature date',
+    'PAuthorization': 'please sign'
 };
 
 const handleSaveAsDraft = () => {
@@ -82,7 +84,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 
 
     showOtherSelectedRadioButtons();
-    
+
     commonFormOpeation.showSpinner('overlay-spinner', true);
 
     {
@@ -197,10 +199,10 @@ document.addEventListener("DOMContentLoaded", async function () {
         console.log('formData', formData, fromResponses);
 
         commonFormOpeation.setFormDataFromSave(getQuestionToIdMap(), getAnswerToIdMap(), JSON.parse(fromResponses));
-        
+
     }
 
-  
+
     signatureData = await signatureTask;
     if (signatureData) {
         commonFormOpeation.setSignatureFromSave('patient_sign', signatureData[0]?.happ_signature /*window.localStorage.getItem(`${formResponseId}-sig`)*/);
@@ -223,7 +225,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     document.getElementById("saveBtn").addEventListener('click', async () => {
 
         commonFormOpeation.showSpinner('overlay-spinner', true);
-        let hasError = validateFormData();
+        let hasError = validateFormData(requiredControlsStep6, 5);
         if (hasError) {
             showToast('failed', 'Please Fill the Required Fields.');
         } else {
@@ -327,7 +329,35 @@ const setupSignatureCanvas = (canvasId, clearButtonId, validationId) => {
     let lastX = 0;
     let lastY = 0;
 
-    const getCoordinates = (e) => {
+    function startDrawing(e) {
+        isDrawing = true;
+        if (e.type.startsWith('touch')) {
+            disableScrolling();
+        }
+        const [x, y] = getCoordinates(e);
+        [lastX, lastY] = [x, y];
+    }
+
+    function draw(e) {
+        if (!isDrawing) return;
+        const [x, y] = getCoordinates(e);
+        context.beginPath();
+        context.moveTo(lastX, lastY);
+        context.lineTo(x, y);
+        context.strokeStyle = '#000';
+        context.lineWidth = 2;
+        context.stroke();
+        [lastX, lastY] = [x, y];
+    }
+
+    function stopDrawing(e) {
+        isDrawing = false;
+        if (e.type.startsWith('touch')) {
+            enableScrolling();
+        }
+    }
+
+    function getCoordinates(e) {
         let clientX, clientY;
         if (e.type.startsWith('touch')) {
             const touch = e.touches[0];
@@ -339,38 +369,29 @@ const setupSignatureCanvas = (canvasId, clearButtonId, validationId) => {
         }
         const rect = canvas.getBoundingClientRect();
         return [clientX - rect.left, clientY - rect.top];
-    };
+    }
 
-    const startDrawing = (e) => {
-        isDrawing = true;
-        [lastX, lastY] = getCoordinates(e);
-    };
+    function disableScrolling() {
+        document.body.style.overflow = 'hidden';
+    }
 
-    const stopDrawing = () => {
-        isDrawing = false;
-    };
-
-    const draw = (e) => {
-        if (!isDrawing) return;
-        const [x, y] = getCoordinates(e);
-        context.beginPath();
-        context.moveTo(lastX, lastY);
-        context.lineTo(x, y);
-        context.strokeStyle = '#000';
-        context.lineWidth = 2;
-        context.stroke();
-        [lastX, lastY] = [x, y];
-    };
+    function enableScrolling() {
+        document.body.style.overflow = 'auto';
+    }
 
     canvas.addEventListener('mousedown', startDrawing);
-    canvas.addEventListener('mousemove', draw);
-    canvas.addEventListener('mouseup', stopDrawing);
     canvas.addEventListener('touchstart', startDrawing);
+
+    canvas.addEventListener('mousemove', draw);
     canvas.addEventListener('touchmove', draw);
+
+    canvas.addEventListener('mouseup', stopDrawing);
     canvas.addEventListener('touchend', stopDrawing);
+
 
     canvas.addEventListener('mouseup', () => {
         isDrawing = false;
+        enableScrolling();
         if (ValidationErrorStatus[canvasId]) {
             canvas.style.borderColor = '#ccdae4';
             document.getElementById(validationId).style.display = 'none';
@@ -399,11 +420,16 @@ function validateFormData(requiredControls, currentIndex) {
         legalRepresentative: false,
         PAuthorization: false
     };
+    const legalRepresentativeCheckbox = document.querySelector('#legal_represenative input');
     let hasError = false;
-    let selectors = Object.keys(requiredControls).map(id => `#${id}`).join(', ');
+    let selectors = Object.keys(requiredControls).filter((tags)=>{
+        if(!legalRepresentativeCheckbox.checked) return !(tags.includes("LR")); 
+        else return true;
+     }).map(id => `#${id}`).join(', ');
     let elements = document.querySelectorAll(selectors);
     elements.forEach(el => {
         const elementType = el.getAttribute('type') ?? el.type;
+        const tagName = el.getAttribute('tagName') ?? el.tagName;
         if (elementType === 'checkbox') {
             let checkBoxElements = el.querySelectorAll('.form-check-input');
             let isAnyCheckBoxSelected = false;
@@ -411,15 +437,21 @@ function validateFormData(requiredControls, currentIndex) {
                 if (checkBoxEl.checked) {
                     isAnyCheckBoxSelected = true;
                 }
+                checkBoxEl.addEventListener('change', () => {
+                    if (checkBoxEl.checked) {
+                        el.setAttribute('error', '');
+                        ValidationErrorStatus.view_Privacy_Notice = false;
+                    }
+                });
             });
             if (!isAnyCheckBoxSelected) {
                 hasError = true;
                 ValidationErrorStatus.viewPrivacyNotice = true;
                 el.setAttribute('error', requiredControls[el.id]);
-            } else {
-
             }
-        } else {
+        } 
+        else if(tagName === "CANVAS" || tagName === "IMG") {}
+        else {
             let value = el.getAttribute('value') ?? el.value;
             if (!value || !value.trim()) {
                 hasError = true;
@@ -436,7 +468,6 @@ function validateFormData(requiredControls, currentIndex) {
         }
     });
 
-
     if (currentIndex === 2) {
         const canvas_patient_sign = document.getElementById('patient_sign');
         if (isCanvasBlank(canvas_patient_sign)) {
@@ -447,13 +478,27 @@ function validateFormData(requiredControls, currentIndex) {
         }
     } else if (currentIndex === 3) {
         const canvas_patient_rp_sign = document.getElementById('patient_rp_sign');
-        //const canvas_legalRepresentative = document.getElementById('legalRepresentative');
+        const canvas_legalRepresentative_sign = document.getElementById('legalRepresentative');
 
         if (isCanvasBlank(canvas_patient_rp_sign)) {
             hasError = true;
             ValidationErrorStatus.patient_rp_sign = true;
             canvas_patient_rp_sign.style.borderColor = 'red';
             document.getElementById('patient_rp_sign_validation').style.display = 'block';
+        }
+
+        if (legalRepresentativeCheckbox && legalRepresentativeCheckbox.checked) {
+            if (isCanvasBlank(canvas_legalRepresentative_sign)) {
+                hasError = true;
+                ValidationErrorStatus.legalRepresentative = true;
+                canvas_legalRepresentative_sign.style.borderColor = 'red';
+                document.getElementById('legalRepresentative_validation').style.display = 'block';
+            }
+        } else {
+            ValidationErrorStatus.legalRepresentative = false;
+            document.getElementById('legalRepresentative_validation').style.display = 'none';
+            // legalRepresentativeSignDate.setAttribute('error', '');
+            canvas_legalRepresentative_sign.style.borderColor = '';
         }
     } else if (currentIndex === 4) {
         const canvas_CGPatSignCanvas = document.getElementById('CGPatSignCanvas');
@@ -464,7 +509,7 @@ function validateFormData(requiredControls, currentIndex) {
             document.getElementById('CGPatSignCanvas_validation').style.display = 'block';
         }
     } else if (currentIndex === 5) {
-        const canvas_PAuthorization = document.getElementById('PAuthorization');
+        const canvas_PAuthorization = document.querySelector('canvas#PAuthorization');
         if (isCanvasBlank(canvas_PAuthorization)) {
             hasError = true;
             ValidationErrorStatus.PAuthorization = true;

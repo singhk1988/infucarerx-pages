@@ -327,7 +327,35 @@ const setupSignatureCanvas = (canvasId, clearButtonId, validationId) => {
     let lastX = 0;
     let lastY = 0;
 
-    const getCoordinates = (e) => {
+    function startDrawing(e) {
+        isDrawing = true;
+        if (e.type.startsWith('touch')) {
+            disableScrolling();
+        }
+        const [x, y] = getCoordinates(e);
+        [lastX, lastY] = [x, y];
+    }
+
+    function draw(e) {
+        if (!isDrawing) return;
+        const [x, y] = getCoordinates(e);
+        context.beginPath();
+        context.moveTo(lastX, lastY);
+        context.lineTo(x, y);
+        context.strokeStyle = '#000';
+        context.lineWidth = 2;
+        context.stroke();
+        [lastX, lastY] = [x, y];
+    }
+
+    function stopDrawing(e) {
+        isDrawing = false;
+        if (e.type.startsWith('touch')) {
+            enableScrolling();
+        }
+    }
+
+    function getCoordinates(e) {
         let clientX, clientY;
         if (e.type.startsWith('touch')) {
             const touch = e.touches[0];
@@ -339,38 +367,29 @@ const setupSignatureCanvas = (canvasId, clearButtonId, validationId) => {
         }
         const rect = canvas.getBoundingClientRect();
         return [clientX - rect.left, clientY - rect.top];
-    };
+    }
 
-    const startDrawing = (e) => {
-        isDrawing = true;
-        [lastX, lastY] = getCoordinates(e);
-    };
+    function disableScrolling() {
+        document.body.style.overflow = 'hidden';
+    }
 
-    const stopDrawing = () => {
-        isDrawing = false;
-    };
-
-    const draw = (e) => {
-        if (!isDrawing) return;
-        const [x, y] = getCoordinates(e);
-        context.beginPath();
-        context.moveTo(lastX, lastY);
-        context.lineTo(x, y);
-        context.strokeStyle = '#000';
-        context.lineWidth = 2;
-        context.stroke();
-        [lastX, lastY] = [x, y];
-    };
+    function enableScrolling() {
+        document.body.style.overflow = 'auto';
+    }
 
     canvas.addEventListener('mousedown', startDrawing);
-    canvas.addEventListener('mousemove', draw);
-    canvas.addEventListener('mouseup', stopDrawing);
     canvas.addEventListener('touchstart', startDrawing);
+
+    canvas.addEventListener('mousemove', draw);
     canvas.addEventListener('touchmove', draw);
+
+    canvas.addEventListener('mouseup', stopDrawing);
     canvas.addEventListener('touchend', stopDrawing);
+
 
     canvas.addEventListener('mouseup', () => {
         isDrawing = false;
+        enableScrolling();
         if (ValidationErrorStatus[canvasId]) {
             canvas.style.borderColor = '#ccdae4';
             document.getElementById(validationId).style.display = 'none';
@@ -411,6 +430,12 @@ function validateFormData(requiredControls, currentIndex) {
                 if (checkBoxEl.checked) {
                     isAnyCheckBoxSelected = true;
                 }
+                checkBoxEl.addEventListener('change', () => {
+                    if (checkBoxEl.checked) {
+                        el.setAttribute('error', '');
+                        ValidationErrorStatus.view_Privacy_Notice = false;
+                    }
+                });
             });
             if (!isAnyCheckBoxSelected) {
                 hasError = true;

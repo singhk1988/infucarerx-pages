@@ -1,3 +1,4 @@
+
 @import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap");
 
 :root {
@@ -11,28 +12,39 @@
     --btn-primary-color: rgba(23, 61, 110, 1);
     --btn-primary-color-hover: rgba(0, 69, 120, 1);
 }
-
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "Josefin Sans", "sans-serif";
+    font-family: var(--font-family) !important;
+}
+.radio_btn_inline .form-label { 
+    font-weight: 400 !important;
 }
 
-.paragraph {
-    font-family: var(--font-family);
-    color: #1F1F1F;
-    font-size: 16px;
-    font-weight: 400;
+span {
+    font-size: 14px !important;
+    font-weight: 400 !important;
 }
 
-/* main */
+.main-form-container h5 {
+    font-size: 0.8rem !important;
+    font-weight: bold !important;
+}
+
+input.form-control {
+    border: 1px solid var(--border-color);
+}
+h5 {
+    margin-top: 0px !important;
+    margin-bottom: 10.5px !important;
+    line-height: 1.2;
+}
+
 .main-container {
+    padding: 0px 20px;
     background-color: var(--form-background-color);
-}
-
-.main-section {
-    background-color: #ebeff4;
+    font-family: var(--font-family) !important;
 }
 
 .container-custom {
@@ -41,7 +53,9 @@
     padding: 15px 20px;
     background-color: var(--form-container-background-color);
 }
-
+.wrapper-class p {
+    font-size: 18px;
+}
 .form-control {
     border-color: var(--border-color);
 }
@@ -79,7 +93,11 @@ h3 {
 .form-control::placeholder {
     color: #999 !important;
 }
-
+h6 {
+    padding-bottom: 0px !important;
+    margin-top: 10px !important;
+    margin-bottom: 0px !important;
+}
 
 .signature canvas {
     border: 1px solid var(--border-color);
@@ -171,82 +189,4 @@ h3.fields-title {
     display: block;
     padding-left: 0 !important;
     font-weight: 700;
-}
-
-#txtInsuranceTypeOther .form-item {
-    padding-top: 0;
-}
-
-.container-xl-custom .multiple-checkbox {
-    line-height: 1.2;
-    vertical-align: middle;
-}
-
-.multiple-checkbox tr th {
-    width: 350px;
-}
-
-.multiple-checkbox tr td {
-    text-align: center;
-}
-
-/* Media query for smaller screens 
-1. Completed UI and Signature issue of west plam beach form (5.30) 
-2. forms bugs/status meeting (0.10) 
-
-*/
-.container-xl-custom .multiple-checkbox {
-    line-height: 1.2;
-    vertical-align: middle;
-}
-
-.multiple-checkbox tr th {
-    width: 350px;
-}
-
-.multiple-checkbox tr td {
-    text-align: center;
-}
-
-#click_pat_survey .form-label,
-#support_organizations .form-label,
-#view_medicare_DMEPOS .form-label,
-#view_medicare_DMEPOS_spanish .form-label,
-#legal_represenative .form-label {
-    display: none;
-}
-
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-}
-
-@media(min-width:768px) {
-    #txtInsuranceTypeOther input {
-        width: 306px;
-    }
-
-    .w-750 {
-        width: 750px;
-        margin: 0 auto;
-    }
-}
-
-@media(min-width:1200px) {
-    /* .container-xl-custom {
-        width: 990px;
-        margin: 0 auto;
-    } */
-}
-
-@media screen and (max-width: 1200px) {
-    .signature {
-        width: 100%;
-    }
-
-    .signature-canvas canvas {
-        width: 72vw;
-        height: 150px;
-    }
 }

@@ -55,6 +55,12 @@
                                   <p>On-Call Availability 24/7/365, including weekends and holidays</p>
                               </div>
                           </div>
+                          <div class="py-2 row justify-content-center align-items-center">
+                            <div class="w-50">
+                            <p>To report a patient safety concern or complaint, please call our corporate office at <span class="fw-bold">877.828.3940</span> or you may contact the Accreditation Commission for Health Care, Inc (ACHC)</p>
+                            <p>Phone: (855) 937-2242 or Online <a href="https://www.achc.org/">https://www.achc.org/</a></p>
+                          </div>
+                        </div>
                       </div>
                   </div>
                   <!-- Patient Admission Packet Checklist ✔ -->
@@ -162,7 +168,7 @@
                               <div class="row justify-content-left align-items-left text-left mt-3">
                                   <p class="fw-bold text-decoration-underline">PATIENT INSTRUCTIONS:</p>
                                   <p>Please sign, date and mail (1) copy of the <b>“Assignment of Benefits</b>
-                                      form to InfuCare Rx using the self- ‘addressed stamped envelope provided.
+                                      form to InfuCare Rx using the self-addressed stamped envelope provided.
                                       Keep (1) copy of the Assignment of Benefits for your records. If you <u>DO
                                           NOT</u> have a homecare nurse, please also follow <b>NURSE
                                           INSTRUCTIONS</b> below.</p>
@@ -171,7 +177,7 @@
                                   <p class="fw-bold text-decoration-underline">NURSE INSTRUCTIONS:</p>
                                   <p>Please review all documents with patient. Have patient sign and date the
                                       <b>**Admission Agreement, Notice of Privacy Practices Acknowledgement Form,
-                                          Patient Authorization to Disclose PH, and Delivery Ticket.</b> Patient
+                                          Patient Authorization to Disclose PHI, and Delivery Ticket.</b> Patient
                                       should keep (1) copy for their records. Nurse must return signed documents
                                       to InfuCare Rx as soon as possible following the initial visit.
                                   </p>
@@ -293,7 +299,7 @@
                                           <h5 class="heading-color fw-bold pt-2">Important Contact Information:
                                           </h5>
                                           <p>Our pharmacy's normal business hours is <b>9:00 AM</b> to <b>5:00
-                                                  PM</b>, Monday through <b>Friday</b>. If you have an emergent
+                                                  PM</b>, <b>Monday</b> through <b>Friday</b>. If you have an emergent
                                               need after hours and cannot wait until the next business day, we
                                               have after hour/on call coverage. We can be reached <b>24 hours</b>
                                               a day, <b>7 days</b> a week by calling <b>(877) 469-6053</b>.</p>
@@ -741,9 +747,9 @@
                                           <p>
                                               For more information regarding Emergency Planning, visit the
                                               following:<b class="fst-italic"><span
-                                                      class="text-decoration-underline">https://www.emergency.cdc.gov/</span>
+                                                      class="text-decoration-underline">https://www.emergency.cdc.gov/</span> ,
                                                   <span
-                                                      class="text-decoration-underline">https://www.ready.gov/</span>
+                                                      class="text-decoration-underline">https://www.ready.gov/</span> ,
                                                   <span
                                                       class="text-decoration-underline">https://www.redcross.org/</span></b>
                                           </p>
@@ -1138,46 +1144,45 @@
                               </p>
                           </div>
                           <div class="row">
-                              <div class="form-group col-md-4"><custom-input type="text"
-                                      label="Patient First name: *" value="" id="fname" name="fname"
-                                      placeholder="First name" error="" required="" disabled=""> </custom-input>
-                              </div>
-                              <div class="form-group col-md-4"><custom-input type="text"
-                                      label="Patient Last Name: *" value="" id="lname" name="lname"
-                                      placeholder="Last Name" required="" disabled=""> </custom-input></div>
-                              <div class="form-group col-md-4"><custom-input label="Patient MRN: *" type="number"
-                                      id="mrn" name="mrn" value="" placeholder="Patient MRN" required=""
-                                      disabled=""> </custom-input></div>
-                              <div class="form-group col-md-4 date-picker"><custom-input type="date"
-                                      label="Signature Date: *" id="date_sign" name="date_sign" required="">
-                                  </custom-input></div>
-                              <div class="form-group col-md-4"><custom-input label="Legal Guardian Name: "
-                                      value="" id="LegalGName" name="LegalGName" placeholder="Legal Guardian Name"
-                                      error=""> </custom-input></div>
-                              <div class="signature col-md-8 mt-3">
-                                  <label for="patient_sign" id="i0n4kz" class="form-label question-label"
-                                      style="font-weight: normal; font-size: 16px;">Signature of Patient or Legal
-                                      Guardian: * </label><span id="required_patient_sign"
-                                      class="required_fields"></span>
-                                  <div id="i4s2zf" class="signature-canvas">
-                                      <canvas id="patient_sign" width="500" name="signature" required=""
-                                          style="padding-top: 10px; padding-right: 10px; padding-bottom: 10px; padding-left: 10px; border-top-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-bottom-left-radius: 10px; cursor: url('../assets/pen.png') 16 16, crosshair;"></canvas>
-                                      <div id="patient_sign_validation" class="invalid-feedback"
-                                          style="margin-top: 0px;">Please enter signature.</div>
-                                      <br /><button type="button" id="clearButton" class="btn btn-primary mt-3"
-                                          style="border-top-width: initial; border-right-width: initial; border-bottom-width: initial; border-left-width: initial; border-top-style: none; border-right-style: none; border-bottom-style: none; border-left-style: none; border-top-color: initial; border-right-color: initial; border-bottom-color: initial; border-left-color: initial; border-image-source: initial; border-image-slice: initial; border-image-width: initial; border-image-outset: initial; border-image-repeat: initial; border-top-left-radius: 5px; border-top-right-radius: 5px; border-bottom-right-radius: 5px; border-bottom-left-radius: 5px; background-color: var(--btn-primary-color); font-size: 16px; font-weight: 400; cursor: pointer;">Clear</button>
-                                  </div>
-                              </div>
-                              <div class="form-group col-md-4 date-picker mt-3">
-                                  <custom-input label="Provider Witness Name: " value="" id="ProWitName"
-                                      name="ProWitName" placeholder="Provider Witness Name" error=""
-                                      style="padding-bottom: 10px;"> </custom-input><custom-input type="date"
-                                      label="Date:" id="date" name="date" required="">
-                                  </custom-input><!-- <label for="date_sign" id="i7thcg" class="form-label question-label mt-2"> </label><span id="required_date_sign" required="">
-       </span
-     > <span><input type="date" id="date_sign" name="date_sign" class="form-control input" style="box-shadow: none;" /></span> -->
-                              </div>
+                            <div class="form-group col-md-4">
+                                <custom-input type="text" label="Patient First name: *" value="" id="fname" name="fname" placeholder="First name" error="" required="" disabled> </custom-input>
+                            </div>
+                            <div class="form-group col-md-4">
+                                <custom-input type="text" label="Patient Last Name: *" value="" id="lname" name="lname" placeholder="Last Name" required="" disabled> </custom-input>
+                            </div>
+                            <div class="form-group col-md-4">
+                                <custom-input label="Patient MRN: *" type="number" id="mrn" name="mrn" value="" placeholder="Patient MRN" required="" disabled> </custom-input>
+                            </div>
+                           
+                            <div class="form-group col-md-4">
+                                <custom-input label="Legal Guardian Name: " value="" id="LegalGName" name="LegalGName" placeholder="Legal Guardian Name" error=""> </custom-input>
+                            </div>
+                            <div class="form-group col-md-4">
+                              <custom-input label="Provider Witness Name: " value="" id="ProWitName" name="ProWitName" placeholder="Provider Witness Name" error="" style="padding-bottom: 10px;"> </custom-input> 
+                             
                           </div>
+                          <div class="form-group col-md-4 "> 
+                              <custom-input type="date" label="Date:" id="date" name="date" required=""> </custom-input> 
+                          </div>
+                          <div class="signature col-md-8 mt-3">
+                            <label for="patient_sign" id="i0n4kz" class="form-label question-label"
+                                style="font-weight: normal; font-size: 16px;">Signature of Patient or Legal
+                                Guardian: * </label><span id="required_patient_sign"
+                                class="required_fields"></span>
+                            <div id="i4s2zf" class="signature-canvas">
+                                <canvas id="patient_sign" width="500" name="signature" required="" style="display: block; padding-top: 10px; padding-right: 10px; padding-bottom: 10px; padding-left: 10px; border-top-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-bottom-left-radius: 10px; cursor: url('../assets/pen.png') 16 16, crosshair;"></canvas>
+                                <img id="patient_sign" class="form-control" width="580" src="" alt="" style="display: none;">
+                                <div id="patient_sign_validation" class="invalid-feedback"
+                                    style="margin-top: 0px;">Please enter signature.</div>
+                                <br /><button type="button" id="clearButton" class="btn btn-primary mt-3"
+                                    style="border-top-width: initial; border-right-width: initial; border-bottom-width: initial; border-left-width: initial; border-top-style: none; border-right-style: none; border-bottom-style: none; border-left-style: none; border-top-color: initial; border-right-color: initial; border-bottom-color: initial; border-left-color: initial; border-image-source: initial; border-image-slice: initial; border-image-width: initial; border-image-outset: initial; border-image-repeat: initial; border-top-left-radius: 5px; border-top-right-radius: 5px; border-bottom-right-radius: 5px; border-bottom-left-radius: 5px; background-color: var(--btn-primary-color); font-size: 16px; font-weight: 400; cursor: pointer;">Clear</button>
+                            </div>
+                        </div>
+                            <div class="form-group col-md-4 mt-1">
+                              <custom-input type="date" label="Signature Date: *" id="date_sign" name="date_sign" required=""> </custom-input>
+                          </div>
+                            
+                        </div>
                       </div>
                   </div>
                   <!-- NOTICE OF PRIVACY PRACTICES ACKNOWLEDMENT FORM -->
@@ -1552,44 +1557,29 @@
                               <h5 class="text-center fw-bold">NOTICE OF PRIVACY PRACTICES ACKNOWLEDMENT FORM</h5>
                               <p class="mt-4">By signing this statement, I acknowledge that I have received and
                                   reviewed InfuCare Rx's Notice of Privacy Practice's.</p>
-                              <div class="row">
-                                  <div class="col-md-4">
-                                      <custom-input label="First name:*" value="" id="NPPfname" name="NPPfname"
-                                          placeholder="First name" error="" required=""> </custom-input>
-                                      <div id="p-first-name" class="invalid-feedback"
-                                          style="margin-top: 0px; display: none; color: red;">first name.</div>
+                                  <div class="row">
+                                    <div class="col-md-4">
+                                        <custom-input label="First name:*" value="" id="NPPfname" name="NPPfname" placeholder="First name" error="" required="" disabled> </custom-input>
+                                        <div id="p-first-name" class="invalid-feedback" style="margin-top: 0px; display: none; color: red;">first name.</div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <custom-input type="text" label="Last Name:*" value="" id="NPPlname" name="NPPlname" placeholder="Last Name" required="" disabled> </custom-input>
+                                        <div id="p-last-name" class="invalid-feedback" style="margin-top: 0px; display: none; color: red;">Please enter last name.</div>
+                                    </div>
+                                    
+                                    <div class="signature col-md-6 mt-3">
+                                        <label for="responsible_party_sign" class="form-label question-label">Patient Signature *</label><span id=" " class="required_fields"></span>
+                                        <div id="i4s2zf-2" class="signature-canvas mb-3">
+                                            <canvas id="patient_rp_sign" width="500" name="signature" required="" style="padding-top: 10px; padding-right: 10px; padding-bottom: 10px; padding-left: 10px; border-top-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-bottom-left-radius: 10px; cursor: url('../assets/pen.png') 16 16, crosshair; display: block;"></canvas><img id="patient_rp_sign-2" width="500" src="" alt="" class="form-control" style="display: none;" />
+                                            <div id="patient_rp_sign_validation" class="invalid-feedback" style="margin-top: 0px;">Please enter signature.</div>
+                                            <button type="button" id="RPClearButton" class="btn btn-primary mt-3" style="border-top-width: initial; border-right-width: initial; border-bottom-width: initial; border-left-width: initial; border-top-style: none; border-right-style: none; border-bottom-style: none; border-left-style: none; border-top-color: initial; border-right-color: initial; border-bottom-color: initial; border-left-color: initial; border-image-source: initial; border-image-slice: initial; border-image-width: initial; border-image-outset: initial; border-image-repeat: initial; border-top-left-radius: 5px; border-top-right-radius: 5px; border-bottom-right-radius: 5px; border-bottom-left-radius: 5px; background-color: var(--btn-primary-color); font-size: 16px; font-weight: 400; cursor: pointer;">Clear</button>
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-md-4 mt-1">
+                                      <custom-input label="Signature Date:*" type="Date" id="sign_date" name="sign_date" value="" placeholder=""> </custom-input>
+                                      <div id="p-dob" class="invalid-feedback" style="margin-top: 0px; display: none; color: red;">Please enter your DOB.</div>
                                   </div>
-                                  <div class="col-md-4">
-                                      <custom-input type="text" label="Last Name:*" value="" id="NPPlname"
-                                          name="NPPlname" placeholder="Last Name" required=""> </custom-input>
-                                      <div id="p-last-name" class="invalid-feedback"
-                                          style="margin-top: 0px; display: none; color: red;">Please enter last
-                                          name.</div>
-                                  </div>
-                                  <div class="form-group col-md-4">
-                                      <custom-input label="Signature Date:*" type="Date" id="sign_date"
-                                          name="sign_date" value="" placeholder=""> </custom-input>
-                                      <div id="p-dob" class="invalid-feedback"
-                                          style="margin-top: 0px; display: none; color: red;">Please enter your
-                                          DOB.</div>
-                                  </div>
-                                  <div class="signature col-md-12 mt-3">
-                                      <label for="responsible_party_sign"
-                                          class="form-label question-label">Patient Signature *</label><span
-                                          id=" " class="required_fields"></span>
-                                      <div id="i4s2zf-2" class="signature-canvas mb-3">
-                                          <canvas id="patient_rp_sign" width="500" name="signature" required=""
-                                              style="padding-top: 10px; padding-right: 10px; padding-bottom: 10px; padding-left: 10px; border-top-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-bottom-left-radius: 10px; cursor: url('../assets/pen.png') 16 16, crosshair; display: block;"></canvas><img
-                                              id="patient_rp_sign-2" width="500"
-                                              src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTEwOCIgaGVpZ2h0PSI0NTAiIHZpZXdCb3g9IjAgMCAxMTA4IDQ1MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGcgb3BhY2l0eT0iMC45NSIgZmlsdGVyPSJ1cmwoI2ZpbHRlcjBfYl8xMzQ4XzY0MDMpIj4KPHJlY3Qgd2lkdGg9IjExMDgiIGhlaWdodD0iNDUwIiB0cmFuc2Zvcm09Im1hdHJpeCgtMSAwIDAgMSAxMTA4IDApIiBmaWxsPSJ3aGl0ZSIvPgo8cmVjdCB4PSItMSIgeT0iMSIgd2lkdGg9IjExMDYiIGhlaWdodD0iNDQ4IiB0cmFuc2Zvcm09Im1hdHJpeCgtMSAwIDAgMSAxMTA2IDApIiBzdHJva2U9IiNEMkQwQ0UiIHN0cm9rZS13aWR0aD0iMiIvPgo8L2c+CjxwYXRoIGQ9Ik01NzcuOTU4IDE4Ny41QzU4NS40MzcgMTg3LjUgNTkxLjUgMTkzLjU2MyA1OTEuNSAyMDEuMDQyVjI0OC45NThDNTkxLjUgMjU2LjQzNyA1ODUuNDM3IDI2Mi41IDU3Ny45NTggMjYyLjVINTMwLjA0MkM1MjIuNTYzIDI2Mi41IDUxNi41IDI1Ni40MzcgNTE2LjUgMjQ4Ljk1OFYyMDEuMDQyQzUxNi41IDE5My41NjMgNTIyLjU2MyAxODcuNSA1MzAuMDQyIDE4Ny41SDU3Ny45NThaTTU4MC4zNzcgMjU1LjgzOUw1NTYuMTg2IDIzMi4xNDVDNTU1LjA4MiAyMzEuMDY0IDU1My4zNzUgMjMwLjk2NSA1NTIuMTYyIDIzMS44NUw1NTEuODEzIDIzMi4xNDVMNTI3LjYxOSAyNTUuODM4QzUyOC4zNzcgMjU2LjEwNSA1MjkuMTkyIDI1Ni4yNSA1MzAuMDQyIDI1Ni4yNUg1NzcuOTU4QzU3OC44MDYgMjU2LjI1IDU3OS42MiAyNTYuMTA1IDU4MC4zNzcgMjU1LjgzOUw1NTYuMTg2IDIzMi4xNDVMNTgwLjM3NyAyNTUuODM5Wk01NzcuOTU4IDE5My43NUg1MzAuMDQyQzUyNi4wMTUgMTkzLjc1IDUyMi43NSAxOTcuMDE1IDUyMi43NSAyMDEuMDQyVjI0OC45NThDNTIyLjc1IDI0OS44MjcgNTIyLjkwMiAyNTAuNjYgNTIzLjE4IDI1MS40MzJMNTQ3LjQ0MSAyMjcuNjc5QzU1MC45MTIgMjI0LjI4IDU1Ni4zNjUgMjI0LjExOSA1NjAuMDI0IDIyNy4xOTRMNTYwLjU1OSAyMjcuNjhMNTg0LjgxOCAyNTEuNDM2QzU4NS4wOTcgMjUwLjY2MiA1ODUuMjUgMjQ5LjgyOCA1ODUuMjUgMjQ4Ljk1OFYyMDEuMDQyQzU4NS4yNSAxOTcuMDE1IDU4MS45ODUgMTkzLjc1IDU3Ny45NTggMTkzLjc1Wk01NjcuNTUgMjAyLjA4M0M1NzIuNzMzIDIwMi4wODMgNTc2LjkzNCAyMDYuMjg1IDU3Ni45MzQgMjExLjQ2N0M1NzYuOTM0IDIxNi42NSA1NzIuNzMzIDIyMC44NTEgNTY3LjU1IDIyMC44NTFDNTYyLjM2OCAyMjAuODUxIDU1OC4xNjcgMjE2LjY1IDU1OC4xNjcgMjExLjQ2N0M1NTguMTY3IDIwNi4yODUgNTYyLjM2OCAyMDIuMDgzIDU2Ny41NSAyMDIuMDgzWk01NjcuNTUgMjA4LjMzM0M1NjUuODIgMjA4LjMzMyA1NjQuNDE3IDIwOS43MzYgNTY0LjQxNyAyMTEuNDY3QzU2NC40MTcgMjEzLjE5OCA1NjUuODIgMjE0LjYwMSA1NjcuNTUgMjE0LjYwMUM1NjkuMjgxIDIxNC42MDEgNTcwLjY4NCAyMTMuMTk4IDU3MC42ODQgMjExLjQ2N0M1NzAuNjg0IDIwOS43MzYgNTY5LjI4MSAyMDguMzMzIDU2Ny41NSAyMDguMzMzWiIgZmlsbD0iI0FDQUNBQyIvPgo8ZGVmcz4KPGZpbHRlciBpZD0iZmlsdGVyMF9iXzEzNDhfNjQwMyIgeD0iLTQiIHk9Ii00IiB3aWR0aD0iMTExNiIgaGVpZ2h0PSI0NTgiIGZpbHRlclVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgY29sb3ItaW50ZXJwb2xhdGlvbi1maWx0ZXJzPSJzUkdCIj4KPGZlRmxvb2QgZmxvb2Qtb3BhY2l0eT0iMCIgcmVzdWx0PSJCYWNrZ3JvdW5kSW1hZ2VGaXgiLz4KPGZlR2F1c3NpYW5CbHVyIGluPSJCYWNrZ3JvdW5kSW1hZ2UiIHN0ZERldmlhdGlvbj0iMiIvPgo8ZmVDb21wb3NpdGUgaW4yPSJTb3VyY2VBbHBoYSIgb3BlcmF0b3I9ImluIiByZXN1bHQ9ImVmZmVjdDFfYmFja2dyb3VuZEJsdXJfMTM0OF82NDAzIi8+CjxmZUJsZW5kIG1vZGU9Im5vcm1hbCIgaW49IlNvdXJjZUdyYXBoaWMiIGluMj0iZWZmZWN0MV9iYWNrZ3JvdW5kQmx1cl8xMzQ4XzY0MDMiIHJlc3VsdD0ic2hhcGUiLz4KPC9maWx0ZXI+CjwvZGVmcz4KPC9zdmc+Cg=="
-                                              alt="" class="form-control" style="display: none;" />
-                                          <div id="patient_rp_sign_validation" class="invalid-feedback"
-                                              style="margin-top: 0px;">Please enter signature.</div>
-                                          <button type="button" id="RPClearButton" class="btn btn-primary mt-3"
-                                              style="border-top-width: initial; border-right-width: initial; border-bottom-width: initial; border-left-width: initial; border-top-style: none; border-right-style: none; border-bottom-style: none; border-left-style: none; border-top-color: initial; border-right-color: initial; border-bottom-color: initial; border-left-color: initial; border-image-source: initial; border-image-slice: initial; border-image-width: initial; border-image-outset: initial; border-image-repeat: initial; border-top-left-radius: 5px; border-top-right-radius: 5px; border-bottom-right-radius: 5px; border-bottom-left-radius: 5px; background-color: var(--btn-primary-color); font-size: 16px; font-weight: 400; cursor: pointer;">Clear</button>
-                                      </div>
-                                  </div>
-                              </div>
+                                </div>
                           </div>
                           <!-- checkbox for Legal Represenative -->
                           <hr class="border-dark-subtle" />
@@ -1601,47 +1591,40 @@
                           </div>
                           <!-- legal represenative form-->
                           <div id="show_legal_represenative" class="legal-represenative" style="display: none;">
-                              <hr class="border-dark-subtle" />
-                              <div class="row">
-                                  <div class="col-md-12">
-                                      <p><b>Legal Representative</b></p>
-                                  </div>
-                                  <div class="col-md-4">
-                                      <custom-input label="First name:" value="" id="LRfname" name="LRfname"
-                                          placeholder="First name" error="" required=""> </custom-input>
-                                      <div id="p-first-name-2" class="invalid-feedback"
-                                          style="margin-top: 0px; display: none; color: red;">first name.</div>
-                                  </div>
-                                  <div class="col-md-4">
-                                      <custom-input type="text" label="Last Name:" value="" id="LRlname"
-                                          name="LRlname" placeholder="Last Name" required=""> </custom-input>
-                                      <div id="p-last-name-2" class="invalid-feedback"
-                                          style="margin-top: 0px; display: none; color: red;">Please enter last
-                                          name.</div>
-                                  </div>
-                                  <div class="form-group col-md-4">
-                                      <custom-input label="Signature Date:" type="Date" id="LRsign_date"
-                                          name="LRsign_date" value="" placeholder=""> </custom-input>
-                                      <div id="p-dob-2" class="invalid-feedback"
-                                          style="margin-top: 0px; display: none; color: red;">Please enter your
-                                          DOB.</div>
-                                  </div>
-                                  <div class="signature col-md-12 mt-3">
-                                      <label for="legalRepresentative" class="form-label question-label">Legal
-                                          Represenative Signature *</label><span id="requiredLRsign"
-                                          class="required_fields"></span>
-                                      <div id="representative_sign" class="signature-canvas mt-3">
-                                          <canvas id="legalRepresentative" width="500" name="signature"
-                                              style="padding-top: 10px; padding-right: 10px; padding-bottom: 10px; padding-left: 10px; border-top-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-bottom-left-radius: 10px; cursor: url('../assets/pen.png') 16 16, crosshair;"></canvas>
-                                          <div id="legalRepresentative_validation" class="invalid-feedback"
-                                              style="margin-top: 0px;">Please enter signature.</div>
-                                          <br /><button type="button" id="LRClearButton"
-                                              class="btn btn-primary mt-3"
-                                              style="border-top-width: initial; border-right-width: initial; border-bottom-width: initial; border-left-width: initial; border-top-style: none; border-right-style: none; border-bottom-style: none; border-left-style: none; border-top-color: initial; border-right-color: initial; border-bottom-color: initial; border-left-color: initial; border-image-source: initial; border-image-slice: initial; border-image-width: initial; border-image-outset: initial; border-image-repeat: initial; border-top-left-radius: 5px; border-top-right-radius: 5px; border-bottom-right-radius: 5px; border-bottom-left-radius: 5px; background-color: var(--btn-primary-color); font-size: 16px; font-weight: 400; cursor: pointer;">Clear</button>
-                                      </div>
-                                  </div>
+                            <hr class="border-dark-subtle" />
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <p><b>Legal Representative</b></p>
+                                </div>
+                                <div class="col-md-4">
+                                    <custom-input label="First name:" value="" id="LRfname" name="LRfname" placeholder="First name" error="" required=""> </custom-input>
+                                    <div id="p-first-name-2" class="invalid-feedback" style="margin-top: 0px; display: none; color: red;">first name.</div>
+                                </div>
+                                <div class="col-md-4">
+                                    <custom-input type="text" label="Last Name:" value="" id="LRlname" name="LRlname" placeholder="Last Name" required=""> </custom-input>
+                                    <div id="p-last-name-2" class="invalid-feedback" style="margin-top: 0px; display: none; color: red;">Please enter last name.</div>
+                                </div>
+                                
+                                <div class="signature col-md-12 mt-3">
+                                    <label for="legalRepresentative" class="form-label question-label">Legal
+                                        Represenative Signature *</label><span id="requiredLRsign"
+                                        class="required_fields"></span>
+                                    <div id="representative_sign" class="signature-canvas mt-3">
+                                        <canvas id="legalRepresentative" width="580" name="signature" style="display: block; padding-top: 10px; padding-right: 10px; padding-bottom: 10px; padding-left: 10px; border-top-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-bottom-left-radius: 10px; cursor: url('../assets/pen.png') 16 16, crosshair;"></canvas>
+                                        <img id="legalRepresentative" class="form-control" width="580" src="" alt="" style="display: none;">
+                                        <div id="legalRepresentative_validation" class="invalid-feedback"
+                                            style="margin-top: 0px;">Please enter signature.</div>
+                                        <br /><button type="button" id="LRClearButton"
+                                            class="btn btn-primary mt-3"
+                                            style="border-top-width: initial; border-right-width: initial; border-bottom-width: initial; border-left-width: initial; border-top-style: none; border-right-style: none; border-bottom-style: none; border-left-style: none; border-top-color: initial; border-right-color: initial; border-bottom-color: initial; border-left-color: initial; border-image-source: initial; border-image-slice: initial; border-image-width: initial; border-image-outset: initial; border-image-repeat: initial; border-top-left-radius: 5px; border-top-right-radius: 5px; border-bottom-right-radius: 5px; border-bottom-left-radius: 5px; background-color: var(--btn-primary-color); font-size: 16px; font-weight: 400; cursor: pointer;">Clear</button>
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-4 mt-1">
+                                  <custom-input label="Signature Date:" type="Date" id="LRsign_date" name="LRsign_date" value="" placeholder=""> </custom-input>
+                                  <div id="p-dob-2" class="invalid-feedback" style="margin-top: 0px; display: none; color: red;">Please enter your DOB.</div>
                               </div>
-                          </div>
+                            </div>
+                        </div>
                       </div>
                   </div>
                   <!-- PATIENT CONCERN / GRIEVANCE FORM -->
@@ -1671,45 +1654,42 @@
                           <p></p>
                           <p>Thank you in advance for bringing your concern to our attention. Your feedback will
                               assist us in our continued effort to improve our quality of service to you.</p>
-                          <div class="row">
-                              <div class="form-group col-md-4"><custom-input label="Patient First name :" value=""
-                                      id="PCGfname" name="PCGfname" placeholder="First name" error="">
-                                  </custom-input></div>
-                              <div class="form-group col-md-4"><custom-input type="text"
-                                      label="Patient Last Name:" value="" id="PCGlname" name="PCGlname"
-                                      placeholder="Last Name"> </custom-input></div>
-                              <div class="form-group col-md-4"><custom-input type="text"
-                                      label="Relationship to patient:" value="" id="RelationshipToPatient"
-                                      name="RelationshipToPatient" placeholder="Relationship to patient">
-                                  </custom-input></div>
-                              <div id="i5d17uz" class="form-group description-of-concern"
-                                  style="padding-top: 20px;"><label for="description_of_concern" id="il0gwc"
-                                      class="question-label mb-2"
-                                      style="font-weight: normal; font-size: 16px;">Description of concern
-                                      (include date(s), time(s), and name(s) if possible):</label><textarea
-                                      rows="5" cols="70" id="description_of_concern" name="description_of_concern"
-                                      class="form-control input" style="box-shadow: none;"></textarea></div>
-                              <div class="form-group col-md-4"><custom-input label="Form Completed By:" value=""
-                                      id="formCompletedBy" name="formCompletedBy" placeholder="Form Completed By:"
-                                      error=""> </custom-input></div>
-                              <div class="form-group col-md-4 date-picker"><custom-input type="date"
-                                      label="Date: " id="ConcernGrievance_date" name="ConcernGrievance_date">
-                                  </custom-input></div>
-                              <div class="signature col-md-6 mt-3">
-                                  <label for="CGPatSign" id="CGPatSign" class="mb-2 question-label"
-                                      style="font-weight: normal; font-size: 16px;">Signature:</label><span
-                                      id="CGPatSign-2" class="required_fields"></span>
-                                  <div id="CGPatSign-3" class="signature-canvas">
-                                      <canvas id="CGPatSignCanvas" width="500" name="signature"
-                                          style="padding-top: 10px; padding-right: 10px; padding-bottom: 10px; padding-left: 10px; border-top-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-bottom-left-radius: 10px; cursor: url('../assets/pen.png') 16 16, crosshair;"></canvas>
-                                      <div id="CGPatSignCanvas_validation" class="invalid-feedback"
-                                          style="margin-top: 0px;">Please enter signature.</div>
-                                      <br /><button type="button" id="CGPatSignClearButton"
-                                          class="btn btn-primary mt-3"
-                                          style="border-top-width: initial; border-right-width: initial; border-bottom-width: initial; border-left-width: initial; border-top-style: none; border-right-style: none; border-bottom-style: none; border-left-style: none; border-top-color: initial; border-right-color: initial; border-bottom-color: initial; border-left-color: initial; border-image-source: initial; border-image-slice: initial; border-image-width: initial; border-image-outset: initial; border-image-repeat: initial; border-top-left-radius: 5px; border-top-right-radius: 5px; border-bottom-right-radius: 5px; border-bottom-left-radius: 5px; background-color: var(--btn-primary-color); font-size: 16px; font-weight: 400; cursor: pointer;">Clear</button>
-                                  </div>
+                              <div class="row">
+                                <div class="form-group col-md-4">
+                                    <custom-input label="Patient First name :" value="" id="PCGfname" name="PCGfname" placeholder="First name" error="" disabled> </custom-input>
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <custom-input type="text" label="Patient Last Name:" value="" id="PCGlname" name="PCGlname" placeholder="Last Name" disabled> </custom-input>
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <custom-input type="text" label="Relationship to patient:" value="" id="RelationshipToPatient" name="RelationshipToPatient" placeholder="Relationship to patient"> </custom-input>
+                                </div>
+                                <div id="i5d17uz" class="form-group description-of-concern col-md-6" style="padding-top: 20px;">
+                                    <label for="description_of_concern" id="il0gwc" class="question-label mb-2" style="font-weight: normal; font-size: 16px;">Description of concern (include date(s), time(s), and name(s) if possible):</label>
+                                    <textarea rows="5" cols="70" id="description_of_concern" name="description_of_concern" class="form-control input" style="box-shadow: none;"></textarea>
+                                </div>
+                                <div class="form-group col-md-4 mt-1">
+                                    <custom-input label="Form Completed By:" value="" id="formCompletedBy" name="formCompletedBy" placeholder="Form Completed By:" error=""> </custom-input>
+                                </div>
+                                
+                                <div class="signature col-md-6 mt-3">
+                                    <label for="CGPatSign" id="CGPatSign" class="mb-2 question-label"
+                                        style="font-weight: normal; font-size: 16px;">Signature:</label><span
+                                        id="CGPatSign-2" class="required_fields"></span>
+                                    <div id="CGPatSign-3" class="signature-canvas">
+                                        <canvas id="CGPatSignCanvas" width="580" name="signature" style="display: block; padding-top: 10px; padding-right: 10px; padding-bottom: 10px; padding-left: 10px; border-top-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-bottom-left-radius: 10px; cursor: url('../assets/pen.png') 16 16, crosshair;"></canvas>
+                                        <img id="CGPatSignCanvas" class="form-control" width="580" src="" alt="" style="display: none;">
+                                        <div id="CGPatSignCanvas_validation" class="invalid-feedback"
+                                            style="margin-top: 0px;">Please enter signature.</div>
+                                        <br /><button type="button" id="CGPatSignClearButton"
+                                            class="btn btn-primary mt-3"
+                                            style="border-top-width: initial; border-right-width: initial; border-bottom-width: initial; border-left-width: initial; border-top-style: none; border-right-style: none; border-bottom-style: none; border-left-style: none; border-top-color: initial; border-right-color: initial; border-bottom-color: initial; border-left-color: initial; border-image-source: initial; border-image-slice: initial; border-image-width: initial; border-image-outset: initial; border-image-repeat: initial; border-top-left-radius: 5px; border-top-right-radius: 5px; border-bottom-right-radius: 5px; border-bottom-left-radius: 5px; background-color: var(--btn-primary-color); font-size: 16px; font-weight: 400; cursor: pointer;">Clear</button>
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-4 date-picker mt-1">
+                                  <custom-input type="date" label="Date: " id="ConcernGrievance_date" name="ConcernGrievance_date"> </custom-input>
                               </div>
-                          </div>
+                            </div>
                           <hr class="border-dark-subtle" />
                           <div class="click-pat-survey row-cols-1 mt-3">
                               <custom-input-checkradio id="click_pat_survey" name="click_pat_survey"
@@ -1735,52 +1715,31 @@
                                     </div>
                                   </div>
                                   <div id="fb6zye" class="row">
-                                      <div class="mt-3">
-                                          <custom-input-checkradio id="insurance_type" name="insurance_type"
-                                              label="Insurance Type:" type="radio" value="Part A"
-                                              class="radio_btn_inline"><custom-input-checkradio-item
-                                                  label="Medicare" value="Medicare" id="insurance_type_Medicare"
-                                                  type="radio" class="form-check"
-                                                  style="display: inline-block; margin-right: 10px;">
-                                              </custom-input-checkradio-item><custom-input-checkradio-item
-                                                  label="Medicaid" value="Medicaid" id="insurance_type_Medicaid"
-                                                  type="radio" class="form-check"
-                                                  style="display: inline-block; margin-right: 10px;">
-                                              </custom-input-checkradio-item><custom-input-checkradio-item
-                                                  label="Prime Therapeutics" value="Prime Therapeutics"
-                                                  id="insurance_type_Prime_Therapeutics" type="radio"
-                                                  class="form-check"
-                                                  style="display: inline-block; margin-right: 10px;">
-                                              </custom-input-checkradio-item><custom-input-checkradio-item
-                                                  label="CIGNA" value="CIGNA" id="insurance_type_CIGNA"
-                                                  type="radio" class="form-check"
-                                                  style="display: inline-block; margin-right: 10px;">
-                                              </custom-input-checkradio-item><custom-input-checkradio-item
-                                                  label="United Healthcare" value="United Healthcare"
-                                                  id="insurance_type_United_Healthcare" type="radio"
-                                                  class="form-check"
-                                                  style="display: inline-block; margin-right: 10px;">
-                                              </custom-input-checkradio-item><custom-input-checkradio-item
-                                                  label="Anthem" value="Anthem" id="insurance_type_Anthem"
-                                                  type="radio" class="form-check"
-                                                  style="display: inline-block; margin-right: 10px;">
-                                              </custom-input-checkradio-item><custom-input-checkradio-item
-                                                  label="Humana" value="Humana" id="insurance_type_Humana"
-                                                  type="radio" class="form-check"
-                                                  style="display: inline-block; margin-right: 10px;">
-                                              </custom-input-checkradio-item><custom-input-checkradio-item
-                                                  label="BCBS" value="BCBS" id="insurance_type_BCBS" type="radio"
-                                                  class="form-check"
-                                                  style="display: inline-block; margin-right: 10px;">
-                                              </custom-input-checkradio-item><custom-input-checkradio-item
-                                                  label="Other" value="Other" id="insurance_type_Other"
-                                                  type="radio" class="form-check"
-                                                  style="display: inline-block; margin-right: 10px;">
-                                              </custom-input-checkradio-item></custom-input-checkradio><custom-input
-                                              value="" id="txtInsuranceTypeOther" name="txtInsuranceTypeOther"
-                                              placeholder="Other:" style="display: none;"> </custom-input>
-                                      </div>
-                                  </div>
+                                    <div class="mt-3">
+                                        <custom-input-checkradio id="insurance_type" name="insurance_type" label="Insurance Type:" type="radio" value="Part A" class="radio_btn_inline">
+
+                                            <custom-input-checkradio-item label="Medicare" value="Medicare" id="insurance_type_Medicare" type="radio" class="form-check" style="display: inline-block; margin-right: 10px;"> </custom-input-checkradio-item>
+
+                                            <custom-input-checkradio-item label="Medicaid" value="Medicaid" id="insurance_type_Medicaid" type="radio" class="form-check" style="display: inline-block; margin-right: 10px;"> </custom-input-checkradio-item>
+
+                                            <custom-input-checkradio-item label="Prime Therapeutics" value="Prime Therapeutics" id="insurance_type_Prime_Therapeutics" type="radio" class="form-check" style="display: inline-block; margin-right: 10px;"> </custom-input-checkradio-item>
+
+                                            <custom-input-checkradio-item label="CIGNA" value="CIGNA" id="insurance_type_CIGNA" type="radio" class="form-check" style="display: inline-block; margin-right: 10px;"> </custom-input-checkradio-item>
+
+                                            <custom-input-checkradio-item label="United Healthcare" value="United Healthcare" id="insurance_type_United_Healthcare" type="radio" class="form-check" style="display: inline-block; margin-right: 10px;"> </custom-input-checkradio-item>
+
+                                            <custom-input-checkradio-item label="Anthem" value="Anthem" id="insurance_type_Anthem" type="radio" class="form-check" style="display: inline-block; margin-right: 10px;"> </custom-input-checkradio-item>
+
+                                            <custom-input-checkradio-item label="Humana" value="Humana" id="insurance_type_Humana" type="radio" class="form-check" style="display: inline-block; margin-right: 10px;"> </custom-input-checkradio-item>
+
+                                            <custom-input-checkradio-item label="BCBS" value="BCBS" id="insurance_type_BCBS" type="radio" class="form-check" style="display: inline-block; margin-right: 10px;"> </custom-input-checkradio-item>
+
+                                            <custom-input-checkradio-item label="Other" value="Other" id="insurance_type_Other" type="radio" class="form-check" style="display: inline-block; margin-right: 10px;"> </custom-input-checkradio-item>
+                                        </custom-input-checkradio>
+
+                                        <custom-input value="" id="insurance_type_Other-text" style="display: none;" name="txtInsuranceTypeOther" placeholder="Other:" style="width: 200px;"> </custom-input>
+                                    </div>
+                                </div>
                                   <div id="fb6zye-2" class="row">
                                       <div class="form-group mt-3">
                                           <custom-input-checkradio id="PharmacySerLoc" name="PharmacySerLoc"
@@ -2068,68 +2027,43 @@
                                   sign it. I understand that the support services provided by InfuCare Rx that are
                                   described in this authorization can be changed at any time, without prior
                                   notification.</p>
-                              <div class="row">
-                                  <div class="col-md-4">
-                                      <custom-input label="Patient First name:*" value="" id="patient_fname"
-                                          name="patient_fname" placeholder="First name" error="" required="">
-                                      </custom-input>
-                                      <div id="p-first-name-3" class="invalid-feedback"
-                                          style="margin-top: 0px; display: none; color: red;">first name.</div>
+                                  <div class="row">
+                                    <div class="col-md-4">
+                                        <custom-input label="Patient First name:*" value="" id="patient_fname" name="patient_fname" placeholder="First name" error="" required="" disabled> </custom-input>
+                                        <div id="p-first-name-3" class="invalid-feedback" style="margin-top: 0px; display: none; color: red;">first name.</div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <custom-input type="text" label="Patient Last Name:*" value="" id="patient_lname" name="patient_lname" placeholder="Last Name" required="" disabled> </custom-input>
+                                        <div id="p-last-name-3" class="invalid-feedback" style="margin-top: 0px; display: none; color: red;">Please enter last name.</div>
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <custom-input label="Patient Date of Birth:*" type="Date" id="do_date" name="do_date" value="" placeholder=""> </custom-input>
+                                        <div id="p-dob-3" class="invalid-feedback" style="margin-top: 0px; display: none; color: red;">Please enter your DOB.</div>
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <custom-input type="text" label="Patient Address:" value="" id="patient_address" name="patient_address" placeholder="Patient Address"> </custom-input>
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <custom-input type="text" label="Patient Cell Phone:*" value="" id="patient_cell_phone" name="patient_cell_phone" placeholder="Patient Cell Phone" required=""> </custom-input>
+                                        <div id="p-last-name-4" class="invalid-feedback" style="margin-top: 0px; display: none; color: red;">Please enter your cell phone.</div>
+                                    </div>
+                                    
+                                    <div class="signature col-md-6 mt-3">
+                                        <label for="PAuthorization" id="i0n4kz-2" class="form-label question-label">Patient/Responsible Party Signature *</label><span id="Patient_Authorization" class="required_fields"></span>
+                                        <div id="i4s2zf-3" class="signature-canvas mb-3">
+                                            <canvas id="PAuthorization" width="500" name="signature" required="" style="padding-top: 10px; padding-right: 10px; padding-bottom: 10px; padding-left: 10px; border-top-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-bottom-left-radius: 10px; cursor: url('../assets/pen.png') 16 16, crosshair; display: block;"></canvas>
+
+                                            <div id="PAuthorization_validation" class="invalid-feedback" style="margin-top: 0px;">Please enter signature.</div>
+                                            <br /><img id="PAuthorization-2" width="500" src="" alt="" class="form-control" style="display: none;" />
+                                            <div id="signature_validation" class="invalid-feedback" style="margin-top: 0px;">Please enter signature.</div>
+                                            <button type="button" id="PAClearButton" class="btn btn-primary mt-3" style="border-top-width: initial; border-right-width: initial; border-bottom-width: initial; border-left-width: initial; border-top-style: none; border-right-style: none; border-bottom-style: none; border-left-style: none; border-top-color: initial; border-right-color: initial; border-bottom-color: initial; border-left-color: initial; border-image-source: initial; border-image-slice: initial; border-image-width: initial; border-image-outset: initial; border-image-repeat: initial; border-top-left-radius: 5px; border-top-right-radius: 5px; border-bottom-right-radius: 5px; border-bottom-left-radius: 5px; background-color: var(--btn-primary-color); font-size: 16px; font-weight: 400; cursor: pointer;">Clear</button>
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-md-4 mt-1">
+                                      <custom-input label="Signature Date:*" type="Date" id="signature_date" name="signature_date" value="" placeholder=""> </custom-input>
+                                      <div id="p-dob-4" class="invalid-feedback" style="margin-top: 0px; display: none; color: red;">Please enter your sign date.</div>
                                   </div>
-                                  <div class="col-md-4">
-                                      <custom-input type="text" label="Patient Last Name:*" value=""
-                                          id="patient_lname" name="patient_lname" placeholder="Last Name"
-                                          required=""> </custom-input>
-                                      <div id="p-last-name-3" class="invalid-feedback"
-                                          style="margin-top: 0px; display: none; color: red;">Please enter last
-                                          name.</div>
-                                  </div>
-                                  <div class="form-group col-md-4">
-                                      <custom-input label="Patient Date of Birth:*" type="Date" id="do_date"
-                                          name="do_date" value="" placeholder=""> </custom-input>
-                                      <div id="p-dob-3" class="invalid-feedback"
-                                          style="margin-top: 0px; display: none; color: red;">Please enter your
-                                          DOB.</div>
-                                  </div>
-                                  <div class="form-group col-md-4"><custom-input type="text"
-                                          label="Patient Address:" value="" id="patient_address"
-                                          name="patient_address" placeholder="Patient Address"> </custom-input>
-                                  </div>
-                                  <div class="form-group col-md-4">
-                                      <custom-input type="text" label="Patient Cell Phone:*" value=""
-                                          id="patient_cell_phone" name="patient_cell_phone"
-                                          placeholder="Patient Cell Phone" required=""> </custom-input>
-                                      <div id="p-last-name-4" class="invalid-feedback"
-                                          style="margin-top: 0px; display: none; color: red;">Please enter your
-                                          cell phone.</div>
-                                  </div>
-                                  <div class="form-group col-md-4">
-                                      <custom-input label="Signature Date:*" type="Date" id="PA_DOB_date"
-                                          name="PA_DOB_date" value="" placeholder=""> </custom-input>
-                                      <div id="p-dob-4" class="invalid-feedback"
-                                          style="margin-top: 0px; display: none; color: red;">Please enter your
-                                          sign date.</div>
-                                  </div>
-                                  <div class="signature col-md-12 mt-3">
-                                      <label for="PAuthorization" id="i0n4kz-2"
-                                          class="form-label question-label">Patient/Responsible Party Signature
-                                          *</label><span id="Patient_Authorization"
-                                          class="required_fields"></span>
-                                      <div id="i4s2zf-3" class="signature-canvas mb-3">
-                                          <canvas id="PAuthorization" width="500" name="signature" required=""
-                                              style="padding-top: 10px; padding-right: 10px; padding-bottom: 10px; padding-left: 10px; border-top-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-bottom-left-radius: 10px; cursor: url('../assets/pen.png') 16 16, crosshair; display: block;"></canvas>
-                                          <div id="PAuthorization_validation" class="invalid-feedback"
-                                              style="margin-top: 0px;">Please enter signature.</div>
-                                          <br /><img id="PAuthorization-2" width="500"
-                                              src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTEwOCIgaGVpZ2h0PSI0NTAiIHZpZXdCb3g9IjAgMCAxMTA4IDQ1MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGcgb3BhY2l0eT0iMC45NSIgZmlsdGVyPSJ1cmwoI2ZpbHRlcjBfYl8xMzQ4XzY0MDMpIj4KPHJlY3Qgd2lkdGg9IjExMDgiIGhlaWdodD0iNDUwIiB0cmFuc2Zvcm09Im1hdHJpeCgtMSAwIDAgMSAxMTA4IDApIiBmaWxsPSJ3aGl0ZSIvPgo8cmVjdCB4PSItMSIgeT0iMSIgd2lkdGg9IjExMDYiIGhlaWdodD0iNDQ4IiB0cmFuc2Zvcm09Im1hdHJpeCgtMSAwIDAgMSAxMTA2IDApIiBzdHJva2U9IiNEMkQwQ0UiIHN0cm9rZS13aWR0aD0iMiIvPgo8L2c+CjxwYXRoIGQ9Ik01NzcuOTU4IDE4Ny41QzU4NS40MzcgMTg3LjUgNTkxLjUgMTkzLjU2MyA1OTEuNSAyMDEuMDQyVjI0OC45NThDNTkxLjUgMjU2LjQzNyA1ODUuNDM3IDI2Mi41IDU3Ny45NTggMjYyLjVINTMwLjA0MkM1MjIuNTYzIDI2Mi41IDUxNi41IDI1Ni40MzcgNTE2LjUgMjQ4Ljk1OFYyMDEuMDQyQzUxNi41IDE5My41NjMgNTIyLjU2MyAxODcuNSA1MzAuMDQyIDE4Ny41SDU3Ny45NThaTTU4MC4zNzcgMjU1LjgzOUw1NTYuMTg2IDIzMi4xNDVDNTU1LjA4MiAyMzEuMDY0IDU1My4zNzUgMjMwLjk2NSA1NTIuMTYyIDIzMS44NUw1NTEuODEzIDIzMi4xNDVMNTI3LjYxOSAyNTUuODM4QzUyOC4zNzcgMjU2LjEwNSA1MjkuMTkyIDI1Ni4yNSA1MzAuMDQyIDI1Ni4yNUg1NzcuOTU4QzU3OC44MDYgMjU2LjI1IDU3OS42MiAyNTYuMTA1IDU4MC4zNzcgMjU1LjgzOUw1NTYuMTg2IDIzMi4xNDVMNTgwLjM3NyAyNTUuODM5Wk01NzcuOTU4IDE5My43NUg1MzAuMDQyQzUyNi4wMTUgMTkzLjc1IDUyMi43NSAxOTcuMDE1IDUyMi43NSAyMDEuMDQyVjI0OC45NThDNTIyLjc1IDI0OS44MjcgNTIyLjkwMiAyNTAuNjYgNTIzLjE4IDI1MS40MzJMNTQ3LjQ0MSAyMjcuNjc5QzU1MC45MTIgMjI0LjI4IDU1Ni4zNjUgMjI0LjExOSA1NjAuMDI0IDIyNy4xOTRMNTYwLjU1OSAyMjcuNjhMNTg0LjgxOCAyNTEuNDM2QzU4NS4wOTcgMjUwLjY2MiA1ODUuMjUgMjQ5LjgyOCA1ODUuMjUgMjQ4Ljk1OFYyMDEuMDQyQzU4NS4yNSAxOTcuMDE1IDU4MS45ODUgMTkzLjc1IDU3Ny45NTggMTkzLjc1Wk01NjcuNTUgMjAyLjA4M0M1NzIuNzMzIDIwMi4wODMgNTc2LjkzNCAyMDYuMjg1IDU3Ni45MzQgMjExLjQ2N0M1NzYuOTM0IDIxNi42NSA1NzIuNzMzIDIyMC44NTEgNTY3LjU1IDIyMC44NTFDNTYyLjM2OCAyMjAuODUxIDU1OC4xNjcgMjE2LjY1IDU1OC4xNjcgMjExLjQ2N0M1NTguMTY3IDIwNi4yODUgNTYyLjM2OCAyMDIuMDgzIDU2Ny41NSAyMDIuMDgzWk01NjcuNTUgMjA4LjMzM0M1NjUuODIgMjA4LjMzMyA1NjQuNDE3IDIwOS43MzYgNTY0LjQxNyAyMTEuNDY3QzU2NC40MTcgMjEzLjE5OCA1NjUuODIgMjE0LjYwMSA1NjcuNTUgMjE0LjYwMUM1NjkuMjgxIDIxNC42MDEgNTcwLjY4NCAyMTMuMTk4IDU3MC42ODQgMjExLjQ2N0M1NzAuNjg0IDIwOS43MzYgNTY5LjI4MSAyMDguMzMzIDU2Ny41NSAyMDguMzMzWiIgZmlsbD0iI0FDQUNBQyIvPgo8ZGVmcz4KPGZpbHRlciBpZD0iZmlsdGVyMF9iXzEzNDhfNjQwMyIgeD0iLTQiIHk9Ii00IiB3aWR0aD0iMTExNiIgaGVpZ2h0PSI0NTgiIGZpbHRlclVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgY29sb3ItaW50ZXJwb2xhdGlvbi1maWx0ZXJzPSJzUkdCIj4KPGZlRmxvb2QgZmxvb2Qtb3BhY2l0eT0iMCIgcmVzdWx0PSJCYWNrZ3JvdW5kSW1hZ2VGaXgiLz4KPGZlR2F1c3NpYW5CbHVyIGluPSJCYWNrZ3JvdW5kSW1hZ2UiIHN0ZERldmlhdGlvbj0iMiIvPgo8ZmVDb21wb3NpdGUgaW4yPSJTb3VyY2VBbHBoYSIgb3BlcmF0b3I9ImluIiByZXN1bHQ9ImVmZmVjdDFfYmFja2dyb3VuZEJsdXJfMTM0OF82NDAzIi8+CjxmZUJsZW5kIG1vZGU9Im5vcm1hbCIgaW49IlNvdXJjZUdyYXBoaWMiIGluMj0iZWZmZWN0MV9iYWNrZ3JvdW5kQmx1cl8xMzQ4XzY0MDMiIHJlc3VsdD0ic2hhcGUiLz4KPC9maWx0ZXI+CjwvZGVmcz4KPC9zdmc+Cg=="
-                                              alt="" class="form-control" style="display: none;" />
-                                          <div id="signature_validation" class="invalid-feedback"
-                                              style="margin-top: 0px;">Please enter signature.</div>
-                                          <button type="button" id="PAClearButton" class="btn btn-primary mt-3"
-                                              style="border-top-width: initial; border-right-width: initial; border-bottom-width: initial; border-left-width: initial; border-top-style: none; border-right-style: none; border-bottom-style: none; border-left-style: none; border-top-color: initial; border-right-color: initial; border-bottom-color: initial; border-left-color: initial; border-image-source: initial; border-image-slice: initial; border-image-width: initial; border-image-outset: initial; border-image-repeat: initial; border-top-left-radius: 5px; border-top-right-radius: 5px; border-bottom-right-radius: 5px; border-bottom-left-radius: 5px; background-color: var(--btn-primary-color); font-size: 16px; font-weight: 400; cursor: pointer;">Clear</button>
-                                      </div>
-                                  </div>
-                              </div>
+                                </div>
                               <!-- view_support_organizations -->
                               <div class="view_support_organizations mt-3">
                                   <custom-input-checkradio id="support_organizations" name="support_organizations"
