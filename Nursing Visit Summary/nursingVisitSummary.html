@@ -291,6 +291,107 @@
                             </div>
                         </div>
                     </div>
+                <!-- medication profile -->
+                    <div class="card" style="margin-bottom: 25;">
+                        
+                        <div class="card-body-row">
+                            <div>
+                            <h6 class="card-title">MEDICATION PROFILE</h6>  
+                            
+                            <custom-input-checkradio id="Medication_Profile" name="Medication_Profile"
+                            type="radio" value="Part A" class="radio_btn_below">
+
+                            <custom-input-checkradio-item label="Yes, Medication changes" value="yes" id="medication_changes_yes"
+                                type="radio" class="form-check" style="display: inline-block; margin-right: 10px;">
+                            </custom-input-checkradio-item>
+                            <custom-input-checkradio-item label="No, Medication changes" value="no" id="medication_changes_no"
+                                type="radio" class="form-check" style="display: inline-block; margin-right: 10px;">
+                            </custom-input-checkradio-item>
+                        </custom-input-checkradio>
+                    </div>
+                        <custom-input label='Specify Medication Changes:',type="text" id="Medication" name="weight" placeholder="" value="" required>
+                        </custom-input>
+                        </div>
+                    </div>
+
+                <!-- NeuRo/Psych -->
+
+                <div class="row">
+                    <!-- Left card Wrapper -->
+                    <div class="col-md-6 mb-4">
+                    <div class="card-body">
+                        <div class="card">
+                        
+                            <div class="card-body-row">
+                                <div>
+                                <h6 class="card-title">NEURO/PSYCH</h6>  
+                                
+                                <custom-input-checkradio id="NEURO/PSYCH" name="NEURO/PSYCH"
+                                type="radio" value="Part A" class="radio_btn_below">
+    
+                                <custom-input-checkradio-item label="WDL: A&O x 3, speech spontaneous; denies anxiety, depression, headache,  blurred vision, dizziness, tremors, numbness, tingling " value="yes" id="NEURO_PSYCH_yes"
+                                    type="radio" class="form-check" style="display: inline-block; margin-right: 10px;">
+                                </custom-input-checkradio-item>
+                                <custom-input-checkradio-item label="Not WDL, deviation noted" value="no" id="NEURO_PSYCH_no"
+                                    type="radio" class="form-check" style="display: inline-block; margin-right: 10px;">
+                                </custom-input-checkradio-item>
+                            </custom-input-checkradio>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                    <!-- Right card Wrapper -->
+                    <div class="col-md-6 mb-4">
+                    <div class="card-body">
+                        <div class="card">
+                        
+                            <div class="card-body-row">
+                                <custom-input-checkradio id="Neurology/Psychosocial Abnormalities:" name="Neurology/Psychosocial Abnormalities:" label="Neurology/Psychosocial Abnormalities:" class="radio_btn_inline" required>
+                                label="Neurology/Psychosocial Abnormalities:" class="radio_btn_inline" required>
+                                <custom-input-checkradio-item label="Lethargic" value="Lethargic"
+                                    id="Lethargic" class="col-md-4"></custom-input-checkradio-item>
+                                <custom-input-checkradio-item label="Restlessness" value="Restlessness"
+                                    id="Restlessness" class="col-md-4"></custom-input-checkradio-item>
+                                <custom-input-checkradio-item label="Memory Loss" value="Memory_Loss"
+                                    id="Memory_Loss" class="col-md-4"></custom-input-checkradio-item>
+                                <custom-input-checkradio-item label="Sluggish" value="Sluggish"
+                                    id="Sluggish" class="col-md-4"></custom-input-checkradio-item>
+                                <custom-input-checkradio-item label="Confusion" value="Confusion"
+                                    id="Confusion" class="col-md-4"></custom-input-checkradio-item>
+                                <custom-input-checkradio-item label="Numbness"
+                                    value="Numbness" id="Numbness"
+                                    class="col-md-4"></custom-input-checkradio-item>
+                                <custom-input-checkradio-item label="Difficulty Concentrating" value="Difficulty_Concentrating"
+                                    id="Difficulty_Concentrating" class="col-md-4"></custom-input-checkradio-item>
+                                <custom-input-checkradio-item label="Anxious" value="Anxious" id="Anxious"
+                                    class="col-md-4"></custom-input-checkradio-item>
+                                <custom-input-checkradio-item label="Tingling" value="Tingling" id="Tingling"
+                                    class="col-md-4"></custom-input-checkradio-item>
+                                <custom-input-checkradio-item label="Depressed, Hopeless" value="Depressed_Hopeless" id="Depressed_Hopeless"
+                                    class="col-md-4"></custom-input-checkradio-item>
+                                <custom-input-checkradio-item label="Burning" value="Burning" id="Burning"
+                                    class="col-md-4"></custom-input-checkradio-item>
+                                <custom-input-checkradio-item label="Tremor" value="Tremor" id="Tremor"
+                                    class="col-md-4"></custom-input-checkradio-item>
+                                <custom-input-checkradio-item label="Headache" value="Headache" id="Headache"
+                                    class="col-md-4"></custom-input-checkradio-item>
+                                <custom-input-checkradio-item label="Foot drop left" value="Foot_drop_left" id="Foot_drop_left"
+                                    class="col-md-4"></custom-input-checkradio-item>
+                                <custom-input-checkradio-item label="Foot drop right" value="Foot_drop_right" id="Foot_drop_right"
+                                    class="col-md-4"></custom-input-checkradio-item>
+                                <custom-input-checkradio-item label="Other" value="Other" id="Other"
+                                    class="col-md-4"></custom-input-checkradio-item>
+                            </custom-input-checkradio>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+
+                
+                
+
                 </div>
                 <div class="mt-4">
                     <button id="saveBtn" type="button" class="btn btn-success me-2">Submit</button>

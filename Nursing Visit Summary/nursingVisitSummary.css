@@ -190,3 +190,20 @@ h3.fields-title {
     padding-left: 0 !important;
     font-weight: 700;
 }
+
+.radio_btn_below .form-check{
+    flex-direction: column;
+    margin-left: 10px;
+}
+
+.radio_btn_below .form-label {
+    display: block;
+    padding-left: 0 !important;
+    font-weight: 700;
+    
+}
+.card-body-row #Medication{
+    display: none;
+    width: 70%;
+    margin-left: 40px;
+}

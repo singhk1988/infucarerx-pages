@@ -89,6 +89,11 @@ const hideAndShowLogic = () => {
     let pump_type_other = document.getElementById('pump_type_other');
     let otherRadiosDelivery = document.querySelectorAll('input[type="radio"][name="therapy_delivery_method"]');
     let otherRadiosPumpType = document.querySelectorAll('input[type="radio"][name="pump_type"]');
+    let Medication_changes_yes=document.getElementById('medication_changes_yes');
+    let Medication_changes_No=document.getElementById('medication_changes_no');
+    let NEURO_PSYCH_yes=document.getElementById('NEURO_PSYCH_yes');
+    let NEURO_PSYCH_no=document.getElementById('NEURO_PSYCH_no');
+    const checkboxes = document.querySelectorAll('.form-check-input[type="checkbox"]')
 
 
     therapy_other.addEventListener('change', function () {
@@ -157,6 +162,35 @@ const hideAndShowLogic = () => {
             }
         });
     })
+
+
+    Medication_changes_yes.addEventListener('click', function () {
+        document.getElementById('Medication').style.display='block';
+    });
+
+    Medication_changes_No.addEventListener('click', function () {
+        document.getElementById('Medication').style.display = 'none';
+    });
+
+
+    NEURO_PSYCH_yes.addEventListener('click', function() {
+        if (yesRadio.checked) {
+            checkboxes.forEach(checkbox => checkbox.disabled = true);
+        }
+
+    });
+
+   NEURO_PSYCH_no.addEventListener('click', function() {
+        disableCheckboxes(false);
+    });
+
+    function disableCheckboxes(disable) {
+        const checkboxes = document.getElementById('Neurology/Psychosocial Abnormalities:')
+        checkboxes.forEach(function(checkbox) {
+            checkbox.disabled = disable;
+        });
+    }
+
 
 }
 
