@@ -1,0 +1,163 @@
+p, .p, .page_section p, .section-diagonal-left p, .section-diagonal-right p, p.form-text span, li {
+    font-size: 16px;
+}
+p {
+    margin: auto !important;
+}
+* {
+    font-family: "Josefin Sans", "sans-serif" !important;
+} 
+h5 {
+    font-size: 1.25rem;
+}
+.form-check-label{
+    padding-left: 5px;
+    padding-bottom: 5px;
+}
+label {
+    font-weight: 400;
+}
+.form-item {
+    padding-top: 10px;
+}
+.form-select {
+    border-color: var(--border-color);
+    margin-bottom: 10px;
+}
+ .form-select:focus {
+    box-shadow: none !important;
+    border-color: var(--hover-color);
+ }
+h3 {
+   font-family: var(--font-family);
+    font-weight: 700;
+    font-size: 16px;
+    padding-top: 10px;
+}
+.form-control::placeholder {
+    color: #999 !important;
+}
+
+.table td:last-child {
+    text-align: left!important;
+}
+ 
+ 
+.btn {
+    border: none;
+    border-radius: 5px;
+    background-color: var(--btn-primary-color) !important;
+    font-size: 16px;
+    font-weight: 400;
+    cursor: pointer;
+}
+.btn:hover {
+    background-color: var(--btn-primary-color-hover);
+}
+
+.selected-items {
+    padding-bottom: 10px;
+}
+ 
+input.form-control {
+    border-color: var(--border-color);
+}
+input.form-control:hover {
+ border-color: var(--hover-color);
+}
+.form-control, .form-control:focus , input.form-control:focus {
+    box-shadow: none;
+}
+.btn-primary {
+    margin-right: 15px;
+}
+
+.lead{
+    font-size: 20px;
+    font-weight: 300;
+}
+ 
+ 
+.main-form-container {
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    padding: 15px 20px;
+    background-color: var(--form-container-background-color);
+}
+
+.heading-color {
+color: #54a0be;
+}
+h3.fields-title{
+    font-family: var(--font-family);
+    font-weight: 700;
+    font-size: 16px;
+  }
+#view_Privacy_Notice .form-label {
+    font-weight: 700;
+}
+.notice_of_privacy_practices table th,.notice_of_privacy_practices table tr {
+    line-height: 1.2;
+}
+
+.signature canvas {
+    border: 1px solid var(--border-color);
+    padding: 10px;
+    border-radius: 10px;
+    cursor: url(../assets/pen.png) 16 16, crosshair;
+}
+.radio_btn_inline .form-check {
+    display: inline-block;
+    margin-right: 10px;
+}
+.radio_btn_inline .form-label {
+    display: block;
+    padding-left: 0 !important;
+    font-weight: 700;
+}
+ 
+#txtInsuranceTypeOther .form-item {
+    padding-top: 0;
+}
+.container-xl-custom .multiple-checkbox { 
+    line-height: 1.2;
+    vertical-align: middle;
+}
+.multiple-checkbox tr th {
+    width: 350px;
+}
+.multiple-checkbox tr td {
+    text-align: center;
+}
+#click_pat_survey .form-label, #support_organizations .form-label, #view_medicare_DMEPOS .form-label, #view_medicare_DMEPOS_spanish .form-label, #legal_represenative .form-label, #txtRespTypeOther .form-label {
+    display: none;
+}
+ 
+/* Media query for smaller screens */
+
+@media(min-width:768px) {
+#txtInsuranceTypeOther input {
+    width: 306px;
+}
+
+.w-750 {
+    width: 750px;
+    margin: 0 auto;
+}
+}
+  @media(min-width:1200px) {
+    /* .container-xl-custom {
+        width: 990px;
+        margin: 0 auto;
+    } */
+  }
+   
+@media screen and (max-width: 1200px) {
+    .signature {
+        width: 100%;
+    }
+    .signature-canvas canvas {
+        width: 72vw;
+        height: 150px;
+    }
+}

@@ -1,0 +1,307 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nursing Visit Summary</title>
+    <link rel="stylesheet" href="../assets/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/index.css">
+    <link rel="stylesheet" href="./nursingVisitSummary.css">
+    <script src="../assets/CommonFormOperation.js"></script>
+</head>
+
+<body>
+    <main class="main-container pt-4 pb-5">
+        <div class="main-form-container">
+            <form action="">
+                <div id="form_hide">
+                    <div class="row">
+                        <!-- Left card Wrapper -->
+                        <div class="col-md-6 mb-4">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">PATIENT DEMOGRAPHICS</h5>
+                                    <div class="row">
+                                        <div class="form-group col-md-6">
+                                            <custom-input type="text" label="Patient First name: *" value="" id="fname"
+                                                name="fname" placeholder="First name" error="" required>
+                                            </custom-input>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <custom-input type="text" label="Patient Last Name: *" value="" id="lname"
+                                                name="lname" placeholder="Last Name" required>
+                                            </custom-input>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <custom-input label="Patient MRN:b*" type="number" id="mrn" name="mrn"
+                                                value="" placeholder="Patient MRN" required>
+                                            </custom-input>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <custom-input label="Date of Birth: *" type="date" id="dob" name="dob"
+                                                value="" required>
+                                            </custom-input>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Right card Wrapper -->
+                        <div class="col-md-6 mb-4">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">VISIT DETAILS</h5>
+                                    <div class="row">
+                                        <div class="form-group col-md-4">
+                                            <custom-input label="Visit Date: *" type="date" id="visit_date"
+                                                name="visit_date" value="" required>
+                                            </custom-input>
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <custom-input label="Time In: *" type="time" id="time_in" name="time_in"
+                                                value="" required>
+                                            </custom-input>
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <custom-input label="Time Out: *" type="time" id="time_out" name="time_out"
+                                                value="" required>
+                                            </custom-input>
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <custom-input type="text" label="Total Time: *" value="" id="total_time"
+                                                name="total_time" placeholder="" required>
+                                            </custom-input>
+                                        </div>
+                                        <div class="col-md-8">
+
+                                            <custom-input-checkradio id="schedule_type" name="schedule_type"
+                                                label="Select Schedule Type*" type="radio" value="Part A"
+                                                class="radio_btn_inline fw-bold" required>
+                                                <div class="form-group col-md-4">
+                                                    <custom-input-checkradio-item label="Scheduled" value="Scheduled"
+                                                        id="scheduled_type_Patient" type="radio" class="form-check"
+                                                        style="display: inline-block; margin-right: 10px;">
+                                                    </custom-input-checkradio-item>
+                                                </div>
+                                                <div class="form-group col-md-4">
+                                                    <custom-input-checkradio-item label="Unscheduled"
+                                                        value="Unscheduled" id="unscheduled_type_Patient" type="radio"
+                                                        class="form-check"
+                                                        style="display: inline-block; margin-right: 10px;">
+                                                    </custom-input-checkradio-item>
+                                                </div>
+                                            </custom-input-checkradio>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <h5>EMERGENCY AND HOSPITAL VISITS</h5>
+                        <custom-input-checkradio id="has_the_patient_side_effect" name="has_the_patient_side_effect"
+                            label="Has the patient experienced any side effects or any adverse drug events since the last infusion?"
+                            type="radio" value="Part A" class="radio_btn_inline">
+
+                            <custom-input-checkradio-item label="Yes" value="yes" id="has_the_patient_side_effect_yes"
+                                type="radio" class="form-check" style="display: inline-block; margin-right: 10px;">
+                            </custom-input-checkradio-item>
+                            <custom-input-checkradio-item label="No" value="no" id="has_the_patient_side_effect_no"
+                                type="radio" class="form-check" style="display: inline-block; margin-right: 10px;">
+                            </custom-input-checkradio-item>
+                        </custom-input-checkradio>
+
+                        <custom-input-checkradio id="emergency_department_visit" name="emergency_department_visit"
+                            label="Has there been an emergency department visit since last infusion?" type="radio"
+                            value="Part A" class="radio_btn_inline">
+
+                            <custom-input-checkradio-item label="Yes" value="yes" id="emergency_department_visit_yes"
+                                type="radio" class="form-check" style="display: inline-block; margin-right: 10px;">
+                            </custom-input-checkradio-item>
+                            <custom-input-checkradio-item label="No" value="no" id="emergency_department_visit_no"
+                                type="radio" class="form-check" style="display: inline-block; margin-right: 10px;">
+                            </custom-input-checkradio-item>
+                        </custom-input-checkradio>
+
+                        <div class="d-flex align-items-center">
+                            <custom-input-checkradio id="was_the_patient_hospitialized"
+                                name="was_the_patient_hospitialized"
+                                label="Was the patient hospitialized since last infusion?" type="radio" value="Part A"
+                                class="radio_btn_inline">
+                                <custom-input-checkradio-item label="Yes" value="yes"
+                                    id="was_the_patient_hospitialized_yes" type="radio" class="form-check"
+                                    style="display: inline-block; margin-right: 10px;">
+                                </custom-input-checkradio-item>
+                                <custom-input-checkradio-item label="No" value="no"
+                                    id="was_the_patient_hospitialized_no" type="radio" class="form-check"
+                                    style="display: inline-block; margin-right: 10px;">
+                                </custom-input-checkradio-item>
+
+                            </custom-input-checkradio>
+                            <div class="mt-4"><span>* If Yes, DO NOT PROCEED WITH INFUSION, CALL THE PHARMACY</span>
+                            </div>
+                        </div>
+                        <custom-input-checkradio id="patient_serious_infections" name="patient_serious_infections"
+                            label="Has the patient had any serious infections or fever since last delivery?"
+                            type="radio" value="Part A" class="radio_btn_inline">
+
+                            <custom-input-checkradio-item label="Yes" value="yes" id="patient_serious_infections_yes"
+                                type="radio" class="form-check" style="display: inline-block; margin-right: 10px;">
+                            </custom-input-checkradio-item>
+                            <custom-input-checkradio-item label="No" value="no" id="patient_serious_infections_no"
+                                type="radio" class="form-check" style="display: inline-block; margin-right: 10px;">
+                            </custom-input-checkradio-item>
+                        </custom-input-checkradio>
+                    </div>
+                    <div class="row">
+                        <!-- Left card Wrapper -->
+                        <div class="col-md-4 mb-4">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <custom-input-checkradio id="therapy" name="therapy" label="THERAPY *"
+                                            class="radio_btn_inline" required>
+                                            <custom-input-checkradio-item label="Antiboitics" value="Antiboitics"
+                                                id="antiboitics" class="col-md-4"></custom-input-checkradio-item>
+                                            <custom-input-checkradio-item label="Steriods" value="Steriods"
+                                                id="steriods" class="col-md-4"></custom-input-checkradio-item>
+                                            <custom-input-checkradio-item label="Other" value="Other" id="therapy_other"
+                                                class="col-md-4"></custom-input-checkradio-item>
+                                            <custom-input-checkradio-item label="Total Parenteral Nutrition"
+                                                value="Total Parenteral Nutrition" id="total_parenteral_nutrition"
+                                                class="col-md-4"></custom-input-checkradio-item>
+                                            <custom-input-checkradio-item label="Intravenous Immunoglobulin"
+                                                value="Intravenous Immunoglobulin" id="intravenous_immunoglobulin"
+                                                class="col-md-4"></custom-input-checkradio-item>
+                                            <custom-input-checkradio-item label="Subcutaneous Immunoglobulin"
+                                                value="Subcutaneous Immunoglobulin" id="subcutaneous_immunoglobulin"
+                                                class="col-md-4"></custom-input-checkradio-item>
+                                        </custom-input-checkradio>
+                                        <custom-input label="" type="text" id="visibleOtherTextBox_therapy_other"
+                                            name="visibleOtherTextBox_therapy_other" placeholder="" class="col-md-6"
+                                            style="display: none;"></custom-input>
+                                    </div>
+                                    <div class="row">
+                                        <custom-input-checkradio id="therapy_delivery_method" class="radio_btn_inline"
+                                            name="therapy_delivery_method" label="THERAPY DELIVERY METHOD" type="radio">
+                                            <custom-input-checkradio-item label="Gravaty" value="Gravaty" id="gravity"
+                                                type="radio"></custom-input-checkradio-item>
+                                            <custom-input-checkradio-item label="Pumb" value="Pumb" id="pump"
+                                                type="radio"></custom-input-checkradio-item>
+                                            <custom-input-checkradio-item label="Dial-a-flow" value="Dial-a-flow"
+                                                id="dial_flow" type="radio"></custom-input-checkradio-item>
+                                            <custom-input-checkradio-item label="Home Pump" value="Home Pump"
+                                                id="home_pump" type="radio"></custom-input-checkradio-item>
+                                            <custom-input-checkradio-item label="IV Push" value="IV Push" id="iv_push"
+                                                type="radio"></custom-input-checkradio-item>
+                                            <custom-input-checkradio-item label="Other" value="other"
+                                                id="therapy_delivery_other" type="radio"></custom-input-checkradio-item>
+
+                                        </custom-input-checkradio>
+                                        <custom-input label="" type="text" id="visibleOtherTextBox_delivery"
+                                            name="visibleOtherTextBox_delivery" placeholder="" class="col-md-6"
+                                            style="display: none;"></custom-input>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Middle card Wrapper -->
+                        <div class="col-md-5 mb-4">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <custom-input-checkradio id="reason_for_visit" name="reason_for_visit"
+                                            label="REASON FOR VISIT *" class="radio_btn_inline" required>
+                                            <custom-input-checkradio-item label="Instruction" value="Instruction"
+                                                id="instruction" class="col-md-4"></custom-input-checkradio-item>
+                                            <custom-input-checkradio-item label="Line Care" value="Line Care"
+                                                id="line_care" class="col-md-4"></custom-input-checkradio-item>
+                                            <custom-input-checkradio-item label="Line Draw" value="line_draw"
+                                                id="line_draw" class="col-md-4"></custom-input-checkradio-item>
+                                            <custom-input-checkradio-item label="Port Access" value="Port Access"
+                                                id="port_access" class="col-md-4"></custom-input-checkradio-item>
+                                            <custom-input-checkradio-item label="Assessment" value="Assessment"
+                                                id="assessment" class="col-md-4"></custom-input-checkradio-item>
+                                            <custom-input-checkradio-item label="Meducation Admin"
+                                                value="Medication Admin" id="medication_admin"
+                                                class="col-md-4"></custom-input-checkradio-item>
+                                            <custom-input-checkradio-item label="IV re-start" value="IV re-start"
+                                                id="re_start" class="col-md-4"></custom-input-checkradio-item>
+                                            <custom-input-checkradio-item label="Other" value="Other" id="visit_other"
+                                                class="col-md-4"></custom-input-checkradio-item>
+                                        </custom-input-checkradio>
+                                        <custom-input label="" type="text" id="visibleOtherTextBox_visit_other"
+                                            name="visibleOtherTextBox_visit_other" placeholder="" class="col-md-6"
+                                            style="display: none;"></custom-input>
+
+                                        <div id="show_pump_type" style="display: none;">
+                                            <custom-input-checkradio id="pump_type" name="pump_type" label="PUMP TYPE"
+                                                class="radio_btn_inline" type="radio">
+                                                <custom-input-checkradio-item label="Freedom" value="Freedom"
+                                                    id="freedom" class="col-md-4"></custom-input-checkradio-item>
+                                                <custom-input-checkradio-item label="Curlin" value="Curlin" id="curlin"
+                                                    class="col-md-4"></custom-input-checkradio-item>
+                                                <custom-input-checkradio-item label="Other" value="Other"
+                                                    id="pump_type_other"
+                                                    class="col-md-4"></custom-input-checkradio-item>
+                                            </custom-input-checkradio>
+                                            <custom-input label="" type="text" id="visibleOtherTextBox_pump_type"
+                                                name="visibleOtherTextBox_pump_type" placeholder="" class="col-md-6"
+                                                style="display: none;"></custom-input>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Right card Wrapper -->
+                        <div class="col-md-3 mb-4">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h6 class="card-title">VITAL SIGNS</h6>
+                                    <div class="row">
+                                        <div class="form-group col-md-6">
+                                            <custom-input type="text" label="BP: *" value="" id="bp" name="bp"
+                                                placeholder="" error="" required>
+                                            </custom-input>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <custom-input type="number" label="Pulse: *" value="" id="pulse"
+                                                name="pulse" placeholder="" required>
+                                            </custom-input>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <custom-input label="RR: *" type="number" id="rr" name="rr" value=""
+                                                placeholder="" required>
+                                            </custom-input>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <custom-input label="Temp: *" type="number" id="temp" name="temp"
+                                                placeholder="" value="" required>
+                                            </custom-input>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <custom-input label="Weight(kg): *" type="number" id="weight" name="weight"
+                                                placeholder="" value="" required>
+                                            </custom-input>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-4">
+                    <button id="saveBtn" type="button" class="btn btn-success me-2">Submit</button>
+                    <button id="cancelBtn" type="button" class="btn btn-success me-2">Cancel</button>
+                </div>
+                
+            </form>
+        </div>
+    </main>
+    <script src="../component/CustomFormComponents.js"></script>
+    <script src="./nursingVisitSummary.js"></script>
+</body>
+
+</html>

@@ -1,5 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap");
-
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
 :root {
     --primary-color: #173d6e;
     --form-background-color: #EBEFF4;
@@ -7,32 +6,19 @@
     --header-table-color: rgba(243, 248, 254, 1);
     --border-color: #ccdae4;
     --hover-color: #99b5c9;
-    --font-family: "Josefin Sans", "sans-serif";
+    --font-family: "Open Sans";
     --btn-primary-color: rgba(23, 61, 110, 1);
     --btn-primary-color-hover: rgba(0, 69, 120, 1);
 }
-
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "Josefin Sans", "sans-serif";
+    font-family: var(--font-family) !important;
 }
-
-.paragraph {
-    font-family: var(--font-family);
-    color: #1F1F1F;
-    font-size: 16px;
-    font-weight: 400;
-}
-
-/* main */
 .main-container {
     background-color: var(--form-background-color);
-}
-
-.main-section {
-    background-color: #ebeff4;
+    font-family: var(--font-family) !important;
 }
 
 .container-custom {
@@ -41,7 +27,9 @@
     padding: 15px 20px;
     background-color: var(--form-container-background-color);
 }
-
+.wrapper-class p {
+    font-size: 18px;
+}
 .form-control {
     border-color: var(--border-color);
 }
@@ -172,74 +160,6 @@ h3.fields-title {
     padding-left: 0 !important;
     font-weight: 700;
 }
-
-#txtInsuranceTypeOther .form-item {
-    padding-top: 0;
-}
-
-.container-xl-custom .multiple-checkbox {
-    line-height: 1.2;
-    vertical-align: middle;
-}
-
-.multiple-checkbox tr th {
-    width: 350px;
-}
-
-.multiple-checkbox tr td {
-    text-align: center;
-}
-
-/* Media query for smaller screens 
-1. Completed UI and Signature issue of west plam beach form (5.30) 
-2. forms bugs/status meeting (0.10) 
-
-*/
-.container-xl-custom .multiple-checkbox {
-    line-height: 1.2;
-    vertical-align: middle;
-}
-
-.multiple-checkbox tr th {
-    width: 350px;
-}
-
-.multiple-checkbox tr td {
-    text-align: center;
-}
-
-#click_pat_survey .form-label,
-#support_organizations .form-label,
-#view_medicare_DMEPOS .form-label,
-#view_medicare_DMEPOS_spanish .form-label,
-#legal_represenative .form-label {
-    display: none;
-}
-
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-}
-
-@media(min-width:768px) {
-    #txtInsuranceTypeOther input {
-        width: 306px;
-    }
-
-    .w-750 {
-        width: 750px;
-        margin: 0 auto;
-    }
-}
-
-@media(min-width:1200px) {
-    /* .container-xl-custom {
-        width: 990px;
-        margin: 0 auto;
-    } */
-}
-
 @media screen and (max-width: 1200px) {
     .signature {
         width: 100%;

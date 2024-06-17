@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../assets/bootstrap.min.css">
+    <link rel="stylesheet" href="./style.css">
+    <script src="../assets/CommonFormOperation.js"></script>
+</head>
+<body>
+    <main class="main-container pt-4 pb-5">
+        <div class="container container-custom ">
+             <form action="">
+              <div id="form_hide">
+                <div class="wrapper-class">
+                    <p>InfuCare Rx has launched a digital health program and will conduct all nursing onboarding in a virtual environment. InfuCare Rx wishes that you participate in this Virtual Onboarding process that has potential benefits including easier access to care and the convenience of meeting from a location of your choosing.</p>
+                   <h6 class="fw-bold pt-2">Virtual Onboarding:</h6> 
+                    <p>Includes the practice of health care delivery, care management, plan of treatment discussion, history and physical forms, assessments, transfer of medical data, and education using audio, video, or data communications.</p>
+
+                    <h6 class="fw-bold pt-2">Records:</h6> 
+                    <p> The Virtual Onboarding sessions with you will not be recorded or stored. The nurse case manager will document your information in your medical record consistent with applicable laws.</p>
+
+                    <h6 class="fw-bold pt-2">Digital Health Information:</h6>
+                    <p> The health information related to a person’s medical history, including symptoms, diagnoses, procedures, and outcomes. A health record includes information such as: a patient’s history, lab results, X-rays, clinical information, demographic information, notes, and others that may will be discussed with a nurse case manager during the Virtual Onboarding assessment.</p>
+                    <div class="list-wrapper">
+                        <p>By signing below, I hereby give my informed consent to participate in Virtual Onboarding and certify the following:</p>
+                        <ul>
+                            <li>I have read or had this form read and/or explained to me and have had opportunity to ask questions about the Virtual Onboarding process.</li>
+                            <li>I understand that I need access to a PC, laptop, or mobile device and a good internet connection is required in order to have an efficient Virtual Onboarding.</li>
+                            <li>I understand that the video conferencing technology used during the Virtual Onboarding will not be the same as a direct patient/health care provider visit since I will not be in the same room as my nurse case manager.</li>
+                            <li>I have been informed and I understand there are potential risks to this technology, including interruptions, unauthorized access, and technical difficulties and that InfuCare Rx, or I can discontinue the Virtual Onboarding if it is felt that the video conferencing connections are not adequate for the situation. Any practical alternatives have been discussed with me in a language and way I understand.</li>
+                            <li>I hereby completely and irrevocably release InfuCare Rx and its subsidiaries and their respective clinical staff members, nurses, pharmacists and other health care professionals, insurance providers, administrators, officers, employees and directors (collectively, the “InfuCare Rx Released Parties”) of any and all errors and omissions, known or unknown, foreseen or unforeseen, knowingly or unknowingly, as well as all claims, actions or damages arising from or in connection with the Virtual Onboarding process. Furthermore, I agree that the InfuCare Rx Released Parties have no liability or responsibility for the accuracy or completeness of the medical information submitted to them or for any errors in its electronic transmission.</li>
+                            I can withdraw my consent at any time by contacting my nurse case manager via telephone or mail as follows:
+                        </ul>
+                    </div>
+                </div>
+                <div class="form ">
+                    <h5 class="fw-bold text-center">* Nurseline: (877)- 822-9240 selection option 2.</h5>
+                    <h5 class="fw-bold text-center">* InfuCare Rx 396 Pottsville/St. Clair Highway Suite 100 Pottsville, PA 17901.</h5>
+                    <div class="row mt-4">
+                        <div class="form-group col-md-4">
+                            <custom-input type="text" label="Patient First name: *" value="" id="fname"
+                                name="fname" placeholder="First name" error="" required="" >
+                            </custom-input>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <custom-input type="text" label="Patient Last Name: *" value="" id="lname"
+                                name="lname" placeholder="Last Name" required="" > </custom-input>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <custom-input label="Patient MRN: *" type="number" id="mrn" name="mrn" value=""
+                                placeholder="Patient MRN" required="" > </custom-input>
+                        </div>
+                        <div class="form-group col-md-4 mt-1">
+                            <custom-input type="date" label="DOB: *" id="patient_Dob"
+                                name="patient_Dob" required=""> </custom-input>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <custom-input label="Name of Patient or Legal Guardian " value="" id="LegalGName"
+                                name="LegalGName" placeholder="Legal Guardian Name" error="">
+                            </custom-input>
+                        </div>
+                        <div class="row gap-4 mt-4">
+                            <div class="signature col-md-6 mt-3">
+                                <label for="patient_sign" id="i0n4kz" class="form-label question-label" style="font-weight: normal; font-size: 16px;">Signature of Patient or Legal Guardian * </label><span id="required_patient_sign" class="required_fields"></span>
+                                <div id="i4s2zf" class="signature-canvas">
+                                    <canvas id="patient_sign" width="500" name="signature" required="" style="padding-top: 10px; padding-right: 10px; padding-bottom: 10px; padding-left: 10px; border-top-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-bottom-left-radius: 10px; cursor: url('../assets/pen.png') 16 16, crosshair;"></canvas>
+                                    <img id="patient_sign" class="form-control" width="500" src="" alt="" style="display: none;">
+                                    <div id="patient_sign_validation" class="invalid-feedback" style="margin-top: 0px;">Please enter signature.</div>
+                                    <br />
+                                    <button type="button" id="clearButton" class="btn btn-primary mt-3" style="border-top-width: initial; border-right-width: initial; border-bottom-width: initial; border-left-width: initial; border-top-style: none; border-right-style: none; border-bottom-style: none; border-left-style: none; border-top-color: initial; border-right-color: initial; border-bottom-color: initial; border-left-color: initial; border-image-source: initial; border-image-slice: initial; border-image-width: initial; border-image-outset: initial; border-image-repeat: initial; border-top-left-radius: 5px; border-top-right-radius: 5px; border-bottom-right-radius: 5px; border-bottom-left-radius: 5px; background-color: var(--btn-primary-color); font-size: 16px; font-weight: 400; cursor: pointer;">Clear</button>
+                                </div>
+                            </div>
+                        <div class="form-group col-md-4 mt-1">
+                            <custom-input type="date" label="Signature Date: *" id="date_sign"
+                                name="date_sign" required=""> </custom-input>
+                        </div>
+                        </div>
+                        
+                    </div>
+                </div>
+              </div>
+              <div class="mt-4">
+                <button id="saveBtn" type="button" class="btn btn-success me-2">Submit</button>
+                <button id="cancelBtn" type="button" class="btn btn-success me-2">Cancel</button>
+            </div>
+          </form>
+        </div>
+    </main>
+    <script src="../component/CustomFormComponents.js"></script>
+    <script src="./script.js"></script>
+</body>
+</html>

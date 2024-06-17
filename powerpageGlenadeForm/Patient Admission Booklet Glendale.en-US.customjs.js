@@ -15,7 +15,7 @@ const requiredControlsStep4 = {
     'NPPfname': 'Please enter first name.',
     //'LRfname': 'Please enter first name.',
     //'LRlname':'Please enter last name.',
-    'LRsign_date': 'Please select signature date.',
+    //'LRsign_date': 'Please select signature date.',
 };
 const requiredControlsStep5 = {
     'ConcernGrievance_date': 'Please select signature date.',
@@ -31,8 +31,6 @@ const requiredControlsStep6 = {
     'PA_DOB_date': 'Please enter date of birth.',
     'do_date': 'Please select signature date.',
     'patient_cell_phone': 'Please enter cell phone. ',
-    'signature_date': 'Please select signature date',
-    'PAuthorization': 'please sign'
 };
 
 const handleSaveAsDraft = () => {
@@ -84,7 +82,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 
 
     showOtherSelectedRadioButtons();
-
+    
     commonFormOpeation.showSpinner('overlay-spinner', true);
 
     {
@@ -92,7 +90,7 @@ document.addEventListener("DOMContentLoaded", async function () {
         const headerFormText = document.getElementById('header_form_text');
 
         headerForm.style.display = 'block';
-        headerFormText.innerText = 'Patient Admission Booklet - West Palm Beach';
+        headerFormText.innerText = 'Patient Admission Booklet - Glenade';
     }
 
     //  showPatientSignature();
@@ -199,10 +197,10 @@ document.addEventListener("DOMContentLoaded", async function () {
         console.log('formData', formData, fromResponses);
 
         commonFormOpeation.setFormDataFromSave(getQuestionToIdMap(), getAnswerToIdMap(), JSON.parse(fromResponses));
-
+        
     }
 
-
+  
     signatureData = await signatureTask;
     if (signatureData) {
         commonFormOpeation.setSignatureFromSave('patient_sign', signatureData[0]?.happ_signature /*window.localStorage.getItem(`${formResponseId}-sig`)*/);
@@ -225,7 +223,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     document.getElementById("saveBtn").addEventListener('click', async () => {
 
         commonFormOpeation.showSpinner('overlay-spinner', true);
-        let hasError = validateFormData(requiredControlsStep6, 5);
+        let hasError = validateFormData();
         if (hasError) {
             showToast('failed', 'Please Fill the Required Fields.');
         } else {
@@ -420,16 +418,11 @@ function validateFormData(requiredControls, currentIndex) {
         legalRepresentative: false,
         PAuthorization: false
     };
-    const legalRepresentativeCheckbox = document.querySelector('#legal_represenative input');
     let hasError = false;
-    let selectors = Object.keys(requiredControls).filter((tags)=>{
-        if(!legalRepresentativeCheckbox.checked) return !(tags.includes("LR")); 
-        else return true;
-     }).map(id => `#${id}`).join(', ');
+    let selectors = Object.keys(requiredControls).map(id => `#${id}`).join(', ');
     let elements = document.querySelectorAll(selectors);
     elements.forEach(el => {
         const elementType = el.getAttribute('type') ?? el.type;
-        const tagName = el.getAttribute('tagName') ?? el.tagName;
         if (elementType === 'checkbox') {
             let checkBoxElements = el.querySelectorAll('.form-check-input');
             let isAnyCheckBoxSelected = false;
@@ -448,10 +441,10 @@ function validateFormData(requiredControls, currentIndex) {
                 hasError = true;
                 ValidationErrorStatus.viewPrivacyNotice = true;
                 el.setAttribute('error', requiredControls[el.id]);
+            } else {
+
             }
-        } 
-        else if(tagName === "CANVAS" || tagName === "IMG") {}
-        else {
+        } else {
             let value = el.getAttribute('value') ?? el.value;
             if (!value || !value.trim()) {
                 hasError = true;
@@ -468,6 +461,7 @@ function validateFormData(requiredControls, currentIndex) {
         }
     });
 
+
     if (currentIndex === 2) {
         const canvas_patient_sign = document.getElementById('patient_sign');
         if (isCanvasBlank(canvas_patient_sign)) {
@@ -478,27 +472,13 @@ function validateFormData(requiredControls, currentIndex) {
         }
     } else if (currentIndex === 3) {
         const canvas_patient_rp_sign = document.getElementById('patient_rp_sign');
-        const canvas_legalRepresentative_sign = document.getElementById('legalRepresentative');
+        //const canvas_legalRepresentative = document.getElementById('legalRepresentative');
 
         if (isCanvasBlank(canvas_patient_rp_sign)) {
             hasError = true;
             ValidationErrorStatus.patient_rp_sign = true;
             canvas_patient_rp_sign.style.borderColor = 'red';
             document.getElementById('patient_rp_sign_validation').style.display = 'block';
-        }
-
-        if (legalRepresentativeCheckbox && legalRepresentativeCheckbox.checked) {
-            if (isCanvasBlank(canvas_legalRepresentative_sign)) {
-                hasError = true;
-                ValidationErrorStatus.legalRepresentative = true;
-                canvas_legalRepresentative_sign.style.borderColor = 'red';
-                document.getElementById('legalRepresentative_validation').style.display = 'block';
-            }
-        } else {
-            ValidationErrorStatus.legalRepresentative = false;
-            document.getElementById('legalRepresentative_validation').style.display = 'none';
-            // legalRepresentativeSignDate.setAttribute('error', '');
-            canvas_legalRepresentative_sign.style.borderColor = '';
         }
     } else if (currentIndex === 4) {
         const canvas_CGPatSignCanvas = document.getElementById('CGPatSignCanvas');
@@ -509,7 +489,7 @@ function validateFormData(requiredControls, currentIndex) {
             document.getElementById('CGPatSignCanvas_validation').style.display = 'block';
         }
     } else if (currentIndex === 5) {
-        const canvas_PAuthorization = document.querySelector('canvas#PAuthorization');
+        const canvas_PAuthorization = document.getElementById('PAuthorization');
         if (isCanvasBlank(canvas_PAuthorization)) {
             hasError = true;
             ValidationErrorStatus.PAuthorization = true;
@@ -704,166 +684,175 @@ function nextAndprevbtnwithsavedraft() {
 
 const getQuestionToIdMap = () => {
     const idToQueMap = {
-
+  
         // step 2
-        "view_welcome_packet": "2dc07b5c-161c-ef11-840a-002248095c06",
-
+        "view_welcome_packet": "5afd9607-a621-ef11-840a-000d3a371898",
+  
         // step 4
-
-        "legal_represenative": "884b583f-171c-ef11-840a-002248095c06",
-        "view_Privacy_Notice": "d1078924-171c-ef11-840a-002248095c06",
-
+  
+        "legal_represenative": "23614729-a621-ef11-840a-002248095c06",
+        "view_Privacy_Notice": "290f081d-a621-ef11-840a-002248095c06",
+  
         // step 5
-
-        "click_pat_survey": "98195b57-171c-ef11-840a-002248095c06",
+  
+        "click_pat_survey": "4fd79439-a621-ef11-840a-000d3a5c0fc6",
         // step 6
-
-        "support_organizations": "f158056a-171c-ef11-840a-002248095c06",
-        "view_medicare_DMEPOS": "cf6c2472-171c-ef11-840a-002248095c06",
-        "view_medicare_DMEPOS_spanish": "f0e0e17c-171c-ef11-840a-000d3a5c0fc6",
-
-
+  
+        "support_organizations": "568a5045-a621-ef11-840a-000d3a371898",
+        "view_medicare_DMEPOS": "a2353778-a621-ef11-840a-000d3a5c0fc6",
+        "view_medicare_DMEPOS_spanish": "696697a4-a521-ef11-840a-000d3a371898",
+  
+  
         // step 3
-        "fname": "5f5b9926-2a18-ef11-9f89-002248095c06",
-        "lname": "853b7a6a-2a18-ef11-9f89-000d3a5c0fc6",
-        "mrn": "b14d4575-2a18-ef11-9f89-002248095c06",
-        "date_sign": "604c5a8e-2a18-ef11-9f89-002248095c06",
-        "LegalGName": "4b66d09d-2a18-ef11-9f89-000d3a371898",
-        "patient_sign": "0f3a1ff0-2a18-ef11-9f89-002248095c06",
-        "ProWitName": "2ab45561-2b18-ef11-9f89-000d3a371898",
-        "date": "17f8f269-2b18-ef11-9f89-002248095c06",
+        "fname": "84d51284-a621-ef11-840a-000d3a371898",
+        "lname": "dcfb7ed8-a521-ef11-840a-000d3a5c0fc6",
+        "mrn": "d823b18f-a621-ef11-840a-002248095c06",
+        "date_sign": "5d62dd9b-a621-ef11-840a-002248095c06",
+        "LegalGName": "bacf5ab4-a221-ef11-840a-000d3a5c0fc6",
+        "patient_sign": "e699b1b4-a621-ef11-840a-000d3a371898",
+        "ProWitName": "1726c4df-a221-ef11-840a-000d3a371898",
+        "date": "1efaa9ba-a621-ef11-840a-000d3a371898",
         // step 4
-        "NPPfname": "ebe2c243-2d18-ef11-9f89-002248095c06",
-        "NPPlname": "6aaf4059-2d18-ef11-9f89-002248095c06",
-        "sign_date": "b7952088-2d18-ef11-9f89-002248095c06",
-        "patient_rp_sign": "b7952088-2d18-ef11-9f89-002248095c06",
+        "NPPfname": "153266c7-a621-ef11-840a-000d3a5c0fc6",
+        "NPPlname": "d88fa7d0-a621-ef11-840a-000d3a371898",
+        "sign_date": "6af298de-a621-ef11-840a-000d3a371898",
+        "patient_rp_sign": "1250cfe4-a621-ef11-840a-000d3a371898",
         // step 4.1
-        "LRfname": "41c2b4f7-2d18-ef11-9f89-002248095c06",
-        "LRlname": "c5011a09-2e18-ef11-9f89-000d3a371898",
-        "LRsign_date": "f6f2391b-2e18-ef11-9f89-000d3a371898",
-        "legalRepresentative": "ac962c2d-2e18-ef11-9f89-000d3a371898",
+        "LRfname": "f66555f2-a621-ef11-840a-000d3a371898",
+        "LRlname": "7b47e10f-a321-ef11-840a-000d3a371898",
+        "LRsign_date": "4e5f83a8-a321-ef11-840a-002248095c06",
+        "legalRepresentative": "2e58c2d3-a321-ef11-840a-000d3a5c0fc6",
         // step 5
-        "PCGfname": "62b56506-2f18-ef11-9f89-002248095c06",
-        "PCGlname": "e4690516-2f18-ef11-9f89-000d3a371898",
-        "RelationshipToPatient": "10883d26-2f18-ef11-9f89-002248095c06",
-        "description_of_concern": "25de685e-2f18-ef11-9f89-000d3a371898",
-        "formCompletedBy": "4da2496c-2f18-ef11-9f89-002248095c06",
-        "ConcernGrievance_date": "65ea8079-2f18-ef11-9f89-002248095c06",
-        "CGPatSignCanvas": "03318d99-2f18-ef11-9f89-002248095c06",
-        "resp_type": "bc79515d-3418-ef11-9f89-000d3a371898",
-        "insurance_type": "1bb88e7c-e118-ef11-9f89-002248095c06",
-        "PharmacySerLoc": "98beb90f-e118-ef11-9f89-000d3a371898",
-        "whenYou_started": "6a44962d-3518-ef11-9f89-002248095c06",
-        "How_satisfied_are_1": "f0da0744-3518-ef11-9f89-000d3a371898",
-        "How_satisfied_are_2": "1a28dc4e-3518-ef11-9f89-000d3a5c0fc6",
-        "How_satisfied_are_3": "7abf446c-3518-ef11-9f89-000d3a371898",
-        "How_satisfied_are_4": "2c8e1a7b-3518-ef11-9f89-002248095c06",
-        "How_would_you_rate_1": "998bec55-3518-ef11-9f89-002248095c06",
-        "How_would_you_rate_2": "12663562-3518-ef11-9f89-002248095c06",
-        "How_would_you_rate_3": "ca25c473-3518-ef11-9f89-000d3a371898",
+        "PCGfname": "a0cd27f6-a621-ef11-840a-002248095c06",
+        "PCGlname": "30f446e5-a321-ef11-840a-002248095c06",
+        "RelationshipToPatient": "4c817c04-a721-ef11-840a-000d3a371898",
+        "description_of_concern": "2f6910f8-a321-ef11-840a-000d3a5c0fc6",
+        "formCompletedBy": "1faa9432-a721-ef11-840a-000d3a371898",
+        "ConcernGrievance_date": "454f5d46-a721-ef11-840a-000d3a371898",
+        "CGPatSignCanvas": "407bc24d-a721-ef11-840a-000d3a371898",
+        "resp_type": "a3d07d83-a421-ef11-840a-002248095c06",
+        "insurance_type": "075aaa4e-a821-ef11-840a-000d3a371898",
+        "PharmacySerLoc": "facf297a-a521-ef11-840a-000d3a371898",
+        "whenYou_started": "2a6f545c-a721-ef11-840a-002248095c06",
+        "How_satisfied_are_1": "07ed4e5f-a421-ef11-840a-002248095c06",
+        "How_satisfied_are_2": "85d966ef-a521-ef11-840a-000d3a371898",
+        "How_satisfied_are_3": "4106e1c5-a421-ef11-840a-002248095c06",
+        "How_satisfied_are_4": "e1e0f48f-a721-ef11-840a-000d3a5c0fc6",
+        "How_would_you_rate_1": "3bea5c68-a721-ef11-840a-002248095c06",
+        "How_would_you_rate_2": "2670867d-a721-ef11-840a-000d3a5c0fc6",
+        "How_would_you_rate_3": "638636e6-a421-ef11-840a-000d3a5c0fc6",
+        "How_would_you_feel": "8dc8d3b5-a721-ef11-840a-000d3a371898",
         // step 6
-        "patient_fname": "84e40d28-3818-ef11-9f89-000d3a371898",
-        "patient_lname": "e9f21735-3818-ef11-9f89-002248095c06",
-        "do_date": "4540a883-3818-ef11-9f89-002248095c06",
-        "patient_address": "53e62765-3818-ef11-9f89-000d3a371898",
-        "patient_cell_phone": "3b7a0c71-3818-ef11-9f89-002248095c06",
-        "signature_date": "5a500e41-3818-ef11-9f89-002248095c06",
-        "PAuthorization": "0454a58f-3818-ef11-9f89-002248095c06",
+        "patient_fname": "4565dcf2-a421-ef11-840a-000d3a5c0fc6",
+        "patient_lname": "9bd74dce-a721-ef11-840a-000d3a371898",
+        "do_date": "bc8451d5-a721-ef11-840a-000d3a371898",
+        "patient_address": "79bf5eff-a421-ef11-840a-000d3a5c0fc6",
+        "patient_cell_phone": "d8db2de7-a721-ef11-840a-000d3a5c0fc6",
+        "PA_DOB_date": "dd1d1fef-a721-ef11-840a-002248095c06",
+        "PAuthorization": "cfeb9301-a821-ef11-840a-000d3a371898",
     };
-
-
+  
+  
     // const queToIdMap = Object.fromEntries(new Map(Object.keys(idToQueMap).map((k) => [idToQueMap[k], k])));
     return idToQueMap;
-}
-const getAnswerToIdMap = () => {
+  }
+  const getAnswerToIdMap = () => {
     const idToAnsMap = {
         // step 2
-        "chkWelcomePacket": "5bcc395f-161c-ef11-840a-000d3a5c0fc6",
+        "chkWelcomePacket": "5ffd9607-a621-ef11-840a-000d3a371898",
         // step 4
-        "chkPrivacyNotice": "d2078924-171c-ef11-840a-002248095c06",
-        "see_legal_represenative": "894b583f-171c-ef11-840a-002248095c06",
+        "chkPrivacyNotice": "310f081d-a621-ef11-840a-002248095c06",
+        "see_legal_represenative": "4c0e072c-a621-ef11-840a-000d3a371898",
         // step 5 
-        "chkCGClickPatSurvey": "20550456-171c-ef11-840a-000d3a5c0fc6",
+        "chkCGClickPatSurvey": "7a6e5d39-a621-ef11-840a-000d3a371898",
         // step 6 
-
-        "see_medicare_DMEPOS_span": "4f70b077-171c-ef11-840a-000d3a371898",
-        "see_medicare_DMEPOS": "22316572-171c-ef11-840a-000d3a5c0fc6",
-        "see_SupportOrganizations": "8049b46a-171c-ef11-840a-000d3a371898",
-
+  
+        "see_medicare_DMEPOS_span": "8fd425a8-a521-ef11-840a-000d3a5c0fc6",
+        "see_medicare_DMEPOS": "a1e10f77-a621-ef11-840a-000d3a371898",
+        "see_SupportOrganizations": "431f4747-a621-ef11-840a-002248095c06",
+  
         // step 5
-        "resp_type_Patient": "f7fdbd5e-3418-ef11-9f89-002248095c06",
-        "resp_type_Caregiver": "f8fdbd5e-3418-ef11-9f89-002248095c06",
-        "respodent_type_Other": "be79515d-3418-ef11-9f89-000d3a371898",
-        "insurance_type_Medicare": "1fb88e7c-e118-ef11-9f89-002248095c06",
-        "insurance_type_Medicaid": "58134c80-e118-ef11-9f89-000d3a371898",
-        "insurance_type_Prime_Therapeutics": "5d134c80-e118-ef11-9f89-000d3a371898",
-        "insurance_type_CIGNA": "98098782-e118-ef11-9f89-002248095c06",
-        "insurance_type_United_Healthcare": "60134c80-e118-ef11-9f89-000d3a371898",
-        "insurance_type_Anthem": "99098782-e118-ef11-9f89-002248095c06",
-        "insurance_type_Humana": "9c098782-e118-ef11-9f89-002248095c06",
-        "insurance_type_BCBS": "61134c80-e118-ef11-9f89-000d3a371898",
-        "insurance_type_Other": "9d098782-e118-ef11-9f89-002248095c06",
+        "resp_type_Patient": "add07d83-a421-ef11-840a-002248095c06",
+        "resp_type_Caregiver": "7da2ce7e-a421-ef11-840a-000d3a5c0fc6",
+        "respodent_type_Other": "3615f084-a421-ef11-840a-000d3a371898",
+        "insurance_type_Medicare": "115aaa4e-a821-ef11-840a-000d3a371898",
+        "insurance_type_Medicaid": "245aaa4e-a821-ef11-840a-000d3a371898",
+        "insurance_type_Prime_Therapeutics": "355aaa4e-a821-ef11-840a-000d3a371898",
+        "insurance_type_CIGNA": "455aaa4e-a821-ef11-840a-000d3a371898",
+        "insurance_type_United_Healthcare": "7bf0fd4d-a821-ef11-840a-000d3a5c0fc6",
+        "insurance_type_Anthem": "5b5aaa4e-a821-ef11-840a-000d3a371898",
+        "insurance_type_Humana": "655aaa4e-a821-ef11-840a-000d3a371898",
+        "insurance_type_BCBS": "51e24f4f-a821-ef11-840a-002248095c06",
+        "insurance_type_Other": "56e24f4f-a821-ef11-840a-002248095c06",
         // location
-        "PharmacySerLoc_CA": "93824e11-e118-ef11-9f89-002248095c06",
-        "PharmacySerLoc_LA": "9b824e11-e118-ef11-9f89-002248095c06",
-        "PharmacySerLoc_MD": "9e824e11-e118-ef11-9f89-002248095c06",
-        "PharmacySerLoc_NJ": "99beb90f-e118-ef11-9f89-000d3a371898",
-        "PharmacySerLoc_PA": "a7824e11-e118-ef11-9f89-002248095c06",
-        "PharmacySerLoc_TX": "b9824e11-e118-ef11-9f89-002248095c06",
-        "PharmacySerLoc_FL": "ba824e11-e118-ef11-9f89-002248095c06",
-        "PharmacySerLoc_Unknown": "b8beb90f-e118-ef11-9f89-000d3a371898",
+        "PharmacySerLoc_CA": "6dca7374-a521-ef11-840a-002248095c06",
+        "PharmacySerLoc_LA": "e97c6e7a-a521-ef11-840a-002248095c06",
+        "PharmacySerLoc_MD": "0ed0297a-a521-ef11-840a-000d3a371898",
+        "PharmacySerLoc_NJ": "ced4f275-a521-ef11-840a-000d3a5c0fc6",
+        "PharmacySerLoc_PA": "14d0297a-a521-ef11-840a-000d3a371898",
+        "PharmacySerLoc_TX": "5e7d6e7a-a521-ef11-840a-002248095c06",
+        "PharmacySerLoc_FL": "74de057c-a521-ef11-840a-000d3a5c0fc6",
+        "PharmacySerLoc_Unknown": "7bde057c-a521-ef11-840a-000d3a5c0fc6",
+  
         // table answerId
-        "when_you_started_service5": "5d51e82a-3518-ef11-9f89-000d3a5c0fc6",
-        "when_you_started_service4": "6d44962d-3518-ef11-9f89-002248095c06",
-        "when_you_started_service3": "a4d00f30-3518-ef11-9f89-000d3a371898",
-        "when_you_started_service2": "6e44962d-3518-ef11-9f89-002248095c06",
-        "when_you_started_service1": "6f44962d-3518-ef11-9f89-002248095c06",
-
-        "how_satisfied_are_you1_5": "f6da0744-3518-ef11-9f89-000d3a371898",
-        "how_satisfied_are_you1_4": "fdda0744-3518-ef11-9f89-000d3a371898",
-        "how_satisfied_are_you1_3": "d3ba6442-3518-ef11-9f89-002248095c06",
-        "how_satisfied_are_you1_2": "ffda0744-3518-ef11-9f89-000d3a371898",
-        "how_satisfied_are_you1_1": "00db0744-3518-ef11-9f89-000d3a371898",
-
-        "how_satisfied_are_you2_5": "abe26350-3518-ef11-9f89-000d3a371898",
-        "how_satisfied_are_you2_4": "ace26350-3518-ef11-9f89-000d3a371898",
-        "how_satisfied_are_you2_3": "afe26350-3518-ef11-9f89-000d3a371898",
-        "how_satisfied_are_you2_2": "b0e26350-3518-ef11-9f89-000d3a371898",
-        "how_satisfied_are_you2_1": "1b28dc4e-3518-ef11-9f89-000d3a5c0fc6",
-
-        "how_would_you_rate1_5": "9a8bec55-3518-ef11-9f89-002248095c06",
-        "how_would_you_rate1_4": "ad0ec957-3518-ef11-9f89-000d3a371898",
-        "how_would_you_rate1_3": "ae0ec957-3518-ef11-9f89-000d3a371898",
-        "how_would_you_rate1_2": "9f8bec55-3518-ef11-9f89-002248095c06",
-        "how_would_you_rate1_1": "1ddde45b-3518-ef11-9f89-002248095c06",
-
-        "how_would_you_rate2_5": "e278ab5e-3518-ef11-9f89-000d3a371898",
-        "how_would_you_rate2_4": "e578ab5e-3518-ef11-9f89-000d3a371898",
-        "how_would_you_rate2_3": "19663562-3518-ef11-9f89-002248095c06",
-        "how_would_you_rate2_2": "e678ab5e-3518-ef11-9f89-000d3a371898",
-        "how_would_you_rate2_1": "e878ab5e-3518-ef11-9f89-000d3a371898",
-
-        "how_satisfied_are_you3_5": "7ebf446c-3518-ef11-9f89-000d3a371898",
-        "how_satisfied_are_you3_4": "aaf14768-3518-ef11-9f89-002248095c06",
-        "how_satisfied_are_you3_3": "7fbf446c-3518-ef11-9f89-000d3a371898",
-        "how_satisfied_are_you3_2": "80bf446c-3518-ef11-9f89-000d3a371898",
-        "how_satisfied_are_you3_1": "81bf446c-3518-ef11-9f89-000d3a371898",
-
-        "how_would_you_rate3_5": "cb25c473-3518-ef11-9f89-000d3a371898",
-        "how_would_you_rate3_4": "ce25c473-3518-ef11-9f89-000d3a371898",
-        "how_would_you_rate3_3": "cf25c473-3518-ef11-9f89-000d3a371898",
-        "how_would_you_rate3_2": "87428774-3518-ef11-9f89-002248095c06",
-        "how_would_you_rate3_1": "d025c473-3518-ef11-9f89-000d3a371898",
-
-        "how_satisfied_are_you4_5": "04b8af7a-3518-ef11-9f89-000d3a371898",
-        "how_satisfied_are_you4_4": "2e8e1a7b-3518-ef11-9f89-002248095c06",
-        "how_satisfied_are_you4_3": "2f8e1a7b-3518-ef11-9f89-002248095c06",
-        "how_satisfied_are_you4_2": "328e1a7b-3518-ef11-9f89-002248095c06",
-        "how_satisfied_are_you4_1": "338e1a7b-3518-ef11-9f89-002248095c06",
-
+        "when_you_started_service5": "436f545c-a721-ef11-840a-002248095c06",
+        "when_you_started_service4": "656f545c-a721-ef11-840a-002248095c06",
+        "when_you_started_service3": "ae1f5559-a721-ef11-840a-000d3a5c0fc6",
+        "when_you_started_service2": "af1f5559-a721-ef11-840a-000d3a5c0fc6",
+        "when_you_started_service1": "e624ed5b-a721-ef11-840a-000d3a371898",
+  
+        "how_satisfied_are_you1_5": "1bed4e5f-a421-ef11-840a-002248095c06",
+        "how_satisfied_are_you1_4": "00442360-a421-ef11-840a-000d3a5c0fc6",
+        "how_satisfied_are_you1_3": "6fed4e5f-a421-ef11-840a-002248095c06",
+        "how_satisfied_are_you1_2": "06442360-a421-ef11-840a-000d3a5c0fc6",
+        "how_satisfied_are_you1_1": "f1016064-a421-ef11-840a-000d3a371898",
+  
+        "how_satisfied_are_you2_5": "86d966ef-a521-ef11-840a-000d3a371898",
+        "how_satisfied_are_you2_4": "47ddf0f2-a521-ef11-840a-002248095c06",
+        "how_satisfied_are_you2_3": "4fddf0f2-a521-ef11-840a-002248095c06",
+        "how_satisfied_are_you2_2": "0308a3f0-a521-ef11-840a-000d3a5c0fc6",
+        "how_satisfied_are_you2_1": "61ddf0f2-a521-ef11-840a-002248095c06",
+  
+        "how_would_you_rate1_5": "130c706e-a721-ef11-840a-002248095c06",
+        "how_would_you_rate1_4": "f19b3769-a721-ef11-840a-000d3a371898",
+        "how_would_you_rate1_3": "2f344a6f-a721-ef11-840a-000d3a371898",
+        "how_would_you_rate1_2": "2c0c706e-a721-ef11-840a-002248095c06",
+        "how_would_you_rate1_1": "38344a6f-a721-ef11-840a-000d3a371898",
+  
+        "how_would_you_rate2_5": "275c757d-a721-ef11-840a-000d3a371898",
+        "how_would_you_rate2_4": "476ccd83-a721-ef11-840a-000d3a5c0fc6",
+        "how_would_you_rate2_3": "313b8880-a721-ef11-840a-002248095c06",
+        "how_would_you_rate2_2": "4f6ccd83-a721-ef11-840a-000d3a5c0fc6",
+        "how_would_you_rate2_1": "b0d8ab83-a721-ef11-840a-000d3a371898",
+  
+        "how_satisfied_are_you3_5": "4a06e1c5-a421-ef11-840a-002248095c06",
+        "how_satisfied_are_you3_4": "5d206cc9-a421-ef11-840a-000d3a371898",
+        "how_satisfied_are_you3_3": "5e206cc9-a421-ef11-840a-000d3a371898",
+        "how_satisfied_are_you3_2": "5f206cc9-a421-ef11-840a-000d3a371898",
+        "how_satisfied_are_you3_1": "60206cc9-a421-ef11-840a-000d3a371898",
+  
+        "how_would_you_rate3_5": "648636e6-a421-ef11-840a-000d3a5c0fc6",
+        "how_would_you_rate3_4": "6b691be2-a421-ef11-840a-000d3a371898",
+        "how_would_you_rate3_3": "a54847e4-a421-ef11-840a-002248095c06",
+        "how_would_you_rate3_2": "aa4847e4-a421-ef11-840a-002248095c06",
+        "how_would_you_rate3_1": "6f691be2-a421-ef11-840a-000d3a371898",
+  
+        "how_satisfied_are_you4_5": "f51aa88a-a721-ef11-840a-000d3a371898",
+        "how_satisfied_are_you4_4": "fde0f48f-a721-ef11-840a-000d3a5c0fc6",
+        "how_satisfied_are_you4_3": "04e1f48f-a721-ef11-840a-000d3a5c0fc6",
+        "how_satisfied_are_you4_2": "14e1f48f-a721-ef11-840a-000d3a5c0fc6",
+        "how_satisfied_are_you4_1": "fc4aa590-a721-ef11-840a-000d3a371898",
+  
+        "how_would_you_feel_5": "8fc8d3b5-a721-ef11-840a-000d3a371898",
+        "how_would_you_feel_4": "37ac89b5-a721-ef11-840a-000d3a5c0fc6",
+        "how_would_you_feel_3": "93c8d3b5-a721-ef11-840a-000d3a371898",
+        "how_would_you_feel_2": "4dac89b5-a721-ef11-840a-000d3a5c0fc6",
+        "how_would_you_feel_1": "5aac89b5-a721-ef11-840a-000d3a5c0fc6",
+  
     };
     return idToAnsMap;
-}
+  }
+  
 
 
 const showOtherSelectedRadioButtons = () => {
