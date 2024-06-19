@@ -99,60 +99,79 @@
                         </div>
                     </div>
                     <div class="row">
-                        <h5>EMERGENCY AND HOSPITAL VISITS</h5>
-                        <custom-input-checkradio id="has_the_patient_side_effect" name="has_the_patient_side_effect"
-                            label="Has the patient experienced any side effects or any adverse drug events since the last infusion?"
-                            type="radio" value="Part A" class="radio_btn_inline">
-
-                            <custom-input-checkradio-item label="Yes" value="yes" id="has_the_patient_side_effect_yes"
-                                type="radio" class="form-check" style="display: inline-block; margin-right: 10px;">
-                            </custom-input-checkradio-item>
-                            <custom-input-checkradio-item label="No" value="no" id="has_the_patient_side_effect_no"
-                                type="radio" class="form-check" style="display: inline-block; margin-right: 10px;">
-                            </custom-input-checkradio-item>
-                        </custom-input-checkradio>
-
-                        <custom-input-checkradio id="emergency_department_visit" name="emergency_department_visit"
-                            label="Has there been an emergency department visit since last infusion?" type="radio"
-                            value="Part A" class="radio_btn_inline">
-
-                            <custom-input-checkradio-item label="Yes" value="yes" id="emergency_department_visit_yes"
-                                type="radio" class="form-check" style="display: inline-block; margin-right: 10px;">
-                            </custom-input-checkradio-item>
-                            <custom-input-checkradio-item label="No" value="no" id="emergency_department_visit_no"
-                                type="radio" class="form-check" style="display: inline-block; margin-right: 10px;">
-                            </custom-input-checkradio-item>
-                        </custom-input-checkradio>
-
-                        <div class="d-flex align-items-center">
-                            <custom-input-checkradio id="was_the_patient_hospitialized"
-                                name="was_the_patient_hospitialized"
-                                label="Was the patient hospitialized since last infusion?" type="radio" value="Part A"
-                                class="radio_btn_inline">
-                                <custom-input-checkradio-item label="Yes" value="yes"
-                                    id="was_the_patient_hospitialized_yes" type="radio" class="form-check"
-                                    style="display: inline-block; margin-right: 10px;">
-                                </custom-input-checkradio-item>
-                                <custom-input-checkradio-item label="No" value="no"
-                                    id="was_the_patient_hospitialized_no" type="radio" class="form-check"
-                                    style="display: inline-block; margin-right: 10px;">
-                                </custom-input-checkradio-item>
-
-                            </custom-input-checkradio>
-                            <div class="mt-4"><span>* If Yes, DO NOT PROCEED WITH INFUSION, CALL THE PHARMACY</span>
+                        <div class="col-md-8 mb-4">
+                        <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">EMERGENCY AND HOSPITAL VISITS</h5>
+                            <div class="row">
+ 
+                                <custom-input-checkradio id="has_the_patient_side_effect"
+                                    name="has_the_patient_side_effect"
+                                    label="Has the patient experienced any side effects or any adverse drug events since the last infusion?"
+                                    type="radio" value="Part A" class="radio_btn_inline">
+ 
+                                    <custom-input-checkradio-item label="Yes" value="yes"
+                                        id="has_the_patient_side_effect_yes" type="radio" class="form-check"
+                                        style="display: inline-block; margin-right: 10px;">
+                                    </custom-input-checkradio-item>
+                                    <custom-input-checkradio-item label="No" value="no"
+                                        id="has_the_patient_side_effect_no" type="radio" class="form-check"
+                                        style="display: inline-block; margin-right: 10px;">
+                                    </custom-input-checkradio-item>
+                                </custom-input-checkradio>
+ 
+                                <custom-input-checkradio id="emergency_department_visit"
+                                    name="emergency_department_visit"
+                                    label="Has there been an emergency department visit since last infusion?"
+                                    type="radio" value="Part A" class="radio_btn_inline">
+ 
+                                    <custom-input-checkradio-item label="Yes" value="yes"
+                                        id="emergency_department_visit_yes" type="radio" class="form-check"
+                                        style="display: inline-block; margin-right: 10px;">
+                                    </custom-input-checkradio-item>
+                                    <custom-input-checkradio-item label="No" value="no"
+                                        id="emergency_department_visit_no" type="radio" class="form-check"
+                                        style="display: inline-block; margin-right: 10px;">
+                                    </custom-input-checkradio-item>
+                                </custom-input-checkradio>
+ 
+                                <div class="d-flex align-items-center">
+                                    <custom-input-checkradio id="was_the_patient_hospitialized"
+                                        name="was_the_patient_hospitialized"
+                                        label="Was the patient hospitialized since last infusion?" type="radio"
+                                        value="Part A" class="radio_btn_inline">
+                                        <custom-input-checkradio-item label="Yes" value="yes"
+                                            id="was_the_patient_hospitialized_yes" type="radio" class="form-check"
+                                            style="display: inline-block; margin-right: 10px;">
+                                        </custom-input-checkradio-item>
+                                        <custom-input-checkradio-item label="No" value="no"
+                                            id="was_the_patient_hospitialized_no" type="radio" class="form-check"
+                                            style="display: inline-block; margin-right: 10px;">
+                                        </custom-input-checkradio-item>
+ 
+                                    </custom-input-checkradio>
+                                    <div class="mt-4"><span>* If Yes, DO NOT PROCEED WITH INFUSION, CALL THE
+                                            PHARMACY</span>
+                                    </div>
+                                </div>
+                                <custom-input-checkradio id="patient_serious_infections"
+                                    name="patient_serious_infections"
+                                    label="Has the patient had any serious infections or fever since last delivery?"
+                                    type="radio" value="Part A" class="radio_btn_inline">
+ 
+                                    <custom-input-checkradio-item label="Yes" value="yes"
+                                        id="patient_serious_infections_yes" type="radio" class="form-check"
+                                        style="display: inline-block; margin-right: 10px;">
+                                    </custom-input-checkradio-item>
+                                    <custom-input-checkradio-item label="No" value="no"
+                                        id="patient_serious_infections_no" type="radio" class="form-check"
+                                        style="display: inline-block; margin-right: 10px;">
+                                    </custom-input-checkradio-item>
+                                </custom-input-checkradio>
                             </div>
                         </div>
-                        <custom-input-checkradio id="patient_serious_infections" name="patient_serious_infections"
-                            label="Has the patient had any serious infections or fever since last delivery?"
-                            type="radio" value="Part A" class="radio_btn_inline">
-
-                            <custom-input-checkradio-item label="Yes" value="yes" id="patient_serious_infections_yes"
-                                type="radio" class="form-check" style="display: inline-block; margin-right: 10px;">
-                            </custom-input-checkradio-item>
-                            <custom-input-checkradio-item label="No" value="no" id="patient_serious_infections_no"
-                                type="radio" class="form-check" style="display: inline-block; margin-right: 10px;">
-                            </custom-input-checkradio-item>
-                        </custom-input-checkradio>
+                    </div>
+                </div>
                     </div>
                     <div class="row">
                         <!-- Left card Wrapper -->
@@ -372,8 +391,36 @@
                                     <custom-input-checkradio-item label="Foot drop right" value="Foot_drop_right" id="foot_Drop_Right" class="col-md-4"></custom-input-checkradio-item>
                                     <custom-input-checkradio-item label="Other" value="Other" id="neuro_Psych_Other" class="col-md-4"></custom-input-checkradio-item>
                                 </custom-input-checkradio>
-                                <custom-input label="" type="text" id="neuro_Psych_otherInputField"
+                                <custom-input label="Other" type="text" id="neuro_Psych_otherInputField"
                                 name="neuro_Psych_otherInputField" placeholder="" class="col-md-6"
+                                style="display: none;"></custom-input>
+
+                                <custom-input label="Tingling Location" type="text" id="neuro_Psych_tingling_InputField"
+                                name="neuro_Psych_tingling_InputField" placeholder=""  class="col-md-6"
+                                style="display: none;"></custom-input>
+
+                                <custom-input label="Burning Location:" type="text" id="neuro_Psych_burning_InputField"
+                                name="neuro_Psych_burning_InputField" placeholder="" class="col-md-6"
+                                style="display: none;"></custom-input>
+
+                                <custom-input label="Headache Location:" type="text" id="neuro_Psych_headache_InputField"
+                                name="neuro_Psych_headache_InputField" placeholder="" class="col-md-6"
+                                style="display: none;"></custom-input>
+
+                                <custom-input label="Foot Drop Left Location:" type="text" id="neuro_Psych_foot_Drop_Left_InputField"
+                                name="neuro_Psych_foot_Drop_Left_InputField" placeholder="" class="col-md-6"
+                                style="display: none;"></custom-input>
+
+                                <custom-input label="Foot Drop right Location:" type="text" id="neuro_Psych_foot_Drop_Right_InputField"
+                                name="neuro_Psych_foot_Drop_Right_InputField" placeholder="" class="col-md-6"
+                                style="display: none;"></custom-input>
+
+                                <custom-input label="Tremor Location:" type="text" id="neuro_Psych_tremor_InputField"
+                                name="neuro_Psych_tremor_InputField" placeholder="" class="col-md-6"
+                                style="display: none;"></custom-input>
+
+                                <custom-input label="Numbness Location:" type="text" id="neuro_Psych_Numbness_InputField"
+                                name="neuro_Psych_Numbness_InputField" placeholder="" class="col-md-6"
                                 style="display: none;"></custom-input>
                             </div>
                             
@@ -534,6 +581,167 @@
                                 </custom-input-checkradio>
                                 <custom-input label="" type="text" id="gastrointestinal_otherInputField"
                                 name="gastrointestinal_otherInputField" placeholder="" class="col-md-6"
+                                style="display: none;"></custom-input>
+                            </div>
+                            
+                                
+                            
+                        </div>
+                    </div>
+                </div>
+                </div>
+
+                <!-- GENITOURINARY -->
+
+                <div class="row">
+                    <!-- Left card Wrapper -->
+                    <div class="col-md-6 mb-4">
+                    <div class="card-body">
+                        <div class="card">
+                        
+                            <div class="card-body-row">
+                                <div>
+                                <h6 class="card-title">GENITOURINARY</h6>  
+                                
+                                <custom-input-checkradio id="genitourinary" name="genitourinary"
+                                type="radio" value="Part A" class="radio_btn_below">
+    
+                                <custom-input-checkradio-item label="WDL: no abnormalities in voiding/ability to empty bladder,  color or characteristics of urine." value="yes" id="genitourinary_yes"
+                                    type="radio" class="form-check" style="display: inline-block; margin-right: 10px;">
+                                </custom-input-checkradio-item>
+                                <custom-input-checkradio-item label="Not WDL, deviation noted" value="no" id="genitourinary_no"
+                                    type="radio" class="form-check" style="display: inline-block; margin-right: 10px;">
+                                </custom-input-checkradio-item>
+                            </custom-input-checkradio>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                    <!-- Right card Wrapper -->
+                    <div class="col-md-6 mb-4">
+                    <div class="card-body">
+                        <div class="card">
+                            <div class="card-body">
+                                <custom-input-checkradio id="genitourinary_Abnormalities" name="genitourinary_Abnormalities" label="Genitourinary Abnormalities:" class="radio_btn_inline" required>
+                                    <custom-input-checkradio-item label="Urinary Frequency" value="Urinary Frequency" id="urinary_Frequency" class="col-md-4"></custom-input-checkradio-item>
+                                    <custom-input-checkradio-item label="Urinary Odor" value="Urinary Odor" id="urinary_Odor" class="col-md-4"></custom-input-checkradio-item>
+                                    <custom-input-checkradio-item label="Urgency" value="Urgency" id="urgency" class="col-md-4"></custom-input-checkradio-item>
+                                    <custom-input-checkradio-item label="Hematuria" value="Hematuria" id="hematuria" class="col-md-4"></custom-input-checkradio-item>
+                                    <custom-input-checkradio-item label="Dysuria" value="Dysuria" id="dysuria" class="col-md-4"></custom-input-checkradio-item>
+                                    <custom-input-checkradio-item label="Cloudy" value="Cloudy" id="cloudy" class="col-md-4"></custom-input-checkradio-item>
+                                    <custom-input-checkradio-item label="Incontinence" value="Incontinence" id="incontinence" class="col-md-4"></custom-input-checkradio-item>
+                                    <custom-input-checkradio-item label="Nocturia" value="Nocturia" id="nocturia" class="col-md-4"></custom-input-checkradio-item>
+                                    <custom-input-checkradio-item label="Oliguria" value="Oliguria" id="oliguria" class="col-md-4"></custom-input-checkradio-item>
+                                    <custom-input-checkradio-item label="Other" value="Other" id="genitourinary_Other" class="col-md-4"></custom-input-checkradio-item>
+                                </custom-input-checkradio>
+                                <custom-input label="" type="text" id="genitourinary_otherInputField"
+                                name="genitourinary_otherInputField" placeholder="" class="col-md-6"
+                                style="display: none;"></custom-input>
+                            </div>
+                            
+                                
+                            
+                        </div>
+                    </div>
+                </div>
+                </div>
+
+                <!-- MUSCULOSKELETAL -->
+
+                <div class="row">
+                    <!-- Left card Wrapper -->
+                    <div class="col-md-6 mb-4">
+                    <div class="card-body">
+                        <div class="card">
+                        
+                            <div class="card-body-row">
+                                <div>
+                                <h6 class="card-title">MUSCULOSKELETAL</h6>  
+                                
+                                <custom-input-checkradio id="musculoskeleton" name="musculoskeleton"
+                                type="radio" value="Part A" class="radio_btn_below">
+    
+                                <custom-input-checkradio-item label="WDL: no abnormalities in voiding/ability to empty bladder,  color or characteristics of urine." value="yes" id="musculoskeleton_yes"
+                                    type="radio" class="form-check" style="display: inline-block; margin-right: 10px;">
+                                </custom-input-checkradio-item>
+                                <custom-input-checkradio-item label="Not WDL, deviation noted" value="no" id="musculoskeleton_no"
+                                    type="radio" class="form-check" style="display: inline-block; margin-right: 10px;">
+                                </custom-input-checkradio-item>
+                            </custom-input-checkradio>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                    <!-- Right card Wrapper -->
+                    <div class="col-md-6 mb-4">
+                    <div class="card-body">
+                        <div class="card">
+                            <div class="card-body">
+                                <custom-input-checkradio id="musculoskeleton_Abnormalities" name="musculoskeleton_Abnormalities" label="Musculoskeleton Abnormalities:" class="radio_btn_inline" required>
+                                    <custom-input-checkradio-item label="Unsteady Gait" value="Unsteady Gait" id="unsteady_Gait" class="col-md-4"></custom-input-checkradio-item>
+                                    <custom-input-checkradio-item label="Impaired ROM" value="Impaired ROM" id="impaired_ROM" class="col-md-4"></custom-input-checkradio-item>
+                                    <custom-input-checkradio-item label="Weakness" value="Weakness" id="weakness" class="col-md-4"></custom-input-checkradio-item>
+                                    <custom-input-checkradio-item label="Required assistance to ambulate" value="Required assistance to ambulate" id="required_Assistance_to_Ambulate" class="col-md-4"></custom-input-checkradio-item>
+                                    <custom-input-checkradio-item label="Required assistance to transfer OOB/OOC" value="Required assistance to transfer OOB/OOC" id="required_Assistance_to_Transfer_OOB_OOC" class="col-md-4"></custom-input-checkradio-item>
+                                    <custom-input-checkradio-item label="Ambulatory assist device" value="Ambulatory assist device" id="Ambulatory_assist_device" class="col-md-4"></custom-input-checkradio-item>
+                                    <custom-input-checkradio-item label="Fall Prevention Education" value="Fall Prevention Education" id="fall_Prevention_Education" class="col-md-4"></custom-input-checkradio-item>
+                                    <custom-input-checkradio-item label="Other" value="Other" id="musculoskeleton_Other" class="col-md-4"></custom-input-checkradio-item>
+                                </custom-input-checkradio>
+                                <custom-input label="" type="text" id="musculoskeleton_otherInputField"
+                                name="musculoskeleton_otherInputField" placeholder="" class="col-md-6"
+                                style="display: none;"></custom-input>
+                            </div>
+                            
+                                
+                            
+                        </div>
+                    </div>
+                </div>
+                </div>
+
+                <!-- SKIN -->
+                <div class="row">
+                    <!-- Left card Wrapper -->
+                    <div class="col-md-6 mb-4">
+                    <div class="card-body">
+                        <div class="card">
+                        
+                            <div class="card-body-row">
+                                <div>
+                                <h6 class="card-title">SKIN</h6>  
+                                
+                                <custom-input-checkradio id="skin" name="skin"
+                                type="radio" value="Part A" class="radio_btn_below">
+    
+                                <custom-input-checkradio-item label="WDL: No skin breakdown noted, color consistent with ethnicity.  No abnormalities in temperature, moisture, turgor." value="yes" id="skin_yes"
+                                    type="radio" class="form-check" style="display: inline-block; margin-right: 10px;">
+                                </custom-input-checkradio-item>
+                                <custom-input-checkradio-item label="Not WDL, deviation noted" value="no" id="skin_no"
+                                    type="radio" class="form-check" style="display: inline-block; margin-right: 10px;">
+                                </custom-input-checkradio-item>
+                            </custom-input-checkradio>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                    <!-- Right card Wrapper -->
+                    <div class="col-md-6 mb-4">
+                    <div class="card-body">
+                        <div class="card">
+                            <div class="card-body">
+                                <custom-input-checkradio id="skin_Abnormalities" name="skin_Abnormalities" label="skin Abnormalities:" class="radio_btn_inline" required>
+                                    <custom-input-checkradio-item label="Dry Skin" value="Dry Skin" id="dry_Skin" class="col-md-4"></custom-input-checkradio-item>
+                                    <custom-input-checkradio-item label="Dry Mucus Membrane" value="Dry Mucus Membrane" id="dry_Mucus_Membrane" class="col-md-4"></custom-input-checkradio-item>
+                                    <custom-input-checkradio-item label="Skin Discoloration" value="Skin Discoloration" id="skin_Discoloration" class="col-md-4"></custom-input-checkradio-item>
+                                    <custom-input-checkradio-item label="Skin Breakdown" value="Skin Breakdown" id="skin_Breakdown" class="col-md-4"></custom-input-checkradio-item>
+                                    <custom-input-checkradio-item label="Incision" value="Incision" id="incision" class="col-md-4"></custom-input-checkradio-item>
+                                    <custom-input-checkradio-item label="Other" value="Other" id="skin_Other" class="col-md-4"></custom-input-checkradio-item>
+                                </custom-input-checkradio>
+                                <custom-input label="" type="text" id="skin_otherInputField"
+                                name="skin_otherInputField" placeholder="" class="col-md-6"
                                 style="display: none;"></custom-input>
                             </div>
                             

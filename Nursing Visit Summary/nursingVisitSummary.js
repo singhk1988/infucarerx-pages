@@ -134,7 +134,23 @@ const hideAndShowLogic = () => {
     let neuro_Psych_no=document.getElementById('neuro_Psych_no');
     var checkradio = document.querySelector('custom-input-checkradio[id="neurology_Psychosocial_Abnormalities"]');
     var NEURO_PSYCH_otherCheckbox = document.getElementById('neuro_Psych_Other');
-    var NEURO_PSYCH_otherInputField = document.getElementById('neuro_Psych_otherInputField');
+    
+    var NEURO_PSYCH_tinglingCheckbox = document.getElementById('tingling');
+    var NEURO_PSYCH_burningCheckbox = document.getElementById('burning');
+    var NEURO_PSYCH_headacheCheckbox = document.getElementById('headache');
+    var NEURO_PSYCH_foot_Drop_LeftCheckbox = document.getElementById('foot_Drop_Left');
+    var NEURO_PSYCH_foot_Drop_RightCheckbox = document.getElementById('foot_Drop_Right');
+    var NEURO_PSYCH_tremorCheckbox = document.getElementById('tremor');
+    var NEURO_PSYCH_numbnessCheckbox = document.getElementById('numbness');
+
+    var neuro_Psych_otherInputField = document.getElementById('neuro_Psych_otherInputField');
+    var neuro_Psych_tingling_InputField = document.getElementById('neuro_Psych_tingling_InputField');
+    var neuro_Psych_burning_InputField = document.getElementById('neuro_Psych_burning_InputField');
+    var neuro_Psych_headache_InputField = document.getElementById('neuro_Psych_headache_InputField');
+    var neuro_Psych_foot_Drop_Left_InputField = document.getElementById('neuro_Psych_foot_Drop_Left_InputField');
+    var neuro_Psych_foot_Drop_Right_InputField = document.getElementById('neuro_Psych_foot_Drop_Right_InputField');
+    var neuro_Psych_tremor_InputField = document.getElementById('neuro_Psych_tremor_InputField');
+    var neuro_Psych_Numbness_InputField = document.getElementById('neuro_Psych_Numbness_InputField');
 
     let Cardiovascular_yes=document.getElementById('cardiovascular_yes');
     let Cardiovascular_no=document.getElementById('cardiovascular_no');
@@ -153,6 +169,24 @@ const hideAndShowLogic = () => {
     var gastrointestinal_checkradio = document.querySelector('custom-input-checkradio[id="gastrointestinal_Abnormalities"]');
     var gastrointestinal_otherCheckbox = document.getElementById('gastrointestinal_Other');
     var gastrointestinal_otherInputField = document.getElementById('gastrointestinal_otherInputField');
+
+    let genitourinary_yes=document.getElementById('genitourinary_yes');
+    let genitourinary_no=document.getElementById('genitourinary_no');
+    var genitourinary_checkradio = document.querySelector('custom-input-checkradio[id="genitourinary_Abnormalities"]');
+    var genitourinary_otherCheckbox = document.getElementById('genitourinary_Other');
+    var genitourinary_otherInputField = document.getElementById('genitourinary_otherInputField');
+
+    let musculoskeleton_yes=document.getElementById('musculoskeleton_yes');
+    let musculoskeleton_no=document.getElementById('musculoskeleton_no');
+    var musculoskeleton_checkradio = document.querySelector('custom-input-checkradio[id="musculoskeleton_Abnormalities"]');
+    var musculoskeleton_otherCheckbox = document.getElementById('musculoskeleton_Other');
+    var musculoskeleton_otherInputField = document.getElementById('musculoskeleton_otherInputField');
+
+    let skin_yes=document.getElementById('skin_yes');
+    let skin_no=document.getElementById('skin_no');
+    var skin_checkradio = document.querySelector('custom-input-checkradio[id="skin_Abnormalities"]');
+    var skin_otherCheckbox = document.getElementById('skin_Other');
+    var skin_otherInputField = document.getElementById('skin_otherInputField');
 
     
     therapy_other.addEventListener('change', function () {
@@ -255,10 +289,79 @@ const hideAndShowLogic = () => {
     }
     NEURO_PSYCH_otherCheckbox.addEventListener('change', function() {
         if (this.checked) {
-            NEURO_PSYCH_otherInputField.style.display = 'block';  // Show the input text field
+            neuro_Psych_otherInputField.style.display = 'block';  // Show the input text field
             document.getElementById('NEURO/PSYCH_otherDescription').setAttribute('required', 'required');  // Make the input field required
         } else {
-            NEURO_PSYCH_otherInputField.style.display = 'none';  // Hide the input text field
+            neuro_Psych_otherInputField.style.display = 'none';  // Hide the input text field
+            document.getElementById('NEURO/PSYCH_otherDescription').removeAttribute('required');  // Remove the required attribute
+        }
+    });
+
+    NEURO_PSYCH_tinglingCheckbox.addEventListener('change', function() {
+        if (this.checked) {
+            neuro_Psych_tingling_InputField.style.display = 'block';  // Show the input text field
+            document.getElementById('NEURO/PSYCH_otherDescription').setAttribute('required', 'required');  // Make the input field required
+        } else {
+            neuro_Psych_tingling_InputField.style.display = 'none';  // Hide the input text field
+            document.getElementById('NEURO/PSYCH_otherDescription').removeAttribute('required');  // Remove the required attribute
+        }
+    });
+
+    NEURO_PSYCH_burningCheckbox.addEventListener('change', function() {
+        if (this.checked) {
+            neuro_Psych_burning_InputField.style.display = 'block';  // Show the input text field
+            document.getElementById('NEURO/PSYCH_otherDescription').setAttribute('required', 'required');  // Make the input field required
+        } else {
+            neuro_Psych_burning_InputField.style.display = 'none';  // Hide the input text field
+            document.getElementById('NEURO/PSYCH_otherDescription').removeAttribute('required');  // Remove the required attribute
+        }
+    });
+
+    NEURO_PSYCH_headacheCheckbox.addEventListener('change', function() {
+        if (this.checked) {
+            neuro_Psych_headache_InputField.style.display = 'block';  // Show the input text field
+            document.getElementById('NEURO/PSYCH_otherDescription').setAttribute('required', 'required');  // Make the input field required
+        } else {
+            neuro_Psych_headache_InputField.style.display = 'none';  // Hide the input text field
+            document.getElementById('NEURO/PSYCH_otherDescription').removeAttribute('required');  // Remove the required attribute
+        }
+    });
+
+    NEURO_PSYCH_foot_Drop_LeftCheckbox.addEventListener('change', function() {
+        if (this.checked) {
+            neuro_Psych_foot_Drop_Left_InputField.style.display = 'block';  // Show the input text field
+            document.getElementById('NEURO/PSYCH_otherDescription').setAttribute('required', 'required');  // Make the input field required
+        } else {
+            neuro_Psych_foot_Drop_Left_InputField.style.display = 'none';  // Hide the input text field
+            document.getElementById('NEURO/PSYCH_otherDescription').removeAttribute('required');  // Remove the required attribute
+        }
+    });
+
+    NEURO_PSYCH_foot_Drop_RightCheckbox.addEventListener('change', function() {
+        if (this.checked) {
+            neuro_Psych_foot_Drop_Right_InputField.style.display = 'block';  // Show the input text field
+            document.getElementById('NEURO/PSYCH_otherDescription').setAttribute('required', 'required');  // Make the input field required
+        } else {
+            neuro_Psych_foot_Drop_Right_InputField.style.display = 'none';  // Hide the input text field
+            document.getElementById('NEURO/PSYCH_otherDescription').removeAttribute('required');  // Remove the required attribute
+        }
+    });
+
+    NEURO_PSYCH_tremorCheckbox.addEventListener('change', function() {
+        if (this.checked) {
+            neuro_Psych_tremor_InputField.style.display = 'block';  // Show the input text field
+            document.getElementById('NEURO/PSYCH_otherDescription').setAttribute('required', 'required');  // Make the input field required
+        } else {
+            neuro_Psych_tremor_InputField.style.display = 'none';  // Hide the input text field
+            document.getElementById('NEURO/PSYCH_otherDescription').removeAttribute('required');  // Remove the required attribute
+        }
+    });
+    NEURO_PSYCH_numbnessCheckbox.addEventListener('change', function() {
+        if (this.checked) {
+            neuro_Psych_Numbness_InputField.style.display = 'block';  // Show the input text field
+            document.getElementById('NEURO/PSYCH_otherDescription').setAttribute('required', 'required');  // Make the input field required
+        } else {
+            neuro_Psych_Numbness_InputField.style.display = 'none';  // Hide the input text field
             document.getElementById('NEURO/PSYCH_otherDescription').removeAttribute('required');  // Remove the required attribute
         }
     });
@@ -361,6 +464,105 @@ Cardiovascular_yes.addEventListener('change', function() {
             document.getElementById('gastrointestinal_otherDescription').removeAttribute('required');  // Remove the required attribute
         }
         });
+
+    //Genitourinary    
+
+    genitourinary_yes.addEventListener('change', function() {
+            
+        genitourinary_toggleCheckboxes(true); // Disable checkboxes
+        });
+    
+        genitourinary_no.addEventListener('change', function() {
+       
+            genitourinary_toggleCheckboxes(false); // Enable checkboxes
+        
+        });
+        function genitourinary_toggleCheckboxes(enable) {
+        if (genitourinary_checkradio) {
+            // Select all input elements inside the custom-input-checkradio
+            var inputs = genitourinary_checkradio.querySelectorAll('input[type="radio"], input[type="checkbox"]');
+            
+            // Iterate through each input and disable it
+            inputs.forEach(function(input) {
+                input.disabled = enable;
+            });
+        }
+        }
+        genitourinary_otherCheckbox.addEventListener('change', function() {
+        if (this.checked) {
+            genitourinary_otherInputField.style.display = 'block';  // Show the input text field
+            document.getElementById('genitourinary_otherDescription').setAttribute('required', 'required');  // Make the input field required
+        } else {
+            genitourinary_otherInputField.style.display = 'none';  // Hide the input text field
+            document.getElementById('genitourinary_otherDescription').removeAttribute('required');  // Remove the required attribute
+        }
+        });
+
+    //Musculoskeleton
+    musculoskeleton_yes.addEventListener('change', function() {
+            
+        musculoskeleton_toggleCheckboxes(true); // Disable checkboxes
+        });
+    
+        musculoskeleton_no.addEventListener('change', function() {
+       
+            musculoskeleton_toggleCheckboxes(false); // Enable checkboxes
+        
+        });
+        function musculoskeleton_toggleCheckboxes(enable) {
+        if (musculoskeleton_checkradio) {
+            // Select all input elements inside the custom-input-checkradio
+            var inputs = musculoskeleton_checkradio.querySelectorAll('input[type="radio"], input[type="checkbox"]');
+            
+            // Iterate through each input and disable it
+            inputs.forEach(function(input) {
+                input.disabled = enable;
+            });
+        }
+        }
+        musculoskeleton_otherCheckbox.addEventListener('change', function() {
+        if (this.checked) {
+            musculoskeleton_otherInputField.style.display = 'block';  // Show the input text field
+            document.getElementById('musculoskeleton_otherDescription').setAttribute('required', 'required');  // Make the input field required
+        } else {
+            musculoskeleton_otherInputField.style.display = 'none';  // Hide the input text field
+            document.getElementById('musculoskeleton_otherDescription').removeAttribute('required');  // Remove the required attribute
+        }
+        });
+
+    //SKIN
+
+    skin_yes.addEventListener('change', function() {
+            
+        skin_toggleCheckboxes(true); // Disable checkboxes
+        });
+    
+        skin_no.addEventListener('change', function() {
+       
+            skin_toggleCheckboxes(false); // Enable checkboxes
+        
+        });
+        function skin_toggleCheckboxes(enable) {
+        if (skin_checkradio) {
+            // Select all input elements inside the custom-input-checkradio
+            var inputs = skin_checkradio.querySelectorAll('input[type="radio"], input[type="checkbox"]');
+            
+            // Iterate through each input and disable it
+            inputs.forEach(function(input) {
+                input.disabled = enable;
+            });
+        }
+        }
+        skin_otherCheckbox.addEventListener('change', function() {
+        if (this.checked) {
+            skin_otherInputField.style.display = 'block';  // Show the input text field
+            document.getElementById('skin_otherDescription').setAttribute('required', 'required');  // Make the input field required
+        } else {
+            skin_otherInputField.style.display = 'none';  // Hide the input text field
+            document.getElementById('skin_otherDescription').removeAttribute('required');  // Remove the required attribute
+        }
+        });
+
 }
 
 document.addEventListener("DOMContentLoaded", async function () {
@@ -375,6 +577,12 @@ document.addEventListener("DOMContentLoaded", async function () {
     let respiratory_no=document.getElementById('respiratory_no');
     var gastrointestinal_checkradio = document.querySelector('custom-input-checkradio[id="gastrointestinal_Abnormalities"]');
     let gastrointestinal_no=document.getElementById('gastrointestinal_no');
+    var genitourinary_checkradio = document.querySelector('custom-input-checkradio[id="genitourinary_Abnormalities"]');
+    let genitourinary_no=document.getElementById('genitourinary_no');
+    var musculoskeleton_checkradio = document.querySelector('custom-input-checkradio[id="musculoskeleton_Abnormalities"]');
+    let musculoskeleton_no=document.getElementById('musculoskeleton_no');
+    var skin_checkradio = document.querySelector('custom-input-checkradio[id="skin_Abnormalities"]');
+    let skin_no=document.getElementById('skin_no');
 
     hideAndShowLogic();
 
@@ -397,11 +605,16 @@ document.addEventListener("DOMContentLoaded", async function () {
         var inputs = checkradio.querySelectorAll('input[type="radio"], input[type="checkbox"]');
         
         // Iterate through each input and disable it
-        if(!neuro_Psych_no.checked)
+        if(neuro_Psych_no.checked)
             {
-        inputs.forEach(function(input) {
-            input.disabled = true;
+                inputs.forEach(function(input) {
+                    input.disabled = false;
         });}
+        else{
+            inputs.forEach(function(input) {
+                input.disabled = true;
+            });   
+    }
     }
     //CARDIOVASCULAR
     if (Cardiovascular_checkradio) {
@@ -409,11 +622,16 @@ document.addEventListener("DOMContentLoaded", async function () {
         var inputs = Cardiovascular_checkradio.querySelectorAll('input[type="radio"], input[type="checkbox"]');
         
         // Iterate through each input and disable it
-        if(!Cardiovascular_no.checked)
+        if(Cardiovascular_no.checked)
             {
-        inputs.forEach(function(input) {
-            input.disabled = true;
+                inputs.forEach(function(input) {
+                    input.disabled = false;
         });}
+        else{
+            inputs.forEach(function(input) {
+                input.disabled = true;
+            });   
+    }
     }
 
     //respiratory
@@ -422,11 +640,16 @@ document.addEventListener("DOMContentLoaded", async function () {
         var inputs = respiratory_checkradio.querySelectorAll('input[type="radio"], input[type="checkbox"]');
         
         // Iterate through each input and disable it
-        if(!respiratory_no.checked)
+        if(respiratory_no.checked)
             {
-        inputs.forEach(function(input) {
-            input.disabled = true;
+                inputs.forEach(function(input) {
+                    input.disabled = false;
         });}
+        else{
+            inputs.forEach(function(input) {
+                input.disabled = true;
+            });   
+    }
     }
 
     //gastrointestinal
@@ -435,12 +658,71 @@ document.addEventListener("DOMContentLoaded", async function () {
         var inputs = gastrointestinal_checkradio.querySelectorAll('input[type="radio"], input[type="checkbox"]');
         
         // Iterate through each input and disable it
-        if(!gastrointestinal_no.checked)
+        if(gastrointestinal_no.checked)
+            {
+                inputs.forEach(function(input) {
+                    input.disabled = false;
+        });}
+        else{
+            inputs.forEach(function(input) {
+                input.disabled = true;
+            });   
+    }
+    }
+
+    //genitourinary
+    if (genitourinary_checkradio) {
+        // Select all input elements inside the custom-input-checkradio
+        var inputs = genitourinary_checkradio.querySelectorAll('input[type="radio"], input[type="checkbox"]');
+        
+        // Iterate through each input and disable it
+        if(genitourinary_no.checked)
             {
         inputs.forEach(function(input) {
-            input.disabled = true;
+            input.disabled = false;
         });}
+        else{
+                inputs.forEach(function(input) {
+                    input.disabled = true;
+                });   
+        }
     }
+
+    //musculoskeleton
+    if (musculoskeleton_checkradio) {
+        // Select all input elements inside the custom-input-checkradio
+        var inputs = musculoskeleton_checkradio.querySelectorAll('input[type="radio"], input[type="checkbox"]');
+        
+        // Iterate through each input and disable it
+        if(musculoskeleton_no.checked)
+            {
+        inputs.forEach(function(input) {
+            input.disabled = false;
+        });}
+        else{
+                inputs.forEach(function(input) {
+                    input.disabled = true;
+                });   
+        }
+    }
+    //skin
+    if (skin_checkradio) {
+        // Select all input elements inside the custom-input-checkradio
+        var inputs = skin_checkradio.querySelectorAll('input[type="radio"], input[type="checkbox"]');
+        
+        // Iterate through each input and disable it
+        if(skin_no.checked)
+            {
+        inputs.forEach(function(input) {
+            input.disabled = false;
+        });}
+        else{
+                inputs.forEach(function(input) {
+                    input.disabled = true;
+                });   
+        }
+    }
+
     
 });
 
@@ -482,6 +764,12 @@ const getQuestionToIdMap = () => {
         "respiratory_Abnormalities":"respiratory_Abnormalities",
         "gastrointestinal":"gastrointestinal",
         "gastrointestinal_Abnormalities":"gastrointestinal_Abnormalities",
+        "genitourinary":"genitourinary",
+        "genitourinary_Abnormalities":"genitourinary_Abnormalities",
+        "musculoskeleton":"musculoskeleton",
+        "musculoskeleton_Abnormalities":"musculoskeleton_Abnormalities",
+        "skin":"skin",
+        "skin_Abnormalities":"skin_Abnormalities",
     };
     return idToQueMap;
 };
@@ -574,6 +862,41 @@ const getAnswerToIdMap = () => {
         "heartburn":"heartburn",
         "gastrointestinal_Other":"gastrointestinal_Other",
 
+        
+        "genitourinary_yes":"genitourinary_yes",
+        "genitourinary_no":"genitourinary_no",
+        "urinary_Frequency":"urinary_Frequency",
+        "urinary_Odor":"urinary_Odor",
+        "urgency":"urgency",
+        "hematuria":"hematuria",
+        "dysuria":"dysuria",
+        "cloudy":"cloudy",
+        "incontinence":"incontinence",
+        "nocturia":"nocturia",
+        "oliguria":"oliguria",
+        "genitourinary_Other":"genitourinary_Other",
+
+        "musculoskeleton_yes":"musculoskeleton_yes",
+        "musculoskeleton_no":"musculoskeleton_no",
+        "unsteady_Gait":"unsteady_Gait",
+        "impaired_ROM":"impaired_ROM",
+        "weakness":"weakness",
+        "weakness":"weakness",
+        "required_Assistance_to_Ambulate":"required_Assistance_to_Ambulate",
+        "required_Assistance_to_Transfer_OOB_OOC":"required_Assistance_to_Transfer_OOB_OOC",
+        "Ambulatory_assist_device":"Ambulatory_assist_device",
+        "fall_Prevention_Education":"fall_Prevention_Education",
+        "musculoskeleton_Other":"musculoskeleton_Other",
+
+        "skin_yes":"skin_yes",
+        "skin_no":"skin_no",
+        "dry_Skin":"dry_Skin",
+        "dry_Mucus_Membrane":"dry_Mucus_Membrane",
+        "skin_Discoloration":"skin_Discoloration",
+        "skin_Breakdown":"skin_Breakdown",
+        "incision":"incision",
+        "skin_Other":"skin_Other",
+        
         
 
 
