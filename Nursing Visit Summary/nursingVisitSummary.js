@@ -10,7 +10,8 @@ const requiredControls = {
     'schedule_type': 'Please select schedule type.',
     'therapy': 'Please select therapy.',
     'reason_for_visit': 'Please select reason for visit.',
-    'bp': 'Please Enter BP.',
+    'bp1': 'Please Enter BP.',
+    'bp2':'Please Enter BP.',
     'pulse': 'Please enter pulse.',
     'rr': 'Please enter rr.',
     'temp': 'Please enter temperture.',
@@ -81,6 +82,41 @@ function validateInputGroup(el, elementType) {
     }
 }
 
+document.getElementById('time_in').addEventListener('input',calculateTotalTime);
+document.getElementById('time_out').addEventListener('input',calculateTotalTime);
+
+    function calculateTotalTime() {
+        const timeIn = document.getElementById('time_in').value;
+        const timeOut = document.getElementById('time_out').value;
+    
+        if (timeIn && timeOut) {
+            const timeInDate = new Date(`1970-01-01T${timeIn}:00`);
+            const timeOutDate = new Date(`1970-01-01T${timeOut}:00`);
+    
+            let diff = (timeOutDate - timeInDate) / 1000 / 60; // difference in minutes
+    
+            if (diff < 0) {
+                // document.getElementById('total_time').style.color('red')
+                let total_time=document.getElementById('total_time')
+                total_time.value='Error';
+                total_time.style.color='red'
+            }
+            else{
+            const hours = Math.floor(diff / 60);
+            const minutes = diff % 60;
+            let total_time=document.getElementById('total_time')
+            total_time.value = `${hours}h ${minutes}m`;
+            total_time.style.color='black'
+            }
+        } else {
+            document.getElementById('total_time').value = '';
+        }
+    }
+
+
+
+
+
 const hideAndShowLogic = () => { 
     let therapy_other = document.getElementById('therapy_other');
     let therapy_delivery_other = document.getElementById('therapy_delivery_other');
@@ -89,13 +125,36 @@ const hideAndShowLogic = () => {
     let pump_type_other = document.getElementById('pump_type_other');
     let otherRadiosDelivery = document.querySelectorAll('input[type="radio"][name="therapy_delivery_method"]');
     let otherRadiosPumpType = document.querySelectorAll('input[type="radio"][name="pump_type"]');
+
+    
     let Medication_changes_yes=document.getElementById('medication_changes_yes');
     let Medication_changes_No=document.getElementById('medication_changes_no');
-    let NEURO_PSYCH_yes=document.getElementById('NEURO_PSYCH_yes');
-    let NEURO_PSYCH_no=document.getElementById('NEURO_PSYCH_no');
-    const checkboxes = document.querySelectorAll('.form-check-input[type="checkbox"]')
+    
+    let neuro_Psych_yes=document.getElementById('neuro_Psych_yes');
+    let neuro_Psych_no=document.getElementById('neuro_Psych_no');
+    var checkradio = document.querySelector('custom-input-checkradio[id="neurology_Psychosocial_Abnormalities"]');
+    var NEURO_PSYCH_otherCheckbox = document.getElementById('neuro_Psych_Other');
+    var NEURO_PSYCH_otherInputField = document.getElementById('neuro_Psych_otherInputField');
 
+    let Cardiovascular_yes=document.getElementById('cardiovascular_yes');
+    let Cardiovascular_no=document.getElementById('cardiovascular_no');
+    var Cardiovascular_checkradio = document.querySelector('custom-input-checkradio[id="cardiovascular_Abnormalities"]');
+    var Cardiovascular_otherCheckbox = document.getElementById('cardiovascular_Other');
+    var Cardiovascular_otherInputField = document.getElementById('cardiovascular_otherInputField');
 
+    let respiratory_yes=document.getElementById('respiratory_yes');
+    let respiratory_no=document.getElementById('respiratory_no');
+    var respiratory_checkradio = document.querySelector('custom-input-checkradio[id="respiratory_Abnormalities"]');
+    var respiratory_otherCheckbox = document.getElementById('respiratory_Other');
+    var respiratory_otherInputField = document.getElementById('respiratory_otherInputField');
+
+    let gastrointestinal_yes=document.getElementById('gastrointestinal_yes');
+    let gastrointestinal_no=document.getElementById('gastrointestinal_no');
+    var gastrointestinal_checkradio = document.querySelector('custom-input-checkradio[id="gastrointestinal_Abnormalities"]');
+    var gastrointestinal_otherCheckbox = document.getElementById('gastrointestinal_Other');
+    var gastrointestinal_otherInputField = document.getElementById('gastrointestinal_otherInputField');
+
+    
     therapy_other.addEventListener('change', function () {
         if (this.checked) {
             if (ValidationErrorStatus.therapy) therapy.setAttribute('error', '');
@@ -172,32 +231,151 @@ const hideAndShowLogic = () => {
         document.getElementById('Medication').style.display = 'none';
     });
 
+// NEURO_PSYCH
+    neuro_Psych_yes.addEventListener('change', function() {
+        
+            toggleCheckboxes(true); // Disable checkboxes
+    });
 
-    NEURO_PSYCH_yes.addEventListener('click', function() {
-        if (yesRadio.checked) {
-            checkboxes.forEach(checkbox => checkbox.disabled = true);
+    neuro_Psych_no.addEventListener('change', function() {
+        
+            toggleCheckboxes(false); // Enable checkboxes
+        
+    });
+    function toggleCheckboxes(enable) {
+        if (checkradio) {
+            // Select all input elements inside the custom-input-checkradio
+            var inputs = checkradio.querySelectorAll('input[type="radio"], input[type="checkbox"]');
+            
+            // Iterate through each input and disable it
+            inputs.forEach(function(input) {
+                input.disabled = enable;
+            });
         }
-
+    }
+    NEURO_PSYCH_otherCheckbox.addEventListener('change', function() {
+        if (this.checked) {
+            NEURO_PSYCH_otherInputField.style.display = 'block';  // Show the input text field
+            document.getElementById('NEURO/PSYCH_otherDescription').setAttribute('required', 'required');  // Make the input field required
+        } else {
+            NEURO_PSYCH_otherInputField.style.display = 'none';  // Hide the input text field
+            document.getElementById('NEURO/PSYCH_otherDescription').removeAttribute('required');  // Remove the required attribute
+        }
     });
 
-   NEURO_PSYCH_no.addEventListener('click', function() {
-        disableCheckboxes(false);
+
+ 
+//Cardiovascular
+Cardiovascular_yes.addEventListener('change', function() {
+            
+    Cardiovascular_toggleCheckboxes(true); // Disable checkboxes
     });
 
-    function disableCheckboxes(disable) {
-        const checkboxes = document.getElementById('Neurology/Psychosocial Abnormalities:')
-        checkboxes.forEach(function(checkbox) {
-            checkbox.disabled = disable;
+    Cardiovascular_no.addEventListener('change', function() {
+   
+        Cardiovascular_toggleCheckboxes(false); // Enable checkboxes
+    
+    });
+    function Cardiovascular_toggleCheckboxes(enable) {
+    if (Cardiovascular_checkradio) {
+        // Select all input elements inside the custom-input-checkradio
+        var inputs = Cardiovascular_checkradio.querySelectorAll('input[type="radio"], input[type="checkbox"]');
+        
+        // Iterate through each input and disable it
+        inputs.forEach(function(input) {
+            input.disabled = enable;
         });
     }
+    }
+    Cardiovascular_otherCheckbox.addEventListener('change', function() {
+    if (this.checked) {
+        Cardiovascular_otherInputField.style.display = 'block';  // Show the input text field
+        document.getElementById('Cardiovascular_otherDescription').setAttribute('required', 'required');  // Make the input field required
+    } else {
+        Cardiovascular_otherInputField.style.display = 'none';  // Hide the input text field
+        document.getElementById('Cardiovascular_otherDescription').removeAttribute('required');  // Remove the required attribute
+    }
+    });
 
+    //respiratory_
+   
+    respiratory_yes.addEventListener('change', function() {
+            
+        respiratory_toggleCheckboxes(true); // Disable checkboxes
+        });
+    
+        respiratory_no.addEventListener('change', function() {
+       
+            respiratory_toggleCheckboxes(false); // Enable checkboxes
+        
+        });
+        function respiratory_toggleCheckboxes(enable) {
+        if (respiratory_checkradio) {
+            // Select all input elements inside the custom-input-checkradio
+            var inputs = respiratory_checkradio.querySelectorAll('input[type="radio"], input[type="checkbox"]');
+            
+            // Iterate through each input and disable it
+            inputs.forEach(function(input) {
+                input.disabled = enable;
+            });
+        }
+        }
+        respiratory_otherCheckbox.addEventListener('change', function() {
+        if (this.checked) {
+            respiratory_otherInputField.style.display = 'block';  // Show the input text field
+            document.getElementById('respiratory_otherDescription').setAttribute('required', 'required');  // Make the input field required
+        } else {
+            respiratory_otherInputField.style.display = 'none';  // Hide the input text field
+            document.getElementById('respiratory_otherDescription').removeAttribute('required');  // Remove the required attribute
+        }
+        });
 
+    //gastrointestinal       
+    gastrointestinal_yes.addEventListener('change', function() {
+            
+        gastrointestinal_toggleCheckboxes(true); // Disable checkboxes
+        });
+    
+        gastrointestinal_no.addEventListener('change', function() {
+       
+            gastrointestinal_toggleCheckboxes(false); // Enable checkboxes
+        
+        });
+        function gastrointestinal_toggleCheckboxes(enable) {
+        if (gastrointestinal_checkradio) {
+            // Select all input elements inside the custom-input-checkradio
+            var inputs = gastrointestinal_checkradio.querySelectorAll('input[type="radio"], input[type="checkbox"]');
+            
+            // Iterate through each input and disable it
+            inputs.forEach(function(input) {
+                input.disabled = enable;
+            });
+        }
+        }
+        gastrointestinal_otherCheckbox.addEventListener('change', function() {
+        if (this.checked) {
+            gastrointestinal_otherInputField.style.display = 'block';  // Show the input text field
+            document.getElementById('gastrointestinal_otherDescription').setAttribute('required', 'required');  // Make the input field required
+        } else {
+            gastrointestinal_otherInputField.style.display = 'none';  // Hide the input text field
+            document.getElementById('gastrointestinal_otherDescription').removeAttribute('required');  // Remove the required attribute
+        }
+        });
 }
 
 document.addEventListener("DOMContentLoaded", async function () {
     const searchParams = new URLSearchParams(window.location.search);
     const formResponseId = searchParams.get('id');
     const savedFormData = window.localStorage.getItem(formResponseId);
+    var checkradio = document.querySelector('custom-input-checkradio[id="neurology_Psychosocial_Abnormalities"]');
+    let neuro_Psych_no=document.getElementById('neuro_Psych_no');
+    var Cardiovascular_checkradio = document.querySelector('custom-input-checkradio[id="cardiovascular_Abnormalities"]');
+    let Cardiovascular_no=document.getElementById('cardiovascular_no');
+    var respiratory_checkradio = document.querySelector('custom-input-checkradio[id="respiratory_Abnormalities"]');
+    let respiratory_no=document.getElementById('respiratory_no');
+    var gastrointestinal_checkradio = document.querySelector('custom-input-checkradio[id="gastrointestinal_Abnormalities"]');
+    let gastrointestinal_no=document.getElementById('gastrointestinal_no');
+
     hideAndShowLogic();
 
     if (savedFormData) {
@@ -212,6 +390,57 @@ document.addEventListener("DOMContentLoaded", async function () {
             commonFormOpeation.showModalPopup('exampleModal', true);
         }
     });
+    
+    //NEURO/PSYCH
+    if (checkradio) {
+        // Select all input elements inside the custom-input-checkradio
+        var inputs = checkradio.querySelectorAll('input[type="radio"], input[type="checkbox"]');
+        
+        // Iterate through each input and disable it
+        if(!neuro_Psych_no.checked)
+            {
+        inputs.forEach(function(input) {
+            input.disabled = true;
+        });}
+    }
+    //CARDIOVASCULAR
+    if (Cardiovascular_checkradio) {
+        // Select all input elements inside the custom-input-checkradio
+        var inputs = Cardiovascular_checkradio.querySelectorAll('input[type="radio"], input[type="checkbox"]');
+        
+        // Iterate through each input and disable it
+        if(!Cardiovascular_no.checked)
+            {
+        inputs.forEach(function(input) {
+            input.disabled = true;
+        });}
+    }
+
+    //respiratory
+    if (respiratory_checkradio) {
+        // Select all input elements inside the custom-input-checkradio
+        var inputs = respiratory_checkradio.querySelectorAll('input[type="radio"], input[type="checkbox"]');
+        
+        // Iterate through each input and disable it
+        if(!respiratory_no.checked)
+            {
+        inputs.forEach(function(input) {
+            input.disabled = true;
+        });}
+    }
+
+    //gastrointestinal
+    if (gastrointestinal_checkradio) {
+        // Select all input elements inside the custom-input-checkradio
+        var inputs = gastrointestinal_checkradio.querySelectorAll('input[type="radio"], input[type="checkbox"]');
+        
+        // Iterate through each input and disable it
+        if(!gastrointestinal_no.checked)
+            {
+        inputs.forEach(function(input) {
+            input.disabled = true;
+        });}
+    }
     
 });
 
@@ -238,12 +467,21 @@ const getQuestionToIdMap = () => {
         "visibleOtherTextBox_visit_other": "visibleOtherTextBox_visit_other",
         "pump_type": "pump_type",
         "visibleOtherTextBox_pump_type": "visibleOtherTextBox_pump_type",
-        "bp": "bp",
+        "bp1": "bp1",
+        "bp2":"bp2",
         "pulse": "pulse",
         "rr": "rr",
         "temp": "temp",
-        "weight": "weight"
-
+        "weight": "weight",
+        "Medication_Profile":"Medication_Profile",
+        "neuro_Psych":"neuro_Psych",
+        "neurology_Psychosocial_Abnormalities":"neurology_Psychosocial_Abnormalities",
+        "cardiovascular":"cardiovascular",
+        "cardiovascular_Abnormalities":"cardiovascular_Abnormalities",
+        "respiratory":"respiratory",
+        "respiratory_Abnormalities":"respiratory_Abnormalities",
+        "gastrointestinal":"gastrointestinal",
+        "gastrointestinal_Abnormalities":"gastrointestinal_Abnormalities",
     };
     return idToQueMap;
 };
@@ -282,7 +520,62 @@ const getAnswerToIdMap = () => {
         "visit_other": "visit_other",
         "freedom": "freedom",
         "curlin": "curlin",
-        "pump_type_other": "pump_type_other"
+        "pump_type_other": "pump_type_other",
+        "medication_changes_yes":"medication_changes_yes",
+        "medication_changes_no":"medication_changes_no",
+        
+        "neuro_Psych_yes":"neuro_Psych_yes",
+        "neuro_Psych_no":"neuro_Psych_no",
+        "lethargic":"lethargic",
+        "restlessness":"restlessness",
+        "memory_Loss":"memory_Loss",
+        "sluggish":"sluggish",
+        "confusion":"confusion",
+        "numbness":"numbness",
+        "difficulty_Concentrating":"difficulty_Concentrating",
+        "anxious":"anxious",
+        "tingling":"tingling",
+        "depressed_Hopeless":"depressed_Hopeless",
+        "burning":"burning",
+        "tremor":"tremor",
+        "headache":"headache",
+        "foot_Drop_Left":"foot_Drop_Left",
+        "foot_Drop_Right":"foot_Drop_Right",
+        "neuro_Psych_Other":"neuro_Psych_Other",
+        
+        "cardiovascular_yes":"cardiovascular_yes",
+        "cardiovascular_no":"cardiovascular_no",
+        "irregular_Heart_rate":"irregular_Heart_rate",
+        "edema":"edema",
+        "peripheral_Pulse_Not_Palpable":"peripheral_Pulse_Not_Palpable",
+        "extremities_Not_Equal_In_Color_Temprature_Sensation":"extremities_Not_Equal_In_Color_Temprature_Sensation",
+        "cardiovascular_Other":"cardiovascular_Other",
+        
+        "respiratory_yes":"respiratory_yes",
+        "respiratory_no":"respiratory_no",
+        "adventious_Lung_Sounds":"adventious_Lung_Sounds",
+        "short_of_Breath_at_Rest":"short_of_Breath_at_Rest",
+        "short_of_Breath_at_Exertion":"short_of_Breath_at_Exertion",
+        "use_of_Supplemetal_Oxygen":"use_of_Supplemetal_Oxygen",
+        "cough":"cough",
+        "respiratory_Other":"respiratory_Other",
+
+        "gastrointestinal_yes":"gastrointestinal_yes",
+        "gastrointestinal_no":"gastrointestinal_no",
+        "incontinence":"incontinence",
+        "constipation":"constipation",
+        "diarrhea":"diarrhea",
+        "abdomen_Firm_to_Palpitation":"abdomen_Firm_to_Palpitation",
+        "poor_Appetite":"poor_Appetite",
+        "nausea":"nausea",
+        "distended_Abdomen":"distended_Abdomen",
+        "diarrhea":"diarrhea",
+        "vomiting":"vomiting",
+        "heartburn":"heartburn",
+        "gastrointestinal_Other":"gastrointestinal_Other",
+
+        
+
 
     };
     return idToAnsMap;

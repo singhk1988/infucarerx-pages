@@ -185,7 +185,15 @@ customElements.define('custom-input-checkradio', class extends HTMLElement {
 
   attributeChangedCallback() {
     this.render();
+
+   
   }
+  // toggleCheckboxes(enable) {
+  //   const checkboxes = this.querySelectorAll('.form-check-input');
+  //   checkboxes.forEach(checkbox => {
+  //     checkbox.disabled = !enable;
+  //   });
+  // }
 });
 
 customElements.define("custom-input-checkradio-item", class extends HTMLElement {

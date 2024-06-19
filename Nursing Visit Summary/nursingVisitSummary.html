@@ -33,7 +33,7 @@
                                             </custom-input>
                                         </div>
                                         <div class="form-group col-md-6">
-                                            <custom-input label="Patient MRN:b*" type="number" id="mrn" name="mrn"
+                                            <custom-input label="Patient MRN:*" type="number" id="mrn" name="mrn"
                                                 value="" placeholder="Patient MRN" required>
                                             </custom-input>
                                         </div>
@@ -218,13 +218,13 @@
                                                 id="instruction" class="col-md-4"></custom-input-checkradio-item>
                                             <custom-input-checkradio-item label="Line Care" value="Line Care"
                                                 id="line_care" class="col-md-4"></custom-input-checkradio-item>
-                                            <custom-input-checkradio-item label="Line Draw" value="line_draw"
+                                            <custom-input-checkradio-item label="Lab Draw" value="line_draw"
                                                 id="line_draw" class="col-md-4"></custom-input-checkradio-item>
                                             <custom-input-checkradio-item label="Port Access" value="Port Access"
                                                 id="port_access" class="col-md-4"></custom-input-checkradio-item>
                                             <custom-input-checkradio-item label="Assessment" value="Assessment"
                                                 id="assessment" class="col-md-4"></custom-input-checkradio-item>
-                                            <custom-input-checkradio-item label="Meducation Admin"
+                                            <custom-input-checkradio-item label="Medication Admin"
                                                 value="Medication Admin" id="medication_admin"
                                                 class="col-md-4"></custom-input-checkradio-item>
                                             <custom-input-checkradio-item label="IV re-start" value="IV re-start"
@@ -259,12 +259,20 @@
                         <div class="col-md-3 mb-4">
                             <div class="card">
                                 <div class="card-body">
-                                    <h6 class="card-title">VITAL SIGNS</h6>
+                                    <h6 class="card-title mb-2">VITAL SIGNS</h6>
                                     <div class="row">
-                                        <div class="form-group col-md-6">
-                                            <custom-input type="text" label="BP: *" value="" id="bp" name="bp"
-                                                placeholder="" error="" required>
-                                            </custom-input>
+                                        <div class="form-group bp-input col-md-12">
+                                            <label style="margin-top: 20; margin-bottom: -10;">BP: *</label>
+                                            <div class="d-flex align-items-center bp-container">
+                                                
+                                                <custom-input label="" type="text" value="" id="bp1" name="bp1"
+                                                  placeholder="" error="" required>
+                                                </custom-input>
+                                                <div class="bp-separator">/</div>
+                                                <custom-input label="" type="text" value="" id="bp2" name="bp2"
+                                                  placeholder="" error="" required>
+                                                </custom-input>
+                                              </div>
                                         </div>
                                         <div class="form-group col-md-6">
                                             <custom-input type="number" label="Pulse: *" value="" id="pulse"
@@ -326,13 +334,13 @@
                                 <div>
                                 <h6 class="card-title">NEURO/PSYCH</h6>  
                                 
-                                <custom-input-checkradio id="NEURO/PSYCH" name="NEURO/PSYCH"
+                                <custom-input-checkradio id="neuro_Psych" name="neuro_Psych"
                                 type="radio" value="Part A" class="radio_btn_below">
     
-                                <custom-input-checkradio-item label="WDL: A&O x 3, speech spontaneous; denies anxiety, depression, headache,  blurred vision, dizziness, tremors, numbness, tingling " value="yes" id="NEURO_PSYCH_yes"
+                                <custom-input-checkradio-item label="WDL: A&O x 3, speech spontaneous; denies anxiety, depression, headache,  blurred vision, dizziness, tremors, numbness, tingling " value="yes" id="neuro_Psych_yes"
                                     type="radio" class="form-check" style="display: inline-block; margin-right: 10px;">
                                 </custom-input-checkradio-item>
-                                <custom-input-checkradio-item label="Not WDL, deviation noted" value="no" id="NEURO_PSYCH_no"
+                                <custom-input-checkradio-item label="Not WDL, deviation noted" value="no" id="neuro_Psych_no"
                                     type="radio" class="form-check" style="display: inline-block; margin-right: 10px;">
                                 </custom-input-checkradio-item>
                             </custom-input-checkradio>
@@ -345,52 +353,196 @@
                     <div class="col-md-6 mb-4">
                     <div class="card-body">
                         <div class="card">
-                        
-                            <div class="card-body-row">
-                                <custom-input-checkradio id="Neurology/Psychosocial Abnormalities:" name="Neurology/Psychosocial Abnormalities:" label="Neurology/Psychosocial Abnormalities:" class="radio_btn_inline" required>
-                                label="Neurology/Psychosocial Abnormalities:" class="radio_btn_inline" required>
-                                <custom-input-checkradio-item label="Lethargic" value="Lethargic"
-                                    id="Lethargic" class="col-md-4"></custom-input-checkradio-item>
-                                <custom-input-checkradio-item label="Restlessness" value="Restlessness"
-                                    id="Restlessness" class="col-md-4"></custom-input-checkradio-item>
-                                <custom-input-checkradio-item label="Memory Loss" value="Memory_Loss"
-                                    id="Memory_Loss" class="col-md-4"></custom-input-checkradio-item>
-                                <custom-input-checkradio-item label="Sluggish" value="Sluggish"
-                                    id="Sluggish" class="col-md-4"></custom-input-checkradio-item>
-                                <custom-input-checkradio-item label="Confusion" value="Confusion"
-                                    id="Confusion" class="col-md-4"></custom-input-checkradio-item>
-                                <custom-input-checkradio-item label="Numbness"
-                                    value="Numbness" id="Numbness"
-                                    class="col-md-4"></custom-input-checkradio-item>
-                                <custom-input-checkradio-item label="Difficulty Concentrating" value="Difficulty_Concentrating"
-                                    id="Difficulty_Concentrating" class="col-md-4"></custom-input-checkradio-item>
-                                <custom-input-checkradio-item label="Anxious" value="Anxious" id="Anxious"
-                                    class="col-md-4"></custom-input-checkradio-item>
-                                <custom-input-checkradio-item label="Tingling" value="Tingling" id="Tingling"
-                                    class="col-md-4"></custom-input-checkradio-item>
-                                <custom-input-checkradio-item label="Depressed, Hopeless" value="Depressed_Hopeless" id="Depressed_Hopeless"
-                                    class="col-md-4"></custom-input-checkradio-item>
-                                <custom-input-checkradio-item label="Burning" value="Burning" id="Burning"
-                                    class="col-md-4"></custom-input-checkradio-item>
-                                <custom-input-checkradio-item label="Tremor" value="Tremor" id="Tremor"
-                                    class="col-md-4"></custom-input-checkradio-item>
-                                <custom-input-checkradio-item label="Headache" value="Headache" id="Headache"
-                                    class="col-md-4"></custom-input-checkradio-item>
-                                <custom-input-checkradio-item label="Foot drop left" value="Foot_drop_left" id="Foot_drop_left"
-                                    class="col-md-4"></custom-input-checkradio-item>
-                                <custom-input-checkradio-item label="Foot drop right" value="Foot_drop_right" id="Foot_drop_right"
-                                    class="col-md-4"></custom-input-checkradio-item>
-                                <custom-input-checkradio-item label="Other" value="Other" id="Other"
-                                    class="col-md-4"></custom-input-checkradio-item>
-                            </custom-input-checkradio>
+                            <div class="card-body">
+                                <custom-input-checkradio id="neurology_Psychosocial_Abnormalities" name="neurology_Psychosocial_Abnormalities" label="Neurology/Psychosocial Abnormalities:" class="radio_btn_inline" required>
+                                    <custom-input-checkradio-item label="Lethargic" value="Lethargic" id="lethargic" class="col-md-4"></custom-input-checkradio-item>
+                                    <custom-input-checkradio-item label="Restlessness" value="Restlessness" id="restlessness" class="col-md-4"></custom-input-checkradio-item>
+                                    <custom-input-checkradio-item label="Memory Loss" value="Memory_Loss" id="memory_Loss" class="col-md-4"></custom-input-checkradio-item>
+                                    <custom-input-checkradio-item label="Sluggish" value="Sluggish" id="sluggish" class="col-md-4"></custom-input-checkradio-item>
+                                    <custom-input-checkradio-item label="Confusion" value="Confusion" id="confusion" class="col-md-4"></custom-input-checkradio-item>
+                                    <custom-input-checkradio-item label="Numbness" value="Numbness" id="numbness" class="col-md-4"></custom-input-checkradio-item>
+                                    <custom-input-checkradio-item label="Difficulty Concentrating" value="Difficulty_Concentrating" id="difficulty_Concentrating" class="col-md-4"></custom-input-checkradio-item>
+                                    <custom-input-checkradio-item label="Anxious" value="Anxious" id="anxious" class="col-md-4"></custom-input-checkradio-item>
+                                    <custom-input-checkradio-item label="Tingling" value="Tingling" id="tingling" class="col-md-4"></custom-input-checkradio-item>
+                                    <custom-input-checkradio-item label="Depressed, Hopeless" value="Depressed_Hopeless" id="depressed_Hopeless" class="col-md-4"></custom-input-checkradio-item>
+                                    <custom-input-checkradio-item label="Burning" value="Burning" id="burning" class="col-md-4"></custom-input-checkradio-item>
+                                    <custom-input-checkradio-item label="Tremor" value="Tremor" id="tremor" class="col-md-4"></custom-input-checkradio-item>
+                                    <custom-input-checkradio-item label="Headache" value="Headache" id="headache" class="col-md-4"></custom-input-checkradio-item>
+                                    <custom-input-checkradio-item label="Foot drop left" value="Foot_Drop_Left" id="foot_Drop_Left" class="col-md-4"></custom-input-checkradio-item>
+                                    <custom-input-checkradio-item label="Foot drop right" value="Foot_drop_right" id="foot_Drop_Right" class="col-md-4"></custom-input-checkradio-item>
+                                    <custom-input-checkradio-item label="Other" value="Other" id="neuro_Psych_Other" class="col-md-4"></custom-input-checkradio-item>
+                                </custom-input-checkradio>
+                                <custom-input label="" type="text" id="neuro_Psych_otherInputField"
+                                name="neuro_Psych_otherInputField" placeholder="" class="col-md-6"
+                                style="display: none;"></custom-input>
                             </div>
+                            
+                                
+                            
                         </div>
                     </div>
                 </div>
                 </div>
 
+                <!-- CARDIOVASCULAR -->
+
+                <div class="row">
+                    <!-- Left card Wrapper -->
+                    <div class="col-md-6 mb-4">
+                    <div class="card-body">
+                        <div class="card">
+                        
+                            <div class="card-body-row">
+                                <div>
+                                <h6 class="card-title">CARDIOVASCULAR</h6>  
+                                
+                                <custom-input-checkradio id="cardiovascular" name="cardiovascular"
+                                type="radio" value="Part A" class="radio_btn_below">
+    
+                                <custom-input-checkradio-item label="WDL: Heart rate regular & rhythm regular, denies chest pain & palpitations,  skin warm & dry, Pulses in all extremities, no edema." value="yes" id="cardiovascular_yes"
+                                    type="radio" class="form-check" style="display: inline-block; margin-right: 10px;">
+                                </custom-input-checkradio-item>
+                                <custom-input-checkradio-item label="Not WDL, deviation noted" value="no" id="cardiovascular_no"
+                                    type="radio" class="form-check" style="display: inline-block; margin-right: 10px;">
+                                </custom-input-checkradio-item>
+                            </custom-input-checkradio>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                    <!-- Right card Wrapper -->
+                    <div class="col-md-6 mb-4">
+                    <div class="card-body">
+                        <div class="card">
+                            <div class="card-body">
+                                <custom-input-checkradio id="cardiovascular_Abnormalities" name="cardiovascular_Abnormalities" label="Cardiovascular Abnormalities:" class="radio_btn_inline" required>
+                                    <custom-input-checkradio-item label="Irregular Heart rate" value="Irregular Heart rate" id="irregular_Heart_rate" class="col-md-4"></custom-input-checkradio-item>
+                                    <custom-input-checkradio-item label="Edema" value="Edema" id="edema" class="col-md-4"></custom-input-checkradio-item>
+                                    <custom-input-checkradio-item label="Peripheral Pulse(s) not palpable" value="Peripheral Pulse(s) not palpable" id="peripheral_Pulse_Not_Palpable" class="col-md-4"></custom-input-checkradio-item>
+                                    <custom-input-checkradio-item label="Extremities not equal in color, temprature, sensation" value="Extremities not equal in color, temprature, sensation" id="extremities_Not_Equal_In_Color_Temprature_Sensation" class="col-md-4"></custom-input-checkradio-item>
+                                    <custom-input-checkradio-item label="Other" value="Other" id="cardiovascular_Other" class="col-md-4"></custom-input-checkradio-item>
+                                </custom-input-checkradio>
+                                <custom-input label="" type="text" id="cardiovascular_otherInputField"
+                                name="cardiovascular_otherInputField" placeholder="" class="col-md-6"
+                                style="display: none;"></custom-input>
+                            </div>
+                            
+                                
+                            
+                        </div>
+                    </div>
+                </div>
+                </div>
                 
-                
+                <!-- Respiratory -->
+
+                <div class="row">
+                    <!-- Left card Wrapper -->
+                    <div class="col-md-6 mb-4">
+                    <div class="card-body">
+                        <div class="card">
+                        
+                            <div class="card-body-row">
+                                <div>
+                                <h6 class="card-title">RESPIRATORY</h6>  
+                                
+                                <custom-input-checkradio id="respiratory" name="respiratory"
+                                type="radio" value="Part A" class="radio_btn_below">
+    
+                                <custom-input-checkradio-item label="WDL: Regular rate depth and pattern, no cough or shortness of breath; breath sounds equal and clear." value="yes" id="respiratory_yes"
+                                    type="radio" class="form-check" style="display: inline-block; margin-right: 10px;">
+                                </custom-input-checkradio-item>
+                                <custom-input-checkradio-item label="Not WDL, deviation noted" value="no" id="respiratory_no"
+                                    type="radio" class="form-check" style="display: inline-block; margin-right: 10px;">
+                                </custom-input-checkradio-item>
+                            </custom-input-checkradio>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                    <!-- Right card Wrapper -->
+                    <div class="col-md-6 mb-4">
+                    <div class="card-body">
+                        <div class="card">
+                            <div class="card-body">
+                                <custom-input-checkradio id="respiratory_Abnormalities" name="respiratory_Abnormalities" label="Respiratory Abnormalities:" class="radio_btn_inline" required>
+                                    <custom-input-checkradio-item label="Adventious Lung Sounds" value="Adventious Lung Sounds" id="adventious_Lung_Sounds" class="col-md-4"></custom-input-checkradio-item>
+                                    <custom-input-checkradio-item label="Short of Breath at Rest" value="Short of Breath at Rest" id="short_of_Breath_at_Rest" class="col-md-4"></custom-input-checkradio-item>
+                                    <custom-input-checkradio-item label="Short of Breath at Exertion" value="Short of Breath at Exertion" id="short_of_Breath_at_Exertion" class="col-md-4"></custom-input-checkradio-item>
+                                    <custom-input-checkradio-item label="Use of Supplemetal Oxygen" value="Use of Supplemetal Oxygen" id="use_of_Supplemetal_Oxygen" class="col-md-4"></custom-input-checkradio-item>
+                                    <custom-input-checkradio-item label="Cough" value="Cough" id="cough" class="col-md-4"></custom-input-checkradio-item>
+                                    <custom-input-checkradio-item label="Other" value="Other" id="respiratory_Other" class="col-md-4"></custom-input-checkradio-item>
+                                </custom-input-checkradio>
+                                <custom-input label="" type="text" id="respiratory_otherInputField"
+                                name="respiratory_otherInputField" placeholder="" class="col-md-6"
+                                style="display: none;"></custom-input>
+                            </div>
+                            
+                                
+                            
+                        </div>
+                    </div>
+                </div>
+                </div>
+
+                <!-- Gastrointestinal -->
+
+                <div class="row">
+                    <!-- Left card Wrapper -->
+                    <div class="col-md-6 mb-4">
+                    <div class="card-body">
+                        <div class="card">
+                        
+                            <div class="card-body-row">
+                                <div>
+                                <h6 class="card-title">GASTROINTESTINAL</h6>  
+                                
+                                <custom-input-checkradio id="gastrointestinal" name="gastrointestinal"
+                                type="radio" value="Part A" class="radio_btn_below">
+    
+                                <custom-input-checkradio-item label="WDL: Appears well nourished, regular stool pattern, BS present in 4 quadrants,  abdomen soft/NT, good appetite." value="yes" id="gastrointestinal_yes"
+                                    type="radio" class="form-check" style="display: inline-block; margin-right: 10px;">
+                                </custom-input-checkradio-item>
+                                <custom-input-checkradio-item label="Not WDL, deviation noted" value="no" id="gastrointestinal_no"
+                                    type="radio" class="form-check" style="display: inline-block; margin-right: 10px;">
+                                </custom-input-checkradio-item>
+                            </custom-input-checkradio>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                    <!-- Right card Wrapper -->
+                    <div class="col-md-6 mb-4">
+                    <div class="card-body">
+                        <div class="card">
+                            <div class="card-body">
+                                <custom-input-checkradio id="gastrointestinal_Abnormalities" name="gastrointestinal_Abnormalities" label="Gastrointestinal Abnormalities:" class="radio_btn_inline" required>
+                                    <custom-input-checkradio-item label="Incontinence" value="Incontinence" id="incontinence" class="col-md-4"></custom-input-checkradio-item>
+                                    <custom-input-checkradio-item label="Constipation" value="Constipation" id="constipation" class="col-md-4"></custom-input-checkradio-item>
+                                    <custom-input-checkradio-item label="Diarrhea" value="Diarrhea" id="diarrhea" class="col-md-4"></custom-input-checkradio-item>
+                                    <custom-input-checkradio-item label="Abdomen Firm to Palpitation" value="Abdomen Firm to Palpitation" id="abdomen_Firm_to_Palpitation" class="col-md-4"></custom-input-checkradio-item>
+                                    <custom-input-checkradio-item label="Poor Appetite" value="Poor Appetite" id="poor_Appetite" class="col-md-4"></custom-input-checkradio-item>
+                                    <custom-input-checkradio-item label="Nausea" value="Nausea" id="nausea" class="col-md-4"></custom-input-checkradio-item>
+                                    <custom-input-checkradio-item label="Distended Abdomen" value="distended_Abdomen" id="distended_Abdomen" class="col-md-4"></custom-input-checkradio-item>
+                                    <custom-input-checkradio-item label="Fair Appetite" value="Diarrhea" id="diarrhea" class="col-md-4"></custom-input-checkradio-item>
+                                    <custom-input-checkradio-item label="Vomiting" value="Vomiting" id="vomiting" class="col-md-4"></custom-input-checkradio-item>
+                                    <custom-input-checkradio-item label="Heartburn" value="Heartburn" id="heartburn" class="col-md-4"></custom-input-checkradio-item>
+                                    <custom-input-checkradio-item label="Other" value="Other" id="gastrointestinal_Other" class="col-md-4"></custom-input-checkradio-item>
+                                </custom-input-checkradio>
+                                <custom-input label="" type="text" id="gastrointestinal_otherInputField"
+                                name="gastrointestinal_otherInputField" placeholder="" class="col-md-6"
+                                style="display: none;"></custom-input>
+                            </div>
+                            
+                                
+                            
+                        </div>
+                    </div>
+                </div>
+                </div>
 
                 </div>
                 <div class="mt-4">
