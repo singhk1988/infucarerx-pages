@@ -1,7 +1,11 @@
-function getFormControlTemplate(label) {
+function getFormControlTemplate(label, isRequired) {
+  // If the input is required, add the asterisk with red color
+  const labelContent = isRequired
+    ? `${label} <span class="asterisk">*</span>`
+    : label;
   return `
     <div class="form-item">
-      <label class="form-label">${label}</label>
+      <label class="form-label">${labelContent}</label>
       <slot name="input"></slot>
     </div>
     <div class="invalid-feedback"></div>
@@ -21,7 +25,7 @@ customElements.define("custom-input", class extends HTMLElement {
   }
 
   render() {
-    if(!this.initialised) {
+    if (!this.initialised) {
       this.innerHTML = getFormControlTemplate(this.getAttribute('label'));
       const inputTemplate = document.createElement('template');
       const type = this.getAttribute('type') ?? 'text';
@@ -39,7 +43,7 @@ customElements.define("custom-input", class extends HTMLElement {
 
       // Update inputElement reference
       this.inputElement = this.querySelector('.form-control');
-      
+
       // Setup event listeners
       this.setupEventListeners();
     } else {
@@ -74,16 +78,22 @@ customElements.define("custom-input", class extends HTMLElement {
     });
 
     // Focus event to focus the inner input when the custom element is focused
-    this.addEventListener('focus', () => this.inputElement.focus(), {capture: true});
+    this.addEventListener('focus', () => this.inputElement.focus(), { capture: true });
   }
 
   updateComponent() {
-    this.querySelector('.form-label').textContent = this.getAttribute('label');
+    // this.querySelector('.form-label').textContent = this.getAttribute('label');
+    const label = this.getAttribute('label');
+    const isRequired = this.hasAttribute('required');
+    const labelContent = isRequired
+      ? `${label} <span class="asterisk">*</span>`
+      : label;
+    this.querySelector('.form-label').innerHTML = labelContent;
     this.inputElement.value = this.getAttribute('value') || '';
 
     // Error handling
     const error = this.getAttribute('error');
-    if(error) {
+    if (error) {
       this.querySelector('.form-item').classList.add('is-invalid');
       this.inputElement.classList.add('is-invalid');
       this.querySelector('.invalid-feedback').textContent = error;
@@ -102,25 +112,25 @@ customElements.define("custom-input", class extends HTMLElement {
   }
 });
 
-
-
 customElements.define('custom-input-checkradio', class extends HTMLElement {
   static observedAttributes = ["label", "value", "error"];
-  
+
   constructor() {
     super();
     this.initialised = false;
     this.type = this.getAttribute('type') ?? 'checkbox';
 
-    this.addEventListener('custom-input-checkradio-item-added', (e)=>{
+    this.addEventListener('custom-input-checkradio-item-added', (e) => {
       this.onItemAdded(e.detail);
-    })
+    });
   }
 
   initialise() {
     const children = this.querySelectorAll('custom-input-checkradio-item');
-    this.innerHTML = getFormControlTemplate(this.getAttribute('label'));
-    // If the childrens are available already then add them to correct place.
+    const isRequired = this.hasAttribute('required');
+    this.innerHTML = getFormControlTemplate(this.getAttribute('label'), isRequired);
+
+    // If the children are available already then add them to the correct place.
     for (const child of children) {
       this.onItemAdded({
         id: child.id,
@@ -128,23 +138,21 @@ customElements.define('custom-input-checkradio', class extends HTMLElement {
         type: child.getAttribute('type'),
         label: child.getAttribute('label'),
         value: child.getAttribute('value'),
-      })
+      });
     }
     this.initialised = true;
   }
 
   onItemAdded(attrs) {
-    const item = document.createElement('template')
-    item.innerHTML =
-    `
-    <div class="form-check">
-      <input class="form-check-input" name="${attrs.name ?? this.getAttribute('name')}" type="${attrs.type ?? this.type}"
-        value="${attrs.value}" id="${attrs.id}">
-      <label class="form-check-label" for="${attrs.id}">
-        ${attrs.label}
-      </label>
-    </div>
-    
+    const item = document.createElement('template');
+    item.innerHTML = `
+      <div class="form-check">
+        <input class="form-check-input" name="${attrs.name ?? this.getAttribute('name')}" type="${attrs.type ?? this.type}"
+          value="${attrs.value}" id="${attrs.id}">
+        <label class="form-check-label" for="${attrs.id}">
+          ${attrs.label}
+        </label>
+      </div>
     `;
     this.querySelector('.form-item').insertBefore(item.content, this.querySelector('slot[name="input"]'));
   }
@@ -158,14 +166,18 @@ customElements.define('custom-input-checkradio', class extends HTMLElement {
   }
 
   render() {
-    if(!this.initialised) {
+    if (!this.initialised) {
       this.initialise();
     } else {
-      this.querySelector('.form-label').innerHTML = this.getAttribute('label');
+      const isRequired = this.hasAttribute('required');
+      const labelContent = isRequired
+        ? `${this.getAttribute('label')} <span class="asterisk">*</span>`
+        : this.getAttribute('label');
+      this.querySelector('.form-label').innerHTML = labelContent;
 
-      // error handling
+      // Error handling
       const error = this.getAttribute('error');
-      if(Boolean(error)) {
+      if (error) {
         this.querySelector('.form-item').classList.add('is-invalid');
         const items = this.querySelectorAll('.form-check-input');
         for (const child of items) {
@@ -185,23 +197,10 @@ customElements.define('custom-input-checkradio', class extends HTMLElement {
 
   attributeChangedCallback() {
     this.render();
-
-   
   }
-  // toggleCheckboxes(enable) {
-  //   const checkboxes = this.querySelectorAll('.form-check-input');
-  //   checkboxes.forEach(checkbox => {
-  //     checkbox.disabled = !enable;
-  //   });
-  // }
 });
 
 customElements.define("custom-input-checkradio-item", class extends HTMLElement {
-  // We use this component for getting the data only
-  // Pass on the details to parent and parent will take care of rendering.
-  // In most cases, this will rendered before parent will set the innerHTML,
-  // but sometimes, this component will load after parent innerHTML is set.
-  // We need to tell parent that this component has arrived.
   connectedCallback() {
     this.dispatchEvent(new CustomEvent('custom-input-checkradio-item-added', {
       bubbles: true,
@@ -217,25 +216,24 @@ customElements.define("custom-input-checkradio-item", class extends HTMLElement 
     this.remove();
   }
 });
-
 class CommonStepper extends HTMLElement {
   constructor() {
-      super();
-      this.currentStep = 1;
-      this.steps = [];
-      this.render();
+    super();
+    this.currentStep = 1;
+    this.steps = [];
+    this.render();
   }
 
   connectedCallback() {
-      // Parse the steps attribute value as JSON array
-      this.steps = JSON.parse(this.getAttribute('steps'));
-      this.render();
+    // Parse the steps attribute value as JSON array
+    this.steps = JSON.parse(this.getAttribute('steps'));
+    this.render();
   }
-  
+
   render() {
-      const steps = JSON.parse(this.getAttribute('steps'));
-      const totalSteps = steps.length;
-      this.innerHTML = `
+    const steps = JSON.parse(this.getAttribute('steps'));
+    const totalSteps = steps.length;
+    this.innerHTML = `
       <style>
       .steps {
           display: flex;
@@ -353,76 +351,76 @@ class CommonStepper extends HTMLElement {
           <div class="content"></div>
       </div> -->
   `;
-      this.loadStepContent(1);
+    this.loadStepContent(1);
   }
 
   static get observedAttributes() {
-      return ['steps','current-step', 'next-button', 'prev-button'];
+    return ['steps', 'current-step', 'next-button', 'prev-button'];
   }
 
   attributeChangedCallback(name, oldValue, newValue) {
-      console.log("Attribute changed:", name, "Old value:", oldValue, "New value:", newValue);
-      if (name === 'current-step' && newValue) {
-          this.currentStep = parseInt(newValue);
-          this.loadStepContent(this.currentStep);
-      }
+    console.log("Attribute changed:", name, "Old value:", oldValue, "New value:", newValue);
+    if (name === 'current-step' && newValue) {
+      this.currentStep = parseInt(newValue);
+      this.loadStepContent(this.currentStep);
+    }
   }
   loadStepContent(step) {
-      const stepContentDiv = document.getElementById(`stepContent${step}`);
-      if (stepContentDiv) {
-          const stepContentDivs = document.querySelectorAll('.step-content');
-          stepContentDivs.forEach(div => div.style.display = 'none');
-          stepContentDiv.style.display = 'block';
-  
-          const steps = this.querySelectorAll('.step-number');
-          const stepsHeader = this.querySelectorAll('.step-header');
-          const stepsLine = this.querySelectorAll('.line1');
-          
-          if (steps && stepsHeader && stepsLine) {
-              steps.forEach(stepEl => stepEl.classList.remove('active', 'completed'));
-              stepsHeader.forEach(header => header.classList.remove('active-header'));
-              stepsLine.forEach(line => line.classList.remove('line-completed', 'line-blue'));
-  
-              for (let i = 0; i < step - 1; i++) {
-                  if (steps[i] && stepsLine[i]) {
-                      steps[i].classList.add('completed');
-                      stepsLine[i].classList.add('line-completed');
-                      steps[i].querySelector('.step-index-number').style.display = 'none';
-                  }
-              }
-  
-              if (steps[step - 1] && stepsHeader[step - 1]) {
-                  steps[step - 1].querySelector('.step-index-number').style.display = 'block';
-                  steps[step - 1].classList.add('active');
-                  stepsHeader[step - 1].classList.add('active-header');
-              }
-  
-              if (step > 1 && stepsLine[step - 2]) {
-                  stepsLine[step - 2].classList.add('line-blue');
-              }
-              if (step < steps.length && stepsLine[step - 1]) {
-                  stepsLine[step - 1].classList.add('line-green');
-              }
+    const stepContentDiv = document.getElementById(`stepContent${step}`);
+    if (stepContentDiv) {
+      const stepContentDivs = document.querySelectorAll('.step-content');
+      stepContentDivs.forEach(div => div.style.display = 'none');
+      stepContentDiv.style.display = 'block';
+
+      const steps = this.querySelectorAll('.step-number');
+      const stepsHeader = this.querySelectorAll('.step-header');
+      const stepsLine = this.querySelectorAll('.line1');
+
+      if (steps && stepsHeader && stepsLine) {
+        steps.forEach(stepEl => stepEl.classList.remove('active', 'completed'));
+        stepsHeader.forEach(header => header.classList.remove('active-header'));
+        stepsLine.forEach(line => line.classList.remove('line-completed', 'line-blue'));
+
+        for (let i = 0; i < step - 1; i++) {
+          if (steps[i] && stepsLine[i]) {
+            steps[i].classList.add('completed');
+            stepsLine[i].classList.add('line-completed');
+            steps[i].querySelector('.step-index-number').style.display = 'none';
           }
+        }
+
+        if (steps[step - 1] && stepsHeader[step - 1]) {
+          steps[step - 1].querySelector('.step-index-number').style.display = 'block';
+          steps[step - 1].classList.add('active');
+          stepsHeader[step - 1].classList.add('active-header');
+        }
+
+        if (step > 1 && stepsLine[step - 2]) {
+          stepsLine[step - 2].classList.add('line-blue');
+        }
+        if (step < steps.length && stepsLine[step - 1]) {
+          stepsLine[step - 1].classList.add('line-green');
+        }
       }
+    }
   }
-  
+
   getStepLabel(stepIndex) {
-      const steps = JSON.parse(this.getAttribute('steps'));
-      if (stepIndex >= 0 && stepIndex < steps.length) {
-          return steps[stepIndex];
-      } else {
-          return null;
-      }
+    const steps = JSON.parse(this.getAttribute('steps'));
+    if (stepIndex >= 0 && stepIndex < steps.length) {
+      return steps[stepIndex];
+    } else {
+      return null;
+    }
   }
 
   setStepLabel(stepIndex, newLabel) {
-      const steps = JSON.parse(this.getAttribute('steps'));
-      if (stepIndex >= 0 && stepIndex < steps.length) {
-          steps[stepIndex] = newLabel;
-          this.setAttribute('steps', JSON.stringify(steps));
-          this.render(); 
-      }
+    const steps = JSON.parse(this.getAttribute('steps'));
+    if (stepIndex >= 0 && stepIndex < steps.length) {
+      steps[stepIndex] = newLabel;
+      this.setAttribute('steps', JSON.stringify(steps));
+      this.render();
+    }
   }
 }
 

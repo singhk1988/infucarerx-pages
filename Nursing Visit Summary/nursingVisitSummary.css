@@ -228,3 +228,6 @@ h3.fields-title {
     font-size: 15; /* Increase the font size */
     font-weight:600; /* Make the text bold */
   }
+  .asterisk {
+    color: red;
+  }
