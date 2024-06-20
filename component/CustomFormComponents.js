@@ -1,6 +1,8 @@
 function getFormControlTemplate(label, isRequired) {
   // If the input is required, add the asterisk with red color
-  const labelContent = isRequired
+  const hasAsterisk = label.includes('*');
+  // If the input is required and doesn't already have an asterisk, add the asterisk with red color
+  const labelContent = isRequired && !hasAsterisk
     ? `${label} <span class="asterisk">*</span>`
     : label;
   return `
@@ -85,7 +87,8 @@ customElements.define("custom-input", class extends HTMLElement {
     // this.querySelector('.form-label').textContent = this.getAttribute('label');
     const label = this.getAttribute('label');
     const isRequired = this.hasAttribute('required');
-    const labelContent = isRequired
+    const hasAsterisk = label.includes('*');
+    const labelContent = isRequired && !hasAsterisk
       ? `${label} <span class="asterisk">*</span>`
       : label;
     this.querySelector('.form-label').innerHTML = labelContent;
@@ -170,7 +173,8 @@ customElements.define('custom-input-checkradio', class extends HTMLElement {
       this.initialise();
     } else {
       const isRequired = this.hasAttribute('required');
-      const labelContent = isRequired
+      const hasAsterisk = label.includes('*');
+      const labelContent = isRequired && !hasAsterisk
         ? `${this.getAttribute('label')} <span class="asterisk">*</span>`
         : this.getAttribute('label');
       this.querySelector('.form-label').innerHTML = labelContent;
