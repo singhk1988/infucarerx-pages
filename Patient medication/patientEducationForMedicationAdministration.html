@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../assets/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/index.css">
+    <link rel="stylesheet" href="./patientEducationForMedicationAdministration.css">
+    <script src="../assets/CommonFormOperation.js"></script>
+</head>
+<body>
+    <main class="main-container pt-4 pb-5">
+        <div class="container container-custom ">
+            <form action="">
+      
+              <div id="formComment" class="alert alert-primary form-comment container" role="alert" style="display: none;">A simple danger alert—check it out!</div>
+      
+                <div id="form_hide">
+                    <div class="row">
+                        <div class="form-group col-md-4">
+                            <custom-input type="text" label="Patient First name: *" value="" id="fname" name="fname"
+                                placeholder="First name" error="" required disabled>
+                            </custom-input>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <custom-input type="text" label="Patient Last Name: *" value="" id="lname" name="lname"
+                                placeholder="Last Name" required disabled>
+                            </custom-input>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <custom-input label="Date of Birth: *" type="date" id="dob_date" name="dob_date" value="" required disabled>
+                            </custom-input>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <custom-input label="Visit Date: *" type="date" id="visit_date" name="visit_date" value=""
+                                required>
+                            </custom-input>
+                        </div>
+                    </div>
+                    <div class="row text-center">
+                        <h5>Patient Skill Demonstration</h5>
+                        <h5>Satisfactory (S) <br>
+                            Not Satisfactory (N) <br>
+                            Not Applicable (NA)</h5>
+                    </div>
+                    <div class="row">
+                        <custom-input-checkradio id="prescribed_therapy" class="radio_btn_inline"
+                            name="prescribed_therapy" label="Select Prescribed Therapy:">
+                            <custom-input-checkradio-item label="IV Push" value="IV Push"
+                                id="iv_push"></custom-input-checkradio-item>
+                            <custom-input-checkradio-item label="Subcutaneous Injection" value="Subcutaneous Injection"
+                                id="subcutaneous_injection"></custom-input-checkradio-item>
+                            <custom-input-checkradio-item label="IV infusion" value="IV infusion"
+                                id="iv_infusion"></custom-input-checkradio-item>
+                            <custom-input-checkradio-item label="Subcutaneous infusion" value="Subcutaneous infusion"
+                                id="subcutaneous_infusion"></custom-input-checkradio-item>
+                        </custom-input-checkradio>
+                    </div>
+                    <div class="row">
+                        <custom-input-checkradio id="proper_storage_medication" name="proper_storage_medication"
+                            label="Patient describes proper storage of medication:">
+                            <custom-input-checkradio-item
+                                label="Refrigerated (remove 45-60 minutes prior to infusion or as directed on label)"
+                                value="Refrigerated" id="refrigerated"></custom-input-checkradio-item>
+                            <custom-input-checkradio-item label="Not Refrigerated" value="Not Refrigerated"
+                                id="not_refrigerated"></custom-input-checkradio-item>
+                        </custom-input-checkradio>
+                        <custom-input-checkradio id="proper_storage_medication_status" name="proper_storage_medication_status"
+                            label="" class="radio_btn_inline">
+                            <custom-input-checkradio-item label="S" value="S"
+                                id="storage_medication_s"></custom-input-checkradio-item>
+                            <custom-input-checkradio-item label="N" value="N"
+                                id="storage_medication_n"></custom-input-checkradio-item>
+                            <custom-input-checkradio-item label="N/A" value="N/A"
+                                id="storage_medication_na"></custom-input-checkradio-item>
+                        </custom-input-checkradio>
+                    </div>
+                    <div class="row">
+                        <custom-input-checkradio id="inspection_site_signs" name="inspection_site_signs"
+                            label="Patient verbalizes/ demonstrated appropriate inspection of the site and signs that should be reported:">
+                            <custom-input-checkradio-item
+                                label="Patient educated on VAD site inspection every four hours" value="site_inspection"
+                                id="site_inspection"></custom-input-checkradio-item>
+                            <custom-input-checkradio-item
+                                label="Patient education on signs of infection and complications with VAD (dislodgement, inability to flush, etc.) that should be reported to pharmacy"
+                                value="signs_infection" id="signs_infection"></custom-input-checkradio-item>
+                        </custom-input-checkradio>
+                        <custom-input-checkradio id="inspection_site_signs_status" name="inspection_site_signs_status"
+                            label="" class="radio_btn_inline">
+                            <custom-input-checkradio-item label="S" value="S"
+                                id="site_s"></custom-input-checkradio-item>
+                            <custom-input-checkradio-item label="N" value="N"
+                                id="site_n"></custom-input-checkradio-item>
+                        </custom-input-checkradio>
+                    </div>
+                    <div class="row">
+                        <custom-input-checkradio id="inspection" name="inspection" label="Demonstrates Inspection of:"
+                            class="radio_btn_inline">
+                            <custom-input-checkradio-item label="Dosage" value="Dosage"
+                                id="dosage"></custom-input-checkradio-item>
+                            <custom-input-checkradio-item label="Expiration Date" value="ExpirationDate"
+                                id="expiration_date"></custom-input-checkradio-item>
+                            <custom-input-checkradio-item label="Solution Integrity" value="SolutionIntegrity"
+                                id="solution_integrity"></custom-input-checkradio-item>
+                            <custom-input-checkradio-item label="Correct Medication" value="CorrectMedication"
+                                id="correct_medication"></custom-input-checkradio-item>
+                        </custom-input-checkradio>
+                        <custom-input-checkradio id="inspection_status" name="inspection_status" label=""
+                            class="radio_btn_inline">
+                            <custom-input-checkradio-item label="S" value="S"
+                                id="inspection_s"></custom-input-checkradio-item>
+                            <custom-input-checkradio-item label="N" value="N"
+                                id="inspection_n"></custom-input-checkradio-item>
+                            <custom-input-checkradio-item label="N/A" value="NA"
+                                id="inspection_na"></custom-input-checkradio-item>
+                        </custom-input-checkradio>
+                    </div>
+                    <div class="row">
+                        <custom-input-checkradio id="supply_status" name="supply_status" label="Assembles Supply appropriately:"
+                            class="radio_btn_inline">
+                            <custom-input-checkradio-item label="S" value="S"
+                                id="supply_s"></custom-input-checkradio-item>
+                            <custom-input-checkradio-item label="N" value="N"
+                                id="supply_n"></custom-input-checkradio-item>
+                            <custom-input-checkradio-item label="NA" value="NA"
+                                id="supply_na"></custom-input-checkradio-item>
+                        </custom-input-checkradio>
+                    </div>
+                    <div class="row">
+                        <custom-input-checkradio id="demonstrate_use" name="demonstrate_use" label="Demonstrate use of:"
+                            class="radio_btn_inline">
+                            <custom-input-checkradio-item label="Infusion Pump" value="InfusionPump"
+                                id="infusion_pump"></custom-input-checkradio-item>
+                            <custom-input-checkradio-item label="Flow Control Device" value="FlowControlDevice"
+                                id="flow_control_device"></custom-input-checkradio-item>
+                        </custom-input-checkradio>
+                        <custom-input-checkradio id="demonstrate_use_status" name="demonstrate_use_status" label=""
+                            class="radio_btn_inline">
+                            <custom-input-checkradio-item label="S" value="S"
+                                id="demonstrate_use_s"></custom-input-checkradio-item>
+                            <custom-input-checkradio-item label="N" value="N"
+                                id="demonstrate_use_n"></custom-input-checkradio-item>
+                            <custom-input-checkradio-item label="N/A" value="NA"
+                                id="demonstrate_use_na"></custom-input-checkradio-item>
+                        </custom-input-checkradio>
+                    </div>
+                    <div class="row">
+                        <custom-input-checkradio id="aseptic_technique_status" name="aseptic_technique_status"
+                            label="Demonstrates aseptic technique/handwashing:" class="radio_btn_inline">
+                            <custom-input-checkradio-item label="S" value="S"
+                                id="aseptic_technique_s"></custom-input-checkradio-item>
+                            <custom-input-checkradio-item label="N" value="N"
+                                id="aseptic_technique_n"></custom-input-checkradio-item>
+                            <custom-input-checkradio-item label="NA" value="NA"
+                                id="aseptic_technique_na"></custom-input-checkradio-item>
+                        </custom-input-checkradio>
+                    </div>
+                    <div class="row">
+                        <custom-input-checkradio id="management" name="management" label="Verbalizes management of:"
+                            class="radio_btn_inline">
+                            <custom-input-checkradio-item label="Vascular access device" value="VascularAccessDevice"
+                                id="vascular_access_device"></custom-input-checkradio-item>
+                            <custom-input-checkradio-item label="Subcutaneous access device"
+                                value="SubcutaneousAccessDevice"
+                                id="subcutaneous_access_device"></custom-input-checkradio-item>
+                        </custom-input-checkradio>
+                        <custom-input-checkradio id="management_status" name="management_status" label=""
+                            class="radio_btn_inline">
+                            <custom-input-checkradio-item label="S" value="S"
+                                id="management_s"></custom-input-checkradio-item>
+                            <custom-input-checkradio-item label="N" value="N"
+                                id="management_n"></custom-input-checkradio-item>
+                            <custom-input-checkradio-item label="N/A" value="NA"
+                                id="management_na"></custom-input-checkradio-item>
+                        </custom-input-checkradio>
+                    </div>
+                    <div class="row">
+                        <custom-input-checkradio id="medication_preparation" name="medication_preparation"
+                            label="Demonstrates medication preparation:" class="radio_btn_inline">
+                            <custom-input-checkradio-item label="Preparation of syringe" value="PreparationOfSyringe"
+                                id="preparation_of_syringe"></custom-input-checkradio-item>
+                            <custom-input-checkradio-item label="Prime tubing" value="PrimeTubing"
+                                id="prime_tubing"></custom-input-checkradio-item>
+                        </custom-input-checkradio>
+                        <custom-input-checkradio id="medication_preparation_status" name="medication_preparation_status"
+                            label="" class="radio_btn_inline">
+                            <custom-input-checkradio-item label="S" value="S"
+                                id="medication_preparation_s"></custom-input-checkradio-item>
+                            <custom-input-checkradio-item label="N" value="N"
+                                id="medication_preparation_n"></custom-input-checkradio-item>
+                            <custom-input-checkradio-item label="N/A" value="NA"
+                                id="medication_preparation_na"></custom-input-checkradio-item>
+                        </custom-input-checkradio>
+                    </div>
+                    <div class="row">
+                        <custom-input-checkradio id="infusion_site_preparation" name="infusion_site_preparation"
+                            label="Demonstrates preparation of infusion site(s):">
+                        </custom-input-checkradio>
+                        <custom-input-checkradio id="infusion_site_preparation_status"
+                            name="infusion_site_preparation_status" label="" class="radio_btn_inline">
+                            <custom-input-checkradio-item label="S" value="S"
+                                id="infusion_site_preparation_s"></custom-input-checkradio-item>
+                            <custom-input-checkradio-item label="N" value="N"
+                                id="infusion_site_preparation_n"></custom-input-checkradio-item>
+                            <custom-input-checkradio-item label="N/A" value="NA"
+                                id="infusion_site_preparation_na"></custom-input-checkradio-item>
+                        </custom-input-checkradio>
+                    </div>
+                    <div class="row">
+                        <custom-input-checkradio id="therapy_initiation" name="therapy_initiation"
+                            label="Demonstrates initiation of therapy:">
+                        </custom-input-checkradio>
+                        <custom-input-checkradio id="therapy_initiation_status" name="therapy_initiation_status"
+                            label="" class="radio_btn_inline">
+                            <custom-input-checkradio-item label="S" value="S"
+                                id="therapy_initiation_s"></custom-input-checkradio-item>
+                            <custom-input-checkradio-item label="N" value="N"
+                                id="therapy_initiation_n"></custom-input-checkradio-item>
+                            <custom-input-checkradio-item label="N/A" value="NA"
+                                id="therapy_initiation_na"></custom-input-checkradio-item>
+                        </custom-input-checkradio>
+                    </div>
+                    <div class="row">
+                        <custom-input-checkradio id="therapy_completion" name="therapy_completion"
+                            label="Demonstrates completion of therapy:">
+                        </custom-input-checkradio>
+                        <custom-input-checkradio id="therapy_completion_status" name="therapy_completion_status"
+                            label="" class="radio_btn_inline">
+                            <custom-input-checkradio-item label="S" value="S"
+                                id="therapy_completion_s"></custom-input-checkradio-item>
+                            <custom-input-checkradio-item label="N" value="N"
+                                id="therapy_completion_n"></custom-input-checkradio-item>
+                            <custom-input-checkradio-item label="N/A" value="NA"
+                                id="therapy_completion_na"></custom-input-checkradio-item>
+                        </custom-input-checkradio>
+                    </div>
+                    <div class="row">
+                        <custom-input-checkradio id="method" name="method" label="Demonstrates the following method:"
+                            class="radio_btn_inline">
+                            <custom-input-checkradio-item label="SASH" value="SASH"
+                                id="sash"></custom-input-checkradio-item>
+                            <custom-input-checkradio-item label="SAS" value="SAS"
+                                id="sas"></custom-input-checkradio-item>
+                        </custom-input-checkradio>
+                        <custom-input-checkradio id="method_status" name="method_status" label=""
+                            class="radio_btn_inline">
+                            <custom-input-checkradio-item label="S" value="S"
+                                id="method_s"></custom-input-checkradio-item>
+                            <custom-input-checkradio-item label="N" value="N"
+                                id="method_n"></custom-input-checkradio-item>
+                            <custom-input-checkradio-item label="N/A" value="NA"
+                                id="method_na"></custom-input-checkradio-item>
+                        </custom-input-checkradio>
+                    </div>
+      
+                    <div class="row">
+                        <custom-input-checkradio id="device_removal" name="device_removal"
+                            label="Verbalized understanding of access device removal:">
+                        </custom-input-checkradio>
+                        <custom-input-checkradio id="device_removal_status" name="device_removal_status" label=""
+                            class="radio_btn_inline">
+                            <custom-input-checkradio-item label="S" value="S"
+                                id="device_removal_s"></custom-input-checkradio-item>
+                            <custom-input-checkradio-item label="N" value="N"
+                                id="device_removal_n"></custom-input-checkradio-item>
+                            <custom-input-checkradio-item label="N/A" value="NA"
+                                id="device_removal_na"></custom-input-checkradio-item>
+                        </custom-input-checkradio>
+                    </div>
+                    <div class="row">
+                        <custom-input-checkradio id="disposal" name="disposal" label="Demonstrates proper disposal of:"
+                            class="radio_btn_inline">
+                            <custom-input-checkradio-item label="Waste" value="Waste"
+                                id="disposal_waste"></custom-input-checkradio-item>
+                            <custom-input-checkradio-item label="Sharps" value="Sharps"
+                                id="disposal_sharps"></custom-input-checkradio-item>
+                        </custom-input-checkradio>
+                        <custom-input-checkradio id="disposal_status" name="disposal_status" label=""
+                            class="radio_btn_inline">
+                            <custom-input-checkradio-item label="S" value="S"
+                                id="disposal_s"></custom-input-checkradio-item>
+                            <custom-input-checkradio-item label="N" value="N"
+                                id="disposal_n"></custom-input-checkradio-item>
+                            <custom-input-checkradio-item label="N/A" value="NA"
+                                id="disposal_na"></custom-input-checkradio-item>
+                        </custom-input-checkradio>
+                    </div>
+                    <div class="row">
+                        <custom-input-checkradio id="adverse_effects" name="adverse_effects"
+                            label="The patient understands adverse effects, how to manage, and when to notify MD/Pharmacy:">
+                        </custom-input-checkradio>
+                        <custom-input-checkradio id="adverse_effects_status" name="adverse_effects_status" label=""
+                            class="radio_btn_inline">
+                            <custom-input-checkradio-item label="S" value="S"
+                                id="adverse_effects_s"></custom-input-checkradio-item>
+                            <custom-input-checkradio-item label="N" value="N"
+                                id="adverse_effects_n"></custom-input-checkradio-item>
+                            <custom-input-checkradio-item label="N/A" value="NA"
+                                id="adverse_effects_na"></custom-input-checkradio-item>
+                        </custom-input-checkradio>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-4">
+                            <custom-input type="text" label="Nurse First name: *" value="" id="nurse_fname"
+                                name="nurse_fname" placeholder="Nurse First name" error="" required>
+                            </custom-input>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <custom-input type="text" label="Nurse Last Name: *" value="" id="nurse_lname"
+                                name="nurse_lname" placeholder="Nurse Last Name" required>
+                            </custom-input>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <custom-input label="Credentials: *" type="text" id="credentials" name="credentials"
+                                value="" placeholder="" required>
+                            </custom-input>
+                        </div>
+                        <div class="row gap-4 mt-4">
+                            <div class="signature col-md-6 mt-3">
+                                <label for="patient_sign" id="i0n4kz" class="form-label question-label"
+                                    style="font-weight: normal; font-size: 16px;">Nurse Signature: * </label><span
+                                    id="required_patient_sign" class="required_fields"></span>
+                                <div id="i4s2zf" class="signature-canvas">
+                                    <canvas id="patient_sign" width="500" name="signature" required=""
+                                        style="padding-top: 10px; padding-right: 10px; padding-bottom: 10px; padding-left: 10px; border-top-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-bottom-left-radius: 10px; cursor: url('../assets/pen.png') 16 16, crosshair;"></canvas>
+                                    <img id="patient_sign" class="form-control" width="500" src="" alt=""
+                                        style="display: none;">
+                                    <div id="patient_sign_validation" class="invalid-feedback" style="margin-top: 0px;">
+                                        Please enter signature.</div>
+                                    <br />
+                                    <button type="button" id="clearButton" class="btn btn-primary mt-3"
+                                        style="border-top-width: initial; border-right-width: initial; border-bottom-width: initial; border-left-width: initial; border-top-style: none; border-right-style: none; border-bottom-style: none; border-left-style: none; border-top-color: initial; border-right-color: initial; border-bottom-color: initial; border-left-color: initial; border-image-source: initial; border-image-slice: initial; border-image-width: initial; border-image-outset: initial; border-image-repeat: initial; border-top-left-radius: 5px; border-top-right-radius: 5px; border-bottom-right-radius: 5px; border-bottom-left-radius: 5px; background-color: var(--btn-primary-color); font-size: 16px; font-weight: 400; cursor: pointer;">Clear</button>
+                                </div>
+                            </div>
+                            <div class="form-group col-md-4 mt-1">
+                                <custom-input label="Date: *" type="date" id="nurse_sign_date" name="nurse_sign_date"
+                                    value="" required>
+                                </custom-input>
+                            </div>
+                        </div>
+                    </div>
+      
+                    <div class="mt-4">
+                        <button onclick="redirectToWorkflow('n')" type="button" class="btn btn-primary my-2">Cancel</button>
+            
+                      <button id="saveBtn" type="button" class="btn btn-success me-2" style="border-top-width: initial; border-right-width: initial; border-bottom-width: initial; border-left-width: initial; border-top-style: none; border-right-style: none; border-bottom-style: none; border-left-style: none; border-top-color: initial; border-right-color: initial; border-bottom-color: initial; border-left-color: initial; border-image-source: initial; border-image-slice: initial; border-image-width: initial; border-image-outset: initial; border-image-repeat: initial; border-top-left-radius: 5px; border-top-right-radius: 5px; border-bottom-right-radius: 5px; border-bottom-left-radius: 5px; background-color: var(--btn-primary-color); font-size: 16px; font-weight: 400; cursor: pointer;">Submit</button>
+                    </div>
+      
+                </div>
+                <!-- <div class="mt-4">
+                    <button id="saveBtn" type="button" class="btn btn-success me-2">Submit</button>
+                    <button id="cancelBtn" type="button" class="btn btn-success me-2">Cancel</button>
+                </div> -->
+      
+                <div id="formInvalidCondition" role="alert" class="alert alert-danger" style="display: none;">A simple danger alert—check it out!</div>
+            </form>
+        </div>
+      </main>
+
+      <script src="../component/CustomFormComponents.js"></script>
+      <script src="./patientEducationForMedicationAdministration.js"></script>
+</body>
+</html>
