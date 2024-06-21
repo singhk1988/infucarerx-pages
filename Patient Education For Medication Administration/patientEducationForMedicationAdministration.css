@@ -27,7 +27,7 @@ span {
     font-weight: 400 !important;
 }
 
-.main-form-container h5 {
+.container-custom h5 {
     font-size: 0.8rem !important;
     font-weight: bold !important;
 }
@@ -42,7 +42,6 @@ h5 {
 }
 
 .main-container {
-    padding: 0px 20px;
     background-color: var(--form-background-color);
     font-family: var(--font-family) !important;
 }
@@ -61,6 +60,7 @@ h5 {
 }
 
 .form-check-label {
+    font-size: 14px !important;
     padding-left: 5px;
     padding-bottom: 5px;
 }
@@ -164,14 +164,6 @@ h3.fields-title {
     font-size: 16px;
 }
 
-#view_Privacy_Notice .form-label {
-    font-weight: 700;
-}
-
-.notice_of_privacy_practices table th,
-.notice_of_privacy_practices table tr {
-    line-height: 1.2;
-}
 
 .signature canvas {
     border: 1px solid var(--border-color);
@@ -182,7 +174,7 @@ h3.fields-title {
 
 .radio_btn_inline .form-check {
     display: inline-block;
-    margin-right: 10px;
+    margin-right: 20px;
 }
 
 .radio_btn_inline .form-label {
@@ -191,52 +183,7 @@ h3.fields-title {
     font-weight: 700;
 }
 
-.radio_btn_below .form-check{
-    flex-direction: column;
-    margin-left: 10px;
-}
-
-.radio_btn_below .form-label {
-    display: block;
-    padding-left: 0 !important;
-    font-weight: 600;
-    
-}
-.card-body-row {
-    flex: 1 1 auto;
-    padding: var(--bs-card-spacer-y) var(--bs-card-spacer-x);
-    color: var(--bs-card-color);
-    flex-direction: row;
-    display: flex
-}
-.card-body-row #Medication{
-    display: none;
-    width: 70%;
-    margin-left: 40px;
-}
-.bp-container {
-    display: flex;
-    align-items: center;
-    gap: 10px; /* Adjust the gap as needed */
-  }
-  .bp-input label {
-    display: inline !important;
-  }
-  
-  .bp-separator {
-    margin: 20 5 0 5;
-    font-size: 15; /* Increase the font size */
-    font-weight:600; /* Make the text bold */
-  }
-  .Incision-container{
-    display: flex;
-    align-items: center;
-    gap: 10px; /* Adjust the gap as needed */
-  }
-  .required-asterisk {
+.aesteric {
     color: red;
-  }
-
-  .flushes_radio_btn_below .form-check {
-    margin-bottom: 20px !important;
-  }
+    font-size: 25px !important;
+}
