@@ -1,21 +1,17 @@
 function getFormControlTemplate(label, isRequired) {
-  // If the input is required, add the asterisk with red color
-  const hasAsterisk = label.includes('*');
-  // If the input is required and doesn't already have an asterisk, add the asterisk with red color
-  const labelContent = isRequired && !hasAsterisk
-    ? `${label} <span class="asterisk">*</span>`
-    : label;
+  const asterisk = isRequired ? '<span class="required-asterisk">*</span>' : '';
   return `
     <div class="form-item">
-      <label class="form-label">${labelContent}</label>
+      <label class="form-label">${label}${asterisk}</label>
       <slot name="input"></slot>
     </div>
     <div class="invalid-feedback"></div>
   `;
 }
 
+
 customElements.define("custom-input", class extends HTMLElement {
-  static observedAttributes = ["label", "value", "error"];
+  static observedAttributes = ["label", "value", "error", "required"];
 
   constructor() {
     super();
@@ -28,7 +24,8 @@ customElements.define("custom-input", class extends HTMLElement {
 
   render() {
     if (!this.initialised) {
-      this.innerHTML = getFormControlTemplate(this.getAttribute('label'));
+      const isRequired = this.hasAttribute('required');
+      this.innerHTML = getFormControlTemplate(this.getAttribute('label'), isRequired);
       const inputTemplate = document.createElement('template');
       const type = this.getAttribute('type') ?? 'text';
       inputTemplate.innerHTML = `
@@ -38,6 +35,7 @@ customElements.define("custom-input", class extends HTMLElement {
           placeholder="${this.getAttribute('placeholder')}"
           value="${this.getAttribute('value')}"
           class="form-control"
+          ${isRequired ? 'required' : ''}
         />
       `;
       this.querySelector('slot[name="input"]').replaceWith(inputTemplate.content);
@@ -45,7 +43,7 @@ customElements.define("custom-input", class extends HTMLElement {
 
       // Update inputElement reference
       this.inputElement = this.querySelector('.form-control');
-
+      
       // Setup event listeners
       this.setupEventListeners();
     } else {
@@ -84,14 +82,10 @@ customElements.define("custom-input", class extends HTMLElement {
   }
 
   updateComponent() {
-    // this.querySelector('.form-label').textContent = this.getAttribute('label');
-    const label = this.getAttribute('label');
     const isRequired = this.hasAttribute('required');
-    const hasAsterisk = label.includes('*');
-    const labelContent = isRequired && !hasAsterisk
-      ? `${label} <span class="asterisk">*</span>`
-      : label;
-    this.querySelector('.form-label').innerHTML = labelContent;
+    const label = this.getAttribute('label');
+    const asteriskPresent = label.includes('*');
+    this.querySelector('.form-label').innerHTML = `${label}${isRequired && !asteriskPresent ? '<span class="required-asterisk">*</span>' : ''}`;
     this.inputElement.value = this.getAttribute('value') || '';
 
     // Error handling
@@ -115,25 +109,27 @@ customElements.define("custom-input", class extends HTMLElement {
   }
 });
 
-customElements.define('custom-input-checkradio', class extends HTMLElement {
-  static observedAttributes = ["label", "value", "error"];
 
+
+
+customElements.define('custom-input-checkradio', class extends HTMLElement {
+  static observedAttributes = ["label", "value", "error", "required"];
+  
   constructor() {
     super();
     this.initialised = false;
     this.type = this.getAttribute('type') ?? 'checkbox';
 
-    this.addEventListener('custom-input-checkradio-item-added', (e) => {
+    this.addEventListener('custom-input-checkradio-item-added', (e)=>{
       this.onItemAdded(e.detail);
-    });
+    })
   }
 
   initialise() {
     const children = this.querySelectorAll('custom-input-checkradio-item');
     const isRequired = this.hasAttribute('required');
     this.innerHTML = getFormControlTemplate(this.getAttribute('label'), isRequired);
-
-    // If the children are available already then add them to the correct place.
+    // If the childrens are available already then add them to correct place.
     for (const child of children) {
       this.onItemAdded({
         id: child.id,
@@ -141,21 +137,23 @@ customElements.define('custom-input-checkradio', class extends HTMLElement {
         type: child.getAttribute('type'),
         label: child.getAttribute('label'),
         value: child.getAttribute('value'),
-      });
+      })
     }
     this.initialised = true;
   }
 
   onItemAdded(attrs) {
-    const item = document.createElement('template');
-    item.innerHTML = `
-      <div class="form-check">
-        <input class="form-check-input" name="${attrs.name ?? this.getAttribute('name')}" type="${attrs.type ?? this.type}"
-          value="${attrs.value}" id="${attrs.id}">
-        <label class="form-check-label" for="${attrs.id}">
-          ${attrs.label}
-        </label>
-      </div>
+    const item = document.createElement('template')
+    item.innerHTML =
+    `
+    <div class="form-check">
+      <input class="form-check-input" name="${attrs.name ?? this.getAttribute('name')}" type="${attrs.type ?? this.type}"
+        value="${attrs.value}" id="${attrs.id}">
+      <label class="form-check-label" for="${attrs.id}">
+        ${attrs.label}
+      </label>
+    </div>
+    
     `;
     this.querySelector('.form-item').insertBefore(item.content, this.querySelector('slot[name="input"]'));
   }
@@ -173,15 +171,13 @@ customElements.define('custom-input-checkradio', class extends HTMLElement {
       this.initialise();
     } else {
       const isRequired = this.hasAttribute('required');
-      const hasAsterisk = label.includes('*');
-      const labelContent = isRequired && !hasAsterisk
-        ? `${this.getAttribute('label')} <span class="asterisk">*</span>`
-        : this.getAttribute('label');
-      this.querySelector('.form-label').innerHTML = labelContent;
+      const label = this.getAttribute('label');
+      const asteriskPresent = label.includes('*');
+      this.querySelector('.form-label').innerHTML = `${label}${isRequired && !asteriskPresent ? '<span class="required-asterisk">*</span>' : ''}`;
 
-      // Error handling
+      // error handling
       const error = this.getAttribute('error');
-      if (error) {
+      if (Boolean(error)) {
         this.querySelector('.form-item').classList.add('is-invalid');
         const items = this.querySelectorAll('.form-check-input');
         for (const child of items) {
@@ -204,7 +200,13 @@ customElements.define('custom-input-checkradio', class extends HTMLElement {
   }
 });
 
+
 customElements.define("custom-input-checkradio-item", class extends HTMLElement {
+  // We use this component for getting the data only
+  // Pass on the details to parent and parent will take care of rendering.
+  // In most cases, this will rendered before parent will set the innerHTML,
+  // but sometimes, this component will load after parent innerHTML is set.
+  // We need to tell parent that this component has arrived.
   connectedCallback() {
     this.dispatchEvent(new CustomEvent('custom-input-checkradio-item-added', {
       bubbles: true,
