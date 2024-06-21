@@ -236,3 +236,14 @@ h3.fields-title {
   .required-asterisk {
     color: red;
   }
+  .clear-action{
+    color: royalblue;
+    cursor: pointer;
+    margin-left: 10;
+  }
+  .pain_Experienced_Adult_Severity{
+    height: 40;
+    border-radius: 20;
+    padding-left: 10;
+    border-color: #aaaaaa;
+  }

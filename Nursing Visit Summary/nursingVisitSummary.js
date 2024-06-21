@@ -114,10 +114,6 @@ let total_time=document.getElementById('total_time')
         }
     }
 
-
-
-
-
 // const hideAndShowLogic = () => { 
 //     let therapy_other = document.getElementById('therapy_other');
 //     let therapy_delivery_other = document.getElementById('therapy_delivery_other');
@@ -863,6 +859,119 @@ const handleSkinSection = () => {
  
 }
  
+const handlePainComfortSection=()=>{
+    var pain_Currently_Present_checkradio = document.getElementById('pain_Currently_Present');
+    var Pain_Experienced_Since_Last_Visit_checkbox = document.getElementById('Pain_Experienced_Since_Last_Visit');
+    var pain_Currently_Present_radioButton = document.getElementById('pain_Currently_Present_radioButton');
+    var pain_Experienced_radioButton = document.getElementById('pain_Experienced_radioButton');
+    var denise_Pain_checkbox = document.getElementById('denise_Pain');
+    var pain_Comfort_Checkbox = document.querySelector('custom-input-checkradio[id="pain_Comfort_Checkbox"]');
+    var clearButton = document.getElementById('clearPainComfort');
+    var pain_Currently_Present_Adult_Button = document.getElementById('pain_Currently_Present_Adult');
+    var pain_Currently_Present_Pediatric_Button = document.getElementById('pain_Currently_Present_Pediatric');
+    var pain_Currently_Present_Adult_Form = document.getElementById('pain_Currently_Present_Adult_Form');
+    var pain_Currently_Present_Pediatric_Form = document.getElementById('pain_Currently_Present_Pediatric_Form');
+    var pain_Currently_Present_Form = document.getElementById('pain_Currently_Present_Form');
+
+    var pain_Experienced_Adult_Button = document.getElementById('pain_Experienced_Adult');
+    var pain_Experienced_Pediatric_Button = document.getElementById('pain_Experienced_Pediatric');
+    var pain_Experienced_Adult_Form = document.getElementById('pain_Experienced_Adult_Form');
+    var pain_Experienced_Pediatric_Form = document.getElementById('pain_Experienced_Pediatric_Form');
+    var pain_Experienced_Form = document.getElementById('pain_Experienced_Form');
+    
+    denise_Pain_checkbox.addEventListener('change', function(){
+        if (pain_Comfort_Checkbox) {
+            // Select all input elements inside the custom-input-checkradio
+            var inputs = pain_Comfort_Checkbox.querySelectorAll('input[type="radio"], input[type="checkbox"]');
+     
+            // Iterate through each input and disable it
+            
+                inputs.forEach(function (input) {
+                    input.disabled = true;
+                });
+            
+        }
+    })
+
+    clearButton.addEventListener('click', function() {
+        var inputs = pain_Comfort_Checkbox.querySelectorAll('input[type="radio"], input[type="checkbox"]');
+        inputs.forEach(function(checkbox) {
+            checkbox.disabled = false;
+            checkbox.checked = false;
+        });
+        pain_Currently_Present_radioButton.style.display = 'none';
+        pain_Experienced_radioButton.style.display = 'none';
+
+    });
+
+    pain_Currently_Present_checkradio.addEventListener('change', function() {
+        if (this.checked) {
+            pain_Currently_Present_radioButton.style.display = 'block';  // Show the input text field
+           
+        } else {
+            pain_Currently_Present_radioButton.style.display = 'none';  // Hide the input text field
+            pain_Currently_Present_Form.style.display='none'
+                   }
+        });
+    Pain_Experienced_Since_Last_Visit_checkbox.addEventListener('change', function() {
+        if (this.checked) {
+            pain_Experienced_radioButton.style.display = 'block';  // Show the input text field
+           
+        } else {
+            pain_Experienced_radioButton.style.display = 'none';  // Hide the input text field
+            pain_Experienced_Form.style.display='none'
+        }
+        });
+
+    pain_Currently_Present_Adult_Button.addEventListener('change', function() {
+        if (this.checked) {
+            pain_Currently_Present_Adult_Form.style.display = 'block';  // Show the input text field
+            pain_Currently_Present_Pediatric_Form.style.display = 'none';
+            pain_Currently_Present_Form.style.display='block'
+           
+        } 
+        });
+    pain_Currently_Present_Pediatric_Button.addEventListener('change', function() {
+        if (this.checked) {
+            pain_Currently_Present_Pediatric_Form.style.display = 'block';  // Show the input text field
+            pain_Currently_Present_Adult_Form.style.display = 'none';
+            pain_Currently_Present_Form.style.display='block'
+        } 
+        });
+
+        pain_Experienced_Adult_Button.addEventListener('change', function() {
+            if (this.checked) {
+                pain_Experienced_Adult_Form.style.display = 'block';  // Show the input text field
+                pain_Experienced_Pediatric_Form.style.display = 'none';
+                pain_Experienced_Form.style.display='block'
+               
+            } 
+            });
+            pain_Experienced_Pediatric_Button.addEventListener('change', function() {
+            if (this.checked) {
+                pain_Experienced_Pediatric_Form.style.display = 'block';  // Show the input text field
+                pain_Experienced_Adult_Form.style.display = 'none';
+                pain_Experienced_Form.style.display='block'
+            } 
+            });
+            pain_Experienced_Adult_Button.addEventListener('change', function() {
+            if (this.checked) {
+                pain_Currently_Present_Adult_Form.style.display = 'block';  // Show the input text field
+                pain_Currently_Present_Pediatric_Form.style.display = 'none';
+                pain_Currently_Present_Form.style.display='block'
+               
+            } 
+            });
+        pain_Currently_Present_Pediatric_Button.addEventListener('change', function() {
+            if (this.checked) {
+                pain_Currently_Present_Pediatric_Form.style.display = 'block';  // Show the input text field
+                pain_Currently_Present_Adult_Form.style.display = 'none';
+                pain_Currently_Present_Form.style.display='block'
+            } 
+            });    
+        
+}
+
 const handleDisableAtStart = () => {
     var checkradio = document.querySelector('custom-input-checkradio[id="neurology_Psychosocial_Abnormalities"]');
     let neuro_Psych_no = document.getElementById('neuro_Psych_no');
@@ -1005,6 +1114,7 @@ const handleDisableAtStart = () => {
 
 
 
+
 document.addEventListener("DOMContentLoaded", async function () {
     const searchParams = new URLSearchParams(window.location.search);
     const formResponseId = searchParams.get('id');
@@ -1022,6 +1132,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     handleGenitourinarySection();
     handleMusculoskeletonSection();
     handleSkinSection();
+    handlePainComfortSection();
 
 
     if (savedFormData) {
@@ -1122,6 +1233,39 @@ const getQuestionToIdMap = () => {
         "skin_BreakdownInputField":"skin_BreakdownInputField",
         "incision_DescriptionInputField":"incision_DescriptionInputField",
         "incision_LocationInputField":"incision_LocationInputField",
+
+        "pain_Experienced_radioButton":"pain_Experienced_radioButton",
+        "pain_Currently_Present_radioButton":"pain_Currently_Present_radioButton",
+        "pain_Comfort_Checkbox":"pain_Comfort_Checkbox",
+        "pain_Currently_Present_Adult_Form":"pain_Currently_Present_Adult_Form",
+        "pain_Currently_Present_Pediatric_Form":"pain_Currently_Present_Pediatric_Form",
+        "pain_Experienced_Adult_Form":"pain_Experienced_Adult_Form",
+        "pain_Experienced_Pediatric_Form":"pain_Experienced_Pediatric_Form",
+        "pain_Currently_Present_Pediatric_Painlocation":"pain_Currently_Present_Pediatric_Painlocation",
+       
+        "pain_Currently_Present_Adult_Painlocation":"pain_Currently_Present_Adult_Painlocation",
+        "pain_Currently_Present_Adult_ReliefMeasure":"pain_Currently_Present_Adult_ReliefMeasure",
+        "pain_Currently_Present_Adult_Precipitatingfactors":"pain_Currently_Present_Adult_Precipitatingfactors",
+        "pain_Currently_Present_Adult_Qualitydescription":"pain_Currently_Present_Adult_Qualitydescription",
+        "pain_Currently_Present_Adult_Radiates":"pain_Currently_Present_Adult_Radiates",
+        "pain_Currently_Present_Adult_TimingOnset":"pain_Currently_Present_Adult_TimingOnset",
+        "pain_Currently_Present_Adult_TimingFrequency":"pain_Currently_Present_Adult_TimingFrequency",
+        "pain_Experienced_Adult_Severity":"pain_Experienced_Adult_Severity",
+
+        "pain_Experienced_Adult_Painlocation":"pain_Experienced_Adult_Painlocation",
+        "pain_Experienced_Adult_ReliefMeasure":"pain_Experienced_Adult_ReliefMeasure",
+        "pain_Experienced_Adult_Precipitatingfactors":"pain_Experienced_Adult_Precipitatingfactors",
+        "pain_Experienced_Adult_Qualitydescription":"pain_Experienced_Adult_Qualitydescription",
+        "pain_Experienced_Adult_Radiates":"pain_Experienced_Adult_Radiates",
+        "pain_Experienced_Adult_TimingOnset":"pain_Experienced_Adult_TimingOnset",
+        "pain_Experienced_Adult_TimingFrequency":"pain_Experienced_Adult_TimingFrequency",
+        "pain_Experienced_Adult_TimingDuration":"pain_Experienced_Adult_TimingDuration",
+        "pain_Experienced_Adult_Severity":"pain_Experienced_Adult_Severity",
+
+        "pain_Experienced_Pediatric_Painlocation":"pain_Experienced_Pediatric_Painlocation",
+
+        
+
     };
     return idToQueMap;
 };
@@ -1222,8 +1366,8 @@ const getAnswerToIdMap = () => {
         "abdomen_Firm_to_Palpitation":"abdomen_Firm_to_Palpitation",
         "poor_Appetite":"poor_Appetite",
         "nausea":"nausea",
+        "fair_Appetite":"fair_Appetite",
         "distended_Abdomen":"distended_Abdomen",
-        "diarrhea":"diarrhea",
         "vomiting":"vomiting",
         "heartburn":"heartburn",
         "gastrointestinal_Other":"gastrointestinal_Other",
@@ -1267,6 +1411,18 @@ const getAnswerToIdMap = () => {
         "skin_Breakdown":"skin_Breakdown",
         "incision":"incision",
         "skin_Other":"skin_Other",
+        
+        
+        "denise_Pain":"denise_Pain",
+        "pain_Currently_Present":"pain_Currently_Present",
+        "Pain_Experienced_Since_Last_Visit":"Pain_Experienced_Since_Last_Visit",
+        "pain_Currently_Present_Adult":"pain_Currently_Present_Adult",
+        "pain_Currently_Present_Pediatric":"pain_Currently_Present_Pediatric",
+        "pain_Experienced_Pediatric":"pain_Experienced_Pediatric",
+        "pain_Experienced_Adult":"pain_Experienced_Adult",
+        "pain_Currently_Present_Adult_TimingDuration":"pain_Currently_Present_Adult_TimingDuration",
+
+       
         
         
 
