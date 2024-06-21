@@ -15,7 +15,15 @@ const requiredControls = {
     'pulse': 'Please enter pulse.',
     'rr': 'Please enter rr.',
     'temp': 'Please enter temperture.',
-    'weight': 'Please enter weight.'
+    'weight': 'Please enter weight.',
+    'vascular_access_site': 'Please check',
+    'vascular_access_site_other_textBox': 'Please Enter other',
+    'vascular_sutures_textBox': 'Please enter the black field',
+    'vascular_newIv_access_device_textBox': 'Please enter the black field',
+    'saline_pre_textBox': 'Please enter sline pre',
+    'saline_post_textBox': 'Please enter sline post',
+    'heparin_pre_textBox': 'Please enter heparin pre',
+    'heparin_post_textBox': 'Please enter heparin post',
 };
 let ValidationErrorStatus = { schedule_type: false, therapy: false, reason_for_visit: false, };
 
@@ -972,6 +980,96 @@ const handlePainComfortSection=()=>{
         
 }
 
+const handleEndocrineSection = () => {
+    const endocrine_check_na = document.getElementById('endocrine_na')
+    const endocrine_check_yes = document.getElementById('endocrine_yes')
+    const endocrine_check_no = document.getElementById('endocrine_no')
+    
+    endocrine_check_na.addEventListener('click', function () {
+        document.getElementById('endocrine_wrapper').style.display = 'none';
+    });
+
+    endocrine_check_yes.addEventListener('click', function () {
+        document.getElementById('endocrine_wrapper').style.display = 'block';
+    });
+
+    endocrine_check_no.addEventListener('click', function () {
+        document.getElementById('endocrine_wrapper').style.display = 'block';
+    });
+
+}
+
+
+// VASCULAR ACCESS SITE CONDITION
+
+const handleVascularSection = () => {
+    let vascularOtherCheckbox = document.getElementById('vascular_access_site_other');
+    let vascularSuturesCheckbox = document.getElementById('vascular_sutures');
+    let vascularNewIVAccessChecbox = document.getElementById('vascular_newIv_access_device');
+    let salineFlushCheckbox = document.getElementById('saline_flush');
+    let heparinFlushCheckbox = document.getElementById('heparin_flush');
+
+
+    vascularOtherCheckbox.addEventListener('change', function () {
+        if (this.checked) {
+            document.getElementById('vascular_access_site_other_textBox').style.display = 'block';
+            document.getElementById('vascular_access_site_other_textBox').setAttribute('required', 'required'); 
+        } else {
+            document.getElementById('vascular_access_site_other_textBox').style.display = 'none';
+            document.getElementById('vascular_access_site_other_textBox').removeAttribute('required'); 
+        }
+    });
+
+    vascularSuturesCheckbox.addEventListener('change', function() {
+        if (this.checked) { 
+            document.getElementById('vascular_sutures_textBox').style.display = 'block';
+            document.getElementById('vascular_sutures_textBox').setAttribute('required', 'required'); 
+        } else {
+            document.getElementById('vascular_sutures_textBox').style.display = 'none';
+            document.getElementById('vascular_sutures_textBox').removeAttribute('required'); 
+        }
+    });
+
+    vascularNewIVAccessChecbox.addEventListener('change', function() {
+        if (this.checked) { 
+            document.getElementById('vascular_newIv_access_device_textBox').style.display = 'block';
+            document.getElementById('vascular_newIv_access_device_textBox').setAttribute('required', 'required'); 
+        } else {
+            document.getElementById('vascular_newIv_access_device_textBox').style.display = 'none';
+            document.getElementById('vascular_newIv_access_device_textBox').removeAttribute('required'); 
+        }
+    });
+
+    salineFlushCheckbox.addEventListener('change', function() {
+        if (this.checked) { 
+            document.getElementById('saline_pre_textBox').style.display = 'block';
+            document.getElementById('saline_post_textBox').style.display = 'block';
+            document.getElementById('saline_pre_textBox').setAttribute('required', 'required'); 
+            document.getElementById('saline_post_textBox').setAttribute('required', 'required'); 
+        } else {
+            document.getElementById('saline_pre_textBox').style.display = 'none';
+            document.getElementById('saline_post_textBox').style.display = 'none';
+            document.getElementById('saline_pre_textBox').removeAttribute('required'); 
+            document.getElementById('saline_post_textBox').removeAttribute('required'); 
+        }
+    });
+
+    heparinFlushCheckbox.addEventListener('change', function() {
+        if (this.checked) { 
+            document.getElementById('heparin_pre_textBox').style.display = 'block';
+            document.getElementById('heparin_post_textBox').style.display = 'block';
+            document.getElementById('heparin_pre_textBox').setAttribute('required', 'required'); 
+            document.getElementById('heparin_post_textBox').setAttribute('required', 'required'); 
+        } else {
+            document.getElementById('heparin_pre_textBox').style.display = 'none';
+            document.getElementById('heparin_post_textBox').style.display = 'none';
+            document.getElementById('heparin_pre_textBox').removeAttribute('required'); 
+            document.getElementById('heparin_post_textBox').removeAttribute('required'); 
+        }
+    });
+
+}
+
 const handleDisableAtStart = () => {
     var checkradio = document.querySelector('custom-input-checkradio[id="neurology_Psychosocial_Abnormalities"]');
     let neuro_Psych_no = document.getElementById('neuro_Psych_no');
@@ -1132,6 +1230,8 @@ document.addEventListener("DOMContentLoaded", async function () {
     handleGenitourinarySection();
     handleMusculoskeletonSection();
     handleSkinSection();
+    handleEndocrineSection();
+    handleVascularSection();
     handlePainComfortSection();
 
 
@@ -1264,7 +1364,20 @@ const getQuestionToIdMap = () => {
 
         "pain_Experienced_Pediatric_Painlocation":"pain_Experienced_Pediatric_Painlocation",
 
-        
+        "endocrine": "endocrine",
+        "last_glucose_level": "last_glucose_level",
+        "last_glucose_date": "last_glucose_date",
+
+        "vascular_access_site": "vascular_access_site",
+        "vascular_access_site_other_textBox": "vascular_access_site_other_textBox",
+        "vascular_sutures_textBox": "vascular_sutures_textBox",
+        "vascular_newIv_access_device_textBox": "vascular_newIv_access_device_textBox",
+
+        "flushes": "flushes",
+        "saline_pre_textBox": "saline_pre_textBox",
+        "saline_post_textBox": "saline_post_textBox",
+        "heparin_pre_textBox": "heparin_pre_textBox",
+        "heparin_post_textBox": "heparin_post_textBox"
 
     };
     return idToQueMap;
@@ -1422,6 +1535,32 @@ const getAnswerToIdMap = () => {
         "pain_Experienced_Adult":"pain_Experienced_Adult",
         "pain_Currently_Present_Adult_TimingDuration":"pain_Currently_Present_Adult_TimingDuration",
 
+        //Sourabh
+        "endocrine_na": "endocrine_na",
+        "endocrine_yes": "endocrine_yes",
+        "endocrine_no": "endocrine_no",
+
+        "vascular_clean": "vascular_clean",
+        "vascular_dry": "vascular_dry",
+        "vascular_drainage": "vascular_drainage",
+        "vascular_red": "vascular_red",
+        "vascular_tender": "vascular_tender",
+        "vascular_bruised": "vascular_bruised",
+        "vascular_infiltrated": "vascular_infiltrated",
+        "vascular_sutures": "vascular_sutures",
+        "vascular_phlebitis": "vascular_phlebitis",
+        "vascular_Dressing": "vascular_Dressing",
+        "vascular_positive_blood_return": "vascular_positive_blood_return",
+        "vascular_patent": "vascular_patent",
+        "vascular_cord_formation": "vascular_cord_formation",
+        "vascular_swelling": "vascular_swelling",
+        "vascular_occluded": "vascular_occluded",
+        "vascular_newIv_access_device": "vascular_newIv_access_device",
+        "vascular_na": "vascular_na",
+        "vascular_access_site_other": "vascular_access_site_other",
+
+        "saline_flush": "saline_flush",
+        "heparin_flush": "heparin_flush",
        
         
         

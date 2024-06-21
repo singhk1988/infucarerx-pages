@@ -1055,6 +1055,153 @@
                         </div>
                     </div>
                 </div>
+                 <!-- ENDOCRINE -->
+                 <div class="row">
+                    <div class="col-md-12 mb-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row">
+                                    <custom-input-checkradio id="endocrine" name="endocrine" type="radio" value="Part A"
+                                        class="radio_btn_inline" label="ENDOCRINE">
+                                        <custom-input-checkradio-item label="N/A if no history of diabetes" value="na"
+                                            id="endocrine_na" type="radio" class="form-check"
+                                            style="display: inline-block; margin-right: 10px;">
+                                        </custom-input-checkradio-item>
+                                        <custom-input-checkradio-item
+                                            label="WDL: Glucose well controlled. No episodes of hypoglycemia or hyperglycemia"
+                                            value="yes" id="endocrine_yes" type="radio" class="form-check"
+                                            style="display: inline-block; margin-right: 10px;">
+                                        </custom-input-checkradio-item>
+                                        <custom-input-checkradio-item label="Not WDL, deviation noted" value="no"
+                                            id="endocrine_no" type="radio" class="form-check"
+                                            style="margin-right: 10px;">
+                                        </custom-input-checkradio-item>
+                                    </custom-input-checkradio>
+
+                                    <div id="endocrine_wrapper" style="display: none;">
+
+                                        <div class="row ">
+                                            <div class="form-group col-md-6">
+                                                <custom-input type="text" label="Last Glucose Level:" value=""
+                                                    id="last_glucose_level" name="last_glucose_level" placeholder=""
+                                                    error="">
+                                                </custom-input>
+                                            </div>
+                                            <div class="form-group col-md-6">
+
+                                                <custom-input type="date" label="Date:" value="" id="last_glucose_date"
+                                                    name="last_glucose_date" placeholder="" error="">
+                                                </custom-input>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- VASCULAR ACCESS SITE CONDITION -->
+
+                <div class="row">
+                    <div class="col-md-12 mb-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row">
+                                    <custom-input-checkradio id="vascular_access_site" name="vascular_access_site"
+                                        class="radio_btn_inline" label="VASCULAR ACCESS SITE CONDITION" required>
+                                        <custom-input-checkradio-item label="Clean" value="Clean" id="vascular_clean"
+                                            class="col-md-4"></custom-input-checkradio-item>
+                                        <custom-input-checkradio-item label="Dry" value="Dry" id="vascular_dry"
+                                            class="col-md-4"></custom-input-checkradio-item>
+                                        <custom-input-checkradio-item label="Drainage" value="Drainage"
+                                            id="vascular_drainage" class="col-md-4"></custom-input-checkradio-item>
+                                        <custom-input-checkradio-item label="Red" value="Red" id="vascular_red"
+                                            class="col-md-4"></custom-input-checkradio-item>
+                                        <custom-input-checkradio-item label="Tender" value="Tender" id="vascular_tender"
+                                            class="col-md-4"></custom-input-checkradio-item>
+                                        <custom-input-checkradio-item label="Bruised" value="Bruised"
+                                            id="vascular_bruised" class="col-md-4"></custom-input-checkradio-item>
+                                        <custom-input-checkradio-item label="Infiltrated" value="Infiltrated"
+                                            id="vascular_infiltrated" class="col-md-4"></custom-input-checkradio-item>
+                                        <custom-input-checkradio-item label="Sutures" value="Sutures"
+                                            id="vascular_sutures" class="col-md-4"></custom-input-checkradio-item>
+                                        <custom-input-checkradio-item label="Phlebitis" value="Phlebitis"
+                                            id="vascular_phlebitis" class="col-md-4"></custom-input-checkradio-item>
+                                        <custom-input-checkradio-item label="Dressing" value="Dressing"
+                                            id="vascular_Dressing" class="col-md-4"></custom-input-checkradio-item>
+                                        <custom-input-checkradio-item label="Positive Blood Return"
+                                            value="Positive Blood Return" id="vascular_positive_blood_return"
+                                            class="col-md-4"></custom-input-checkradio-item>
+                                        <custom-input-checkradio-item label="Patent" value="Patent" id="vascular_patent"
+                                            class="col-md-4"></custom-input-checkradio-item>
+                                        <custom-input-checkradio-item label="Cord Formation" value="Cord Formation"
+                                            id="vascular_cord_formation"
+                                            class="col-md-4"></custom-input-checkradio-item>
+                                        <custom-input-checkradio-item label="Swelling" value="Swelling"
+                                            id="vascular_swelling" class="col-md-4"></custom-input-checkradio-item>
+                                        <custom-input-checkradio-item label="Occluded" value="Occluded"
+                                            id="vascular_occluded" class="col-md-4"></custom-input-checkradio-item>
+                                        <custom-input-checkradio-item label="New IV access device"
+                                            value="New IV access device" id="vascular_newIv_access_device"
+                                            class="col-md-4"></custom-input-checkradio-item>
+                                        <custom-input-checkradio-item label="N/A" value="N/A" id="vascular_na"
+                                            class="col-md-4"></custom-input-checkradio-item>
+                                        <custom-input-checkradio-item label="Other" value="Other"
+                                            id="vascular_access_site_other"
+                                            class="col-md-4"></custom-input-checkradio-item>
+                                    </custom-input-checkradio>
+
+                                    <custom-input label="Other:" type="text" id="vascular_access_site_other_textBox"
+                                        name="vascular_access_site_other_textBox" placeholder="" class="col-md-4"
+                                        style="display: none;"></custom-input>
+                                    <custom-input label="Number of Sutures Intact:" type="text"
+                                        id="vascular_sutures_textBox" name="vascular_sutures_textBox" placeholder=""
+                                        class="col-md-12" style="display: none;"></custom-input>
+                                    <custom-input label="New IV Access Device Name:" type="text"
+                                        id="vascular_newIv_access_device_textBox"
+                                        name="vascular_newIv_access_device_textBox" placeholder="" class="col-md-12"
+                                        style="display: none;"></custom-input>
+
+                                    <div class="d-flex gap-4 mt-4">
+                                        <custom-input-checkradio id="flushes" name="flushes" class="flushes_radio_btn_below"
+                                            label="Flushes:">
+                                            <custom-input-checkradio-item label="Saline Flush" value="Saline Flush"
+                                                id="saline_flush" class="col-md-6"></custom-input-checkradio-item>
+                                            <custom-input-checkradio-item label="Heparin Flush" value="Heparin Flush"
+                                                id="heparin_flush" class="col-md-6"></custom-input-checkradio-item>
+                                        </custom-input-checkradio>
+                                        <div class="hide-wrapper row">
+                                            <div class="row">
+                                                <div class="form-group col-md-6">
+                                            <custom-input label="Saline Pre-infusion (mL):" type="text"
+                                                id="saline_pre_textBox" name="saline_pre_textBox" placeholder="Pre" style="display: none;"></custom-input>
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                            <custom-input label="Saline Post-infusion (mL):" type="text"
+                                                id="saline_post_textBox" name="saline_post_textBox" placeholder="Post" style="display: none;"></custom-input>
+                                            </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="form-group col-md-6">
+                                            <custom-input label="Heparin Units/mL:" type="text"
+                                                id="heparin_pre_textBox" name="heparin_pre_textBox" placeholder="Pre" style="display: none;"></custom-input>
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                            <custom-input label="Heparin Post-infusion (mL):" type="text"
+                                                id="heparin_post_textBox" name="heparin_post_textBox" placeholder="Post" style="display: none;"></custom-input>
+                                            </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
                 </div>
                 <div class="mt-4">

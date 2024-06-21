@@ -247,3 +247,7 @@ h3.fields-title {
     padding-left: 10;
     border-color: #aaaaaa;
   }
+
+  .flushes_radio_btn_below .form-check {
+    margin-bottom: 20px !important;
+  }
