@@ -199,7 +199,7 @@ h3.fields-title {
 .radio_btn_below .form-label {
     display: block;
     padding-left: 0 !important;
-    font-weight: 700;
+    font-weight: 600;
     
 }
 .card-body-row {
@@ -235,4 +235,8 @@ h3.fields-title {
   }
   .required-asterisk {
     color: red;
+  }
+
+  .flushes_radio_btn_below .form-check {
+    margin-bottom: 20px !important;
   }
