@@ -268,3 +268,7 @@ h3.fields-title {
 .flushes_radio_btn_below .form-check {
     margin-bottom: 20px !important;
 }
+
+.medication {
+    font-weight: 400 !important;
+  }

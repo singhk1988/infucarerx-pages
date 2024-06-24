@@ -836,6 +836,7 @@ const handleVascularSection = () => {
 
 }
 
+//Pain and comfort
 const handlePainComfortSection = () => {
     var pain_Currently_Present_checkradio = document.getElementById('pain_Currently_Present');
     var Pain_Experienced_Since_Last_Visit_checkbox = document.getElementById('Pain_Experienced_Since_Last_Visit');
@@ -933,6 +934,271 @@ const handlePainComfortSection = () => {
     });
 
 
+}
+
+const handleAccess_Device_Care_Section=()=>{
+    
+    let access_Device_Care_InputField_Length = document.getElementById('access_Device_Care_InputField_Length');
+    let access_Device_Care_InputField_Gauge = document.getElementById('access_Device_Care_InputField_Gauge');
+    let access_Device_Care_InputField_Gauge_Fr = document.getElementById('access_Device_Care_InputField_Gauge_Fr');
+    let access_Device_Care_InputField_Line_Brand = document.getElementById('access_Device_Care_InputField_Line_Brand');
+    let access_Device_Care_InputField_Access_Location = document.getElementById('access_Device_Care_InputField_Access_Location');
+    let access_Device_Care_InputField_Internal_Length = document.getElementById('access_Device_Care_InputField_Internal_Length');
+    let access_Device_Care_InputField_No_of_lumens = document.getElementById('access_Device_Care_InputField_No_of_lumens');
+
+    var access_Device_Care_Option_radioButton = document.getElementById('access_Device_Care_Option');
+    let access_Device_Care_Option_PIV = document.getElementById('access_Device_Care_Option_PIV');
+    let access_Device_Care_Option_Port = document.getElementById('access_Device_Care_Option_Port');
+    let access_Device_Care_Option_PICC = document.getElementById('access_Device_Care_Option_PICC');
+    let access_Device_Care_Option_Midline = document.getElementById('access_Device_Care_Option_Midline');
+    let access_Device_Care_Option_SUBQ = document.getElementById('access_Device_Care_Option_SUBQ');
+    let access_Device_Care_Option_Tunneled_Catheter = document.getElementById('access_Device_Care_Option_Tunneled_Catheter');
+    let sterile_site_care_other = document.getElementById('sterile_site_care_other');
+    let sterile_site_care_otherInputField = document.getElementById('sterile_site_care_otherInputField');
+
+
+   access_Device_Care_Option_PICC.addEventListener('click', function(){
+
+            access_Device_Care_InputField_Gauge.style.display='none';
+            access_Device_Care_InputField_Gauge_Fr.style.display='block';
+   
+   })
+   access_Device_Care_Option_Midline.addEventListener('click', function(){
+  
+            access_Device_Care_InputField_Gauge.style.display='none';
+            access_Device_Care_InputField_Gauge_Fr.style.display='block';
+          
+    })
+
+    access_Device_Care_Option_PIV.addEventListener('click', function(){
+
+        access_Device_Care_InputField_Gauge.style.display='block';
+        access_Device_Care_InputField_Gauge_Fr.style.display='none';
+
+    })
+    access_Device_Care_Option_Port.addEventListener('click', function(){
+
+        access_Device_Care_InputField_Gauge.style.display='block';
+        access_Device_Care_InputField_Gauge_Fr.style.display='none';
+   
+   })
+   access_Device_Care_Option_SUBQ.addEventListener('click', function(){
+        access_Device_Care_InputField_Gauge.style.display='block';
+        access_Device_Care_InputField_Gauge_Fr.style.display='none';
+   
+   })
+   access_Device_Care_Option_Tunneled_Catheter.addEventListener('click', function(){
+
+        access_Device_Care_InputField_Gauge.style.display='block';
+        access_Device_Care_InputField_Gauge_Fr.style.display='none';
+   })
+   sterile_site_care_other.addEventListener('change', function(){
+        if(this.checked)
+        sterile_site_care_otherInputField.style.display='block';
+        else
+        sterile_site_care_otherInputField.style.display='none';
+   })
+
+}
+
+const handleLaboratory=()=>{
+    let labs_Drawn_Yes = document.getElementById('labs_Drawn_Yes');
+    let labs_Drawn_No = document.getElementById('labs_Drawn_No');
+    let location_of_Labs_Drawn = document.getElementById('location_of_Labs_Drawn');
+    let location_of_Labs_Drawn_Peripheral_Site = document.getElementById('location_of_Labs_Drawn_Peripheral_Site');
+    let location_of_Labs_Drawn_Central_Line_Draw = document.getElementById('location_of_Labs_Drawn_Central_Line_Draw');
+    let processing_Lab = document.getElementById('processing_Lab');
+    let processing_Lab_Quest = document.getElementById('processing_Lab_Quest');
+    let processing_Lab_Other = document.getElementById('processing_Lab_Others');
+    let processing_Lab_OtherInputField = document.getElementById('processing_Lab_OthersInputField');
+    let Laboratory_InputFields = document.getElementById('Laboratory_InputFields');
+    let processing_Lab_ListLabsDrawnInputField = document.getElementById('processing_Lab_ListLabsDrawnInputField');
+    let processing_Lab_NumberofAttemptsInputField = document.getElementById('processing_Lab_NumberofAttemptsInputField');
+
+    labs_Drawn_Yes.addEventListener('click', function(){
+
+        location_of_Labs_Drawn.style.display='block'
+
+    })
+    labs_Drawn_No.addEventListener('click', function(){
+
+        location_of_Labs_Drawn.style.display='none'
+        processing_Lab.style.display='none'
+        Laboratory_InputFields.style.display='none'
+        processing_Lab_OtherInputField.style.display='none'
+    })
+    location_of_Labs_Drawn_Peripheral_Site.addEventListener('click', function(){
+
+        processing_Lab.style.display='block'
+        Laboratory_InputFields.style.display='block'
+        
+
+    })
+    let otherRadiosPumpType = document.querySelectorAll('input[type="radio"][name="processing_Lab"]');
+
+    otherRadiosPumpType.forEach(radio => {
+        radio.addEventListener('change', () => {
+            if (radio.checked) {
+                if (radio.id !== 'processing_Lab_Others') {
+                    document.getElementById('processing_Lab_OthersInputField').style.display = 'none';
+                    processing_Lab_Other = false;
+                }
+                else
+                document.getElementById('processing_Lab_OthersInputField').style.display = 'block';
+            }
+        });
+    })
+    
+}
+
+    const handletherapyadherence=()=>{
+        
+        let otherRadiosPumpType = document.querySelectorAll('input[type="radio"][name="therapy_interruption"]');
+        let therapy_interruption_Yes = document.getElementById('therapy_interruption_Yes');
+        otherRadiosPumpType.forEach(radio => {
+            radio.addEventListener('change', () => {
+                if (radio.checked) {
+                    if (radio.id == 'therapy_interruption_Yes') {
+                        document.getElementById('therapy_interruption_YesInputField').style.display = 'block';
+                        therapy_interruption_Yes = false;
+                    }
+                    else
+                    document.getElementById('therapy_interruption_YesInputField').style.display = 'none';
+                }
+            });
+        })
+    }
+
+    const handlePATIENT_EDUCATION_PROVIDED=()=>{
+        const patient_Education_Provided_other = document.getElementById('patient_Education_Provided_other')
+        const patient_Education_Provided_Medication_management = document.getElementById('patient_Education_Provided_Medication_management')
+        patient_Education_Provided_other.addEventListener('change', function () {
+            if(this.checked)
+                document.getElementById('patient_Education_Provided_Inputtextfield').style.display = 'block';
+            else
+                document.getElementById('patient_Education_Provided_Inputtextfield').style.display = 'none';
+        });
+        patient_Education_Provided_Medication_management.addEventListener('change', function () {
+            if(this.checked)
+                document.getElementById('patient_Education_Provided_MEdicationmanagementEducation').style.display = 'block';
+            else
+                document.getElementById('patient_Education_Provided_MEdicationmanagementEducation').style.display = 'none';
+        });
+
+    }
+
+// PREMEDICATIONS ADMINISTERED section 
+const handleMedicationAdministeredSection = () => {
+    let premedicationsAdministeredOther = document.getElementById('premedications_administered_other');
+    let premedicationAdministeredYes = document.getElementById('premedications_administered_yes');
+    let premedications_administered_please_specify = document.getElementById('premedications_administered_patient_please_specify');
+    let otherRadiosPremedications = document.querySelectorAll('input[type="radio"][name="premedications_administered"]')
+    let otherRdioPremedicationsAdministeredBy = document.querySelectorAll('input[type="radio"][name="premedications_administered_by"]')
+
+    premedicationsAdministeredOther.addEventListener('change', function () {
+        if (this.checked) {
+            document.getElementById('premedications_administered_other_textBox').style.display = 'block';
+        } else {
+            document.getElementById('premedications_administered_other_textBox').style.display = 'none';
+        }
+    });
+
+    premedicationAdministeredYes.addEventListener('change', function () {
+        if (this.checked) {
+            document.getElementById('pre_medication1').style.display = 'block';
+        } else {
+            document.getElementById('pre_medication1').style.display = 'none';
+        }
+    });
+
+    premedications_administered_please_specify.addEventListener('change', function () {
+        if (this.checked) {
+            document.getElementById('premedication_please_specify_textBox').style.display = 'block';
+        } else {
+            document.getElementById('premedication_please_specify_textBox').style.display = 'none';
+        }
+    });
+
+    otherRadiosPremedications.forEach(radio => {
+        radio.addEventListener('change', () => {
+            if (radio.checked) {
+
+                if (radio.id !== 'premedications_administered_yes') {
+                    document.getElementById('pre_medication1').style.display = 'none';
+                    premedicationAdministeredYes = false;
+                    // premedicationAdministeredYes.checked = false;
+
+                }
+                if (radio.id !== 'premedications_administered_other') {
+                    document.getElementById('premedications_administered_other_textBox').style.display = 'none';
+                    premedicationsAdministeredOther = false;
+                }
+            }
+        });
+    })
+
+    otherRdioPremedicationsAdministeredBy.forEach(radio => {
+        radio.addEventListener('change', () => {
+            if (radio.checked) {
+                if (radio.id !== 'premedications_administered_patient_please_specify') {
+                    document.getElementById('premedication_please_specify_textBox').style.display = 'none';
+                    premedications_administered_patient_please_specify = false;
+                    // premedications_administered_patient_please_specify.checked = false;
+
+                }
+            }
+        });
+    })
+
+    document.getElementById('addAdditional_2').addEventListener('change', function () {
+        if (this.checked) {
+            document.getElementById('preMedicationForm2').style.display = 'block';
+        } else {
+            document.getElementById('preMedicationForm2').style.display = 'none';
+            document.getElementById('preMedicationForm3').style.display = 'none';
+            document.getElementById('preMedicationForm4').style.display = 'none';
+            document.getElementById('preMedicationForm5').style.display = 'none';
+        }
+    });
+
+    document.getElementById('addAdditional_3').addEventListener('change', function () {
+        if (this.checked) {
+            document.getElementById('preMedicationForm3').style.display = 'block';
+        } else {
+            document.getElementById('preMedicationForm3').style.display = 'none';
+            document.getElementById('preMedicationForm4').style.display = 'none';
+            document.getElementById('preMedicationForm5').style.display = 'none';
+        }
+    });
+    document.getElementById('addAdditional_4').addEventListener('change', function () {
+        if (this.checked) {
+            document.getElementById('preMedicationForm4').style.display = 'block';
+        } else {
+            document.getElementById('preMedicationForm4').style.display = 'none';
+            document.getElementById('preMedicationForm5').style.display = 'none';
+        }
+    });
+    document.getElementById('addAdditional_5').addEventListener('change', function () {
+        if (this.checked) {
+            document.getElementById('preMedicationForm5').style.display = 'block';
+        } else {
+            document.getElementById('preMedicationForm5').style.display = 'none';
+        }
+    });
+}
+
+
+const handlePatientUnableToSignIn = () => {
+     // patient unable to sign
+     document.getElementById('pateint_unable_to_sign').addEventListener('change', function() {
+        if (this.checked) {
+            document.getElementById('why_patient_cannot_sign').style.display = 'block';
+        }
+        else{
+            document.getElementById('why_patient_cannot_sign').style.display = 'none';
+
+        }
+    });
 }
 
 const handleDisableAtStart = () => {
@@ -1075,25 +1341,18 @@ const handleDisableAtStart = () => {
     }
 }
 
-//Pain and comfort
-
-
-
-
-
-
 document.addEventListener("DOMContentLoaded", async function () {
     const searchParams = new URLSearchParams(window.location.search);
     const formResponseId = searchParams.get('id');
     const savedFormData = window.localStorage.getItem(formResponseId);
-
+    const savedSignature = window.localStorage.getItem(`${formResponseId}-sig`);
+    
 
 
     handleDisableAtStart();
     handleTherapySection();
     handleNeuroSection();
     handleCardiovascularSection();
-    handleRespiratorySection();
     handleRespiratorySection();
     handleGastrointestinalSection();
     handleGenitourinarySection();
@@ -1102,7 +1361,24 @@ document.addEventListener("DOMContentLoaded", async function () {
     handleEndocrineSection();
     handleVascularSection();
     handlePainComfortSection();
+    handleAccess_Device_Care_Section();
+    handleLaboratory();
+    handletherapyadherence();
+    handlePATIENT_EDUCATION_PROVIDED();
+    handleMedicationAdministeredSection();
+    handlePatientUnableToSignIn();
 
+
+   
+
+
+    if (savedSignature) {
+        commonFormOpeation.setSignatureFromSave('patient_sign', savedSignature);
+        commonFormOpeation.setSignatureFromSave('nurse_sign', savedSignature);
+    }
+
+    setupSignatureCanvas('patient_sign', 'clearButton', 'patient_sign_validation');
+    setupSignatureCanvas('nurse_sign', 'clearButton', 'nurse_sign_validation');
 
     if (savedFormData) {
         commonFormOpeation.setFormDataFromSave(getQuestionToIdMap(), getAnswerToIdMap(), JSON.parse(savedFormData));
@@ -1113,13 +1389,100 @@ document.addEventListener("DOMContentLoaded", async function () {
         if (!hasError) {
             const formDataMap = commonFormOpeation.getFormDataToSave(getQuestionToIdMap(), getAnswerToIdMap());
             window.localStorage.setItem(formResponseId, JSON.stringify(formDataMap));
-            // commonFormOpeation.showModalPopup('exampleModal', true);
+            const signatureURLData = commonFormOpeation.getSignatureDataToSave('patient_sign');
+            window.localStorage.setItem(`${formResponseId}-sig`, signatureURLData);
+            commonFormOpeation.showModalPopup('exampleModal', true);
         }
     });
 
 
 
 });
+
+const setupSignatureCanvas = (canvasId, clearButtonId, validationId) => {
+    const canvas = document.getElementById(canvasId);
+    const context = canvas.getContext('2d');
+    let isDrawing = false;
+    let lastX = 0;
+    let lastY = 0;
+
+    function startDrawing(e) {
+        isDrawing = true;
+        if (e.type.startsWith('touch')) {
+            disableScrolling();
+        }
+        const [x, y] = getCoordinates(e);
+        [lastX, lastY] = [x, y];
+    }
+
+    function draw(e) {
+        if (!isDrawing) return;
+        const [x, y] = getCoordinates(e);
+        context.beginPath();
+        context.moveTo(lastX, lastY);
+        context.lineTo(x, y);
+        context.strokeStyle = '#000';
+        context.lineWidth = 2;
+        context.stroke();
+        [lastX, lastY] = [x, y];
+    }
+
+    function stopDrawing(e) {
+        isDrawing = false;
+        if (e.type.startsWith('touch')) {
+            enableScrolling();
+        }
+    }
+
+    function getCoordinates(e) {
+        let clientX, clientY;
+        if (e.type.startsWith('touch')) {
+            const touch = e.touches[0];
+            clientX = touch.clientX;
+            clientY = touch.clientY;
+        } else {
+            clientX = e.clientX;
+            clientY = e.clientY;
+        }
+        const rect = canvas.getBoundingClientRect();
+        return [clientX - rect.left, clientY - rect.top];
+    }
+
+    function disableScrolling() {
+        document.body.style.overflow = 'hidden';
+    }
+
+    function enableScrolling() {
+        document.body.style.overflow = 'auto';
+    }
+
+    canvas.addEventListener('mousedown', startDrawing);
+    canvas.addEventListener('touchstart', startDrawing);
+
+    canvas.addEventListener('mousemove', draw);
+    canvas.addEventListener('touchmove', draw);
+
+    canvas.addEventListener('mouseup', stopDrawing);
+    canvas.addEventListener('touchend', stopDrawing);
+
+
+    canvas.addEventListener('mouseup', () => {
+        isDrawing = false;
+        enableScrolling();
+        if (ValidationErrorStatus[canvasId]) {
+            canvas.style.borderColor = '#ccdae4';
+            document.getElementById(validationId).style.display = 'none';
+        }
+    });
+
+    document.getElementById(clearButtonId).addEventListener('click', () => {
+        context.clearRect(0, 0, canvas.width, canvas.height);
+        if (ValidationErrorStatus[canvasId]) {
+            canvas.style.borderColor = 'red';
+            document.getElementById(validationId).style.display = 'block';
+        }
+    });
+};
 
 const getQuestionToIdMap = () => {
     const idToQueMap = {
@@ -1203,42 +1566,42 @@ const getQuestionToIdMap = () => {
         "incision_DescriptionInputField": "incision_DescriptionInputField",
         "incision_LocationInputField": "incision_LocationInputField",
 
-        "pain_Experienced_radioButton":"pain_Experienced_radioButton",
-        "pain_Currently_Present_radioButton":"pain_Currently_Present_radioButton",
-        "pain_Comfort_Checkbox":"pain_Comfort_Checkbox",
-        "pain_Currently_Present_Adult_Form":"pain_Currently_Present_Adult_Form",
-        "pain_Currently_Present_Pediatric_Form":"pain_Currently_Present_Pediatric_Form",
-        "pain_Experienced_Adult_Form":"pain_Experienced_Adult_Form",
-        "pain_Experienced_Pediatric_Form":"pain_Experienced_Pediatric_Form",
-        "pain_Currently_Present_Pediatric_facesLocation":"pain_Currently_Present_Pediatric_facesLocation",
-       
-        "pain_Currently_Present_Adult_Painlocation":"pain_Currently_Present_Adult_Painlocation",
-        "pain_Currently_Present_Adult_ReliefMeasure":"pain_Currently_Present_Adult_ReliefMeasure",
-        "pain_Currently_Present_Adult_Precipitatingfactors":"pain_Currently_Present_Adult_Precipitatingfactors",
-        "pain_Currently_Present_Adult_Qualitydescription":"pain_Currently_Present_Adult_Qualitydescription",
-        "pain_Currently_Present_Adult_Radiates":"pain_Currently_Present_Adult_Radiates",
-        "pain_Currently_Present_Adult_TimingOnset":"pain_Currently_Present_Adult_TimingOnset",
-        "pain_Currently_Present_Adult_TimingFrequency":"pain_Currently_Present_Adult_TimingFrequency",
-        "pain_Currently_Present_Adult_TimingDuration":"pain_Currently_Present_Adult_TimingDuration",
-        "pain_Experienced_Adult_Severity":"pain_Experienced_Adult_Severity",
-        "pain_Experienced":"pain_Experienced",
-        "pain_Currently_Present":"pain_Currently_Present",
+        "pain_Experienced_radioButton": "pain_Experienced_radioButton",
+        "pain_Currently_Present_radioButton": "pain_Currently_Present_radioButton",
+        "pain_Comfort_Checkbox": "pain_Comfort_Checkbox",
+        "pain_Currently_Present_Adult_Form": "pain_Currently_Present_Adult_Form",
+        "pain_Currently_Present_Pediatric_Form": "pain_Currently_Present_Pediatric_Form",
+        "pain_Experienced_Adult_Form": "pain_Experienced_Adult_Form",
+        "pain_Experienced_Pediatric_Form": "pain_Experienced_Pediatric_Form",
+        "pain_Currently_Present_Pediatric_facesLocation": "pain_Currently_Present_Pediatric_facesLocation",
 
-        "pain_Experienced_Adult_Painlocation":"pain_Experienced_Adult_Painlocation",
-        "pain_Experienced_Adult_ReliefMeasure":"pain_Experienced_Adult_ReliefMeasure",
-        "pain_Experienced_Adult_Precipitatingfactors":"pain_Experienced_Adult_Precipitatingfactors",
-        "pain_Experienced_Adult_Qualitydescription":"pain_Experienced_Adult_Qualitydescription",
-        "pain_Experienced_Adult_Radiates":"pain_Experienced_Adult_Radiates",
-        "pain_Experienced_Adult_TimingOnset":"pain_Experienced_Adult_TimingOnset",
-        "pain_Experienced_Adult_TimingFrequency":"pain_Experienced_Adult_TimingFrequency",
-        "pain_Experienced_Adult_TimingDuration":"pain_Experienced_Adult_TimingDuration",
-        "pain_Currently_Present_Adult_Severity":"pain_Currently_Present_Adult_Severity",
-        
-        "pain_Experienced_Pediatric_facesLocation":"pain_Experienced_Pediatric_facesLocation",
+        "pain_Currently_Present_Adult_Painlocation": "pain_Currently_Present_Adult_Painlocation",
+        "pain_Currently_Present_Adult_ReliefMeasure": "pain_Currently_Present_Adult_ReliefMeasure",
+        "pain_Currently_Present_Adult_Precipitatingfactors": "pain_Currently_Present_Adult_Precipitatingfactors",
+        "pain_Currently_Present_Adult_Qualitydescription": "pain_Currently_Present_Adult_Qualitydescription",
+        "pain_Currently_Present_Adult_Radiates": "pain_Currently_Present_Adult_Radiates",
+        "pain_Currently_Present_Adult_TimingOnset": "pain_Currently_Present_Adult_TimingOnset",
+        "pain_Currently_Present_Adult_TimingFrequency": "pain_Currently_Present_Adult_TimingFrequency",
+        "pain_Currently_Present_Adult_TimingDuration": "pain_Currently_Present_Adult_TimingDuration",
+        "pain_Experienced_Adult_Severity": "pain_Experienced_Adult_Severity",
+        "pain_Experienced": "pain_Experienced",
+        "pain_Currently_Present": "pain_Currently_Present",
+
+        "pain_Experienced_Adult_Painlocation": "pain_Experienced_Adult_Painlocation",
+        "pain_Experienced_Adult_ReliefMeasure": "pain_Experienced_Adult_ReliefMeasure",
+        "pain_Experienced_Adult_Precipitatingfactors": "pain_Experienced_Adult_Precipitatingfactors",
+        "pain_Experienced_Adult_Qualitydescription": "pain_Experienced_Adult_Qualitydescription",
+        "pain_Experienced_Adult_Radiates": "pain_Experienced_Adult_Radiates",
+        "pain_Experienced_Adult_TimingOnset": "pain_Experienced_Adult_TimingOnset",
+        "pain_Experienced_Adult_TimingFrequency": "pain_Experienced_Adult_TimingFrequency",
+        "pain_Experienced_Adult_TimingDuration": "pain_Experienced_Adult_TimingDuration",
+        "pain_Currently_Present_Adult_Severity": "pain_Currently_Present_Adult_Severity",
+
+        "pain_Experienced_Pediatric_facesLocation": "pain_Experienced_Pediatric_facesLocation",
 
 
-        
-        
+
+
         "endocrine": "endocrine",
         "last_glucose_level": "last_glucose_level",
         "last_glucose_date": "last_glucose_date",
@@ -1252,7 +1615,77 @@ const getQuestionToIdMap = () => {
         "saline_pre_textBox": "saline_pre_textBox",
         "saline_post_textBox": "saline_post_textBox",
         "heparin_pre_textBox": "heparin_pre_textBox",
-        "heparin_post_textBox": "heparin_post_textBox"
+        "heparin_post_textBox": "heparin_post_textBox",
+
+        // access device care options
+        "access_Device_Care_Option":"access_Device_Care_Option",
+        "access_Device_Care_InputField_Length":"access_Device_Care_InputField_Length",
+        "access_Device_Care_InputField_Gauge":"access_Device_Care_InputField_Gauge",
+        "access_Device_Care_InputField_Gauge_Fr":"access_Device_Care_InputField_Gauge_Fr",
+        "access_Device_Care_InputField_Line_Brand":"access_Device_Care_InputField_Line_Brand",
+        "access_Device_Care_InputField_Access_Location":"access_Device_Care_InputField_Access_Location",
+        "access_Device_Care_InputField_Internal_Length":"access_Device_Care_InputField_Internal_Length",
+        "access_Device_Care_InputField_No_of_lumens":"access_Device_Care_InputField_No_of_lumens",
+        "access_Device_Care_Option":"access_Device_Care_Option",
+        "access_Device_Care_InputField_Exact_Cath_Measurement":"access_Device_Care_InputField_Exact_Cath_Measurement",
+        "access_Device_Care_InputField_Arm_circ_above_site":"access_Device_Care_InputField_Arm_circ_above_site",
+        "access_Device_Care_InputField_Insert_date":"access_Device_Care_InputField_Insert_date",
+        "access_Device_Care_InputField_Inserted_By":"access_Device_Care_InputField_Inserted_By",
+        "sterile_site_care":"sterile_site_care",
+        "sterile_site_care_otherInputField":"sterile_site_care_otherInputField",
+        "sterile_site_car_Access_Insertion_AttemptsInputField":"sterile_site_car_Access_Insertion_AttemptsInputField",
+        "labs_Drawn":"labs_Drawn",
+        "location_of_Labs_Drawn":"location_of_Labs_Drawn",
+        "processing_Lab":"processing_Lab",
+        "processing_Lab_OthersInputField":"processing_Lab_OthersInputField",
+        "processing_Lab_ListLabsDrawnInputField":"processing_Lab_ListLabsDrawnInputField",
+        "processing_Lab_NumberofAttemptsInputField":"processing_Lab_NumberofAttemptsInputField",
+        "therapy_interruption_SchoolMissedInputField":"therapy_interruption_SchoolMissedInputField",
+        "therapy_interruption_YesInputField":"therapy_interruption_YesInputField",
+        "therapy_interruption":"therapy_interruption",
+
+        // patient education provided
+        "patient_Education_Provided_Insert_date":"patient_Education_Provided_Insert_date",
+        "patient_Education_Provided_MEdicationmanagementEducation":"patient_Education_Provided_MEdicationmanagementEducation",
+        "patient_Education_Provided_Inputtextfield":"patient_Education_Provided_Inputtextfield",
+        "patient_Education_Provided":"patient_Education_Provided",
+
+
+        // PreMedication
+        "premedications_administered": "premedications_administered",
+        "premedications_administered_other_textBox": "premedications_administered_other_textBox",
+
+        "premedication_1": "premedication_1",
+        "time_administered_1": "time_administered_1",
+        "time_administered_completed_1": "time_administered_completed_1",
+        "premedications_administered_by": "premedications_administered_by",
+        "premedication_please_specify_textBox": "premedication_please_specify_textBox",
+        "addAdditional_parent": "addAdditional_parent",
+
+        "medication1": "medication1",
+        "medication1_dosage": "medication1_dosage",
+        "medication1_startTime": "medication1_startTime",
+        "medication1_endTime": "medication1_endTime",
+        "medication2": "medication2",
+        "medication2_dosage": "medication2_dosage",
+        "medication2_startTime": "medication2_startTime",
+        "medication2_endTime": "medication2_endTime",
+        "medication3": "medication3",
+        "medication3_dosage": "medication3_dosage",
+        "medication3_startTime": "medication3_startTime",
+        "medication3_endTime": "medication3_endTime",
+
+
+        // last section
+        "comments_notes": "comments_notes",
+        "nurse_credentials": "nurse_credentials",
+        "nurse_fname": "nurse_fname",
+        "nurse_lname": "nurse_lname",
+        "nurse_date": "nurse_date",
+        "pateint_unable": "pateint_unable",
+        "why_patient_cannot_sign": "why_patient_cannot_sign",
+        "nurse_sign": "nurse_sign",
+        "patient_sign": "patient_sign",
 
     };
     return idToQueMap;
@@ -1401,56 +1834,56 @@ const getAnswerToIdMap = () => {
         "skin_Other": "skin_Other",
 
 
-        "denise_Pain":"denise_Pain",
-        "pain_Currently_Present":"pain_Currently_Present",
-        "Pain_Experienced_Since_Last_Visit":"Pain_Experienced_Since_Last_Visit",
-        "pain_Currently_Present_Adult":"pain_Currently_Present_Adult",
-        "pain_Currently_Present_Pediatric":"pain_Currently_Present_Pediatric",
-        "pain_Experienced_Pediatric":"pain_Experienced_Pediatric",
-        "pain_Experienced_Adult":"pain_Experienced_Adult",
-        "pain_Currently_Present_Adult_TimingDuration":"pain_Currently_Present_Adult_TimingDuration",
-        
-        
-        "pain_Experienced_Adult_Severity1":"pain_Experienced_Adult_Severity1",
-        "pain_Experienced_Adult_Severity2":"pain_Experienced_Adult_Severity2",
-        "pain_Experienced_Adult_Severity3":"pain_Experienced_Adult_Severity3",
-        "pain_Experienced_Adult_Severity4":"pain_Experienced_Adult_Severity4",
-        "pain_Experienced_Adult_Severity5":"pain_Experienced_Adult_Severity5",
-        "pain_Experienced_Adult_Severity6":"pain_Experienced_Adult_Severity6",
-        "pain_Experienced_Adult_Severity7":"pain_Experienced_Adult_Severity7",
-        "pain_Experienced_Adult_Severity8":"pain_Experienced_Adult_Severity8",
-        "pain_Experienced_Adult_Severity9":"pain_Experienced_Adult_Severity9",
-        "pain_Experienced_Adult_Severity10":"pain_Experienced_Adult_Severity10",
-        "pain_Experienced_Adult_Severity0":"pain_Experienced_Adult_Severity0",
+        "denise_Pain": "denise_Pain",
+        "pain_Currently_Present": "pain_Currently_Present",
+        "Pain_Experienced_Since_Last_Visit": "Pain_Experienced_Since_Last_Visit",
+        "pain_Currently_Present_Adult": "pain_Currently_Present_Adult",
+        "pain_Currently_Present_Pediatric": "pain_Currently_Present_Pediatric",
+        "pain_Experienced_Pediatric": "pain_Experienced_Pediatric",
+        "pain_Experienced_Adult": "pain_Experienced_Adult",
+        "pain_Currently_Present_Adult_TimingDuration": "pain_Currently_Present_Adult_TimingDuration",
 
-        "pain_Currently_Present_Adult_Severity1":"pain_Currently_Present_Adult_Severity1",
-        "pain_Currently_Present_Adult_Severity2":"pain_Currently_Present_Adult_Severity2",
-        "pain_Currently_Present_Adult_Severity3":"pain_Currently_Present_Adult_Severity3",
-        "pain_Currently_Present_Adult_Severity4":"pain_Currently_Present_Adult_Severity4",
-        "pain_Currently_Present_Adult_Severity5":"pain_Currently_Present_Adult_Severity5",
-        "pain_Currently_Present_Adult_Severity6":"pain_Currently_Present_Adult_Severity6",
-        "pain_Currently_Present_Adult_Severity7":"pain_Currently_Present_Adult_Severity7",
-        "pain_Currently_Present_Adult_Severity8":"pain_Currently_Present_Adult_Severity8",
-        "pain_Currently_Present_Adult_Severity9":"pain_Currently_Present_Adult_Severity9",
-        "pain_Currently_Present_Adult_Severity10":"pain_Currently_Present_Adult_Severity10",
-        "pain_Currently_Present_Adult_Severity0":"pain_Currently_Present_Adult_Severity0",
 
-        "pain_Currently_Present_Pediatric_facesLocation_0":"pain_Currently_Present_Pediatric_facesLocation_0",
-        "pain_Currently_Present_Pediatric_facesLocation_2":"pain_Currently_Present_Pediatric_facesLocation_2",
-        "pain_Currently_Present_Pediatric_facesLocation_4":"pain_Currently_Present_Pediatric_facesLocation_4",
-        "pain_Currently_Present_Pediatric_facesLocation_6":"pain_Currently_Present_Pediatric_facesLocation_6",
-        "pain_Currently_Present_Pediatric_facesLocation_8":"pain_Currently_Present_Pediatric_facesLocation_8",
-        "pain_Currently_Present_Pediatric_facesLocation_10":"pain_Currently_Present_Pediatric_facesLocation_10",
+        "pain_Experienced_Adult_Severity1": "pain_Experienced_Adult_Severity1",
+        "pain_Experienced_Adult_Severity2": "pain_Experienced_Adult_Severity2",
+        "pain_Experienced_Adult_Severity3": "pain_Experienced_Adult_Severity3",
+        "pain_Experienced_Adult_Severity4": "pain_Experienced_Adult_Severity4",
+        "pain_Experienced_Adult_Severity5": "pain_Experienced_Adult_Severity5",
+        "pain_Experienced_Adult_Severity6": "pain_Experienced_Adult_Severity6",
+        "pain_Experienced_Adult_Severity7": "pain_Experienced_Adult_Severity7",
+        "pain_Experienced_Adult_Severity8": "pain_Experienced_Adult_Severity8",
+        "pain_Experienced_Adult_Severity9": "pain_Experienced_Adult_Severity9",
+        "pain_Experienced_Adult_Severity10": "pain_Experienced_Adult_Severity10",
+        "pain_Experienced_Adult_Severity0": "pain_Experienced_Adult_Severity0",
 
-        "pain_Experienced_Pediatric_facesLocation_0":"pain_Experienced_Pediatric_facesLocation_0",
-        "pain_Experienced_Pediatric_facesLocation_2":"pain_Experienced_Pediatric_facesLocation_2",
-        "pain_Experienced_Pediatric_facesLocation_4":"pain_Experienced_Pediatric_facesLocation_4",
-        "pain_Experienced_Pediatric_facesLocation_6":"pain_Experienced_Pediatric_facesLocation_6",
-        "pain_Experienced_Pediatric_facesLocation_10":"pain_Experienced_Pediatric_facesLocation_10",
-       
-       
-       
-       
+        "pain_Currently_Present_Adult_Severity1": "pain_Currently_Present_Adult_Severity1",
+        "pain_Currently_Present_Adult_Severity2": "pain_Currently_Present_Adult_Severity2",
+        "pain_Currently_Present_Adult_Severity3": "pain_Currently_Present_Adult_Severity3",
+        "pain_Currently_Present_Adult_Severity4": "pain_Currently_Present_Adult_Severity4",
+        "pain_Currently_Present_Adult_Severity5": "pain_Currently_Present_Adult_Severity5",
+        "pain_Currently_Present_Adult_Severity6": "pain_Currently_Present_Adult_Severity6",
+        "pain_Currently_Present_Adult_Severity7": "pain_Currently_Present_Adult_Severity7",
+        "pain_Currently_Present_Adult_Severity8": "pain_Currently_Present_Adult_Severity8",
+        "pain_Currently_Present_Adult_Severity9": "pain_Currently_Present_Adult_Severity9",
+        "pain_Currently_Present_Adult_Severity10": "pain_Currently_Present_Adult_Severity10",
+        "pain_Currently_Present_Adult_Severity0": "pain_Currently_Present_Adult_Severity0",
+
+        "pain_Currently_Present_Pediatric_facesLocation_0": "pain_Currently_Present_Pediatric_facesLocation_0",
+        "pain_Currently_Present_Pediatric_facesLocation_2": "pain_Currently_Present_Pediatric_facesLocation_2",
+        "pain_Currently_Present_Pediatric_facesLocation_4": "pain_Currently_Present_Pediatric_facesLocation_4",
+        "pain_Currently_Present_Pediatric_facesLocation_6": "pain_Currently_Present_Pediatric_facesLocation_6",
+        "pain_Currently_Present_Pediatric_facesLocation_8": "pain_Currently_Present_Pediatric_facesLocation_8",
+        "pain_Currently_Present_Pediatric_facesLocation_10": "pain_Currently_Present_Pediatric_facesLocation_10",
+
+        "pain_Experienced_Pediatric_facesLocation_0": "pain_Experienced_Pediatric_facesLocation_0",
+        "pain_Experienced_Pediatric_facesLocation_2": "pain_Experienced_Pediatric_facesLocation_2",
+        "pain_Experienced_Pediatric_facesLocation_4": "pain_Experienced_Pediatric_facesLocation_4",
+        "pain_Experienced_Pediatric_facesLocation_6": "pain_Experienced_Pediatric_facesLocation_6",
+        "pain_Experienced_Pediatric_facesLocation_10": "pain_Experienced_Pediatric_facesLocation_10",
+
+
+
+
         //Sourabh
         "endocrine_na": "endocrine_na",
         "endocrine_yes": "endocrine_yes",
@@ -1478,9 +1911,73 @@ const getAnswerToIdMap = () => {
         "saline_flush": "saline_flush",
         "heparin_flush": "heparin_flush",
 
+        // Access Device acre options
+        "access_Device_Care_Option_PIV":"access_Device_Care_Option_PIV",
+        "access_Device_Care_Option_Port":"access_Device_Care_Option_Port",
+        "access_Device_Care_Option_PICC":"access_Device_Care_Option_PICC",
+        "access_Device_Care_Option_Midline":"access_Device_Care_Option_Midline",
+        "access_Device_Care_Option_SUBQ":"access_Device_Care_Option_SUBQ",
+        "access_Device_Care_Option_Tunneled_Catheter":"access_Device_Care_Option_Tunneled_Catheter",
+        "access_Device_Care_Option_Yes":"access_Device_Care_Option_Yes",
+        "access_Device_Care_Option_No":"access_Device_Care_Option_No",
+        "access_Device_Care_Option_NA":"access_Device_Care_Option_NA",
+        "sterile_site_care_Chlorhexidine":"sterile_site_care_Chlorhexidine",
+        "sterile_site_care_Alcohol":"sterile_site_care_Alcohol",
+        "sterile_site_care_Betadine":"sterile_site_care_Betadine",
+        "sterile_site_care_Skin_Prep":"sterile_site_care_Skin_Prep",
+        "sterile_site_care_Steri_Strips":"sterile_site_care_Steri_Strips",
+        "sterile_site_care_Biopatch":"sterile_site_care_Biopatch",
+        "sterile_site_care_Securement_Device":"sterile_site_care_Securement_Device",
+        "sterile_site_care_Tegaderm":"sterile_site_care_Tegaderm",
+        "sterile_site_care_IV_3000":"sterile_site_care_IV_3000", 
+        "sterile_site_care_Sorbaview":"sterile_site_care_Sorbaview",
+        "sterile_site_care_Opsite":"sterile_site_care_Opsite",
+        "sterile_site_care_Gauze_Tape_Dressing":"sterile_site_care_Gauze_Tape_Dressing",
+        "sterile_site_care_Cap_Change":"sterile_site_care_Cap_Change",
+        "sterile_site_care_Extension_Tubing_Change":"sterile_site_care_Extension_Tubing_Change",
+        "sterile_site_care_other":"sterile_site_care_other",
+
+        "labs_Drawn_Yes":"labs_Drawn_Yes",
+        "labs_Drawn_No":"labs_Drawn_No",
+        "location_of_Labs_Drawn_Peripheral_Site":"location_of_Labs_Drawn_Peripheral_Site",
+        "location_of_Labs_Drawn_Central_Line_Draw":"location_of_Labs_Drawn_Central_Line_Draw",
+        "processing_Lab_Lab_Corp":"processing_Lab_Lab_Corp",
+        "processing_Lab_Quest":"processing_Lab_Quest",
+        "processing_Lab_Others":"processing_Lab_Others",
 
 
+        "therapy_interruption_Yes":"therapy_interruption_Yes",
+        "therapy_interruption_No":"therapy_interruption_No",
+        "therapy_interruption_NA":"therapy_interruption_NA",
 
+        
+        "patient_Education_Provided_Pain_Management":"patient_Education_Provided_Pain_Management",
+        "patient_Education_Provided_Disease_Process":"patient_Education_Provided_Disease_Process",
+        "patient_Education_Provided_Hydration":"patient_Education_Provided_Hydration",
+        "patient_Education_Provided_Pump_Alarm_and_Troubleshooting":"patient_Education_Provided_Pump_Alarm_and_Troubleshooting",
+        "patient_Education_Provided_Pump_Alarm_and_Troubleshooting":"patient_Education_Provided_Pump_Alarm_and_Troubleshooting",
+        "patient_Education_Provided_Aseptic_Technique":"patient_Education_Provided_Aseptic_Technique",
+        "patient_Education_Provided_Infection_Control":"patient_Education_Provided_Infection_Control",
+        "patient_Education_Provided_Bag_Change":"patient_Education_Provided_Bag_Change",
+        "patient_Education_Provided_PIV_removal":"patient_Education_Provided_PIV_removal",
+        "patient_Education_Provided_other":"patient_Education_Provided_other",
+        "patient_Education_Provided_Safety_Enhancement":"patient_Education_Provided_Safety_Enhancement",
+        "patient_Education_Provided_Access_Device_Care":"patient_Education_Provided_Access_Device_Care",
+        "patient_Education_Provided_Medication_management":"patient_Education_Provided_Medication_management",
+
+        // Premedications
+        "premedications_administered_yes": "premedications_administered_yes",
+        "premedications_administered_no": "premedications_administered_no",
+        "premedications_administered_declined": "premedications_administered_declined",
+        "premedications_administered_other": "premedications_administered_other",
+
+        "premedications_administered_patient": "premedications_administered_patient",
+        "premedications_administered_nurse": "premedications_administered_nurse",
+        "premedications_administered_care_provider": "premedications_administered_care_provider",
+        "premedications_administered_patient_please_specify": "premedications_administered_patient_please_specify",
+        "addAdditional_2": "additional_2",
+
+        "pateint_unable_to_sign": "pateint_unable_to_sign",
 
     };
     return idToAnsMap;
