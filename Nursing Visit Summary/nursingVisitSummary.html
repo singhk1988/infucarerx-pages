@@ -1015,174 +1015,136 @@
                         </div>
                     </div>
                 </div>
-
+        <!-- Pain And Comfort -->
                 <div class="row">
                     <!-- Left card Wrapper -->
                     <div class="col-md-4 mb-4">
                         <div class="card">
                             <div class="card-body">
                                 <div class="row">
-                                    <h6 class="card-title">
-                                        PAIN/COMFORT
-                                        <span id="clearPainComfort" class="clear-action">Clear</span>
-                                    </h6>
-                                    <div class="row">
-
-                                        <custom-input-checkradio label="" id="pain_Comfort_Checkbox"
-                                            name="pain_Comfort_Checkbox" class="radio_btn_inline">
-                                            <custom-input-checkradio-item label="Denise pain" value="Denise pain"
-                                                id="denise_Pain" class="col-md-6"></custom-input-checkradio-item>
-                                            <custom-input-checkradio-item label="Pain currently present"
-                                                value="Pain currently present" id="pain_Currently_Present"
-                                                class="col-md-6"></custom-input-checkradio-item>
-                                            <custom-input-checkradio-item label="Pain experienced since last visit"
-                                                value="Pain experienced since last visit"
-                                                id="Pain_Experienced_Since_Last_Visit"
-                                                class="col-md-6"></custom-input-checkradio-item>
+                                <h6 class="card-title">
+                                    PAIN/COMFORT
+                                    <span id="clearPainComfort" class="clear-action">Clear</span>
+                                </h6>
+                                <div class="row">
+                                    
+                                        <custom-input-checkradio label=""  id="pain_Comfort_Checkbox" name="pain_Comfort_Checkbox" class="radio_btn_inline" >
+                                            <custom-input-checkradio-item label="Denise pain" value="Denise pain" id="denise_Pain" class="col-md-6"></custom-input-checkradio-item>
+                                            <custom-input-checkradio-item label="Pain currently present" value="Pain currently present" id="pain_Currently_Present" class="col-md-6"></custom-input-checkradio-item>
+                                            <custom-input-checkradio-item label="Pain experienced since last visit" value="Pain experienced since last visit" id="Pain_Experienced_Since_Last_Visit" class="col-md-6"></custom-input-checkradio-item>
                                         </custom-input-checkradio>
 
-
-                                        <div style="display: none;" id="pain_Currently_Present_radioButton">
-                                            <h6 class="card-title">Pain currently present -></h6>
-
-                                            <custom-input-checkradio id="pain_Currently_Present"
-                                                name="pain_Currently_Present" type="radio" value="Part A"
-                                                class="radio_btn_inline" label="">
-
-                                                <custom-input-checkradio-item label="Adult" value="Adult"
-                                                    id="pain_Currently_Present_Adult" type="radio" class="form-check"
-                                                    style="display: inline-block; margin-right: 10px;">
-                                                </custom-input-checkradio-item>
-                                                <custom-input-checkradio-item label="Pediatric" value="Pediatric"
-                                                    id="pain_Currently_Present_Pediatric" type="radio"
-                                                    class="form-check"
-                                                    style="display: inline-block; margin-right: 10px;">
-                                                </custom-input-checkradio-item>
-                                            </custom-input-checkradio>
-                                        </div>
-
-
-
-                                        <div style="display: none;" id="pain_Experienced_radioButton">
-                                            <h6 class="card-title" required>Pain experienced since last visit -></h6>
-
-                                            <custom-input-checkradio id="pain_Experienced" name="pain_Experienced"
+                                        
+                                            <div style="display: none;" id="pain_Currently_Present_radioButton">
+                                                <h6 class="card-title">Pain currently present  -></h6>  
+                                                
+                                                <custom-input-checkradio id="pain_Currently_Present" name="pain_Currently_Present"
                                                 type="radio" value="Part A" class="radio_btn_inline" label="">
-
-                                                <custom-input-checkradio-item label="Adult" value="Adult"
-                                                    id="pain_Experienced_Adult" type="radio" class="form-check"
-                                                    style="display: inline-block; margin-right: 10px;">
+                    
+                                                <custom-input-checkradio-item label="Adult" value="Adult" id="pain_Currently_Present_Adult"
+                                                    type="radio" class="form-check" style="display: inline-block; margin-right: 10px;">
                                                 </custom-input-checkradio-item>
-                                                <custom-input-checkradio-item label="Pediatric" value="Pediatric"
-                                                    id="pain_Experienced_Pediatric" type="radio" class="form-check"
-                                                    style="display: inline-block; margin-right: 10px;">
+                                                <custom-input-checkradio-item label="Pediatric" value="Pediatric" id="pain_Currently_Present_Pediatric"
+                                                    type="radio" class="form-check" style="display: inline-block; margin-right: 10px;">
                                                 </custom-input-checkradio-item>
-                                            </custom-input-checkradio>
-                                        </div>
+                                                </custom-input-checkradio>
+                                            </div>
+                                       
 
-
+                                        
+                                            <div style="display: none;" id="pain_Experienced_radioButton">
+                                                <h6 class="card-title" required>Pain experienced since last visit  -></h6>  
+                                                
+                                                <custom-input-checkradio id="pain_Experienced" name="pain_Experienced"
+                                                type="radio" value="Part A" class="radio_btn_inline" label="">
+                    
+                                                <custom-input-checkradio-item label="Adult" value="Adult" id="pain_Experienced_Adult"
+                                                    type="radio" class="form-check" style="display: inline-block; margin-right: 10px;">
+                                                </custom-input-checkradio-item>
+                                                <custom-input-checkradio-item label="Pediatric" value="Pediatric" id="pain_Experienced_Pediatric"
+                                                    type="radio" class="form-check" style="display: inline-block; margin-right: 10px;">
+                                                </custom-input-checkradio-item>
+                                                </custom-input-checkradio>
+                                            </div>
+                                        
+                                    
                                     </div>
-
+            
                                 </div>
-
+            
                             </div>
                         </div>
                     </div>
                     <!-- Middle card Wrapper -->
                     <div class="col-md-4 mb-4" id="pain_Currently_Present_Form" style="display: none;">
-                        <div class="card">
+                        <div class="card"> 
                             <div class="card-body">
                                 <h6>Pain currently present :</h6>
-                                <div id="pain_Currently_Present_Adult_Form" style="display: none;">
-                                    <custom-input label="Pain Location " type="text"
-                                        id="pain_Currently_Present_Adult_Painlocation"
-                                        name="pain_Currently_Present_Adult_Painlocation" placeholder=""
-                                        class="col-md-12 inline-block"></custom-input>
-                                    <custom-input label="Relief Measure:" type="text"
-                                        id="pain_Currently_Present_Adult_ReliefMeasure"
-                                        name="pain_Currently_Present_Adult_reliefMeasure" placeholder=""
-                                        class="col-md-12"></custom-input>
-                                    <custom-input label="Precipitating factors:" type="text"
-                                        id="pain_Currently_Present_Adult_Precipitatingfactors"
-                                        name="pain_Currently_Present_Adult_Precipitatingfactors" placeholder=""
-                                        class="col-md-12"></custom-input>
-                                    <custom-input label="Quality/description:" type="text"
-                                        id="pain_Currently_Present_Adult_Qualitydescription"
-                                        name="pain_Currently_Present_Adult_Qualitydescription" placeholder=""
-                                        class="col-md-12"></custom-input>
-                                    <custom-input label="Radiates:" type="text"
-                                        id="pain_Currently_Present_Adult_Radiates"
-                                        name="pain_Currently_Present_Adult_Radiates" placeholder=""
-                                        class="col-md-12"></custom-input>
-                                    <custom-input label="Timing: Onset" type="text"
-                                        id="pain_Currently_Present_Adult_TimingOnset"
-                                        name="pain_Currently_Present_Adult_TimingOnset" placeholder=""
-                                        class="col-md-12"></custom-input>
-                                    <custom-input label="Timing: Frequency" type="text"
-                                        id="pain_Currently_Present_Adult_TimingFrequency"
-                                        name="pain_Currently_Present_Adult_TimingFrequency" placeholder=""
-                                        class="col-md-12"></custom-input>
-                                    <custom-input label="Timing: Duration" type="text"
-                                        id="pain_Currently_Present_Adult_TimingDuration"
-                                        name="pain_Currently_Present_Adult_TimingDuration" placeholder=""
-                                        class="col-md-12"></custom-input>
-                                    <div style="flex-direction: column; margin-top:20 ;">
-                                        <label for="pain_Experienced_Adult_Severity" class="form-label">Severity</label>
-                                        <div>
-                                            <select name="pain_Experienced_Adult_Severity"
-                                                id="pain_Experienced_Adult_Severity" class="col-md-12 form-select">
-                                                <option value="0">0</option>
-                                                <option value="1">1</option>
-                                                <option value="2">2</option>
-                                                <option value="3">3</option>
-                                                <option value="4">4</option>
-                                                <option value="6">5</option>
-                                                <option value="7">7</option>
-                                                <option value="8">8</option>
-                                                <option value="9">9</option>
-                                                <option value="10">10</option>
-
+                                <div  id="pain_Currently_Present_Adult_Form" style="display: none;">
+                                    <custom-input label="Pain Location " type="text" id="pain_Currently_Present_Adult_Painlocation"
+                                        name="pain_Currently_Present_Adult_Painlocation" placeholder="" class="col-md-12 inline-block"></custom-input>
+                                    <custom-input label="Relief Measure:" type="text" id="pain_Currently_Present_Adult_ReliefMeasure"
+                                        name="pain_Currently_Present_Adult_ReliefMeasure" placeholder="" class="col-md-12"></custom-input>
+                                    <custom-input label="Precipitating factors:" type="text" id="pain_Currently_Present_Adult_Precipitatingfactors"
+                                        name="pain_Currently_Present_Adult_Precipitatingfactors" placeholder="" class="col-md-12"></custom-input>
+                                    <custom-input label="Quality/description:" type="text" id="pain_Currently_Present_Adult_Qualitydescription"
+                                        name="pain_Currently_Present_Adult_Qualitydescription" placeholder="" class="col-md-12"></custom-input>
+                                    <custom-input label="Radiates:" type="text" id="pain_Currently_Present_Adult_Radiates"
+                                        name="pain_Currently_Present_Adult_Radiates" placeholder="" class="col-md-12"></custom-input>
+                                    <custom-input label="Timing: Onset" type="text" id="pain_Currently_Present_Adult_TimingOnset"
+                                        name="pain_Currently_Present_Adult_TimingOnset" placeholder="" class="col-md-12"></custom-input>
+                                    <custom-input label="Timing: Frequency" type="text" id="pain_Currently_Present_Adult_TimingFrequency"
+                                        name="pain_Currently_Present_Adult_TimingFrequency" placeholder="" class="col-md-12"></custom-input>
+                                    <custom-input label="Timing: Duration" type="text" id="pain_Currently_Present_Adult_TimingDuration"
+                                        name="pain_Currently_Present_Adult_TimingDuration" placeholder="" class="col-md-12"></custom-input>
+                                    <div style="flex-direction: column; margin-top:20 ;">        
+                                        <label style="margin-bottom: 10;">Severity</label>
+                                            <div>
+                                            <select name="pain_Currently_Present_Adult_Severity" id="pain_Currently_Present_Adult_Severity" class="col-md-12 pain_Experienced_Adult_Severity">
+                                                <option value="0" id="pain_Currently_Present_Adult_Severity0">0</option>
+                                                <option value="1" id="pain_Currently_Present_Adult_Severity1">1</option>
+                                                <option value="2" id="pain_Currently_Present_Adult_Severity2">2</option>
+                                                <option value="3" id="pain_Currently_Present_Adult_Severity3">3</option>
+                                                <option value="4" id="pain_Currently_Present_Adult_Severity4">4</option>
+                                                <option value="5" id="pain_Currently_Present_Adult_Severity5">5</option>
+                                                <option value="6" id="pain_Currently_Present_Adult_Severity6">6</option>
+                                                <option value="7" id="pain_Currently_Present_Adult_Severity7">7</option>
+                                                <option value="8" id="pain_Currently_Present_Adult_Severity8">8</option>
+                                                <option value="9" id="pain_Currently_Present_Adult_Severity9">9</option>
+                                                <option value="10" id="pain_Currently_Present_Adult_Severity10">10</option>
+                                                
                                             </select>
-                                        </div>
-                                    </div>
+                                            </div>
+                                    </div>    
                                 </div>
 
-                                <div id="pain_Currently_Present_Pediatric_Form" style="display: none;">
-                                    <custom-input label="Pain Location " type="text"
-                                        id="pain_Currently_Present_Pediatric_Painlocation"
-                                        name="pain_Currently_Present_Pediatric_Painlocation" placeholder=""
-                                        class="col-md-12 inline-block"></custom-input>
+                                <div  id="pain_Currently_Present_Pediatric_Form" style="display: none;">
+                                    <custom-input label="Pain Location " type="text" id="pain_Currently_Present_Pediatric_Painlocation"
+                                        name="pain_Currently_Present_Pediatric_Painlocation" placeholder="" class="col-md-12 inline-block"></custom-input>
 
-                                    <custom-input-checkradio id="Faces_scale"
-                                        name="pain_Currently_Present_Pediatric_facesLocation" type="radio"
-                                        value="Part A" class="radio_btn_inline" label="">
+                                        <custom-input-checkradio id="pain_Currently_Present_Pediatric_facesLocation" name="pain_Currently_Present_Pediatric_facesLocation"
+                                            type="radio" value="Part A" class="radio_btn_inline" label="">
                                         </custom-input-checkradio-item>
-                                        <custom-input-checkradio-item label="0 - No pain" value="yes"
-                                            id="pain_Currently_Present_Pediatric_facesLocation_0" type="radio"
-                                            class="form-check" style="display: inline-block; margin-right: 10px;">
+                                        <custom-input-checkradio-item label="0 - No pain" value="yes" id="pain_Currently_Present_Pediatric_facesLocation_0"
+                                            type="radio" class="form-check" style="display: inline-block; margin-right: 10px;">
                                         </custom-input-checkradio-item>
-                                        <custom-input-checkradio-item label="2 - Hurt little bit" value="no"
-                                            id="pain_Currently_Present_Pediatric_facesLocation_2" type="radio"
-                                            class="form-check" style="display: inline-block; margin-right: 10px;">
+                                        <custom-input-checkradio-item label="2 - Hurt little bit" value="no" id="pain_Currently_Present_Pediatric_facesLocation_2"
+                                            type="radio" class="form-check" style="display: inline-block; margin-right: 10px;">
                                         </custom-input-checkradio-item>
-                                        <custom-input-checkradio-item label="4 - Hurts little more" value="no"
-                                            id="pain_Currently_Present_Pediatric_facesLocation_4" type="radio"
-                                            class="form-check" style="display: inline-block; margin-right: 10px;">
+                                        <custom-input-checkradio-item label="4 - Hurts little more" value="no" id="pain_Currently_Present_Pediatric_facesLocation_4"
+                                            type="radio" class="form-check" style="display: inline-block; margin-right: 10px;">
                                         </custom-input-checkradio-item>
-                                        <custom-input-checkradio-item label="6 - Hurts even more" value="no"
-                                            id="pain_Currently_Present_Pediatric_facesLocation_6" type="radio"
-                                            class="form-check" style="display: inline-block; margin-right: 10px;">
+                                        <custom-input-checkradio-item label="6 - Hurts even more" value="no" id="pain_Currently_Present_Pediatric_facesLocation_6"
+                                            type="radio" class="form-check" style="display: inline-block; margin-right: 10px;">
                                         </custom-input-checkradio-item>
-                                        <custom-input-checkradio-item label="8 - Hurts whole lot" value="no"
-                                            id="pain_Currently_Present_Pediatric_facesLocation_8" type="radio"
-                                            class="form-check" style="display: inline-block; margin-right: 10px;">
+                                        <custom-input-checkradio-item label="8 - Hurts whole lot" value="no" id="pain_Currently_Present_Pediatric_facesLocation_8"
+                                            type="radio" class="form-check" style="display: inline-block; margin-right: 10px;">
                                         </custom-input-checkradio-item>
-                                        <custom-input-checkradio-item label="10 - Hurts really bad" value="no"
-                                            id="pain_Currently_Present_Pediatric_facesLocation_10" type="radio"
-                                            class="form-check" style="display: inline-block; margin-right: 10px;">
+                                        <custom-input-checkradio-item label="10 - Hurts really bad" value="no" id="pain_Currently_Present_Pediatric_facesLocation_10"
+                                            type="radio" class="form-check" style="display: inline-block; margin-right: 10px;">
                                         </custom-input-checkradio-item>
-                                    </custom-input-checkradio>
-
+                                        </custom-input-checkradio>
+                                    
                                 </div>
                             </div>
                         </div>
@@ -1192,98 +1154,77 @@
                         <div class="card">
                             <div class="card-body">
                                 <h6>Pain experienced since last visit :</h6>
-                                <div id="pain_Experienced_Adult_Form" style="display: none;">
-                                    <custom-input label="Pain Location " type="text"
-                                        id="pain_Experienced_Adult_Painlocation"
-                                        name="pain_Experienced_Adult_Painlocation" placeholder=""
-                                        class="col-md-12 inline-block"></custom-input>
-                                    <custom-input label="Relief Measure:" type="text"
-                                        id="pain_Experienced_Adult_ReliefMeasure"
-                                        name="pain_Experiencedt_Adult_reliefMeasure" placeholder=""
-                                        class="col-md-12"></custom-input>
-                                    <custom-input label="Precipitating factors:" type="text"
-                                        id="pain_Experienced_Adult_Precipitatingfactors"
-                                        name="pain_Experienced_Adult_Precipitatingfactors" placeholder=""
-                                        class="col-md-12"></custom-input>
-                                    <custom-input label="Quality/description:" type="text"
-                                        id="pain_Experienced_Adult_Qualitydescription"
-                                        name="pain_Experienced_Adult_Qualitydescription" placeholder=""
-                                        class="col-md-12"></custom-input>
+                                <div  id="pain_Experienced_Adult_Form" style="display: none;">
+                                    <custom-input label="Pain Location " type="text" id="pain_Experienced_Adult_Painlocation"
+                                        name="pain_Experienced_Adult_Painlocation" placeholder="" class="col-md-12 inline-block"></custom-input>
+                                    <custom-input label="Relief Measure:" type="text" id="pain_Experienced_Adult_ReliefMeasure"
+                                        name="pain_Experienced_Adult_ReliefMeasure" placeholder="" class="col-md-12"></custom-input>
+                                    <custom-input label="Precipitating factors:" type="text" id="pain_Experienced_Adult_Precipitatingfactors"
+                                        name="pain_Experienced_Adult_Precipitatingfactors" placeholder="" class="col-md-12"></custom-input>
+                                    <custom-input label="Quality/description:" type="text" id="pain_Experienced_Adult_Qualitydescription"
+                                        name="pain_Experienced_Adult_Qualitydescription" placeholder="" class="col-md-12"></custom-input>
                                     <custom-input label="Radiates:" type="text" id="pain_Experienced_Adult_Radiates"
-                                        name="pain_Experienced_Adult_Radiates" placeholder=""
-                                        class="col-md-12"></custom-input>
-                                    <custom-input label="Timing: Onset" type="text"
-                                        id="pain_Experienced_Adult_TimingOnset"
-                                        name="pain_Experienced_Adult_TimingOnset" placeholder=""
-                                        class="col-md-12"></custom-input>
-                                    <custom-input label="Timing: Frequency" type="text"
-                                        id="pain_Experienced_Adult_TimingFrequency"
-                                        name="pain_Experienced_Adult_TimingFrequency" placeholder=""
-                                        class="col-md-12"></custom-input>
-                                    <custom-input label="Timing: Duration" type="text"
-                                        id="pain_Experienced_Adult_TimingDuration"
-                                        name="pain_Experienced_Adult_TimingDuration" placeholder=""
-                                        class="col-md-12"></custom-input>
-                                    <div style="flex-direction: column; margin-top:20 ;">
-                                        <label for="pain_Experienced_Adult_Severity" class="form-label">Severity</label>
+                                        name="pain_Experienced_Adult_Radiates" placeholder="" class="col-md-12"></custom-input>
+                                    <custom-input label="Timing: Onset" type="text" id="pain_Experienced_Adult_TimingOnset"
+                                        name="pain_Experienced_Adult_TimingOnset" placeholder="" class="col-md-12"></custom-input>
+                                    <custom-input label="Timing: Frequency" type="text" id="pain_Experienced_Adult_TimingFrequency"
+                                        name="pain_Experienced_Adult_TimingFrequency" placeholder="" class="col-md-12"></custom-input>
+                                    <custom-input label="Timing: Duration" type="text" id="pain_Experienced_Adult_TimingDuration"
+                                        name="pain_Experienced_Adult_TimingDuration" placeholder="" class="col-md-12"></custom-input>
+                                    <div style="flex-direction: column; margin-top:20 ;">        
+                                        <label style="margin-bottom: 10;">Severity</label>
                                         <div>
-                                            <select name="pain_Experienced_Adult_Severity"
-                                                id="pain_Experienced_Adult_Severity" class="col-md-12 form-select">
-                                                <option value="0">0</option>
-                                                <option value="1">1</option>
-                                                <option value="2">2</option>
-                                                <option value="3">3</option>
-                                                <option value="4">4</option>
-                                                <option value="6">5</option>
-                                                <option value="7">7</option>
-                                                <option value="8">8</option>
-                                                <option value="9">9</option>
-                                                <option value="10">10</option>
-
+                                            <select name="pain_Experienced_Adult_Severity" id="pain_Experienced_Adult_Severity" class="col-md-12 pain_Experienced_Adult_Severity">
+                                                <option value="0" id="pain_Experienced_Adult_Severity0">0</option>
+                                                <option value="0" id="pain_Experienced_Adult_Severity1">1</option>
+                                                <option value="1" id="pain_Experienced_Adult_Severity2">2</option>
+                                                <option value="2" id="pain_Experienced_Adult_Severity3">3</option>
+                                                <option value="3" id="pain_Experienced_Adult_Severity4">4</option>
+                                                <option value="4" id="pain_Experienced_Adult_Severity5">5</option>
+                                                <option value="6" id="pain_Experienced_Adult_Severity6">6</option>
+                                                <option value="7" id="pain_Experienced_Adult_Severity7">7</option>
+                                                <option value="8" id="pain_Experienced_Adult_Severity8">8</option>
+                                                <option value="9" id="pain_Experienced_Adult_Severity9">9</option>
+                                                <option value="10" id="pain_Experienced_Adult_Severity10">10</option>
+                                                
                                             </select>
-                                        </div>
-                                    </div>
+                                            </div>
+                                    </div>    
                                 </div>
 
-                                <div id="pain_Experienced_Pediatric_Form" style="display: none;">
-                                    <custom-input label="Pain Location " type="text"
-                                        id="pain_Experienced_Pediatric_Painlocation"
-                                        name="pain_Experienced_Pediatric_Painlocation" placeholder=""
-                                        class="col-md-12 inline-block"></custom-input>
-                                    <custom-input-checkradio id="Faces_scale"
-                                        name="pain_Experienced_Pediatric_facesLocation" type="radio" value="Part A"
-                                        class="radio_btn_inline" label="">
+                                <div  id="pain_Experienced_Pediatric_Form" style="display: none;">
+                                    <custom-input label="Pain Location " type="text" id="pain_Experienced_Pediatric_Painlocation"
+                                        name="pain_Experienced_Pediatric_Painlocation" placeholder="" class="col-md-12 inline-block"></custom-input>
+                                        <custom-input-checkradio id="pain_Experienced_Pediatric_facesLocation" name="pain_Experienced_Pediatric_facesLocation"
+                                            type="radio" value="Part A" class="radio_btn_inline" label="">
                                         </custom-input-checkradio-item>
-                                        <custom-input-checkradio-item label="0 - No pain" value="yes"
-                                            id="pain_Experienced_Pediatric_facesLocation_0" type="radio"
-                                            class="form-check" style="display: inline-block; margin-right: 10px;">
+                                        <custom-input-checkradio-item label="0 - No pain" value="yes" id="pain_Experienced_Pediatric_facesLocation_0"
+                                            type="radio" class="form-check" style="display: inline-block; margin-right: 10px;">
                                         </custom-input-checkradio-item>
-                                        <custom-input-checkradio-item label="2 - Hurt little bit" value="no"
-                                            id="pain_Experienced_Pediatric_facesLocation_2" type="radio"
-                                            class="form-check" style="display: inline-block; margin-right: 10px;">
+                                        <custom-input-checkradio-item label="2 - Hurt little bit" value="no" id="pain_Experienced_Pediatric_facesLocation_2"
+                                            type="radio" class="form-check" style="display: inline-block; margin-right: 10px;">
                                         </custom-input-checkradio-item>
-                                        <custom-input-checkradio-item label="4 - Hurts little more" value="no"
-                                            id="pain_Experienced_Pediatric_facesLocation_4" type="radio"
-                                            class="form-check" style="display: inline-block; margin-right: 10px;">
+                                        <custom-input-checkradio-item label="4 - Hurts little more" value="no" id="pain_Experienced_Pediatric_facesLocation_4"
+                                            type="radio" class="form-check" style="display: inline-block; margin-right: 10px;">
                                         </custom-input-checkradio-item>
-                                        <custom-input-checkradio-item label="6 - Hurts even more" value="no"
-                                            id="pain_Experienced_Pediatric_facesLocation_6" type="radio"
-                                            class="form-check" style="display: inline-block; margin-right: 10px;">
+                                        <custom-input-checkradio-item label="6 - Hurts even more" value="no" id="pain_Experienced_Pediatric_facesLocation_6"
+                                            type="radio" class="form-check" style="display: inline-block; margin-right: 10px;">
                                         </custom-input-checkradio-item>
-                                        <custom-input-checkradio-item label="8 - Hurts whole lot" value="no"
-                                            id="pain_Experienced_Pediatric_facesLocation_8" type="radio"
-                                            class="form-check" style="display: inline-block; margin-right: 10px;">
+                                        <custom-input-checkradio-item label="8 - Hurts whole lot" value="no" id="pain_Experienced_Pediatric_facesLocation_8"
+                                            type="radio" class="form-check" style="display: inline-block; margin-right: 10px;">
                                         </custom-input-checkradio-item>
-                                        <custom-input-checkradio-item label="10 - Hurts really bad" value="no"
-                                            id="pain_Experienced_Pediatric_facesLocation_10" type="radio"
-                                            class="form-check" style="display: inline-block; margin-right: 10px;">
+                                        <custom-input-checkradio-item label="10 - Hurts really bad" value="no" id="pain_Experienced_Pediatric_facesLocation_10"
+                                            type="radio" class="form-check" style="display: inline-block; margin-right: 10px;">
                                         </custom-input-checkradio-item>
-                                    </custom-input-checkradio>
+                                        </custom-input-checkradio>                       
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+
+
+
                 <!-- ENDOCRINE -->
                 <div class="row">
                     <div class="col-md-12 mb-4">
