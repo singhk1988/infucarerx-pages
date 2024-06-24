@@ -17,6 +17,7 @@ const requiredControls = {
     'temp': 'Please enter temperture.',
     'weight': 'Please enter weight.',
     'vascular_access_site': 'Please check',
+    'pain_Comfort_Checkbox':'Please check',
     // 'vascular_access_site_other_textBox': 'Please Enter other',
     // 'vascular_sutures_textBox': 'Please enter the black field',
     // 'vascular_newIv_access_device_textBox': 'Please enter the black field',
@@ -935,6 +936,157 @@ const handlePainComfortSection = () => {
 
 }
 
+const handleAccess_Device_Care_Section=()=>{
+    
+    let access_Device_Care_InputField_Length = document.getElementById('access_Device_Care_InputField_Length');
+    let access_Device_Care_InputField_Gauge = document.getElementById('access_Device_Care_InputField_Gauge');
+    let access_Device_Care_InputField_Gauge_Fr = document.getElementById('access_Device_Care_InputField_Gauge_Fr');
+    let access_Device_Care_InputField_Line_Brand = document.getElementById('access_Device_Care_InputField_Line_Brand');
+    let access_Device_Care_InputField_Access_Location = document.getElementById('access_Device_Care_InputField_Access_Location');
+    let access_Device_Care_InputField_Internal_Length = document.getElementById('access_Device_Care_InputField_Internal_Length');
+    let access_Device_Care_InputField_No_of_lumens = document.getElementById('access_Device_Care_InputField_No_of_lumens');
+
+    var access_Device_Care_Option_radioButton = document.getElementById('access_Device_Care_Option');
+    let access_Device_Care_Option_PIV = document.getElementById('access_Device_Care_Option_PIV');
+    let access_Device_Care_Option_Port = document.getElementById('access_Device_Care_Option_Port');
+    let access_Device_Care_Option_PICC = document.getElementById('access_Device_Care_Option_PICC');
+    let access_Device_Care_Option_Midline = document.getElementById('access_Device_Care_Option_Midline');
+    let access_Device_Care_Option_SUBQ = document.getElementById('access_Device_Care_Option_SUBQ');
+    let access_Device_Care_Option_Tunneled_Catheter = document.getElementById('access_Device_Care_Option_Tunneled_Catheter');
+    let sterile_site_care_other = document.getElementById('sterile_site_care_other');
+    let sterile_site_care_otherInputField = document.getElementById('sterile_site_care_otherInputField');
+
+
+   access_Device_Care_Option_PICC.addEventListener('click', function(){
+
+            access_Device_Care_InputField_Gauge.style.display='none';
+            access_Device_Care_InputField_Gauge_Fr.style.display='block';
+   
+   })
+   access_Device_Care_Option_Midline.addEventListener('click', function(){
+  
+            access_Device_Care_InputField_Gauge.style.display='none';
+            access_Device_Care_InputField_Gauge_Fr.style.display='block';
+          
+    })
+
+    access_Device_Care_Option_PIV.addEventListener('click', function(){
+
+        access_Device_Care_InputField_Gauge.style.display='block';
+        access_Device_Care_InputField_Gauge_Fr.style.display='none';
+
+    })
+    access_Device_Care_Option_Port.addEventListener('click', function(){
+
+        access_Device_Care_InputField_Gauge.style.display='block';
+        access_Device_Care_InputField_Gauge_Fr.style.display='none';
+   
+   })
+   access_Device_Care_Option_SUBQ.addEventListener('click', function(){
+        access_Device_Care_InputField_Gauge.style.display='block';
+        access_Device_Care_InputField_Gauge_Fr.style.display='none';
+   
+   })
+   access_Device_Care_Option_Tunneled_Catheter.addEventListener('click', function(){
+
+        access_Device_Care_InputField_Gauge.style.display='block';
+        access_Device_Care_InputField_Gauge_Fr.style.display='none';
+   })
+   sterile_site_care_other.addEventListener('change', function(){
+        if(this.checked)
+        sterile_site_care_otherInputField.style.display='block';
+        else
+        sterile_site_care_otherInputField.style.display='none';
+   })
+
+}
+
+const handleLaboratory=()=>{
+    let labs_Drawn_Yes = document.getElementById('labs_Drawn_Yes');
+    let labs_Drawn_No = document.getElementById('labs_Drawn_No');
+    let location_of_Labs_Drawn = document.getElementById('location_of_Labs_Drawn');
+    let location_of_Labs_Drawn_Peripheral_Site = document.getElementById('location_of_Labs_Drawn_Peripheral_Site');
+    let location_of_Labs_Drawn_Central_Line_Draw = document.getElementById('location_of_Labs_Drawn_Central_Line_Draw');
+    let processing_Lab = document.getElementById('processing_Lab');
+    let processing_Lab_Quest = document.getElementById('processing_Lab_Quest');
+    let processing_Lab_Other = document.getElementById('processing_Lab_Others');
+    let processing_Lab_OtherInputField = document.getElementById('processing_Lab_OthersInputField');
+    let Laboratory_InputFields = document.getElementById('Laboratory_InputFields');
+    let processing_Lab_ListLabsDrawnInputField = document.getElementById('processing_Lab_ListLabsDrawnInputField');
+    let processing_Lab_NumberofAttemptsInputField = document.getElementById('processing_Lab_NumberofAttemptsInputField');
+
+    labs_Drawn_Yes.addEventListener('click', function(){
+
+        location_of_Labs_Drawn.style.display='block'
+
+    })
+    labs_Drawn_No.addEventListener('click', function(){
+
+        location_of_Labs_Drawn.style.display='none'
+        processing_Lab.style.display='none'
+        Laboratory_InputFields.style.display='none'
+        processing_Lab_OtherInputField.style.display='none'
+    })
+    location_of_Labs_Drawn_Peripheral_Site.addEventListener('click', function(){
+
+        processing_Lab.style.display='block'
+        Laboratory_InputFields.style.display='block'
+        
+
+    })
+    let otherRadiosPumpType = document.querySelectorAll('input[type="radio"][name="processing_Lab"]');
+
+    otherRadiosPumpType.forEach(radio => {
+        radio.addEventListener('change', () => {
+            if (radio.checked) {
+                if (radio.id !== 'processing_Lab_Others') {
+                    document.getElementById('processing_Lab_OthersInputField').style.display = 'none';
+                    processing_Lab_Other = false;
+                }
+                else
+                document.getElementById('processing_Lab_OthersInputField').style.display = 'block';
+            }
+        });
+    })
+    
+}
+
+    const handletherapyadherence=()=>{
+        
+        let otherRadiosPumpType = document.querySelectorAll('input[type="radio"][name="therapy_interruption"]');
+        let therapy_interruption_Yes = document.getElementById('therapy_interruption_Yes');
+        otherRadiosPumpType.forEach(radio => {
+            radio.addEventListener('change', () => {
+                if (radio.checked) {
+                    if (radio.id == 'therapy_interruption_Yes') {
+                        document.getElementById('therapy_interruption_YesInputField').style.display = 'block';
+                        therapy_interruption_Yes = false;
+                    }
+                    else
+                    document.getElementById('therapy_interruption_YesInputField').style.display = 'none';
+                }
+            });
+        })
+    }
+
+    const handlePATIENT_EDUCATION_PROVIDED=()=>{
+        const patient_Education_Provided_other = document.getElementById('patient_Education_Provided_other')
+        const patient_Education_Provided_Medication_management = document.getElementById('patient_Education_Provided_Medication_management')
+        patient_Education_Provided_other.addEventListener('change', function () {
+            if(this.checked)
+                document.getElementById('patient_Education_Provided_Inputtextfield').style.display = 'block';
+            else
+                document.getElementById('patient_Education_Provided_Inputtextfield').style.display = 'none';
+        });
+        patient_Education_Provided_Medication_management.addEventListener('change', function () {
+            if(this.checked)
+                document.getElementById('patient_Education_Provided_MEdicationmanagementEducation').style.display = 'block';
+            else
+                document.getElementById('patient_Education_Provided_MEdicationmanagementEducation').style.display = 'none';
+        });
+
+    }
+
 const handleDisableAtStart = () => {
     var checkradio = document.querySelector('custom-input-checkradio[id="neurology_Psychosocial_Abnormalities"]');
     let neuro_Psych_no = document.getElementById('neuro_Psych_no');
@@ -1075,12 +1227,6 @@ const handleDisableAtStart = () => {
     }
 }
 
-//Pain and comfort
-
-
-
-
-
 
 document.addEventListener("DOMContentLoaded", async function () {
     const searchParams = new URLSearchParams(window.location.search);
@@ -1102,7 +1248,10 @@ document.addEventListener("DOMContentLoaded", async function () {
     handleEndocrineSection();
     handleVascularSection();
     handlePainComfortSection();
-
+    handleAccess_Device_Care_Section();
+    handleLaboratory();
+    handletherapyadherence();
+    handlePATIENT_EDUCATION_PROVIDED();
 
     if (savedFormData) {
         commonFormOpeation.setFormDataFromSave(getQuestionToIdMap(), getAnswerToIdMap(), JSON.parse(savedFormData));
@@ -1252,7 +1401,38 @@ const getQuestionToIdMap = () => {
         "saline_pre_textBox": "saline_pre_textBox",
         "saline_post_textBox": "saline_post_textBox",
         "heparin_pre_textBox": "heparin_pre_textBox",
-        "heparin_post_textBox": "heparin_post_textBox"
+        "heparin_post_textBox": "heparin_post_textBox",
+
+        "access_Device_Care_Option":"access_Device_Care_Option",
+        "access_Device_Care_InputField_Length":"access_Device_Care_InputField_Length",
+        "access_Device_Care_InputField_Gauge":"access_Device_Care_InputField_Gauge",
+        "access_Device_Care_InputField_Gauge_Fr":"access_Device_Care_InputField_Gauge_Fr",
+        "access_Device_Care_InputField_Line_Brand":"access_Device_Care_InputField_Line_Brand",
+        "access_Device_Care_InputField_Access_Location":"access_Device_Care_InputField_Access_Location",
+        "access_Device_Care_InputField_Internal_Length":"access_Device_Care_InputField_Internal_Length",
+        "access_Device_Care_InputField_No_of_lumens":"access_Device_Care_InputField_No_of_lumens",
+        "access_Device_Care_Option":"access_Device_Care_Option",
+        "access_Device_Care_InputField_Exact_Cath_Measurement":"access_Device_Care_InputField_Exact_Cath_Measurement",
+        "access_Device_Care_InputField_Arm_circ_above_site":"access_Device_Care_InputField_Arm_circ_above_site",
+        "access_Device_Care_InputField_Insert_date":"access_Device_Care_InputField_Insert_date",
+        "access_Device_Care_InputField_Inserted_By":"access_Device_Care_InputField_Inserted_By",
+        "sterile_site_care":"sterile_site_care",
+        "sterile_site_care_otherInputField":"sterile_site_care_otherInputField",
+        "sterile_site_car_Access_Insertion_AttemptsInputField":"sterile_site_car_Access_Insertion_AttemptsInputField",
+        "labs_Drawn":"labs_Drawn",
+        "location_of_Labs_Drawn":"location_of_Labs_Drawn",
+        "processing_Lab":"processing_Lab",
+        "processing_Lab_OthersInputField":"processing_Lab_OthersInputField",
+        "processing_Lab_ListLabsDrawnInputField":"processing_Lab_ListLabsDrawnInputField",
+        "processing_Lab_NumberofAttemptsInputField":"processing_Lab_NumberofAttemptsInputField",
+        "therapy_interruption_SchoolMissedInputField":"therapy_interruption_SchoolMissedInputField",
+        "therapy_interruption_YesInputField":"therapy_interruption_YesInputField",
+        "therapy_interruption":"therapy_interruption",
+
+        "patient_Education_Provided_Insert_date":"patient_Education_Provided_Insert_date",
+        "patient_Education_Provided_MEdicationmanagementEducation":"patient_Education_Provided_MEdicationmanagementEducation",
+        "patient_Education_Provided_Inputtextfield":"patient_Education_Provided_Inputtextfield",
+        "patient_Education_Provided":"patient_Education_Provided",
 
     };
     return idToQueMap;
@@ -1478,7 +1658,58 @@ const getAnswerToIdMap = () => {
         "saline_flush": "saline_flush",
         "heparin_flush": "heparin_flush",
 
+        "access_Device_Care_Option_PIV":"access_Device_Care_Option_PIV",
+        "access_Device_Care_Option_Port":"access_Device_Care_Option_Port",
+        "access_Device_Care_Option_PICC":"access_Device_Care_Option_PICC",
+        "access_Device_Care_Option_Midline":"access_Device_Care_Option_Midline",
+        "access_Device_Care_Option_SUBQ":"access_Device_Care_Option_SUBQ",
+        "access_Device_Care_Option_Tunneled_Catheter":"access_Device_Care_Option_Tunneled_Catheter",
+        "access_Device_Care_Option_Yes":"access_Device_Care_Option_Yes",
+        "access_Device_Care_Option_No":"access_Device_Care_Option_No",
+        "access_Device_Care_Option_NA":"access_Device_Care_Option_NA",
+        "sterile_site_care_Chlorhexidine":"sterile_site_care_Chlorhexidine",
+        "sterile_site_care_Alcohol":"sterile_site_care_Alcohol",
+        "sterile_site_care_Betadine":"sterile_site_care_Betadine",
+        "sterile_site_care_Skin_Prep":"sterile_site_care_Skin_Prep",
+        "sterile_site_care_Steri_Strips":"sterile_site_care_Steri_Strips",
+        "sterile_site_care_Biopatch":"sterile_site_care_Biopatch",
+        "sterile_site_care_Securement_Device":"sterile_site_care_Securement_Device",
+        "sterile_site_care_Tegaderm":"sterile_site_care_Tegaderm",
+        "sterile_site_care_IV_3000":"sterile_site_care_IV_3000", 
+        "sterile_site_care_Sorbaview":"sterile_site_care_Sorbaview",
+        "sterile_site_care_Opsite":"sterile_site_care_Opsite",
+        "sterile_site_care_Gauze_Tape_Dressing":"sterile_site_care_Gauze_Tape_Dressing",
+        "sterile_site_care_Cap_Change":"sterile_site_care_Cap_Change",
+        "sterile_site_care_Extension_Tubing_Change":"sterile_site_care_Extension_Tubing_Change",
+        "sterile_site_care_other":"sterile_site_care_other",
 
+        "labs_Drawn_Yes":"labs_Drawn_Yes",
+        "labs_Drawn_No":"labs_Drawn_No",
+        "location_of_Labs_Drawn_Peripheral_Site":"location_of_Labs_Drawn_Peripheral_Site",
+        "location_of_Labs_Drawn_Central_Line_Draw":"location_of_Labs_Drawn_Central_Line_Draw",
+        "processing_Lab_Lab_Corp":"processing_Lab_Lab_Corp",
+        "processing_Lab_Quest":"processing_Lab_Quest",
+        "processing_Lab_Others":"processing_Lab_Others",
+
+
+        "therapy_interruption_Yes":"therapy_interruption_Yes",
+        "therapy_interruption_No":"therapy_interruption_No",
+        "therapy_interruption_NA":"therapy_interruption_NA",
+
+        "patient_Education_Provided_Pain_Management":"patient_Education_Provided_Pain_Management",
+        "patient_Education_Provided_Disease_Process":"patient_Education_Provided_Disease_Process",
+        "patient_Education_Provided_Hydration":"patient_Education_Provided_Hydration",
+        "patient_Education_Provided_Pump_Alarm_and_Troubleshooting":"patient_Education_Provided_Pump_Alarm_and_Troubleshooting",
+        "patient_Education_Provided_Pump_Alarm_and_Troubleshooting":"patient_Education_Provided_Pump_Alarm_and_Troubleshooting",
+        "patient_Education_Provided_Aseptic_Technique":"patient_Education_Provided_Aseptic_Technique",
+        "patient_Education_Provided_Infection_Control":"patient_Education_Provided_Infection_Control",
+        "patient_Education_Provided_Bag_Change":"patient_Education_Provided_Bag_Change",
+        "patient_Education_Provided_PIV_removal":"patient_Education_Provided_PIV_removal",
+        "patient_Education_Provided_other":"patient_Education_Provided_other",
+        "patient_Education_Provided_Safety_Enhancement":"patient_Education_Provided_Safety_Enhancement",
+        "patient_Education_Provided_Access_Device_Care":"patient_Education_Provided_Access_Device_Care",
+        "patient_Education_Provided_Medication_management":"patient_Education_Provided_Medication_management",
+    
 
 
 

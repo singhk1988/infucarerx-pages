@@ -1015,7 +1015,7 @@
                         </div>
                     </div>
                 </div>
-        <!-- Pain And Comfort -->
+                <!-- Pain And Comfort -->
                 <div class="row">
                     <!-- Left card Wrapper -->
                     <div class="col-md-4 mb-4">
@@ -1028,7 +1028,7 @@
                                 </h6>
                                 <div class="row">
                                     
-                                        <custom-input-checkradio label=""  id="pain_Comfort_Checkbox" name="pain_Comfort_Checkbox" class="radio_btn_inline" >
+                                        <custom-input-checkradio label=""  id="pain_Comfort_Checkbox" name="pain_Comfort_Checkbox" class="radio_btn_inline"  required>
                                             <custom-input-checkradio-item label="Denise pain" value="Denise pain" id="denise_Pain" class="col-md-6"></custom-input-checkradio-item>
                                             <custom-input-checkradio-item label="Pain currently present" value="Pain currently present" id="pain_Currently_Present" class="col-md-6"></custom-input-checkradio-item>
                                             <custom-input-checkradio-item label="Pain experienced since last visit" value="Pain experienced since last visit" id="Pain_Experienced_Since_Last_Visit" class="col-md-6"></custom-input-checkradio-item>
@@ -1370,6 +1370,361 @@
                                             </div>
                                         </div>
                                     </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ACCESS DEVICE CARE & STERILE SITE CARE -->
+
+                <div class="row">
+                    <!-- Left card Wrapper -->
+                    <div class="col-md-4 mb-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row">
+                                <h6 class="card-title">
+                                    ACCESS DEVICE CARE
+                                </h6>
+                                <div class="row">
+                                    
+                                    <custom-input-checkradio id="access_Device_Care_Option" name="access_Device_Care_Option"
+                                    type="radio" value="Part A" class="radio_btn_inline" label="" required>
+        
+                                        <custom-input-checkradio-item label="PIV" value="PIV" id="access_Device_Care_Option_PIV"
+                                            type="radio" class="form-check" style="display: inline-block; margin-right: 10px;">
+                                        </custom-input-checkradio-item>
+                                        <custom-input-checkradio-item label="Port" value="Port" id="access_Device_Care_Option_Port"
+                                            type="radio" class="form-check" style="display: inline-block; margin-right: 10px;">
+                                        </custom-input-checkradio-item>
+                                        <custom-input-checkradio-item label="PICC" value="PICC" id="access_Device_Care_Option_PICC"
+                                        type="radio" class="form-check" style="display: inline-block; margin-right: 10px;">
+                                        </custom-input-checkradio-item>
+                                        <custom-input-checkradio-item label="Midline" value="Midline" id="access_Device_Care_Option_Midline"
+                                            type="radio" class="form-check" style="display: inline-block; margin-right: 10px;">
+                                        </custom-input-checkradio-item>
+                                        <custom-input-checkradio-item label="SUBQ" value="SUBQ" id="access_Device_Care_Option_SUBQ"
+                                            type="radio" class="form-check" style="display: inline-block; margin-right: 10px;">
+                                        </custom-input-checkradio-item>
+                                        <custom-input-checkradio-item label="Tunneled Catheter" value="Tunneled Catheter" id="access_Device_Care_Option_Tunneled_Catheter"
+                                            type="radio" class="form-check" style="display: inline-block; margin-right: 10px;">
+                                        </custom-input-checkradio-item>
+                                    </custom-input-checkradio>
+
+                                    
+                                        <custom-input label="Length:" type="text"
+                                                    id="access_Device_Care_InputField_Length"
+                                                    name="access_Device_Care_InputField_Length" placeholder=""
+                                                    class="col-md-12" style="display: block;" required></custom-input>
+                                        <custom-input label="Gauge:" type="text"
+                                                    id="access_Device_Care_InputField_Gauge"
+                                                    name="access_Device_Care_InputField_Gauge" placeholder=""
+                                                    class="col-md-12" style="display: block;" required></custom-input>
+                                        <custom-input label="Gauge/Fr:" type="text"
+                                                    id="access_Device_Care_InputField_Gauge_Fr"
+                                                    name="access_Device_Care_InputField_Gauge_Fr" placeholder=""
+                                                    class="col-md-12" style="display: none;" required></custom-input>
+                                        
+                                        <custom-input label="Line Brand:" type="text"
+                                                    id="access_Device_Care_InputField_Line_Brand"
+                                                    name="access_Device_Care_InputField_Line_Brand" placeholder=""
+                                                    class="col-md-12" style="display: block;" required></custom-input>
+                                        
+                                        <custom-input label="Access Location:" type="text"
+                                                    id="access_Device_Care_InputField_Access_Location"
+                                                    name="access_Device_Care_InputField_Access_Location" placeholder=""
+                                                    class="col-md-12" style="display: block;" required></custom-input>
+                                        <custom-input label="Internal Length (cm):" type="text"
+                                                    id="access_Device_Care_InputField_Internal_Length"
+                                                    name="access_Device_Care_InputField_Internal_Length" placeholder=""
+                                                    class="col-md-12" style="display: block;"></custom-input>
+                                        <custom-input label="No. of lumens:" type="text"
+                                                    id="access_Device_Care_InputField_No_of_lumens"
+                                                    name="access_Device_Care_InputField_No_of_lumens" placeholder=""
+                                                    class="col-md-12" style="display: block;"></custom-input>                                                                 
+                                        
+
+
+                                        
+                                           
+                                        
+                                    
+                                    </div>
+            
+                                </div>
+            
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Middle card Wrapper -->
+                    <div class="col-md-4 mb-4" id="pain_Currently_Present_Form" >
+                        <div class="card"> 
+                            <div class="card-body">
+                                <div class="card-body-row" style="align-items: center;">
+                                    <label style="margin-right: 20; margin-top:10 ;">Tunneled?</label>
+                                    <custom-input-checkradio id="access_Device_Care_Option" name="access_Device_Care_Option"
+                                    type="radio" value="Part A" class="radio_btn_inline" label="" >
+                                        <custom-input-checkradio-item label="Yes" value="Yes" id="access_Device_Care_Option_Yes"
+                                            type="radio" class="form-check" style="display: inline-block; margin-right: 10px;">
+                                        </custom-input-checkradio-item>
+                                        <custom-input-checkradio-item label="No" value="No" id="access_Device_Care_Option_No"
+                                            type="radio" class="form-check" style="display: inline-block; margin-right: 10px;">
+                                        </custom-input-checkradio-item>
+                                        <custom-input-checkradio-item label="N/A" value="N/A" id="access_Device_Care_Option_NA"
+                                        type="radio" class="form-check" style="display: inline-block; margin-right: 10px;">
+                                        </custom-input-checkradio-item>
+                                    </custom-input-checkradio>
+                                </div>
+                            <custom-input label="Exact Cath Measurement:" type="text"
+                                                    id="access_Device_Care_InputField_Exact_Cath_Measurement"
+                                                    name="access_Device_Care_InputField_Exact_Cath_Measurement" placeholder=""
+                                                    class="col-md-12"></custom-input>  
+                            <custom-input label="Arm circ, 2” above site:" type="text"
+                                                    id="access_Device_Care_InputField_Arm_circ_above_site"
+                                                    name="access_Device_Care_InputField_Arm_circ_above_site" placeholder=""
+                                                    class="col-md-12"></custom-input>  
+                            <custom-input label="Insert Date:" type="date" id="access_Device_Care_InputField_Insert_date"
+                                                name="access_Device_Care_InputField_Insert_date" value="" required>
+                                            </custom-input>
+                            <custom-input label="Inserted By:" type="text"
+                                                    id="access_Device_Care_InputField_Inserted_By"
+                                                    name="access_Device_Care_InputField_Inserted_By" placeholder=""
+                                                    class="col-md-12" required></custom-input>                          
+
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Right card Wrapper -->
+                    <div class="col-md-4 mb-4" id="pain_Experienced_Form">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="card-body">
+                                    <custom-input-checkradio id="sterile_site_care" name="sterile_site_care"
+                                        label="STERILE SITE CARE" class="radio_btn_inline">
+                                        <custom-input-checkradio-item label="Chlorhexidine" value="Chlorhexidine" id="sterile_site_care_Chlorhexidine"
+                                            class="col-md-4"></custom-input-checkradio-item>
+                                        <custom-input-checkradio-item label="Alcohol"
+                                            value="Alcohol" id="sterile_site_care_Alcohol"
+                                            class="col-md-4"></custom-input-checkradio-item>
+                                        <custom-input-checkradio-item label="Betadine"
+                                            value="Betadine" id="sterile_site_care_Betadine"
+                                            class="col-md-4"></custom-input-checkradio-item>
+                                        <custom-input-checkradio-item label="Skin Prep" value="Skin Prep"
+                                            id="sterile_site_care_Skin_Prep" class="col-md-4"></custom-input-checkradio-item>
+                                        <custom-input-checkradio-item label="Steri-Strips" value="Steri-Strips" id="sterile_site_care_Steri_Strips"
+                                            class="col-md-4"></custom-input-checkradio-item>
+                                        <custom-input-checkradio-item label="Biopatch" value="Biopatch" id="sterile_site_care_Biopatch"
+                                            class="col-md-4"></custom-input-checkradio-item>
+                                        <custom-input-checkradio-item label="Securement Device" value="Securement Device" id="sterile_site_care_Securement_Device"
+                                            class="col-md-4"></custom-input-checkradio-item>    
+                                        <custom-input-checkradio-item label="Tegaderm" value="Tegaderm" id="sterile_site_care_Tegaderm"
+                                            class="col-md-4"></custom-input-checkradio-item>       
+                                        <custom-input-checkradio-item label="IV 3000" value="IV 3000" id="sterile_site_care_IV_3000"
+                                            class="col-md-4"></custom-input-checkradio-item>
+                                        <custom-input-checkradio-item label="Sorbaview" value="Sorbaview" id="sterile_site_care_Sorbaview"
+                                            class="col-md-4"></custom-input-checkradio-item>
+                                        <custom-input-checkradio-item label="Opsite" value="Opsite" id="sterile_site_care_Opsite"
+                                            class="col-md-4"></custom-input-checkradio-item>
+                                        <custom-input-checkradio-item label="Gauze/Tape Dressing" value="Gauze/Tape Dressing" id="sterile_site_care_Gauze_Tape_Dressing"
+                                            class="col-md-4"></custom-input-checkradio-item>
+                                        <custom-input-checkradio-item label="Cap Change" value="Cap Change" id="sterile_site_care_Cap_Change"
+                                            class="col-md-4"></custom-input-checkradio-item>
+                                        <custom-input-checkradio-item label="Extension Tubing Change" value="Extension Tubing Change" id="sterile_site_care_Extension_Tubing_Change"
+                                            class="col-md-4"></custom-input-checkradio-item> 
+                                        <custom-input-checkradio-item label="Other" value="Other" id="sterile_site_care_other"
+                                            class="col-md-4"></custom-input-checkradio-item>
+                                        </custom-input-checkradio>
+                                        <custom-input label="Other:" type="text" id="sterile_site_care_otherInputField"
+                                            name="sterile_site_care_otherInputField" placeholder="" class="col-md-12"
+                                            style="display: none;"></custom-input>
+
+                                        <custom-input label="# of Access Insertion Attempts:" type="text"
+                                            id="sterile_site_car_Access_Insertion_AttemptsInputField" name="sterile_site_car_Access_Insertion_AttemptsInputField"
+                                            placeholder="" class="col-md-12"></custom-input>
+
+
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Laboratory -->
+                <div class="row">
+                    <div class="col-md-12 mb-4">
+                    <div class="card">
+                        <div class="card-body">
+                            
+                            <h6 class="card-title">
+                                Laboratory
+                            </h6>
+
+                            <div class="card-body-row">
+                            <div>
+                                <custom-input-checkradio id="labs_Drawn" name="labs_Drawn" type="radio" value="Part A"
+                                        class="radio_btn_below" label="Labs Drawn?">
+                                        <custom-input-checkradio-item label="Yes" value="Yes"
+                                            id="labs_Drawn_Yes" type="radio" class="form-check"
+                                            style="display: inline-block; margin-right: 10px;">
+                                        </custom-input-checkradio-item>
+                                        <custom-input-checkradio-item
+                                            label="No"
+                                            value="No" id="labs_Drawn_No" type="radio" class="form-check"
+                                            style="display: inline-block; margin-right: 10px;">
+                                        </custom-input-checkradio-item>
+                                    </custom-input-checkradio>
+                            </div>
+
+                            <div style="margin-left: 60;"> 
+                                <custom-input-checkradio id="location_of_Labs_Drawn" name="location_of_Labs_Drawn" type="radio" value="Part A"
+                                        class="radio_btn_below" label="Location of Labs Drawn:"  style="display: none;">
+                                        <custom-input-checkradio-item label="Peripheral Site" value="Peripheral Site"
+                                            id="location_of_Labs_Drawn_Peripheral_Site" type="radio" class="form-check"
+                                            style="display: inline-block; margin-right: 10px;">
+                                        </custom-input-checkradio-item>
+                                        <custom-input-checkradio-item
+                                            label="Central Line Draw" value="Central Line Draw" id="location_of_Labs_Drawn_Central_Line_Draw" type="radio" class="form-check"
+                                            style="display: inline-block; margin-right: 10px;">
+                                        </custom-input-checkradio-item>
+                                    </custom-input-checkradio>
+                            </div>
+
+                            <div style="margin-left: 60;"> 
+                                    <custom-input-checkradio id="processing_Lab" name="processing_Lab" type="radio" value="Part A"
+                                        class="radio_btn_inline" label="Processing Lab:"   style="display: none;">
+                                        <custom-input-checkradio-item label="Lab Corp" value="Lab Corp"
+                                            id="processing_Lab_Lab_Corp" type="radio" class="form-check"
+                                            style="display: inline-block; margin-right: 10px;">
+                                        </custom-input-checkradio-item>
+                                        <custom-input-checkradio-item
+                                            label="Quest" value="Quest" id="processing_Lab_Quest" type="radio" class="form-check"
+                                            style="display: inline-block; margin-right: 10px;">
+                                        </custom-input-checkradio-item>
+                                        <custom-input-checkradio-item label="Other" value="other"
+                                        id="processing_Lab_Others" type="radio"></custom-input-checkradio-item>
+
+                                </custom-input-checkradio>
+                                <custom-input label="" type="text" id="processing_Lab_OthersInputField"
+                                    name="processing_Lab_OthersInputField" placeholder="" class="col-md-6"
+                                    ></custom-input>
+                            </div>
+                            <div id="Laboratory_InputFields"  style="display: none;">                            
+                                <div class="d-flex col-md-8"  >
+                                    <custom-input label="List Labs Drawn:" type="text"
+                                                    id="processing_Lab_ListLabsDrawnInputField" name="processing_Lab_ListLabsDrawnInputField"
+                                                    placeholder="" class="col-md-6" style="margin-left: 40;"></custom-input>
+                                    <custom-input label="Number of Attempts:" type="text"
+                                                    id="processing_Lab_NumberofAttemptsInputField" name="processing_Lab_NumberofAttemptsInputField"
+                                                    placeholder="" class="col-md-6" style="margin-left: 40;"></custom-input>
+                                </div>
+                            </div>
+
+                            </div>
+        
+                        </div>
+                    </div>
+                </div>
+                  
+                </div>
+
+                <!-- THERAPY ADHERENCE -->
+                <div class="row">
+                    <div class="col-md-12 mb-4">
+                    <div class="card">
+                        <div class="card-body">
+                            
+                            <h6 class="card-title">
+                                THERAPY ADHERENCE
+                            </h6>
+
+                            <div class="card-body">
+                            <div>
+                                <custom-input-checkradio id="therapy_interruption" name="therapy_interruption" type="radio" value="Part A"
+                                        class="radio_btn_inline" label="Have there been any missed doses or interruptions in therapy since last infusion?">
+                                        <custom-input-checkradio-item 
+                                            label="Yes" value="Yes" id="therapy_interruption_Yes" type="radio" class="form-check"
+                                            style="display: inline-block; margin-right: 10px;">
+                                        </custom-input-checkradio-item>
+                                        <custom-input-checkradio-item
+                                            label="No" value="No" id="therapy_interruption_No" type="radio" class="form-check"
+                                            style="display: inline-block; margin-right: 10px;">
+                                        </custom-input-checkradio-item>
+                                        <custom-input-checkradio-item
+                                            label="N/A" value="No" id="therapy_interruption_NA" type="radio" class="form-check"
+                                            style="display: inline-block; margin-right: 10px;">
+                                        </custom-input-checkradio-item>
+                                    </custom-input-checkradio>
+                            </div>
+
+                            <custom-input label="If yes, please explain:" type="text"
+                                id="therapy_interruption_YesInputField" name="therapy_interruption_YesInputField"
+                                placeholder="" class="col-md-12" style=" display: none;"></custom-input>
+                            <custom-input label="How many days of school or work were missed this month?:" type="text"
+                                id="therapy_interruption_SchoolMissedInputField" name="therapy_interruption_SchoolMissedInputField"
+                                placeholder="" class="col-md-12" ></custom-input>
+
+                            </div>
+        
+                        </div>
+                    </div>
+                </div>
+                  
+                </div>
+
+
+                <!-- Patience education provided -->
+                <div class="row">
+                    <div class="col-md-12 mb-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row">
+                                    <custom-input-checkradio id="patient_Education_Provided" name="patient_Education_Provided"
+                                        class="radio_btn_inline" label="PATIENT EDUCATION PROVIDED">
+                                                    <custom-input-checkradio-item label="Medication management(Specify)" value="Medication management" id="patient_Education_Provided_Medication_management"
+                                                        class="col-md-4"></custom-input-checkradio-item>
+                                                    <custom-input-checkradio-item label="Access Device Care" value="Access Device Care" id="patient_Education_Provided_Access_Device_Care"
+                                                        class="col-md-4"></custom-input-checkradio-item>
+                                                    <custom-input-checkradio-item label="Nutrition" value="Nutrition"
+                                                        id="patient_Education_Provided_Nutrition" class="col-md-4"></custom-input-checkradio-item>
+                                                    <custom-input-checkradio-item label="Safety Enhancement" value="Safety Enhancement" id="patient_Education_Provided_Safety_Enhancement"
+                                                        class="col-md-4"></custom-input-checkradio-item>
+                                                    <custom-input-checkradio-item label="Bag Change" value="Bag Change" id="patient_Education_Provided_Bag_Change"
+                                                        class="col-md-4"></custom-input-checkradio-item>
+                                                    <custom-input-checkradio-item label="Infection Control" value="Infection Control"
+                                                        id="patient_Education_Provided_Infection_Control" class="col-md-4"></custom-input-checkradio-item>
+                                                    <custom-input-checkradio-item label="Aseptic Technique, Hand Washing" value="Aseptic Technique, Hand Washing"
+                                                        id="patient_Education_Provided_Aseptic_Technique" class="col-md-4"></custom-input-checkradio-item>
+                                                    <custom-input-checkradio-item label="Pump Alarm and Troubleshooting" value="Pump Alarm and Troubleshooting"
+                                                        id="patient_Education_Provided_Pump_Alarm_and_Troubleshooting" class="col-md-4"></custom-input-checkradio-item>
+                                                    <custom-input-checkradio-item label="Hydration" value="Hydration"
+                                                        id="patient_Education_Provided_Hydration" class="col-md-4"></custom-input-checkradio-item>
+                                                    <custom-input-checkradio-item label="Disease Process" value="Disease Process"
+                                                        id="patient_Education_Provided_Disease_Process" class="col-md-4"></custom-input-checkradio-item>
+                                                    <custom-input-checkradio-item label="Pain Management"
+                                                        value="Pain Management" id="patient_Education_Provided_Pain_Management"
+                                                        class="col-md-4"></custom-input-checkradio-item>
+                                                    <custom-input-checkradio-item label="PIV removal" value="PIV removal" id="patient_Education_Provided_PIV_removal"
+                                                        class="col-md-4"></custom-input-checkradio-item>
+                                                    <custom-input-checkradio-item label="Other" value="Other"
+                                                        id="patient_Education_Provided_other"
+                                                        class="col-md-4"></custom-input-checkradio-item>
+                                                </custom-input-checkradio>
+
+                                                <custom-input label="Other:" type="text" id="patient_Education_Provided_Inputtextfield"
+                                                    name="patient_Education_Provided_Inputtextfield" placeholder="" class="col-md-12" style="display: none;"></custom-input>
+                                                <custom-input label="Specify Medication Management Education Provided:" type="text"
+                                                    id="patient_Education_Provided_MEdicationmanagementEducation" name="patient_Education_Provided_MEdicationmanagementEducation" placeholder=""
+                                                    class="col-md-12" style="display: none;"></custom-input>
+                                                <div class="card-body-row" style="align-items: center;">
+                                                    <label style="margin-top: 10;">Next Nursing Visit:</label>
+                                                    <custom-input label="" type="date" id="patient_Education_Provided_Insert_date"
+                                                    name="patient_Education_Provided_Insert_date" value="" style="margin-left: 20;">
+                                                </custom-input>
+                                            </div>
+                                    
                                 </div>
 
                             </div>
