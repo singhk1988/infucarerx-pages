@@ -837,6 +837,7 @@ const handleVascularSection = () => {
 
 }
 
+//Pain and comfort
 const handlePainComfortSection = () => {
     var pain_Currently_Present_checkradio = document.getElementById('pain_Currently_Present');
     var Pain_Experienced_Since_Last_Visit_checkbox = document.getElementById('Pain_Experienced_Since_Last_Visit');
@@ -1232,14 +1233,14 @@ document.addEventListener("DOMContentLoaded", async function () {
     const searchParams = new URLSearchParams(window.location.search);
     const formResponseId = searchParams.get('id');
     const savedFormData = window.localStorage.getItem(formResponseId);
-
+    const savedSignature = window.localStorage.getItem(`${formResponseId}-sig`);
+    
 
 
     handleDisableAtStart();
     handleTherapySection();
     handleNeuroSection();
     handleCardiovascularSection();
-    handleRespiratorySection();
     handleRespiratorySection();
     handleGastrointestinalSection();
     handleGenitourinarySection();
@@ -1262,13 +1263,100 @@ document.addEventListener("DOMContentLoaded", async function () {
         if (!hasError) {
             const formDataMap = commonFormOpeation.getFormDataToSave(getQuestionToIdMap(), getAnswerToIdMap());
             window.localStorage.setItem(formResponseId, JSON.stringify(formDataMap));
-            // commonFormOpeation.showModalPopup('exampleModal', true);
+            const signatureURLData = commonFormOpeation.getSignatureDataToSave('patient_sign');
+            window.localStorage.setItem(`${formResponseId}-sig`, signatureURLData);
+            commonFormOpeation.showModalPopup('exampleModal', true);
         }
     });
 
 
 
 });
+
+const setupSignatureCanvas = (canvasId, clearButtonId, validationId) => {
+    const canvas = document.getElementById(canvasId);
+    const context = canvas.getContext('2d');
+    let isDrawing = false;
+    let lastX = 0;
+    let lastY = 0;
+
+    function startDrawing(e) {
+        isDrawing = true;
+        if (e.type.startsWith('touch')) {
+            disableScrolling();
+        }
+        const [x, y] = getCoordinates(e);
+        [lastX, lastY] = [x, y];
+    }
+
+    function draw(e) {
+        if (!isDrawing) return;
+        const [x, y] = getCoordinates(e);
+        context.beginPath();
+        context.moveTo(lastX, lastY);
+        context.lineTo(x, y);
+        context.strokeStyle = '#000';
+        context.lineWidth = 2;
+        context.stroke();
+        [lastX, lastY] = [x, y];
+    }
+
+    function stopDrawing(e) {
+        isDrawing = false;
+        if (e.type.startsWith('touch')) {
+            enableScrolling();
+        }
+    }
+
+    function getCoordinates(e) {
+        let clientX, clientY;
+        if (e.type.startsWith('touch')) {
+            const touch = e.touches[0];
+            clientX = touch.clientX;
+            clientY = touch.clientY;
+        } else {
+            clientX = e.clientX;
+            clientY = e.clientY;
+        }
+        const rect = canvas.getBoundingClientRect();
+        return [clientX - rect.left, clientY - rect.top];
+    }
+
+    function disableScrolling() {
+        document.body.style.overflow = 'hidden';
+    }
+
+    function enableScrolling() {
+        document.body.style.overflow = 'auto';
+    }
+
+    canvas.addEventListener('mousedown', startDrawing);
+    canvas.addEventListener('touchstart', startDrawing);
+
+    canvas.addEventListener('mousemove', draw);
+    canvas.addEventListener('touchmove', draw);
+
+    canvas.addEventListener('mouseup', stopDrawing);
+    canvas.addEventListener('touchend', stopDrawing);
+
+
+    canvas.addEventListener('mouseup', () => {
+        isDrawing = false;
+        enableScrolling();
+        if (ValidationErrorStatus[canvasId]) {
+            canvas.style.borderColor = '#ccdae4';
+            document.getElementById(validationId).style.display = 'none';
+        }
+    });
+
+    document.getElementById(clearButtonId).addEventListener('click', () => {
+        context.clearRect(0, 0, canvas.width, canvas.height);
+        if (ValidationErrorStatus[canvasId]) {
+            canvas.style.borderColor = 'red';
+            document.getElementById(validationId).style.display = 'block';
+        }
+    });
+};
 
 const getQuestionToIdMap = () => {
     const idToQueMap = {
@@ -1352,42 +1440,42 @@ const getQuestionToIdMap = () => {
         "incision_DescriptionInputField": "incision_DescriptionInputField",
         "incision_LocationInputField": "incision_LocationInputField",
 
-        "pain_Experienced_radioButton":"pain_Experienced_radioButton",
-        "pain_Currently_Present_radioButton":"pain_Currently_Present_radioButton",
-        "pain_Comfort_Checkbox":"pain_Comfort_Checkbox",
-        "pain_Currently_Present_Adult_Form":"pain_Currently_Present_Adult_Form",
-        "pain_Currently_Present_Pediatric_Form":"pain_Currently_Present_Pediatric_Form",
-        "pain_Experienced_Adult_Form":"pain_Experienced_Adult_Form",
-        "pain_Experienced_Pediatric_Form":"pain_Experienced_Pediatric_Form",
-        "pain_Currently_Present_Pediatric_facesLocation":"pain_Currently_Present_Pediatric_facesLocation",
-       
-        "pain_Currently_Present_Adult_Painlocation":"pain_Currently_Present_Adult_Painlocation",
-        "pain_Currently_Present_Adult_ReliefMeasure":"pain_Currently_Present_Adult_ReliefMeasure",
-        "pain_Currently_Present_Adult_Precipitatingfactors":"pain_Currently_Present_Adult_Precipitatingfactors",
-        "pain_Currently_Present_Adult_Qualitydescription":"pain_Currently_Present_Adult_Qualitydescription",
-        "pain_Currently_Present_Adult_Radiates":"pain_Currently_Present_Adult_Radiates",
-        "pain_Currently_Present_Adult_TimingOnset":"pain_Currently_Present_Adult_TimingOnset",
-        "pain_Currently_Present_Adult_TimingFrequency":"pain_Currently_Present_Adult_TimingFrequency",
-        "pain_Currently_Present_Adult_TimingDuration":"pain_Currently_Present_Adult_TimingDuration",
-        "pain_Experienced_Adult_Severity":"pain_Experienced_Adult_Severity",
-        "pain_Experienced":"pain_Experienced",
-        "pain_Currently_Present":"pain_Currently_Present",
+        "pain_Experienced_radioButton": "pain_Experienced_radioButton",
+        "pain_Currently_Present_radioButton": "pain_Currently_Present_radioButton",
+        "pain_Comfort_Checkbox": "pain_Comfort_Checkbox",
+        "pain_Currently_Present_Adult_Form": "pain_Currently_Present_Adult_Form",
+        "pain_Currently_Present_Pediatric_Form": "pain_Currently_Present_Pediatric_Form",
+        "pain_Experienced_Adult_Form": "pain_Experienced_Adult_Form",
+        "pain_Experienced_Pediatric_Form": "pain_Experienced_Pediatric_Form",
+        "pain_Currently_Present_Pediatric_facesLocation": "pain_Currently_Present_Pediatric_facesLocation",
 
-        "pain_Experienced_Adult_Painlocation":"pain_Experienced_Adult_Painlocation",
-        "pain_Experienced_Adult_ReliefMeasure":"pain_Experienced_Adult_ReliefMeasure",
-        "pain_Experienced_Adult_Precipitatingfactors":"pain_Experienced_Adult_Precipitatingfactors",
-        "pain_Experienced_Adult_Qualitydescription":"pain_Experienced_Adult_Qualitydescription",
-        "pain_Experienced_Adult_Radiates":"pain_Experienced_Adult_Radiates",
-        "pain_Experienced_Adult_TimingOnset":"pain_Experienced_Adult_TimingOnset",
-        "pain_Experienced_Adult_TimingFrequency":"pain_Experienced_Adult_TimingFrequency",
-        "pain_Experienced_Adult_TimingDuration":"pain_Experienced_Adult_TimingDuration",
-        "pain_Currently_Present_Adult_Severity":"pain_Currently_Present_Adult_Severity",
-        
-        "pain_Experienced_Pediatric_facesLocation":"pain_Experienced_Pediatric_facesLocation",
+        "pain_Currently_Present_Adult_Painlocation": "pain_Currently_Present_Adult_Painlocation",
+        "pain_Currently_Present_Adult_ReliefMeasure": "pain_Currently_Present_Adult_ReliefMeasure",
+        "pain_Currently_Present_Adult_Precipitatingfactors": "pain_Currently_Present_Adult_Precipitatingfactors",
+        "pain_Currently_Present_Adult_Qualitydescription": "pain_Currently_Present_Adult_Qualitydescription",
+        "pain_Currently_Present_Adult_Radiates": "pain_Currently_Present_Adult_Radiates",
+        "pain_Currently_Present_Adult_TimingOnset": "pain_Currently_Present_Adult_TimingOnset",
+        "pain_Currently_Present_Adult_TimingFrequency": "pain_Currently_Present_Adult_TimingFrequency",
+        "pain_Currently_Present_Adult_TimingDuration": "pain_Currently_Present_Adult_TimingDuration",
+        "pain_Experienced_Adult_Severity": "pain_Experienced_Adult_Severity",
+        "pain_Experienced": "pain_Experienced",
+        "pain_Currently_Present": "pain_Currently_Present",
+
+        "pain_Experienced_Adult_Painlocation": "pain_Experienced_Adult_Painlocation",
+        "pain_Experienced_Adult_ReliefMeasure": "pain_Experienced_Adult_ReliefMeasure",
+        "pain_Experienced_Adult_Precipitatingfactors": "pain_Experienced_Adult_Precipitatingfactors",
+        "pain_Experienced_Adult_Qualitydescription": "pain_Experienced_Adult_Qualitydescription",
+        "pain_Experienced_Adult_Radiates": "pain_Experienced_Adult_Radiates",
+        "pain_Experienced_Adult_TimingOnset": "pain_Experienced_Adult_TimingOnset",
+        "pain_Experienced_Adult_TimingFrequency": "pain_Experienced_Adult_TimingFrequency",
+        "pain_Experienced_Adult_TimingDuration": "pain_Experienced_Adult_TimingDuration",
+        "pain_Currently_Present_Adult_Severity": "pain_Currently_Present_Adult_Severity",
+
+        "pain_Experienced_Pediatric_facesLocation": "pain_Experienced_Pediatric_facesLocation",
 
 
-        
-        
+
+
         "endocrine": "endocrine",
         "last_glucose_level": "last_glucose_level",
         "last_glucose_date": "last_glucose_date",
@@ -1581,56 +1669,56 @@ const getAnswerToIdMap = () => {
         "skin_Other": "skin_Other",
 
 
-        "denise_Pain":"denise_Pain",
-        "pain_Currently_Present":"pain_Currently_Present",
-        "Pain_Experienced_Since_Last_Visit":"Pain_Experienced_Since_Last_Visit",
-        "pain_Currently_Present_Adult":"pain_Currently_Present_Adult",
-        "pain_Currently_Present_Pediatric":"pain_Currently_Present_Pediatric",
-        "pain_Experienced_Pediatric":"pain_Experienced_Pediatric",
-        "pain_Experienced_Adult":"pain_Experienced_Adult",
-        "pain_Currently_Present_Adult_TimingDuration":"pain_Currently_Present_Adult_TimingDuration",
-        
-        
-        "pain_Experienced_Adult_Severity1":"pain_Experienced_Adult_Severity1",
-        "pain_Experienced_Adult_Severity2":"pain_Experienced_Adult_Severity2",
-        "pain_Experienced_Adult_Severity3":"pain_Experienced_Adult_Severity3",
-        "pain_Experienced_Adult_Severity4":"pain_Experienced_Adult_Severity4",
-        "pain_Experienced_Adult_Severity5":"pain_Experienced_Adult_Severity5",
-        "pain_Experienced_Adult_Severity6":"pain_Experienced_Adult_Severity6",
-        "pain_Experienced_Adult_Severity7":"pain_Experienced_Adult_Severity7",
-        "pain_Experienced_Adult_Severity8":"pain_Experienced_Adult_Severity8",
-        "pain_Experienced_Adult_Severity9":"pain_Experienced_Adult_Severity9",
-        "pain_Experienced_Adult_Severity10":"pain_Experienced_Adult_Severity10",
-        "pain_Experienced_Adult_Severity0":"pain_Experienced_Adult_Severity0",
+        "denise_Pain": "denise_Pain",
+        "pain_Currently_Present": "pain_Currently_Present",
+        "Pain_Experienced_Since_Last_Visit": "Pain_Experienced_Since_Last_Visit",
+        "pain_Currently_Present_Adult": "pain_Currently_Present_Adult",
+        "pain_Currently_Present_Pediatric": "pain_Currently_Present_Pediatric",
+        "pain_Experienced_Pediatric": "pain_Experienced_Pediatric",
+        "pain_Experienced_Adult": "pain_Experienced_Adult",
+        "pain_Currently_Present_Adult_TimingDuration": "pain_Currently_Present_Adult_TimingDuration",
 
-        "pain_Currently_Present_Adult_Severity1":"pain_Currently_Present_Adult_Severity1",
-        "pain_Currently_Present_Adult_Severity2":"pain_Currently_Present_Adult_Severity2",
-        "pain_Currently_Present_Adult_Severity3":"pain_Currently_Present_Adult_Severity3",
-        "pain_Currently_Present_Adult_Severity4":"pain_Currently_Present_Adult_Severity4",
-        "pain_Currently_Present_Adult_Severity5":"pain_Currently_Present_Adult_Severity5",
-        "pain_Currently_Present_Adult_Severity6":"pain_Currently_Present_Adult_Severity6",
-        "pain_Currently_Present_Adult_Severity7":"pain_Currently_Present_Adult_Severity7",
-        "pain_Currently_Present_Adult_Severity8":"pain_Currently_Present_Adult_Severity8",
-        "pain_Currently_Present_Adult_Severity9":"pain_Currently_Present_Adult_Severity9",
-        "pain_Currently_Present_Adult_Severity10":"pain_Currently_Present_Adult_Severity10",
-        "pain_Currently_Present_Adult_Severity0":"pain_Currently_Present_Adult_Severity0",
 
-        "pain_Currently_Present_Pediatric_facesLocation_0":"pain_Currently_Present_Pediatric_facesLocation_0",
-        "pain_Currently_Present_Pediatric_facesLocation_2":"pain_Currently_Present_Pediatric_facesLocation_2",
-        "pain_Currently_Present_Pediatric_facesLocation_4":"pain_Currently_Present_Pediatric_facesLocation_4",
-        "pain_Currently_Present_Pediatric_facesLocation_6":"pain_Currently_Present_Pediatric_facesLocation_6",
-        "pain_Currently_Present_Pediatric_facesLocation_8":"pain_Currently_Present_Pediatric_facesLocation_8",
-        "pain_Currently_Present_Pediatric_facesLocation_10":"pain_Currently_Present_Pediatric_facesLocation_10",
+        "pain_Experienced_Adult_Severity1": "pain_Experienced_Adult_Severity1",
+        "pain_Experienced_Adult_Severity2": "pain_Experienced_Adult_Severity2",
+        "pain_Experienced_Adult_Severity3": "pain_Experienced_Adult_Severity3",
+        "pain_Experienced_Adult_Severity4": "pain_Experienced_Adult_Severity4",
+        "pain_Experienced_Adult_Severity5": "pain_Experienced_Adult_Severity5",
+        "pain_Experienced_Adult_Severity6": "pain_Experienced_Adult_Severity6",
+        "pain_Experienced_Adult_Severity7": "pain_Experienced_Adult_Severity7",
+        "pain_Experienced_Adult_Severity8": "pain_Experienced_Adult_Severity8",
+        "pain_Experienced_Adult_Severity9": "pain_Experienced_Adult_Severity9",
+        "pain_Experienced_Adult_Severity10": "pain_Experienced_Adult_Severity10",
+        "pain_Experienced_Adult_Severity0": "pain_Experienced_Adult_Severity0",
 
-        "pain_Experienced_Pediatric_facesLocation_0":"pain_Experienced_Pediatric_facesLocation_0",
-        "pain_Experienced_Pediatric_facesLocation_2":"pain_Experienced_Pediatric_facesLocation_2",
-        "pain_Experienced_Pediatric_facesLocation_4":"pain_Experienced_Pediatric_facesLocation_4",
-        "pain_Experienced_Pediatric_facesLocation_6":"pain_Experienced_Pediatric_facesLocation_6",
-        "pain_Experienced_Pediatric_facesLocation_10":"pain_Experienced_Pediatric_facesLocation_10",
-       
-       
-       
-       
+        "pain_Currently_Present_Adult_Severity1": "pain_Currently_Present_Adult_Severity1",
+        "pain_Currently_Present_Adult_Severity2": "pain_Currently_Present_Adult_Severity2",
+        "pain_Currently_Present_Adult_Severity3": "pain_Currently_Present_Adult_Severity3",
+        "pain_Currently_Present_Adult_Severity4": "pain_Currently_Present_Adult_Severity4",
+        "pain_Currently_Present_Adult_Severity5": "pain_Currently_Present_Adult_Severity5",
+        "pain_Currently_Present_Adult_Severity6": "pain_Currently_Present_Adult_Severity6",
+        "pain_Currently_Present_Adult_Severity7": "pain_Currently_Present_Adult_Severity7",
+        "pain_Currently_Present_Adult_Severity8": "pain_Currently_Present_Adult_Severity8",
+        "pain_Currently_Present_Adult_Severity9": "pain_Currently_Present_Adult_Severity9",
+        "pain_Currently_Present_Adult_Severity10": "pain_Currently_Present_Adult_Severity10",
+        "pain_Currently_Present_Adult_Severity0": "pain_Currently_Present_Adult_Severity0",
+
+        "pain_Currently_Present_Pediatric_facesLocation_0": "pain_Currently_Present_Pediatric_facesLocation_0",
+        "pain_Currently_Present_Pediatric_facesLocation_2": "pain_Currently_Present_Pediatric_facesLocation_2",
+        "pain_Currently_Present_Pediatric_facesLocation_4": "pain_Currently_Present_Pediatric_facesLocation_4",
+        "pain_Currently_Present_Pediatric_facesLocation_6": "pain_Currently_Present_Pediatric_facesLocation_6",
+        "pain_Currently_Present_Pediatric_facesLocation_8": "pain_Currently_Present_Pediatric_facesLocation_8",
+        "pain_Currently_Present_Pediatric_facesLocation_10": "pain_Currently_Present_Pediatric_facesLocation_10",
+
+        "pain_Experienced_Pediatric_facesLocation_0": "pain_Experienced_Pediatric_facesLocation_0",
+        "pain_Experienced_Pediatric_facesLocation_2": "pain_Experienced_Pediatric_facesLocation_2",
+        "pain_Experienced_Pediatric_facesLocation_4": "pain_Experienced_Pediatric_facesLocation_4",
+        "pain_Experienced_Pediatric_facesLocation_6": "pain_Experienced_Pediatric_facesLocation_6",
+        "pain_Experienced_Pediatric_facesLocation_10": "pain_Experienced_Pediatric_facesLocation_10",
+
+
+
+
         //Sourabh
         "endocrine_na": "endocrine_na",
         "endocrine_yes": "endocrine_yes",
