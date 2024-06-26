@@ -1187,6 +1187,107 @@ const handleMedicationAdministeredSection = () => {
     });
 }
 
+//POSTMEDICATION ADMINISTERED section
+
+const handlePostMedicationAdministeredSection = () => {
+    let postmedicationsAdministeredOther = document.getElementById('postmedications_administered_other');
+    let postmedicationAdministeredYes = document.getElementById('postmedications_administered_yes');
+    let postmedications_administered_please_specify = document.getElementById('postmedications_administered_patient_please_specify');
+    let otherRadiospostmedications = document.querySelectorAll('input[type="radio"][name="postmedications_administered"]')
+    let otherRdiopostmedicationsAdministeredBy = document.querySelectorAll('input[type="radio"][name="postmedications_administered_by"]')
+
+    postmedicationsAdministeredOther.addEventListener('change', function () {
+        if (this.checked) {
+            document.getElementById('postmedications_administered_other_textBox').style.display = 'block';
+        } else {
+            document.getElementById('postmedications_administered_other_textBox').style.display = 'none';
+        }
+    });
+
+    postmedicationAdministeredYes.addEventListener('change', function () {
+        if (this.checked) {
+            document.getElementById('post_medication1').style.display = 'block';
+        } else {
+            document.getElementById('post_medication1').style.display = 'none';
+        }
+    });
+
+    postmedications_administered_please_specify.addEventListener('change', function () {
+        if (this.checked) {
+            document.getElementById('postmedication_please_specify_textBox').style.display = 'block';
+        } else {
+            document.getElementById('postmedication_please_specify_textBox').style.display = 'none';
+        }
+    });
+
+    otherRadiospostmedications.forEach(radio => {
+        radio.addEventListener('change', () => {
+            if (radio.checked) {
+
+                if (radio.id !== 'postmedications_administered_yes') {
+                    document.getElementById('post_medication1').style.display = 'none';
+                    postmedicationAdministeredYes = false;
+                    // postmedicationAdministeredYes.checked = false;
+
+                }
+                if (radio.id !== 'postmedications_administered_other') {
+                    document.getElementById('postmedications_administered_other_textBox').style.display = 'none';
+                    postmedicationsAdministeredOther = false;
+                }
+            }
+        });
+    })
+
+    otherRdiopostmedicationsAdministeredBy.forEach(radio => {
+        radio.addEventListener('change', () => {
+            if (radio.checked) {
+                if (radio.id !== 'postmedications_administered_patient_please_specify') {
+                    document.getElementById('postmedication_please_specify_textBox').style.display = 'none';
+                    postmedications_administered_patient_please_specify = false;
+                    // postmedications_administered_patient_please_specify.checked = false;
+
+                }
+            }
+        });
+    })
+
+    document.getElementById('addAdditional_2').addEventListener('change', function () {
+        if (this.checked) {
+            document.getElementById('postMedicationForm2').style.display = 'block';
+        } else {
+            document.getElementById('postMedicationForm2').style.display = 'none';
+            document.getElementById('postMedicationForm3').style.display = 'none';
+            document.getElementById('postMedicationForm4').style.display = 'none';
+            document.getElementById('postMedicationForm5').style.display = 'none';
+        }
+    });
+
+    document.getElementById('addAdditional_3').addEventListener('change', function () {
+        if (this.checked) {
+            document.getElementById('postMedicationForm3').style.display = 'block';
+        } else {
+            document.getElementById('postMedicationForm3').style.display = 'none';
+            document.getElementById('postMedicationForm4').style.display = 'none';
+            document.getElementById('postMedicationForm5').style.display = 'none';
+        }
+    });
+    document.getElementById('addAdditional_4').addEventListener('change', function () {
+        if (this.checked) {
+            document.getElementById('postMedicationForm4').style.display = 'block';
+        } else {
+            document.getElementById('postMedicationForm4').style.display = 'none';
+            document.getElementById('postMedicationForm5').style.display = 'none';
+        }
+    });
+    document.getElementById('addAdditional_5').addEventListener('change', function () {
+        if (this.checked) {
+            document.getElementById('postMedicationForm5').style.display = 'block';
+        } else {
+            document.getElementById('postMedicationForm5').style.display = 'none';
+        }
+    });
+}
+
 
 const handlePatientUnableToSignIn = () => {
      // patient unable to sign
@@ -1367,7 +1468,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     handlePATIENT_EDUCATION_PROVIDED();
     handleMedicationAdministeredSection();
     handlePatientUnableToSignIn();
-
+    handlePostMedicationAdministeredSection();
 
    
 
@@ -1675,6 +1776,17 @@ const getQuestionToIdMap = () => {
         "medication3_startTime": "medication3_startTime",
         "medication3_endTime": "medication3_endTime",
 
+        
+        //PostMedication
+        "postmedications_administered": "postmedications_administered",
+        "postmedications_administered_other_textBox": "postmedications_administered_other_textBox",
+
+        "postmedication_1": "postmedication_1",
+        "time_administered_1": "time_administered_1",
+        "time_administered_completed_1": "time_administered_completed_1",
+        "postmedications_administered_by": "postmedications_administered_by",
+        "postmedication_please_specify_textBox": "postmedication_please_specify_textBox",
+        "postaddAdditional_parent": "postaddAdditional_parent",
 
         // last section
         "comments_notes": "comments_notes",
@@ -1976,6 +2088,18 @@ const getAnswerToIdMap = () => {
         "premedications_administered_care_provider": "premedications_administered_care_provider",
         "premedications_administered_patient_please_specify": "premedications_administered_patient_please_specify",
         "addAdditional_2": "additional_2",
+
+        //postmedication
+        "postmedications_administered_yes": "postmedications_administered_yes",
+        "postmedications_administered_no": "postmedications_administered_no",
+        "postmedications_administered_declined": "postmedications_administered_declined",
+        "postmedications_administered_other": "postmedications_administered_other",
+
+        "postmedications_administered_patient": "postmedications_administered_patient",
+        "postmedications_administered_nurse": "postmedications_administered_nurse",
+        "postmedications_administered_care_provider": "postmedications_administered_care_provider",
+        "postmedications_administered_patient_please_specify": "postmedications_administered_patient_please_specify",
+        "postaddAdditional_2": "postadditional_2",
 
         "pateint_unable_to_sign": "pateint_unable_to_sign",
 
