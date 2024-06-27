@@ -25,6 +25,7 @@ const requiredControls = {
     'access_Device_Care_InputField_Access_Location': 'Please enter location',
     'access_Device_Care_InputField_Insert_date': 'Please enter insertion date.',
     'access_Device_Care_InputField_Inserted_By': 'Please enter inserted by.',
+    'pain_Comfort_Checkbox': 'please check.',
     'nurse_credentials': 'Please enter nurse credentials.',
     'nurse_fname': 'Please enter nurse fisrt name.',
     'nurse_lname': 'Please enter nurse last name.',
@@ -74,25 +75,25 @@ function validateFormData() {
             });
         }
     });
-      // Validate signature canvases
-      const nurseSignCanvas = document.getElementById('nurse_sign');
-      const patientSignCanvas = document.getElementById('patient_sign');
-      if (isCanvasBlank(nurseSignCanvas)) {
-          hasError = true;
-          ValidationErrorStatus.nurse_sign = true;
-          nurseSignCanvas.style.borderColor = 'red';
-          document.getElementById('nurse_sign_validation').style.display = 'block';
-      } else {
-          document.getElementById('nurse_sign_validation').style.display = 'none';
-      }
-      if (isCanvasBlank(patientSignCanvas)) {
-          hasError = true;
-          ValidationErrorStatus.patient_sign = true;
-          patientSignCanvas.style.borderColor = 'red';
-          document.getElementById('patient_sign_validation').style.display = 'block';
-      } else {
-          document.getElementById('patient_sign_validation').style.display = 'none';
-      }
+    // Validate signature canvases
+    const nurseSignCanvas = document.getElementById('nurse_sign');
+    const patientSignCanvas = document.getElementById('patient_sign');
+    if (isCanvasBlank(nurseSignCanvas)) {
+        hasError = true;
+        ValidationErrorStatus.nurse_sign = true;
+        nurseSignCanvas.style.borderColor = 'red';
+        document.getElementById('nurse_sign_validation').style.display = 'block';
+    } else {
+        document.getElementById('nurse_sign_validation').style.display = 'none';
+    }
+    if (isCanvasBlank(patientSignCanvas)) {
+        hasError = true;
+        ValidationErrorStatus.patient_sign = true;
+        patientSignCanvas.style.borderColor = 'red';
+        document.getElementById('patient_sign_validation').style.display = 'block';
+    } else {
+        document.getElementById('patient_sign_validation').style.display = 'none';
+    }
 
     return hasError;
 }
@@ -1685,7 +1686,10 @@ document.addEventListener("DOMContentLoaded", async function () {
     handlePostMedicationAdministeredSection();
 
 
-
+    //set visit date to current date
+    const today = new Date();
+    const formattedDate = today.toISOString().split('T')[0];
+    document.getElementById('visit_date').value = formattedDate;
 
     if (savedSignature) {
         commonFormOpeation.setSignatureFromSave('patient_sign', savedSignature);
