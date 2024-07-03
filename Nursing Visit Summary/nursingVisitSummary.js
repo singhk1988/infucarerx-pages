@@ -1,35 +1,35 @@
 const requiredControls = {
     'fname': 'Please enter first name.',
     'lname': 'Please enter last name.',
-    // 'mrn': 'Please enter patient MRN.',
-    // 'dob': 'Please enter date of birth.',
-    // 'visit_date': 'Please enter date of visit.',
-    // 'time_in': 'Please enter time-in.',
-    // 'time_out': 'Please enter time-out.',
-    // 'total_time': 'Please enter total time.',
-    // 'schedule_type': 'Please select schedule type.',
-    // 'therapy': 'Please select therapy.',
-    // 'reason_for_visit': 'Please select reason for visit.',
-    // 'bp1': 'Please Enter BP.',
-    // 'bp2': 'Please Enter BP.',
-    // 'pulse': 'Please enter pulse.',
-    // 'rr': 'Please enter rr.',
-    // 'temp': 'Please enter temperture.',
-    // 'weight': 'Please enter weight.',
-    // 'vascular_access_site': 'Please check',
-    // 'access_Device_Care_Option': 'Please check access device',
-    // 'access_Device_Care_InputField_Length': 'Please enter length.',
-    // 'access_Device_Care_InputField_Gauge': 'Please enter gauge.',
-    // // 'access_Device_Care_InputField_Gauge_Fr': 'Please enter gauge fr.',
-    // 'access_Device_Care_InputField_Line_Brand': 'Please enter line brand.',
-    // 'access_Device_Care_InputField_Access_Location': 'Please enter location',
-    // 'access_Device_Care_InputField_Insert_date': 'Please enter insertion date.',
-    // 'access_Device_Care_InputField_Inserted_By': 'Please enter inserted by.',
-    // 'pain_Comfort_Checkbox': 'please check.',
-    // 'nurse_credentials': 'Please enter nurse credentials.',
-    // 'nurse_fname': 'Please enter nurse fisrt name.',
-    // 'nurse_lname': 'Please enter nurse last name.',
-    // 'nurse_date': 'Please enter nursery date.',
+    'mrn': 'Please enter patient MRN.',
+    'dob': 'Please enter date of birth.',
+    'visit_date': 'Please enter date of visit.',
+    'time_in': 'Please enter time-in.',
+    'time_out': 'Please enter time-out.',
+    'total_time': 'Please enter total time.',
+    'schedule_type': 'Please select schedule type.',
+    'therapy': 'Please select therapy.',
+    'reason_for_visit': 'Please select reason for visit.',
+    'bp1': 'Please Enter BP.',
+    'bp2': 'Please Enter BP.',
+    'pulse': 'Please enter pulse.',
+    'rr': 'Please enter rr.',
+    'temp': 'Please enter temperture.',
+    'weight': 'Please enter weight.',
+    'vascular_access_site': 'Please check',
+    'access_Device_Care_Option': 'Please check access device',
+    'access_Device_Care_InputField_Length': 'Please enter length.',
+    'access_Device_Care_InputField_Gauge': 'Please enter gauge.',
+    // 'access_Device_Care_InputField_Gauge_Fr': 'Please enter gauge fr.',
+    'access_Device_Care_InputField_Line_Brand': 'Please enter line brand.',
+    'access_Device_Care_InputField_Access_Location': 'Please enter location',
+    'access_Device_Care_InputField_Insert_date': 'Please enter insertion date.',
+    'access_Device_Care_InputField_Inserted_By': 'Please enter inserted by.',
+    'pain_Comfort_Checkbox': 'please check.',
+    'nurse_credentials': 'Please enter nurse credentials.',
+    'nurse_fname': 'Please enter nurse fisrt name.',
+    'nurse_lname': 'Please enter nurse last name.',
+    'nurse_date': 'Please enter nursery date.',
 };
 let ValidationErrorStatus = { schedule_type: false, therapy: false, reason_for_visit: false, nurse_sign: false, patient_sign: false };
 
@@ -265,7 +265,7 @@ const handleEmergencySection = () =>{
     sideEffectRadioYes.addEventListener('change', function() {
         if (this.checked) {
             sideEffectDetails.style.display = 'block';
-            console.log(sideEffectDetails)
+            // console.log(sideEffectDetails)
         }
     });
     
@@ -1955,21 +1955,24 @@ const getQuestionToIdMap = () => {
  
         "skin": "8cffe9a6-8937-ef11-8409-000d3a3b9a57",
         "skin_Abnormalities": "8fffe9a6-8937-ef11-8409-000d3a3b9a57",
-        "Medication": "Medication",
+        // "Medication": "Medication",
         "skin_otherInputField": "1f93993d-8c37-ef11-8409-000d3a5a3fab",
         "skin_DiscolorationInputField": "25a0ad0a-8c37-ef11-8409-000d3a3b9a57",
         "skin_BreakdownInputField": "f4870007-8c37-ef11-8409-000d3a5d2bf5",
         "incision_DescriptionInputField": "2ba0ad0a-8c37-ef11-8409-000d3a3b9a57",
         "incision_LocationInputField": "f7870007-8c37-ef11-8409-000d3a5d2bf5",
  
-        "pain_Experienced_radioButton": "pain_Experienced_radioButton",
-        "pain_Currently_Present_radioButton": "pain_Currently_Present_radioButton",
-        "pain_Comfort_Checkbox": "pain_Comfort_Checkbox",
-        "pain_Currently_Present_Adult_Form": "pain_Currently_Present_Adult_Form",
-        "pain_Currently_Present_Pediatric_Form": "pain_Currently_Present_Pediatric_Form",
-        "pain_Experienced_Adult_Form": "pain_Experienced_Adult_Form",
-        "pain_Experienced_Pediatric_Form": "pain_Experienced_Pediatric_Form",
-        "pain_Currently_Present_Pediatric_facesLocation": "pain_Currently_Present_Pediatric_facesLocation",
+        // div ids are not included in mapping
+        // "pain_Experienced_radioButton": "pain_Experienced_radioButton",  //div ids
+        // "pain_Currently_Present_radioButton": "pain_Currently_Present_radioButton",  //div ids
+        // "pain_Currently_Present_Adult_Form": "pain_Currently_Present_Adult_Form",  //div ids
+        // "pain_Currently_Present_Pediatric_Form": "pain_Currently_Present_Pediatric_Form", //div ids
+        // "pain_Experienced_Adult_Form": "pain_Experienced_Adult_Form",  //div ids
+        // "pain_Experienced_Pediatric_Form": "pain_Experienced_Pediatric_Form",  //div ids
+
+        "pain_Comfort_Checkbox": "a08eefa7-8937-ef11-8409-000d3a5a3fab",
+        "pain_Currently_Present_Pediatric_facesLocation": "f7382f18-8c37-ef11-8409-6045bd04aa22",
+        "pain_Currently_Present_option": "6d65ed0b-8c37-ef11-8409-6045bd04aa22",
  
         "pain_Currently_Present_Adult_Painlocation": "3138e8ab-8937-ef11-8409-000d3a5d2bf5",
         "pain_Currently_Present_Adult_ReliefMeasure": "6f4a3bad-8937-ef11-8409-000d3a3b9a57",
@@ -1993,11 +1996,11 @@ const getQuestionToIdMap = () => {
         "pain_Experienced_Adult_TimingDuration": "16392f18-8c37-ef11-8409-6045bd04aa22",
         "pain_Currently_Present_Adult_Severity": "f3c62013-8c37-ef11-8409-000d3a5d2bf5",
  
-        "pain_Experienced_Pediatric_facesLocation": "pain_Experienced_Pediatric_facesLocation",
+        "pain_Experienced_Pediatric_facesLocation": "1129e811-8c37-ef11-8409-6045bd04aa22",
  
  
-        "pain_Experienced_Pediatric_Painlocation": "pain_Experienced_Pediatric_Painlocation",
-        "pain_Currently_Present_Pediatric_Painlocation": "pain_Currently_Present_Pediatric_Painlocation",
+        "pain_Currently_Present_Pediatric_Painlocation": "3138e8ab-8937-ef11-8409-000d3a5d2bf5",
+        "pain_Experienced_Pediatric_Painlocation": "e328e811-8c37-ef11-8409-6045bd04aa22",
  
  
         "endocrine": "57413763-8a37-ef11-8409-000d3a3b9a57",
@@ -2043,7 +2046,7 @@ const getQuestionToIdMap = () => {
         "therapy_interruption": "6ec64881-8a37-ef11-8409-000d3a5d2bf5",
  
         // patient education provided
-        "patient_Education_Provided_Insert_date": "patient_Education_Provided_Insert_date",
+        "patient_Education_Provided_Insert_date": "3abb9df9-8b37-ef11-8409-6045bd04aa22",
         "patient_Education_Provided_MEdicationmanagementEducation": "d69ef410-8c37-ef11-8409-000d3a3b9a57",
         "patient_Education_Provided_Inputtextfield": "04069c41-8c37-ef11-8409-000d3a3b9a57",
         "patient_Education_Provided": "10b7e93c-8b37-ef11-8409-6045bd04aa22",
@@ -2205,7 +2208,7 @@ const getAnswerToIdMap = () => {
         "visit_other": "1927b2d3-8837-ef11-8409-000d3a5d2bf5",
         "freedom": "01dd70dd-8837-ef11-8409-000d3a3b9a57",
         "curlin": "02dd70dd-8837-ef11-8409-000d3a3b9a57",
-        "pump_type_other": "pump_type_other",
+        "pump_type_other": "19ea08db-8837-ef11-8409-000d3a5d2bf5",
         "medication_changes_yes": "649c1b6a-8a37-ef11-8409-000d3a3b9a57",
         "medication_changes_no": "5d0ed468-8a37-ef11-8409-000d3a5a3fab",
  
@@ -2514,7 +2517,7 @@ const getAnswerToIdMap = () => {
         "postmedications_administered_care_provider_5": "6fdbbd5b-8c37-ef11-8409-6045bd04aa22",
         "postmedications_administered_patient_please_specify_5": "70dbbd5b-8c37-ef11-8409-6045bd04aa22",
  
-        "pateint_unable_to_sign": "pateint_unable_to_sign",
+        "pateint_unable_to_sign": "8f1c9600-1f39-ef11-8409-000d3a3b9a57",
  
     };
     return idToAnsMap;
