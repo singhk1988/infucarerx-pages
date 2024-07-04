@@ -113,6 +113,28 @@ const hideAndShowLogic = () => {
             document.getElementById('unverified-container').style.display = 'none';
         }
     });
+
+    let private_total_obj = document.querySelector('input[value="I will pay total due."]');
+    let private_partial_obj = document.querySelector('input[value="I will pay partial amount on initial delivery."]');
+    let private_initial_obj = document.querySelector('#private_initial input');
+
+    let private_initial_value = private_initial_obj.getAttribute('value');
+    private_initial_obj.setAttribute('disabled', '')
+    if (private_total_obj) private_total_obj.addEventListener('change', (event) => {
+        const isChecked = event.target.checked;
+        if (isChecked) {
+            private_initial_obj.setAttribute('disabled', '')
+            private_initial_value = private_initial_obj.getAttribute('value');
+            private_initial_obj.setAttribute('value', '');
+        }
+    });
+    if (private_partial_obj) private_partial_obj.addEventListener('change', (event) => {
+        const isChecked = event.target.checked;
+        if (isChecked) {
+            private_initial_obj.removeAttribute('disabled')
+            private_initial_obj.setAttribute('value', private_initial_value);
+        }
+    });
 }
 
 const showPatientSignature = () => {
