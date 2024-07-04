@@ -11,7 +11,7 @@ function getFormControlTemplate(label, isRequired) {
 
 
 customElements.define("custom-input", class extends HTMLElement {
-  static observedAttributes = ["label", "value", "error", "required"];
+  static observedAttributes = ["label", "value", "error", "disabled", "required"];
 
   constructor() {
     super();
@@ -28,14 +28,16 @@ customElements.define("custom-input", class extends HTMLElement {
       this.innerHTML = getFormControlTemplate(this.getAttribute('label'), isRequired);
       const inputTemplate = document.createElement('template');
       const type = this.getAttribute('type') ?? 'text';
+      const disabled = this.getAttribute('disabled') !== null ? 'disabled' : '';
       inputTemplate.innerHTML = `
         <input type="${type}"
           id="${this.id}-input"
           name="${this.getAttribute('name')}"
           placeholder="${this.getAttribute('placeholder')}"
           value="${this.getAttribute('value')}"
-          class="form-control"
+          class="form-control ${this.getAttribute('class')}"
           ${isRequired ? 'required' : ''}
+          ${disabled}
         />
       `;
       this.querySelector('slot[name="input"]').replaceWith(inputTemplate.content);
@@ -43,7 +45,7 @@ customElements.define("custom-input", class extends HTMLElement {
 
       // Update inputElement reference
       this.inputElement = this.querySelector('.form-control');
-      
+
       // Setup event listeners
       this.setupEventListeners();
     } else {
@@ -99,14 +101,23 @@ customElements.define("custom-input", class extends HTMLElement {
       this.inputElement.classList.remove('is-invalid');
       this.querySelector('.invalid-feedback').textContent = '';
     }
+    if (this.getAttribute('disabled') !== null) {
+      this.inputElement.setAttribute('disabled', '');
+    } else {
+      this.inputElement.removeAttribute('disabled');
+    }
+
   }
 
-  // Public method to focus the input element programmatically
-  focus() {
-    if (this.inputElement) {
-      this.inputElement.focus();
-    }
+
+
+
+// Public method to focus the input element programmatically
+focus() {
+  if (this.inputElement) {
+    this.inputElement.focus();
   }
+}
 });
 
 
@@ -114,13 +125,13 @@ customElements.define("custom-input", class extends HTMLElement {
 
 customElements.define('custom-input-checkradio', class extends HTMLElement {
   static observedAttributes = ["label", "value", "error", "required"];
-  
+
   constructor() {
     super();
     this.initialised = false;
     this.type = this.getAttribute('type') ?? 'checkbox';
 
-    this.addEventListener('custom-input-checkradio-item-added', (e)=>{
+    this.addEventListener('custom-input-checkradio-item-added', (e) => {
       this.onItemAdded(e.detail);
     })
   }
@@ -145,9 +156,9 @@ customElements.define('custom-input-checkradio', class extends HTMLElement {
   onItemAdded(attrs) {
     const item = document.createElement('template')
     item.innerHTML =
-    `
+      `
     <div class="form-check">
-      <input class="form-check-input" name="${attrs.name ?? this.getAttribute('name')}" type="${attrs.type ?? this.type}"
+      <input class="form-check-input ${this.getAttribute('class')}" name="${attrs.name ?? this.getAttribute('name')}" type="${attrs.type ?? this.type}"
         value="${attrs.value}" id="${attrs.id}">
       <label class="form-check-label" for="${attrs.id}">
         ${attrs.label}
